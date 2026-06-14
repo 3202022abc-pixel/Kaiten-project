@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kaiten — порядок в рабочих процессах</title>
+<meta name="description" content="Kaiten — система управления проектами, задачами и командами. Работа всей компании на одном экране: канбан-доски, диаграмма Ганта, отчёты." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Нейтральные */
+    --neutral-000:#ffffff; --neutral-100:#f5f5f5; --neutral-200:#eeeeee;
+    --neutral-300:#e0e0e0; --neutral-600:#757575; --neutral-900:#2d2d2d;
+    /* Акценты */
+    --violet-100:#7d4ccf; --violet-12:#efe9f9;
+    --green-100:#4caf51; --green-12:#e9f5ea;
+    --orange-100:#ffa100; --orange-12:#fff3e0;
+    --red-100:#f44336; --red-12:#fde8e6;
+    /* Алиасы */
+    --text-primary:var(--neutral-900); --text-secondary:var(--neutral-600);
+    --surface-page:var(--neutral-000); --surface-section:var(--neutral-100);
+    --border-default:var(--neutral-300); --action-primary:var(--violet-100);
+    --ease-ui:cubic-bezier(0.2,0,0.2,1);
+  }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html { scroll-behavior:smooth; }
+  body {
+    font-family:"Inter",system-ui,sans-serif;
+    color:var(--text-primary);
+    background:var(--surface-page);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .container { max-width:1216px; margin:0 auto; padding:0 24px; }
+  a { color:inherit; text-decoration:none; }
+
+  /* Кнопки */
+  .btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    font-weight:600; font-size:16px; line-height:24px;
+    padding:12px 24px; border-radius:12px; cursor:pointer;
+    transition:background .12s var(--ease-ui), transform .12s var(--ease-ui), border-color .12s var(--ease-ui);
+    border:1px solid transparent;
+  }
+  .btn-primary { background:var(--action-primary); color:#fff; }
+  .btn-primary:hover { background:#6c3fbb; }
+  .btn-outline { background:transparent; color:var(--text-primary); border-color:var(--border-default); }
+  .btn-outline:hover { border-color:var(--violet-100); color:var(--violet-100); }
+
+  /* Шапка */
+  header {
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.85); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--neutral-200);
+  }
+  .nav { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .logo { display:flex; align-items:center; gap:10px; font-weight:600; font-size:20px; }
+  .logo-mark { width:28px; height:28px; border-radius:8px; background:var(--violet-100);
+    display:flex; align-items:center; justify-content:center; color:#fff; font-weight:600; }
+  .nav-links { display:flex; align-items:center; gap:28px; }
+  .nav-links a { font-weight:500; font-size:15px; color:var(--text-secondary); transition:color .12s var(--ease-ui); }
+  .nav-links a:hover { color:var(--text-primary); }
+  @media(max-width:860px){ .nav-links a:not(.btn){ display:none; } }
+
+  /* Hero */
+  .hero { padding:96px 0 80px; }
+  .hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  @media(max-width:920px){ .hero-grid{ grid-template-columns:1fr; gap:48px; } }
+  .badge {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--violet-12); color:var(--violet-100);
+    font-size:14px; font-weight:500; padding:6px 14px; border-radius:9999px; margin-bottom:24px;
+  }
+  .badge .dot { width:8px; height:8px; border-radius:9999px; background:var(--violet-100); }
+  .hero h1 { font-size:60px; line-height:64px; font-weight:600; letter-spacing:-0.02em; }
+  @media(max-width:920px){ .hero h1{ font-size:36px; line-height:42px; } }
+  .hero p.sub { font-size:18px; line-height:28px; color:var(--text-secondary); margin:24px 0 32px; max-width:520px; }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-note { margin-top:16px; font-size:14px; color:var(--text-secondary); }
+
+  /* Мокап канбан-доски */
+  .mock {
+    background:#fff; border:1px solid var(--neutral-200); border-radius:24px;
+    box-shadow:0 24px 60px rgba(45,45,45,.08); overflow:hidden;
+  }
+  .mock-bar { display:flex; align-items:center; gap:6px; padding:14px 16px; border-bottom:1px solid var(--neutral-200); }
+  .mock-bar i { width:10px; height:10px; border-radius:9999px; background:var(--neutral-300); display:inline-block; }
+  .mock-bar .title { margin-left:12px; font-size:13px; font-weight:500; color:var(--text-secondary); }
+  .board { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:16px; background:var(--neutral-100); }
+  .col-title { font-size:12px; font-weight:600; color:#898989; margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em; }
+  .card { background:#fff; border-radius:8px; padding:10px 12px; margin-bottom:10px; border:1px solid var(--neutral-200); }
+  .card .tag { display:inline-block; font-size:11px; font-weight:500; padding:2px 8px; border-radius:9999px; margin-bottom:6px; }
+  .card .t { font-size:13px; font-weight:500; line-height:18px; }
+  .card .meta { display:flex; align-items:center; gap:6px; margin-top:8px; font-size:11px; color:var(--text-secondary); }
+  .ava { width:18px; height:18px; border-radius:9999px; background:var(--violet-12); color:var(--violet-100);
+    font-size:10px; font-weight:600; display:flex; align-items:center; justify-content:center; }
+  .tag-green { background:var(--green-12); color:var(--green-100); }
+  .tag-orange { background:var(--orange-12); color:#b87400; }
+  .tag-red { background:var(--red-12); color:var(--red-100); }
+  .tag-violet { background:var(--violet-12); color:var(--violet-100); }
+
+  /* Логотипы доверия */
+  .trust { padding:48px 0; border-top:1px solid var(--neutral-200); border-bottom:1px solid var(--neutral-200); }
+  .trust p { text-align:center; font-size:14px; color:var(--text-secondary); margin-bottom:24px; }
+  .logos { display:flex; flex-wrap:wrap; justify-content:center; gap:40px; align-items:center; }
+  .logos span { font-size:20px; font-weight:600; color:var(--neutral-300); }
+
+  /* Секции */
+  section.block { padding:96px 0; }
+  section.gray { background:var(--surface-section); }
+  .head { max-width:640px; margin-bottom:56px; }
+  .head h2 { font-size:36px; line-height:42px; font-weight:600; letter-spacing:-0.01em; }
+  .head p { font-size:18px; line-height:28px; color:var(--text-secondary); margin-top:16px; }
+
+  /* Фичи */
+  .features { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  @media(max-width:920px){ .features{ grid-template-columns:1fr; } }
+  .feature { background:#fff; border:1px solid var(--neutral-200); border-radius:24px; padding:32px; transition:transform .18s var(--ease-ui), box-shadow .18s var(--ease-ui); }
+  .feature:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(45,45,45,.06); }
+  .ficon { width:44px; height:44px; border-radius:12px; background:var(--violet-12);
+    display:flex; align-items:center; justify-content:center; margin-bottom:20px; }
+  .ficon svg { width:24px; height:24px; stroke:var(--violet-100); }
+  .feature h3 { font-size:20px; font-weight:600; margin-bottom:10px; }
+  .feature p { font-size:16px; line-height:24px; color:var(--text-secondary); }
+
+  /* Метрики */
+  .metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+  @media(max-width:760px){ .metrics{ grid-template-columns:repeat(2,1fr); } }
+  .metric .num { font-size:48px; line-height:52px; font-weight:600; color:var(--violet-100); letter-spacing:-0.02em; }
+  .metric .lab { font-size:16px; color:var(--text-secondary); margin-top:8px; }
+
+  /* FAQ */
+  .faq-item { border-bottom:1px solid var(--neutral-200); }
+  .faq-q { width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding:24px 0; font-size:18px; font-weight:500; color:var(--text-primary); font-family:inherit; }
+  .faq-q .pm { color:var(--violet-100); font-size:24px; transition:transform .24s var(--ease-ui); flex:none; }
+  .faq-item.open .pm { transform:rotate(45deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height .24s var(--ease-ui); }
+  .faq-a p { padding-bottom:24px; font-size:16px; line-height:24px; color:var(--text-secondary); max-width:760px; }
+
+  /* CTA */
+  .cta { background:var(--violet-100); border-radius:24px; padding:64px 40px; text-align:center; color:#fff; }
+  .cta h2 { font-size:36px; line-height:42px; font-weight:600; }
+  .cta p { font-size:18px; color:rgba(255,255,255,.85); margin:16px auto 32px; max-width:520px; }
+  .cta .btn-light { background:#fff; color:var(--violet-100); }
+  .cta .btn-light:hover { background:#f2ecfb; }
+  .cta .btn-ghost { background:transparent; color:#fff; border-color:rgba(255,255,255,.4); }
+  .cta .btn-ghost:hover { border-color:#fff; }
+
+  /* Футер */
+  footer { padding:56px 0; border-top:1px solid var(--neutral-200); }
+  .foot { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:24px; }
+  .foot .muted { font-size:14px; color:var(--text-secondary); }
+  .foot-links { display:flex; gap:24px; }
+  .foot-links a { font-size:14px; color:var(--text-secondary); transition:color .12s var(--ease-ui); }
+  .foot-links a:hover { color:var(--violet-100); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#"><span class="logo-mark">K</span>Kaiten</a>
+    <nav class="nav-links">
+      <a href="#features">Возможности</a>
+      <a href="#metrics">Цифры</a>
+      <a href="#faq">Вопросы</a>
+      <a class="btn btn-primary" href="#cta">Начать бесплатно</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="badge"><span class="dot"></span>Российский сервис, в реестре отечественного ПО</span>
+        <h1>Порядок в рабочих процессах</h1>
+        <p class="sub">Система управления проектами, задачами и командами. Работа всей компании видна на одном экране — без лишних созвонов и потерянных задач.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cta">Попробовать 14 дней</a>
+          <a class="btn btn-outline" href="#features">Получить демо</a>
+        </div>
+        <p class="hero-note">Тариф Free — бессрочный, без ограничений по числу участников</p>
+      </div>
+
+      <!-- Мокап продукта: канбан-доска -->
+      <div class="mock" aria-hidden="true">
+        <div class="mock-bar"><i></i><i></i><i></i><span class="title">Доска команды — разработка</span></div>
+        <div class="board">
+          <div>
+            <div class="col-title">К работе</div>
+            <div class="card"><span class="tag tag-violet">Дизайн</span><div class="t">Согласовать макет лендинга</div><div class="meta"><span class="ava">АП</span>до 16 июня</div></div>
+            <div class="card"><span class="tag tag-violet">Бэкенд</span><div class="t">Описать схему API</div><div class="meta"><span class="ava">ИК</span>до 18 июня</div></div>
+          </div>
+          <div>
+            <div class="col-title">В работе</div>
+            <div class="card"><span class="tag tag-orange">В работе</span><div class="t">Сверстать секцию тарифов</div><div class="meta"><span class="ava">МС</span>до 15 июня</div></div>
+            <div class="card"><span class="tag tag-red">Блокер</span><div class="t">Подключить автодеплой</div><div class="meta"><span class="ava">ДВ</span>сегодня</div></div>
+          </div>
+          <div>
+            <div class="col-title">Готово</div>
+            <div class="card"><span class="tag tag-green">Завершено</span><div class="t">Настроить проект в Vercel</div><div class="meta"><span class="ava">ДВ</span>14 июня</div></div>
+            <div class="card"><span class="tag tag-green">Завершено</span><div class="t">Подготовить отчёт за квартал</div><div class="meta"><span class="ava">ЕЛ</span>12 июня</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДОВЕРИЕ -->
+  <section class="trust">
+    <div class="container">
+      <p>Kaiten доверяют более 100 000 компаний</p>
+      <div class="logos">
+        <span>Сбер</span><span>S7 Airlines</span><span>X5 Group</span><span>Ростелеком</span><span>Норникель</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФИЧИ -->
+  <section class="block" id="features">
+    <div class="container">
+      <div class="head">
+        <h2>Возможности под рабочие сценарии</h2>
+        <p>Каждая функция закрывает задачу роли — от исполнителя до руководителя направления.</p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16"/><rect x="10" y="4" width="5" height="10"/><rect x="17" y="4" width="4" height="13"/></svg></div>
+          <h3>Канбан-доски</h3>
+          <p>Несколько досок на одном экране. Тимлид видит загрузку команды и статус задач сразу.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="14" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="6" y1="18" x2="16" y2="18"/></svg></div>
+          <h3>Диаграмма Ганта</h3>
+          <p>Сроки и зависимости проектов на одной шкале. Ресурсное планирование и портфель проектов.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+          <h3>Карточка задачи</h3>
+          <p>Ответственный, срок, документы, чек-лист и вся история. Контекст не теряется в почте и чатах.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+          <h3>Автоматизация</h3>
+          <p>Правила на досках и запланированные задания. Рутина переходит на систему, а не на людей.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg></div>
+          <h3>Документы и база знаний</h3>
+          <p>Совместная работа и публикация. Документы — бесплатная ключевая функция, не отдельный модуль.</p>
+        </div>
+        <div class="feature">
+          <div class="ficon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Большие команды</h3>
+          <p>Детальные права, кастомные роли, синхронизация с директорией. Контроль без микроменеджмента.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- МЕТРИКИ -->
+  <section class="block gray" id="metrics">
+    <div class="container">
+      <div class="head">
+        <h2>Кайтену доверяют работу</h2>
+        <p>Российская платформа на рынке с 2018 года. Данные хранятся в России, доступна установка на свой сервер.</p>
+      </div>
+      <div class="metrics">
+        <div class="metric"><div class="num">100K+</div><div class="lab">компаний используют Kaiten</div></div>
+        <div class="metric"><div class="num">2018</div><div class="lab">год на рынке</div></div>
+        <div class="metric"><div class="num">6</div><div class="lab">модулей на тарифе Pro</div></div>
+        <div class="metric"><div class="num">14</div><div class="lab">дней триала со всеми модулями</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="block" id="faq">
+    <div class="container" style="max-width:880px;">
+      <div class="head"><h2>Частые вопросы</h2></div>
+      <div class="faq">
+        <div class="faq-item">
+          <button class="faq-q">Чем Kaiten отличается от таск-трекера<span class="pm">+</span></button>
+          <div class="faq-a"><p>Kaiten — система управления проектами, задачами и командами. Заменяет несколько инструментов: задачи, проекты на диаграмме Ганта, сервис-деск, документы и базу знаний.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Тариф Free ограничен по сроку или числу людей<span class="pm">+</span></button>
+          <div class="faq-a"><p>Нет. Free бессрочный и без ограничений по числу участников — все возможности для простых процессов. По сроку ограничен только триал.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Можно ли установить Kaiten на свой сервер<span class="pm">+</span></button>
+          <div class="faq-a"><p>Да. Доступны облачная и коробочная версии. Данные хранятся в России, есть открытый API и мобильное приложение.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Получится перенести данные из других сервисов<span class="pm">+</span></button>
+          <div class="faq-a"><p>Да. Поддерживается перенос из Trello, Jira, Asana, Notion, ClickUp, а также импорт через CSV и JSON.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФИНАЛЬНЫЙ CTA -->
+  <section class="block" id="cta">
+    <div class="container">
+      <div class="cta">
+        <h2>Наведите порядок в процессах</h2>
+        <p>Подключите команду за один день. Тариф Free — бессрочный, триал Pro — 14 дней со всеми модулями.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="btn btn-light" href="https://kaiten.ru" target="_blank" rel="noopener">Начать бесплатно</a>
+          <a class="btn btn-ghost" href="https://kaiten.ru" target="_blank" rel="noopener">Получить демо</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container foot">
+    <a class="logo" href="#"><span class="logo-mark">K</span>Kaiten</a>
+    <div class="foot-links">
+      <a href="#features">Возможности</a>
+      <a href="#metrics">Цифры</a>
+      <a href="#faq">Вопросы</a>
+      <a href="https://kaiten.ru" target="_blank" rel="noopener">kaiten.ru</a>
+    </div>
+    <span class="muted">© 2026 Kaiten</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(function(q){
+    q.addEventListener('click', function(){
+      var item = q.parentElement;
+      var ans = q.nextElementSibling;
+      var open = item.classList.toggle('open');
+      ans.style.maxHeight = open ? ans.scrollHeight + 'px' : '0';
+    });
+  });
+</script>
+</body>
+</html>
