@@ -1,0 +1,725 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кайтен для&nbsp;производств — система управления проектами производства</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar--desktop" aria-label="Основная навигация">
+  <div class="navbar__container"><div class="navbar__content">
+    <div class="navbar__menu-with-logo">
+      <div class="navbar__logo"><a href="/" aria-label="Kaiten — на&nbsp;главную"><span class="logo-img" data-logo="dark"></span></a></div>
+      <div class="navbar__nav">
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Продукт</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru/teams/kaiten-for-factory"><span class="navbar__link-text navbar__link-text--active">Решения</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Услуги</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru/on-premise"><span class="navbar__link-text">On-premise</span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">AI</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/tariffs"><span class="navbar__link-text">Тарифы</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/blog"><span class="navbar__link-text">Кейсы</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/blog"><span class="navbar__link-text">Блог</span></a>
+      </div>
+    </div>
+    <div class="navbar__actions"><div class="navbar__action-group">
+      <a class="navbar__phone" href="tel:+78005005843" aria-label="Позвонить нам"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a class="btn btn--md btn--fill" href="https://kaiten.ru">Войти</a>
+      <a class="btn btn--md btn--outline" href="https://kaiten.ru/teams/kaiten-for-factory">Регистрация</a>
+    </div></div>
+  </div></div>
+</nav>
+<nav class="navbar navbar--mobile" aria-label="Мобильная навигация">
+  <div class="navbar__container navbar__container--mobile"><div class="navbar__content" style="justify-content:space-between">
+    <a href="/" aria-label="Kaiten — на&nbsp;главную"><span class="logo-img logo-img--mobile" data-logo="dark"></span></a>
+    <button class="navbar__burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="https://kaiten.ru">Продукт</a><a href="https://kaiten.ru/teams/kaiten-for-factory">Решения</a><a href="https://kaiten.ru">Услуги</a><a href="https://kaiten.ru/on-premise">On-premise</a><a href="https://kaiten.ru">AI</a><a href="https://kaiten.ru/tariffs">Тарифы</a><a href="https://kaiten.ru/blog">Кейсы</a><a href="https://kaiten.ru/blog">Блог</a>
+  <a class="btn btn--md btn--fill btn--full" href="https://kaiten.ru">Войти</a>
+  <a class="btn btn--md btn--outline btn--full" href="https://kaiten.ru/teams/kaiten-for-factory">Регистрация</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div class="sh-badge"><span class="sh-badge__text">Кайтен для&nbsp;производств</span></div>
+      <h1>Система управления проектами производства</h1>
+      <p class="hero__sub">Кайтен объединяет цех, снабжение, технологов и&nbsp;руководство в&nbsp;одном рабочем пространстве. Все заказы, этапы и&nbsp;отделы — в&nbsp;одной системе, без&nbsp;утренних обзвонов и&nbsp;ручных отчетов.</p>
+      <div class="hero__cta">
+        <a class="btn btn--lg btn--fill" href="https://kaiten.ru/teams/kaiten-for-factory">Попробовать Кайтен бесплатно</a>
+        <a class="btn btn--lg btn--outline" href="#cta">Запросить демонстрацию</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="mpa" aria-hidden="true"><div class="mod">
+        <div class="hdr">
+          <span class="grip"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="nm">Производство — портфель заказов</span>
+          <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+        </div>
+        <div class="colhdr">
+          <div class="c"><span class="t">Очередь</span><span class="cnt">4</span></div>
+          <div class="c"><span class="t">В&nbsp;работе</span><span class="cnt">3</span></div>
+          <div class="c"><span class="t">Согласование ОТК</span><span class="cnt">2</span></div>
+          <div class="c"><span class="t">Правки ОТК</span><span class="cnt">2</span></div>
+          <div class="c"><span class="chk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t">Готово</span><span class="cnt">5</span></div>
+        </div>
+        <div class="lane">
+          <span class="lnm">Проект Альфа</span><span class="cnt2">11</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+        </div>
+        <div class="lanebody">
+          <div class="col">
+            <div class="card">
+              <div class="ct">Каркас 6.7</div>
+              <div class="row"><span class="prio">⚡<b>M</b></span></div>
+              <div class="tags"><span class="tag t-prod">Каркас</span><span class="tag t-big">ИП Соловятин</span></div>
+              <div class="datepill"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>01.11.2024 – 29.11.2024</div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span><span class="av" style="background:#8a9bc9"></span><span class="plus">+1</span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>29 нояб</span></div>
+            </div>
+            <div class="card">
+              <div class="ct">3 лебёдки для&nbsp;ООО Атом</div>
+              <div class="row"><span class="prio">⚡<b>S</b></span><span class="sub"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>0/1</span></div>
+              <div class="tags"><span class="tag t-prod">ИП Соловятин</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#c9b78a"></span></span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="placeholder"></div>
+            <div class="card">
+              <div class="ct">Корпус насоса</div>
+              <div class="row"><span class="prio">⚡<b>M</b></span></div>
+              <div class="tags"><span class="tag t-big">Холдер М</span><span class="tag t-cx">Цех №3</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#8ac9a0"></span><span class="av" style="background:#c9b78a"></span><span class="plus">+1</span></span></div>
+            </div>
+            <div class="drag-layer">
+              <div class="card drag-card">
+                <div class="ct">Спутник Альфа</div>
+                <div class="row"><span class="prio">⚡<b>L</b></span><span class="sub"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>1/3</span></div>
+                <div class="tags"><span class="tag t-big">Холдер М</span><span class="tag t-prod">24.0005</span></div>
+                <div class="datepill"><svg width="12" height="12" viewBox="0 0 16 16"><path d="M2 4h12M2 8h8M2 12h10" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>10.10.2024 – 23.11.2024</div>
+                <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span><span class="av" style="background:#2d2d2d"></span><span class="plus">+1</span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>23 нояб</span></div>
+              </div>
+              <svg class="hand" viewBox="0 0 40 40"><path d="M14 22V14a2.2 2.2 0 0 1 4.4 0v-1a2.2 2.2 0 0 1 4.4 0v1a2.2 2.2 0 0 1 4.4 0v1a2.2 2.2 0 0 1 4.4 0v9a8 8 0 0 1-8 8h-2.5a8 8 0 0 1-6.6-3.5l-3.2-4.8a2.3 2.3 0 0 1 3.7-2.8z" fill="#fff" stroke="#2f2f2f" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Лебёдка Beta</div>
+              <div class="row"><span class="prio">⚡<b>M</b></span></div>
+              <div class="tags"><span class="tag t-big">Холдер М</span><span class="tag t-cx">ОТК</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#b88ac9"></span><span class="av" style="background:#d9a3a3"></span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>24 нояб</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card alert">
+              <div class="band"><span>🔥</span><span>Партия каркасов отклонена ОТК — нужна переработка</span></div>
+              <div class="abody">
+                <div class="tags"><span class="tag t-urg">Срочно</span></div>
+                <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span><span class="av" style="background:#8a9bc9"></span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>26 нояб</span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="ct">Каркас 1.8</div>
+              <div class="row"><span class="prio">⚡<b>S</b></span></div>
+              <div class="tags"><span class="tag t-prod">ИП Соловятин</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#8a9bc9"></span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>29 нояб</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Пластины, партия</div>
+              <div class="row"><span class="prio">⚡<b>S</b></span></div>
+              <div class="tags"><span class="tag t-big">Холдер М</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#b88ac9"></span><span class="av" style="background:#8ac9a0"></span></span><span class="today"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>Сегодня</span></div>
+            </div>
+            <div class="card">
+              <div class="ct">Каркас 1.9</div>
+              <div class="row"><span class="prio">⚡<b>S</b></span></div>
+              <div class="tags"><span class="tag t-prod">ИП Соловятин</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span><span class="av" style="background:#c9b78a"></span></span><span class="today"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>Сегодня</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="lane lane--foot">
+          <span class="lnm">Проект Омега</span><span class="cnt2">5</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+        </div>
+      </div></div>
+      <div class="mpf-frame" style="display:none">
+        <div class="mpf-track">
+          <div class="mpf">
+            <div class="mpf-body">
+              <div class="mpf-sec">
+                <div class="mpf-sec__h"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Портфель проектов</b></div>
+                <div class="mpf-funnel">
+                  <div class="mpf-fcol"><span class="mpf-fcol__n">Заявка</span><span class="mpf-cnt blue">2</span></div>
+                  <div class="mpf-fcol"><span class="mpf-fcol__n">Снабжение</span><span class="mpf-cnt blue">2</span></div>
+                  <div class="mpf-fcol"><span class="mpf-fcol__n">Производство</span><span class="mpf-cnt yellow">1</span></div>
+                  <div class="mpf-fcol"><span class="mpf-fcol__n">ОТК</span><span class="mpf-cnt orange">1</span></div>
+                  <div class="mpf-fcol"><span class="mpf-fcol__n">Отгрузка</span><span class="mpf-cnt orange">2</span></div>
+                </div>
+                <div class="mpf-swim">Первый приоритет</div>
+                <div class="mpf-ccols">
+                  <div class="mpf-ccol">
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Каркас 6.7</div>
+                      <div class="mpf-tags"><span class="mpf-tag teal">Каркас</span><span class="mpf-tag violet">ИП Соловятин</span></div>
+                      <span class="mpf-date">01.11.2024 – 29.11.2024</span>
+                      <div class="mpf-checks"><div class="mpf-chk"><i style="width:0%"></i><span class="r"><em>Чек-лист Заявка</em><b>0/1</b></span></div></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#c98a8a"></span><span class="mpf-av" style="background:#8a9bc9"></span></div>
+                    </div><div class="mpf-pc__bar"></div></div>
+                  </div>
+                  <div class="mpf-ccol">
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Спутник Альфа</div>
+                      <div class="mpf-tags"><span class="mpf-tag green">Холдер М</span></div>
+                      <span class="mpf-date">10.10.2024 – 23.11.2024</span>
+                      <div class="mpf-checks"><div class="mpf-chk"><i style="width:66%"></i><span class="r"><em>Чек-лист Снабжение</em><b>2/3</b></span></div><div class="mpf-chk"><i style="width:100%"></i><span class="r"><em>Чек-лист Закупки</em><b>4/4</b></span></div></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#8ac9a0"></span><span class="mpf-av" style="background:#c9b78a"></span></div>
+                    </div></div>
+                  </div>
+                  <div class="mpf-ccol">
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Пластины. Проходной заказ</div>
+                      <div class="mpf-tags"><span class="mpf-tag green">Холдер М</span></div>
+                      <span class="mpf-date">21.08.2024 – 24.11.2024</span>
+                      <div class="mpf-checks"><div class="mpf-chk"><i style="width:100%"></i><span class="r"><em>Чек-лист Раскрой</em><b>3/3</b></span></div><div class="mpf-chk"><i style="width:50%"></i><span class="r"><em>Чек-лист Сборка</em><b>1/2</b></span></div><div class="mpf-chk"><i style="width:50%"></i><span class="r"><em>Чек-лист Покраска</em><b>1/2</b></span></div></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#b88ac9"></span><span class="mpf-av" style="background:#7d9ac9"></span></div>
+                    </div></div>
+                  </div>
+                  <div class="mpf-ccol">
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Лебёдка Beta</div>
+                      <div class="mpf-tags"><span class="mpf-tag violet">Холдер М</span><span class="mpf-tag green">ОТК</span><span class="mpf-tag orange">Ежедневно в&nbsp;09:00</span></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#c98a8a"></span><span class="mpf-av" style="background:#8a9bc9"></span></div>
+                    </div></div>
+                  </div>
+                  <div class="mpf-ccol">
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Каркас 1.8</div>
+                      <div class="mpf-tags"><span class="mpf-tag orange">ИП Соловятин</span></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#8a9bc9"></span></div>
+                    </div></div>
+                    <div class="mpf-pc"><div class="mpf-pc__b">
+                      <div class="mpf-pc__t">Каркас 1.9</div>
+                      <div class="mpf-tags"><span class="mpf-tag green">Готово</span></div>
+                      <div class="mpf-avs"><span class="mpf-av" style="background:#8ac9a0"></span><span class="mpf-av" style="background:#c9b78a"></span></div>
+                    </div></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mpf-bars">
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Альфа</b><span class="c">6 карточек</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Альфа — Задачи</b><span class="c">9 карточек</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Омега</b><span class="c">5 карточек</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Омега — Задачи</b><span class="c">7 карточек</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Гамма</b><span class="c">4 карточки</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+                <div class="mpf-bar"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Проект Гамма — Задачи</b><span class="c">5 карточек</span><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></div>
+              </div>
+
+              <div class="mpf-2col">
+                <div class="mpf-cb">
+                  <div class="mpf-cb__h"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Заявки от&nbsp;цехов</b></div>
+                  <div class="mpf-cbcols">
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">Очередь</span><span class="mpf-cnt teal">2</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Заявка на&nbsp;металлопрокат от&nbsp;цеха №1</div><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#8a9bc9"></span></div></div></div>
+                      <div class="mpf-mc"><div class="mpf-mc__t">Заявка на&nbsp;крепёж М12 от&nbsp;06.11.24</div><span class="mpf-tag pink" style="align-self:flex-start">Снабжение</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#c98a8a"></span></div><span class="mpf-due late"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>16 нояб</span></div></div>
+                    </div></div>
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">В&nbsp;работе</span><span class="mpf-cnt orange">2</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Служебная записка от&nbsp;мастера участка</div><span class="mpf-tag yellow" style="align-self:flex-start">Производство</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#8ac9a0"></span><span class="mpf-av" style="background:#c9b78a"></span></div><span class="mpf-due late"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>20.11.2024</span></div></div>
+                      <div class="mpf-mc"><div class="mpf-mc__t">Заявка на&nbsp;расходники для&nbsp;ОТК</div><span class="mpf-tag yellow" style="align-self:flex-start">ОТК</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#b88ac9"></span></div></div></div>
+                    </div></div>
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">Готово</span><span class="mpf-cnt green">2</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Заявка на&nbsp;спецодежду</div><span class="mpf-tag pink" style="align-self:flex-start">Снабжение</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#7d9ac9"></span><span class="mpf-av" style="background:#8ac9a0"></span></div><span class="mpf-fire">🔥 Срочно</span></div></div>
+                      <div class="mpf-mc"><div class="mpf-mc__t">Заявка на&nbsp;инструмент</div><span class="mpf-tag pink" style="align-self:flex-start">Цех №3</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#c98a8a"></span><span class="mpf-av" style="background:#8a9bc9"></span></div><span class="mpf-due ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>01.11.2024</span></div></div>
+                    </div></div>
+                  </div>
+                </div>
+                <div class="mpf-cb">
+                  <div class="mpf-cb__h"><svg class="mpf-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><b>Документы и&nbsp;акты</b></div>
+                  <div class="mpf-cbcols">
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">Очередь</span><span class="mpf-cnt teal">1</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Договор поставки от&nbsp;11.10.24 Холдер М</div><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#8a9bc9"></span></div></div></div>
+                    </div></div>
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">В&nbsp;работе</span><span class="mpf-cnt orange">2</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Акт ОТК по&nbsp;заказу 44.0054</div><span class="mpf-tag yellow" style="align-self:flex-start">ОТК</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#c98a8a"></span><span class="mpf-av" style="background:#b88ac9"></span></div><span class="mpf-due late"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>24.11.2024</span></div></div>
+                      <div class="mpf-mc"><div class="mpf-mc__t">Спецификация на&nbsp;корпус насоса</div><span class="mpf-tag yellow" style="align-self:flex-start">Производство</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#8ac9a0"></span></div></div></div>
+                    </div></div>
+                    <div class="mpf-cbcol"><div class="mpf-cbcol__h"><span class="nm">Готово</span><span class="mpf-cnt green">2</span></div><div class="mpf-cbcards">
+                      <div class="mpf-mc"><div class="mpf-mc__t">Акт выполненных работ</div><span class="mpf-tag pink" style="align-self:flex-start">Группа Б</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#7d9ac9"></span><span class="mpf-av" style="background:#c9b78a"></span></div><span class="mpf-fire">🔥 Срочно</span></div></div>
+                      <div class="mpf-mc"><div class="mpf-mc__t">Накладная на&nbsp;отгрузку партии</div><span class="mpf-tag pink" style="align-self:flex-start">Отгрузка</span><div class="mpf-mc__f"><div class="mpf-avs"><span class="mpf-av" style="background:#8a9bc9"></span><span class="mpf-av" style="background:#8ac9a0"></span></div><span class="mpf-due ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>20.11.2024</span></div></div>
+                    </div></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS (DS icon block 6459-17716, текст с&nbsp;макета) -->
+<section class="bnf-sec"><div class="container">
+  <div class="bnf">
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-2 8-5 8-10V6l-8-3-8 3v6c0 5 3 8 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div class="bnf__t">Российский сервис</div>
+      <div class="bnf__d">Сертифицированная в&nbsp;РФ ИТ-компания</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7 17 2.5-7.5L20 10z"/></svg></span>
+      <div class="bnf__t">Бесплатный период</div>
+      <div class="bnf__d">14 дней теста, есть бесплатный тариф</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19v-7"/><path d="m8.5 14.5 3.5-3.5 3.5 3.5"/><path d="M20 17.5A4.5 4.5 0 0 0 18 9h-1.3A7 7 0 1 0 5 15.7"/></svg></span>
+      <div class="bnf__t">Облако и&nbsp;коробка</div>
+      <div class="bnf__d">Организуйте работу, как&nbsp;вам удобно</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M2 14h4M10 8h4M18 16h4"/></svg></span>
+      <div class="bnf__t">Гибкий и&nbsp;удобный</div>
+      <div class="bnf__d">Кайтен подстроится под&nbsp;ваши процессы</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- REVIEWS (DS Otziv carousel) -->
+<section class="s revx" aria-label="Отзывы клиентов">
+  <div class="revx__in">
+    <div class="revx__head">
+      <h2>Производственные команды выбирают Кайтен</h2>
+    </div>
+    <div class="revx__wrap" id="revx-wrap">
+      <div class="revx__track" id="revx-track">
+
+        <div class="otz">
+          <div class="otz__top">
+            <div class="otz__hd"><div class="otz__co"><img src="assets/reviews/neos.png" alt="Неос Ингредиентс" onerror="this.replaceWith('Неос Ингредиентс')"></div><svg class="otz__q" viewBox="0 0 79 60" fill="none" aria-hidden="true"><path d="M15.9909 -5.50843e-06C21.5599 -5.02157e-06 26.1742 1.84 29.8338 5.51999C33.3344 9.19999 35.0846 14.48 35.0846 21.36C35.0846 28.72 33.0161 36 28.8792 43.2C24.5831 50.4 18.6163 56 10.9789 60L5.48943 51.6C13.7634 45.84 18.6959 38.56 20.287 29.76C18.855 30.4 17.1843 30.72 15.2749 30.72C10.8197 30.72 7.16012 29.28 4.29608 26.4C1.43203 23.52 3.5109e-06 19.84 3.90255e-06 15.36C4.29421e-06 10.88 1.51159 7.2 4.53475 4.32C7.55791 1.44 11.3766 -5.91182e-06 15.9909 -5.50843e-06ZM59.9064 -1.66922e-06C65.4753 -1.18236e-06 70.0896 1.84 73.7493 5.52C77.2498 9.2 79 14.48 79 21.36C79 28.72 76.9315 36 72.7946 43.2C68.4985 50.4 62.5317 56 54.8943 60L49.4048 51.6C57.6788 45.84 62.6113 38.56 64.2024 29.76C62.7704 30.4 61.0997 30.72 59.1903 30.72C54.7352 30.72 51.0755 29.28 48.2115 26.4C45.3474 23.52 43.9154 19.84 43.9154 15.36C43.9154 10.88 45.427 7.2 48.4502 4.32C51.4733 1.44 55.2921 -2.07262e-06 59.9064 -1.66922e-06Z" fill="#F3F4F6"/></svg></div>
+            <p class="otz__text">«Кайтен упростил контроль техпоручений. Точно вижу, сколько задач у&nbsp;каждого отдела и&nbsp;сколько выполнено. Это значительно экономит время совещаний»</p>
+          </div>
+          <div class="otz__author"><span class="otz__av" style="background:#c98a8a"><img src="assets/reviews/kirill.png" alt="Кирилл Флегонов" onerror="this.remove()">К</span><span class="otz__who"><span class="otz__name">Кирилл Флегонов</span><span class="otz__role">генеральный директор</span></span></div>
+          <a class="otz__btn" href="https://kaiten.ru/blog/kak-diriektor-zavoda-upravliaiet-kompaniiei-v-kaiten/">Читать кейс</a>
+        </div>
+
+        <div class="otz">
+          <div class="otz__top">
+            <div class="otz__hd"><div class="otz__co"><img src="assets/reviews/remeks.png" alt="ГК Рэмэкс" onerror="this.replaceWith('ГК Рэмэкс')"></div><svg class="otz__q" viewBox="0 0 79 60" fill="none" aria-hidden="true"><path d="M15.9909 -5.50843e-06C21.5599 -5.02157e-06 26.1742 1.84 29.8338 5.51999C33.3344 9.19999 35.0846 14.48 35.0846 21.36C35.0846 28.72 33.0161 36 28.8792 43.2C24.5831 50.4 18.6163 56 10.9789 60L5.48943 51.6C13.7634 45.84 18.6959 38.56 20.287 29.76C18.855 30.4 17.1843 30.72 15.2749 30.72C10.8197 30.72 7.16012 29.28 4.29608 26.4C1.43203 23.52 3.5109e-06 19.84 3.90255e-06 15.36C4.29421e-06 10.88 1.51159 7.2 4.53475 4.32C7.55791 1.44 11.3766 -5.91182e-06 15.9909 -5.50843e-06ZM59.9064 -1.66922e-06C65.4753 -1.18236e-06 70.0896 1.84 73.7493 5.52C77.2498 9.2 79 14.48 79 21.36C79 28.72 76.9315 36 72.7946 43.2C68.4985 50.4 62.5317 56 54.8943 60L49.4048 51.6C57.6788 45.84 62.6113 38.56 64.2024 29.76C62.7704 30.4 61.0997 30.72 59.1903 30.72C54.7352 30.72 51.0755 29.28 48.2115 26.4C45.3474 23.52 43.9154 19.84 43.9154 15.36C43.9154 10.88 45.427 7.2 48.4502 4.32C51.4733 1.44 55.2921 -2.07262e-06 59.9064 -1.66922e-06Z" fill="#F3F4F6"/></svg></div>
+            <p class="otz__text">«Работать над&nbsp;проектами стало проще. Не&nbsp;нужно беспокоить сотрудников для&nbsp;уточнения статуса или&nbsp;сроков задач — всё отображено на&nbsp;досках в&nbsp;системе»</p>
+          </div>
+          <div class="otz__author"><span class="otz__av" style="background:transparent"><img src="assets/reviews/boris.png" alt="Борис Серов" onerror="this.remove()"></span><span class="otz__who"><span class="otz__name">Борис Серов</span><span class="otz__role">директор ГК Рэмэкс</span></span></div>
+          <a class="otz__btn" href="https://kaiten.ru/blog/gk-remeks/">Читать кейс</a>
+        </div>
+
+        <div class="otz">
+          <div class="otz__top">
+            <div class="otz__hd"><div class="otz__co"><img src="assets/reviews/akt.png" alt="Авиационный Консалтинг-ТЕХНО" onerror="this.replaceWith('Авиационный Консалтинг-ТЕХНО')"></div><svg class="otz__q" viewBox="0 0 79 60" fill="none" aria-hidden="true"><path d="M15.9909 -5.50843e-06C21.5599 -5.02157e-06 26.1742 1.84 29.8338 5.51999C33.3344 9.19999 35.0846 14.48 35.0846 21.36C35.0846 28.72 33.0161 36 28.8792 43.2C24.5831 50.4 18.6163 56 10.9789 60L5.48943 51.6C13.7634 45.84 18.6959 38.56 20.287 29.76C18.855 30.4 17.1843 30.72 15.2749 30.72C10.8197 30.72 7.16012 29.28 4.29608 26.4C1.43203 23.52 3.5109e-06 19.84 3.90255e-06 15.36C4.29421e-06 10.88 1.51159 7.2 4.53475 4.32C7.55791 1.44 11.3766 -5.91182e-06 15.9909 -5.50843e-06ZM59.9064 -1.66922e-06C65.4753 -1.18236e-06 70.0896 1.84 73.7493 5.52C77.2498 9.2 79 14.48 79 21.36C79 28.72 76.9315 36 72.7946 43.2C68.4985 50.4 62.5317 56 54.8943 60L49.4048 51.6C57.6788 45.84 62.6113 38.56 64.2024 29.76C62.7704 30.4 61.0997 30.72 59.1903 30.72C54.7352 30.72 51.0755 29.28 48.2115 26.4C45.3474 23.52 43.9154 19.84 43.9154 15.36C43.9154 10.88 45.427 7.2 48.4502 4.32C51.4733 1.44 55.2921 -2.07262e-06 59.9064 -1.66922e-06Z" fill="#F3F4F6"/></svg></div>
+            <p class="otz__text">«После внедрения значительно экономим время. Система освобождает минимум два рабочих дня каждый месяц: больше не&nbsp;нужно вручную объединять отчеты»</p>
+          </div>
+          <div class="otz__author"><span class="otz__av" style="background:#8ac9a0"><img src="assets/reviews/vasiliy.png" alt="Василий Пыжьянов" onerror="this.remove()">В</span><span class="otz__who"><span class="otz__name">Василий Пыжьянов</span><span class="otz__role">технический директор</span></span></div>
+          <a class="otz__btn" href="https://kaiten.ru/blog/case-techno/">Читать кейс</a>
+        </div>
+
+        <div class="otz">
+          <div class="otz__top">
+            <div class="otz__hd"><div class="otz__co"><img src="assets/reviews/pfforum.png" alt="ПФ-ФОРУМ" onerror="this.replaceWith('ПФ-ФОРУМ')"></div><svg class="otz__q" viewBox="0 0 79 60" fill="none" aria-hidden="true"><path d="M15.9909 -5.50843e-06C21.5599 -5.02157e-06 26.1742 1.84 29.8338 5.51999C33.3344 9.19999 35.0846 14.48 35.0846 21.36C35.0846 28.72 33.0161 36 28.8792 43.2C24.5831 50.4 18.6163 56 10.9789 60L5.48943 51.6C13.7634 45.84 18.6959 38.56 20.287 29.76C18.855 30.4 17.1843 30.72 15.2749 30.72C10.8197 30.72 7.16012 29.28 4.29608 26.4C1.43203 23.52 3.5109e-06 19.84 3.90255e-06 15.36C4.29421e-06 10.88 1.51159 7.2 4.53475 4.32C7.55791 1.44 11.3766 -5.91182e-06 15.9909 -5.50843e-06ZM59.9064 -1.66922e-06C65.4753 -1.18236e-06 70.0896 1.84 73.7493 5.52C77.2498 9.2 79 14.48 79 21.36C79 28.72 76.9315 36 72.7946 43.2C68.4985 50.4 62.5317 56 54.8943 60L49.4048 51.6C57.6788 45.84 62.6113 38.56 64.2024 29.76C62.7704 30.4 61.0997 30.72 59.1903 30.72C54.7352 30.72 51.0755 29.28 48.2115 26.4C45.3474 23.52 43.9154 19.84 43.9154 15.36C43.9154 10.88 45.427 7.2 48.4502 4.32C51.4733 1.44 55.2921 -2.07262e-06 59.9064 -1.66922e-06Z" fill="#F3F4F6"/></svg></div>
+            <p class="otz__text">«За&nbsp;1,5 года мы ушли от&nbsp;записей в&nbsp;блокнотах и&nbsp;перешли на&nbsp;прозрачные канбан-доски с&nbsp;настроенным потоком задач. Статус задач виден с&nbsp;первого взгляда»</p>
+          </div>
+          <div class="otz__author"><span class="otz__av" style="background:#b88ac9"><img src="assets/reviews/marina.png" alt="Марина Вербицкая" onerror="this.remove()">М</span><span class="otz__who"><span class="otz__name">Марина Вербицкая</span><span class="otz__role">интегратор цифровых решений</span></span></div>
+          <a class="otz__btn" href="https://kaiten.ru/blog/case-pf-forum/">Читать кейс</a>
+        </div>
+
+      </div>
+    </div>
+    <div class="revx__nav" role="group" aria-label="Листать отзывы">
+      <button class="revx__navbtn" id="revx-prev" aria-label="Предыдущий отзыв"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <button class="revx__navbtn" id="revx-next" aria-label="Следующий отзыв"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTROL -->
+<section class="s s--alt" id="control"><div class="container">
+  <div class="acc-wrap">
+    <div class="acc">
+      <div class="acc-intro">
+        <h2 class="acc-h">Производство под&nbsp;контролем без&nbsp;планерок и&nbsp;ручного контроля</h2>
+        <p class="acc-sub">От&nbsp;заявки до&nbsp;отгрузки — каждый этап, отдел и&nbsp;срок в&nbsp;одной системе. Руководитель не&nbsp;собирает картину по&nbsp;звонкам и&nbsp;чатам.</p>
+      </div>
+      <div class="acc-item open">
+        <button class="acc-head" type="button"><span class="acc-title">Статус каждого заказа виден с&nbsp;доски</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Каждый заказ движется по&nbsp;маршруту: заявка → закупка → производство → ОТК → отгрузка. Руководитель видит весь поток и&nbsp;сразу замечает, где&nbsp;образовалась очередь или&nbsp;задержка — до&nbsp;того, как&nbsp;это стало проблемой.</p><img class="acc-bmedia" src="assets/slider/slider1.png" alt="" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Загрузка людей и&nbsp;участков понятна на&nbsp;недели вперед</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Диаграмма Ганта показывает, кто чем занят, где&nbsp;пересекаются этапы и&nbsp;что&nbsp;встанет, если&nbsp;задержится поставка. Можно скорректировать план до&nbsp;того, как&nbsp;срыв случился.</p><img class="acc-bmedia" src="assets/slider/slider2.png" alt="" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Снабжение, цех и&nbsp;технологи работают с&nbsp;одними данными</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Чертежи, спецификации, ТЗ и&nbsp;комментарии хранятся внутри задачи. Когда&nbsp;снабжение передает материалы в&nbsp;цех — вся информация уже там.</p><img class="acc-bmedia" src="assets/slider/slider3.png" alt="" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Отчет по&nbsp;загрузке и&nbsp;выполнению заказов — без&nbsp;ручной сборки</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Система сама собирает данные по&nbsp;срокам, просрочкам и&nbsp;загрузке отделов. Перед&nbsp;совещанием не&nbsp;нужно обзванивать начальников участков.</p><img class="acc-bmedia" src="assets/slider/slider4.png" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="acc-media">
+      <div class="acc-panel on"><img src="assets/slider/slider1.png" alt="" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/slider/slider2.png" alt="" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/slider/slider3.png" alt="" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/slider/slider4.png" alt="" loading="lazy"></div>
+    </div>
+  </div>
+  <div class="acc-cta">
+    <div class="hero__cta" style="justify-content:center">
+      <a class="btn btn--lg btn--fill" href="https://kaiten.ru/teams/kaiten-for-factory">Попробовать Кайтен бесплатно</a>
+      <a class="btn btn--lg btn--outline" href="#cta">Запросить демонстрацию</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- DOCUMENTS INSIDE TASK -->
+<section class="s" id="documents"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading sh__heading--nowrap">Документы и&nbsp;история работы — внутри задачи</h2>
+    <p class="sh__desc">Не&nbsp;нужно искать спецификации в&nbsp;папках, согласования — в&nbsp;почте, а&nbsp;комментарии — в&nbsp;мессенджерах.</p>
+  </div>
+  <div class="taskmap">
+    <div class="taskmap__col taskmap__col--l">
+      <span class="lpill" data-to="#wm-title">Название и&nbsp;тип задачи</span>
+      <span class="lpill" data-to="#wm-resp">Ответственный и&nbsp;соисполнители</span>
+      <span class="lpill" data-to="#wm-term">Срок</span>
+      <span class="lpill" data-to="#wm-order">Номер заказа</span>
+      <span class="lpill" data-to="#wm-area">Участок</span>
+    </div>
+    <div class="wcard" aria-hidden="true">
+      <div class="wcard__t" id="wm-title">Корпус насосной станции, партия 12 шт</div>
+      <div class="wcard__meta"><span class="wcard__lnk">#65032343</span> Заказчик <span class="wcard__lnk">Teamlead</span></div>
+      <div class="wcard__created"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>Создана месяц назад</div>
+      <div class="wcard__tb" id="wm-tb">
+        <span class="wcard__btn p"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+        <span class="wcard__bdiv"></span>
+        <span class="wcard__btn"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+        <span class="wcard__pill">→ ДОКУМЕНТЫ</span>
+        <span class="wcard__btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6z"/></svg></span>
+        <span class="wcard__btn"><b style="font-size:15px;line-height:1">!</b></span>
+        <span class="wcard__btn" id="wm-rel"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg></span>
+        <span class="wcard__btn">⋮</span>
+      </div>
+      <div class="wcard__cols">
+        <div class="wcard__col">
+          <div class="wcard__sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>Основные параметры</div>
+          <div class="wcard__rows">
+            <div class="wcard__row" id="wm-docs"><span class="k">Расположение</span><span class="wcard__lnk">Чертежи / Проверка <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4" stroke-linecap="round"/></svg></span></div>
+            <div class="wcard__row"><span class="k">Тип</span><span class="wcard__chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1" stroke-linecap="round" stroke-linejoin="round"/></svg>Сварка</span></div>
+            <div class="wcard__row" id="wm-resp"><span class="k">Участники</span><span class="wcard__avs"><span class="wcard__resp"><i></i>Ответственный</span><span class="wcard__ava">Н</span><span class="wcard__ava">А</span><span style="color:var(--text-secondary)">+</span></span></div>
+            <div class="wcard__row" id="wm-term"><span class="k">Срок</span><span class="wcard__lnk">31 мая</span></div>
+            <div class="wcard__row" id="wm-order"><span class="k">Номер заказа</span><span>A‑2847</span></div>
+            <div class="wcard__row" id="wm-area"><span class="k">Участок</span><span class="wcard__chip violet">Цех №3</span></div>
+          </div>
+        </div>
+        <div class="wcard__col">
+          <div class="wcard__sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>Чек‑лист</div>
+          <div class="wcard__prog"><span class="pct">50%</span><span class="bar"><i></i></span><span class="cnt">3/6</span></div>
+          <div class="wcard__chk" id="wm-check">
+            <div class="wcard__ci done"><span class="b"></span>1. ТЗ получено и&nbsp;проверено</div>
+            <div class="wcard__ci done"><span class="b"></span>2. Материалы на&nbsp;складе подтверждены</div>
+            <div class="wcard__ci done"><span class="b"></span>3. Заготовки переданы в&nbsp;цех</div>
+            <div class="wcard__ci todo"><span class="b"></span>4. Сварка — в&nbsp;процессе</div>
+            <div class="wcard__ci todo"><span class="b"></span>5. ОТК — ожидает</div>
+            <div class="wcard__ci todo"><span class="b"></span>6. Упаковка и&nbsp;отгрузка</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="taskmap__col taskmap__col--r">
+      <span class="lpill" data-to="#wm-check">Чек-лист с&nbsp;пошаговыми действиями</span>
+      <span class="lpill" data-to="#wm-docs">Чертежи, спецификации, ТЗ, фото</span>
+      <span class="lpill" data-to="#wm-tb">Комментарии</span>
+      <span class="lpill" data-to="#wm-rel">Связанные задачи</span>
+    </div>
+  </div>
+</div></section>
+
+<!-- DEPARTMENTS -->
+<section class="s s--alt" id="depsec"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Кайтен объединяет все подразделения в&nbsp;одном пространстве</h2>
+    <p class="sh__desc">Каждый отдел работает в&nbsp;своем контуре, но&nbsp;видит общую картину.</p>
+  </div>
+  <div class="dep-wrap">
+    <div class="dep">
+      <div class="d"><span class="e">🔧</span>Производство и&nbsp;цех</div>
+      <div class="d"><span class="e">📦</span>Снабжение и&nbsp;логистика</div>
+      <div class="d"><span class="e">📐</span>Технологи и&nbsp;инженеры</div>
+      <div class="d"><span class="e">✅</span>ОТК</div>
+      <div class="d"><span class="e">💼</span>Руководство</div>
+      <div class="d"><span class="e">📊</span>Бухгалтерия и&nbsp;финансы</div>
+      <div class="d"><span class="e">🏗️</span>Проектный офис</div>
+    </div>
+    <div class="dep-visual"><div class="lbt" aria-hidden="true"><div class="lbt__lid"><div class="lbt__screen"><div class="lbt__topbar"><svg class="mk" viewBox="0 0 104 104" fill="none"><g clip-path="url(#lbtMark)"><path d="M76.8113 0H27.1887C12.1728 0 0 12.1661 0 27.1738V76.8262C0 91.8339 12.1728 104 27.1887 104H76.8113C91.8272 104 104 91.8339 104 76.8262V27.1738C104 12.1661 91.8272 0 76.8113 0Z" fill="#F11F24"/><path d="M41.4148 11.3364L11.3364 41.4148C5.55453 47.1967 5.55453 56.571 11.3364 62.3529L41.4148 92.4313C47.1967 98.2132 56.571 98.2132 62.3529 92.4313L92.4313 62.3529C98.2132 56.571 98.2132 47.1967 92.4313 41.4148L62.3529 11.3364C56.571 5.55453 47.1967 5.55453 41.4148 11.3364Z" fill="#78FFC7"/><path d="M51.715 77.4267C65.917 77.4267 77.43 65.9144 77.43 51.7133C77.43 37.5123 65.917 26 51.715 26C37.513 26 26 37.5123 26 51.7133C26 65.9144 37.513 77.4267 51.715 77.4267Z" fill="#7D4CCF"/></g><defs><clipPath id="lbtMark"><rect width="104" height="104" rx="52" fill="white"/></clipPath></defs></svg><span class="lbt__logo">Kaiten</span><span class="lbt__tbdiv"></span><span class="lbt__tbsub">Производственный контур · Цех №1</span></div><div class="lbt__body"><div class="lbt__tree"><div class="lbt__search"><span class="i">🔍</span><span class="p">Найти..</span></div><div class="lbt__node" style="padding-left:4px"><span class="lbt__ex">▾</span><span class="lbt__nemo">📁</span><span class="lbt__nlbl">Производство</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▾</span><span class="lbt__nemo">🔧</span><span class="lbt__nlbl">Производство и&nbsp;цех</span></div><div class="lbt__node" style="padding-left:28px"><span class="lbt__ex"></span><span class="lbt__nemo">📋</span><span class="lbt__nlbl">Сменное задание</span></div><div class="lbt__node" style="padding-left:28px"><span class="lbt__ex"></span><span class="lbt__nemo">📋</span><span class="lbt__nlbl">Брак и&nbsp;простои</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▸</span><span class="lbt__nemo">📦</span><span class="lbt__nlbl">Снабжение и&nbsp;логистика</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▾</span><span class="lbt__nemo">📐</span><span class="lbt__nlbl">Технологи и&nbsp;инженеры</span></div><div class="lbt__node" style="padding-left:28px"><span class="lbt__ex"></span><span class="lbt__nemo">📋</span><span class="lbt__nlbl">Оснастка</span></div><div class="lbt__node" style="padding-left:28px"><span class="lbt__ex"></span><span class="lbt__nemo">📋</span><span class="lbt__nlbl">Чертежи и&nbsp;ТД</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex"></span><span class="lbt__nemo">✅</span><span class="lbt__nlbl">ОТК</span></div><div class="lbt__node active" style="padding-left:16px"><span class="lbt__ex">▸</span><span class="lbt__nemo">💼</span><span class="lbt__nlbl">Руководство</span><span class="lbt__nadd">+ ⋯</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex"></span><span class="lbt__nemo">📊</span><span class="lbt__nlbl">Бухгалтерия и&nbsp;финансы</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▸</span><span class="lbt__nemo">🧮</span><span class="lbt__nlbl">Проектный офис</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex"></span><span class="lbt__nemo">🛠️</span><span class="lbt__nlbl">Сервис и&nbsp;ремонт</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▾</span><span class="lbt__nemo">🧪</span><span class="lbt__nlbl">Лаборатория</span></div><div class="lbt__node" style="padding-left:28px"><span class="lbt__ex"></span><span class="lbt__nemo">📋</span><span class="lbt__nlbl">Испытания и&nbsp;замеры</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex"></span><span class="lbt__nemo">🚚</span><span class="lbt__nlbl">Транспортный цех</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex"></span><span class="lbt__nemo">🦺</span><span class="lbt__nlbl">Охрана труда</span></div><div class="lbt__node" style="padding-left:16px"><span class="lbt__ex">▸</span><span class="lbt__nemo">🗄️</span><span class="lbt__nlbl">Архив</span></div></div><div class="lbt__boards"><div class="lbt__bs"><div class="lbt__bshd"><b>Руководство</b><em>· Цех №1</em></div><div class="lbt__cols"><div class="lbt__col"><div class="lbt__colhd"><span class="t">Очередь</span><span class="lbt__colcnt">2</span></div><div class="lbt__card"><span class="lbt__lbl teal">Финансы</span><div class="lbt__ct">Утвердить бюджет на&nbsp;Q3</div><div class="lbt__cfoot"><span class="lbt__av">ГД</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>12 авг</span></div></div><div class="lbt__card"><span class="lbt__lbl violet">HR</span><div class="lbt__ct">План найма на&nbsp;полугодие</div><div class="lbt__cfoot"><span class="lbt__av">HR</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>12 авг</span></div></div></div><div class="lbt__cdiv"></div><div class="lbt__col"><div class="lbt__colhd"><span class="t">В&nbsp;работе</span><span class="lbt__colcnt">2</span></div><div class="lbt__card"><span class="lbt__lbl blue">Стратегия</span><div class="lbt__ct">Стратегия развития цеха</div><div class="lbt__cfoot"><span class="lbt__av">ГД</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>2/4</span></div></div><div class="lbt__card"><span class="lbt__lbl orange">Закупки</span><div class="lbt__ct">Ревизия поставщиков</div><div class="lbt__cfoot"><span class="lbt__av">ОС</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>1/3</span></div></div></div><div class="lbt__cdiv"></div><div class="lbt__col"><div class="lbt__colhd"><span class="t">Готово</span><span class="lbt__colcnt">2</span></div><div class="lbt__card"><span class="lbt__lbl blue">Отчёт</span><div class="lbt__ct">Отчёт по&nbsp;KPI за&nbsp;месяц</div><div class="lbt__cfoot"><span class="lbt__av">АН</span><span class="lbt__meta done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Готово</span></div></div><div class="lbt__card"><span class="lbt__lbl teal">Встреча</span><div class="lbt__ct">Совет директоров</div><div class="lbt__cfoot"><span class="lbt__av">ГД</span><span class="lbt__meta done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Готово</span></div></div></div></div></div><div class="lbt__bsep"></div><div class="lbt__bs"><div class="lbt__bshd"><b>Бухгалтерия и&nbsp;финансы</b><em>· Цех №1</em></div><div class="lbt__cols"><div class="lbt__col"><div class="lbt__colhd"><span class="t">Новые</span><span class="lbt__colcnt">2</span></div><div class="lbt__card"><span class="lbt__lbl teal">Счёт</span><div class="lbt__ct">Оплатить счёт поставщику</div><div class="lbt__cfoot"><span class="lbt__av">БУ</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>12 авг</span></div></div><div class="lbt__card"><span class="lbt__lbl violet">Сверка</span><div class="lbt__ct">Акт сверки с&nbsp;подрядчиком</div><div class="lbt__cfoot"><span class="lbt__av">БУ</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>12 авг</span></div></div></div><div class="lbt__cdiv"></div><div class="lbt__col"><div class="lbt__colhd"><span class="t">На&nbsp;согласовании</span><span class="lbt__colcnt">1</span></div><div class="lbt__card"><span class="lbt__lbl orange">Платёж</span><div class="lbt__ct">Согласовать платёжку №56</div><div class="lbt__cfoot"><span class="lbt__av">ФД</span><span class="lbt__meta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9 12 2 2 4-4"/></svg>1/2</span></div></div></div><div class="lbt__cdiv"></div><div class="lbt__col"><div class="lbt__colhd"><span class="t">Закрыто</span><span class="lbt__colcnt">1</span></div><div class="lbt__card"><span class="lbt__lbl blue">Отчётность</span><div class="lbt__ct">Закрытие месяца</div><div class="lbt__cfoot"><span class="lbt__av">ГБ</span><span class="lbt__meta done"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Готово</span></div></div></div></div></div></div></div></div><div class="lbt__glow"></div></div><div class="lbt__base"><span class="lbt__notch"></span></div></div></div></div></div></section>
+
+<!-- FEATURES -->
+<section class="s" id="features"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Всё, что&nbsp;нужно производственной команде</h2>
+  </div>
+  <div class="feat" style="margin-top:0">
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="kbsh"><div class="kbside" style="gap:5px;justify-content:center"><span class="hd"></span><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="pj"><i></i><b>Проект</b></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div></div><div class="kbmain"><div class="vtb"><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><line x1="6" y1="2.5" x2="6" y2="13.5"/></svg></span><span class="vi act"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="1.5" y="2" width="3.4" height="12" rx="1"/><rect x="6.3" y="2" width="3.4" height="8" rx="1"/><rect x="11.1" y="2" width="3.4" height="10" rx="1"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.5" y="2.5" width="13" height="11" rx="1.5"/><line x1="1.5" y1="6.2" x2="14.5" y2="6.2"/><line x1="1.5" y1="9.9" x2="14.5" y2="9.9"/><line x1="6" y1="2.5" x2="6" y2="13.5"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="2" rx="1"/><rect x="2" y="7" width="8.5" height="2" rx="1"/><rect x="2" y="11" width="5" height="2" rx="1"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.8" y="3" width="12.4" height="11" rx="2"/><line x1="1.8" y1="6.5" x2="14.2" y2="6.5"/><line x1="5" y1="1.6" x2="5" y2="4"/><line x1="11" y1="1.6" x2="11" y2="4"/></svg></span></div><div class="bttl">Делопроизводство</div><div class="kboard"><div class="kcol"><div class="kh">Очередь</div><span class="kk r" style="height:17px"></span><span class="kk g" style="height:24px"></span><span class="kk n" style="height:23px"></span></div><div class="kcol"><div class="kh">В&nbsp;работе</div><span class="kk o" style="height:24px"></span><span class="kk r" style="height:26px"></span><span class="kk g" style="height:24px"></span></div><div class="kcol"><div class="kh">Согласо…</div><span class="kk g" style="height:17px"></span><span class="kk o" style="height:24px"></span><span class="kk r" style="height:23px"></span></div><div class="kcol"><div class="kh">Готово</div><span class="kk r" style="height:17px"></span><span class="kk g" style="height:24px"></span><span class="kk fg" style="height:22px"></span></div></div></div></div></div></div></div><h3>Контроль этапов производства</h3><p>Каждый заказ проходит по&nbsp;понятному маршруту: от&nbsp;заявки и&nbsp;закупки до&nbsp;сборки, проверки и&nbsp;отгрузки.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="lz"><div class="lzhead"><span class="nm">Сотрудник</span><span class="wk">Неделя 1</span><span class="wk">Неделя 2</span></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--green)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:2%;width:30%;background:var(--green-12)"></span><span class="lzbar" style="left:40%;width:12%;background:var(--green-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--violet)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:22%;width:48%;background:var(--violet-12)"></span><span class="lzbar" style="left:78%;width:18%;background:var(--violet-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--orange)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:2%;width:24%;background:var(--orange-12)"></span><span class="lzbar" style="left:54%;width:9%;background:var(--orange-12)"></span><span class="lzbar" style="left:68%;width:14%;background:var(--orange-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--blue)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:24%;width:20%;background:var(--blue-12)"></span></div></div><div class="lzrow" style="border-bottom:0"><div class="lzwho"><span class="d" style="background:var(--red)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:10%;width:32%;background:var(--red-12)"></span><span class="lzbar" style="left:52%;width:18%;background:var(--red-12)"></span></div></div><div class="lzdiv"></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--green)"></span><span class="ln"></span></div><div class="lzcells"><span class="r"></span><span class="r"></span><span class="g"></span><span></span><span></span><span class="r"></span><span class="g"></span><span class="g"></span><span></span><span class="r"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--violet)"></span><span class="ln"></span></div><div class="lzcells"><span class="g"></span><span class="g"></span><span class="r"></span><span></span><span class="r"></span><span></span><span class="g"></span><span class="r"></span><span></span><span class="g"></span></div></div><div class="lzrow" style="border-bottom:0"><div class="lzwho"><span class="d" style="background:var(--orange)"></span><span class="ln"></span></div><div class="lzcells"><span class="r"></span><span class="g"></span><span class="r"></span><span class="g"></span><span></span><span></span><span class="r"></span><span class="g"></span><span class="g"></span><span></span></div></div></div></div></div></div><h3>Диаграмма Ганта и&nbsp;ресурсы</h3><p>Планируйте загрузку сотрудников, участков и&nbsp;производственных этапов на&nbsp;недели и&nbsp;месяцы вперед.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180" style="padding:0;display:flex"><div style="flex:1;min-width:0;padding:9px 11px;display:flex;flex-direction:column"><div class="val" style="margin-bottom:5px">Файлы</div><div class="row" style="border-bottom:1px solid var(--bd);padding-bottom:4px;margin-bottom:2px"><span class="lab" style="flex:0 0 34px">Превью</span><span class="lab" style="flex:1">Название</span><span class="lab" style="flex:0 0 52px">Дата/время</span></div><div style="display:flex;flex-direction:column;flex:1"><div class="row" style="gap:8px;padding:2px 0;border-bottom:1px solid #f3f3f4;flex:1"><span style="flex:0 0 34px;height:24px;border-radius:4px;background:#f5f5f5;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#bdbdbd" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2.5h6l4 4v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1z"/><path d="M10 2.5v4h4"/><path d="M6 11h6M6 13.5h5"/></svg></span><span style="flex:1;display:flex"><span style="height:5px;border-radius:2px;width:82%;background:#e6e6e6"></span></span><span style="flex:0 0 52px;display:flex;gap:5px"><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span></span></div><div class="row" style="gap:8px;padding:2px 0;border-bottom:1px solid #f3f3f4;flex:1"><span style="flex:0 0 34px;height:24px;border-radius:4px;background:#fff2e0;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#ffa100" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="3" width="13" height="12" rx="2"/><circle cx="6.4" cy="7" r="1.3"/><path d="M3 13l4-4 2.5 2.5 3-3 4 4"/></svg></span><span style="flex:1;display:flex"><span style="height:5px;border-radius:2px;width:70%;background:#e6e6e6"></span></span><span style="flex:0 0 52px;display:flex;gap:5px"><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span></span></div><div class="row" style="gap:8px;padding:2px 0;border-bottom:1px solid #f3f3f4;flex:1"><span style="flex:0 0 34px;height:24px;border-radius:4px;background:#e9f5ea;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#4caf51" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="10" height="8" rx="2"/><path d="M12 8l4-2.5v7L12 10z"/></svg></span><span style="flex:1;display:flex"><span style="height:5px;border-radius:2px;width:82%;background:#e6e6e6"></span></span><span style="flex:0 0 52px;display:flex;gap:5px"><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span></span></div><div class="row" style="gap:8px;padding:2px 0;flex:1"><span style="flex:0 0 34px;height:24px;border-radius:4px;background:#efe9f9;display:flex;align-items:center;justify-content:center"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" stroke="#7d4ccf" stroke-width="1.6" stroke-linejoin="round"><rect x="2.5" y="2.5" width="5.5" height="5.5" rx="1.2"/><rect x="10" y="2.5" width="5.5" height="5.5" rx="1.2"/><rect x="2.5" y="10" width="5.5" height="5.5" rx="1.2"/><rect x="10" y="10" width="5.5" height="5.5" rx="1.2"/></svg></span><span style="flex:1;display:flex"><span style="height:5px;border-radius:2px;width:70%;background:#e6e6e6"></span></span><span style="flex:0 0 52px;display:flex;gap:5px"><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span><span style="flex:1;height:5px;border-radius:2px;background:#e6e6e6"></span></span></div></div></div></div></div></div><h3>Документы внутри задач</h3><p>Спецификации, чертежи, техкарты и&nbsp;инструкции всегда под&nbsp;рукой — прямо в&nbsp;карточке заказа.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="row" style="gap:6px;margin-bottom:8px"><span class="av" style="width:16px;height:16px;border-radius:5px;background:transparent;flex:none"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="aiBgA" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.23858 4.73858 4 7.5 4H19.8333C20.9152 4 21.9679 4.35089 22.8333 5L23.9 5.8C24.9072 6.55542 25.5 7.74097 25.5 9V19C25.5 20.259 24.9072 21.4446 23.9 22.2L22.8333 23C21.9679 23.6491 20.9152 24 19.8333 24H7.5C4.73858 24 2.5 21.7614 2.5 19V9Z" fill="url(#aiBgA)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="val">Автоматизация</span></div><div class="tabs"><span class="a">СОБЫТИЯ</span><span>СРОКИ</span><span>КНОПКИ</span><span>ЧЕК-ЛИСТЫ</span></div><div style="display:flex;gap:8px"><div style="flex:0 0 92px;min-width:0"><div class="lab" style="margin-bottom:4px">Когда</div><div class="field row" style="margin-bottom:7px"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Карточка перемещена</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div><div class="lab" style="margin-bottom:4px">Условие</div><div class="field row"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Метка карточки</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div></div><div style="flex:1"><div class="lab" style="margin-bottom:4px">Выполнить</div><div class="field row" style="margin-bottom:7px"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Назначить ответ…</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div><div class="row" style="gap:5px;margin-bottom:4px"><span class="rb"></span><span class="lab">Автор события</span></div><div class="row" style="gap:5px;margin-bottom:4px"><span class="rb on"></span><span class="val" style="font-size:8px">Заказчик карточки</span></div><div class="row" style="gap:5px"><span class="rb"></span><span class="lab">Случайный польз…</span></div></div></div></div></div></div><h3>Автоматизации процессов</h3><p>Назначение ответственных, уведомления, повторяющиеся задачи и&nbsp;контроль сроков работают автоматически.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="ttl">Скорость команды по&nbsp;спринтам</div><svg viewBox="0 0 256 96" style="width:100%;height:104px"><line x1="6" y1="86" x2="250" y2="86" stroke="#e6e6e6"/><g><rect x="14" y="60" width="9" height="26" fill="var(--blue)"/><rect x="24" y="66" width="9" height="20" fill="#2d2d2d"/><rect x="54" y="40" width="9" height="46" fill="var(--blue)"/><rect x="64" y="48" width="9" height="38" fill="#2d2d2d"/><rect x="94" y="52" width="9" height="34" fill="var(--blue)"/><rect x="104" y="58" width="9" height="28" fill="#2d2d2d"/><rect x="134" y="22" width="9" height="64" fill="var(--blue)"/><rect x="144" y="34" width="9" height="52" fill="#2d2d2d"/><rect x="174" y="50" width="9" height="36" fill="var(--blue)"/><rect x="184" y="44" width="9" height="42" fill="#2d2d2d"/><rect x="214" y="62" width="9" height="24" fill="var(--blue)"/><rect x="224" y="56" width="9" height="30" fill="#2d2d2d"/></g></svg><div class="row" style="gap:12px;margin-top:4px"><span class="row" style="gap:4px"><i style="width:7px;height:7px;border-radius:2px;background:var(--blue)"></i><span class="lab">Взято в&nbsp;спринт</span></span><span class="row" style="gap:4px"><i style="width:7px;height:7px;border-radius:2px;background:#2d2d2d"></i><span class="lab">Выполнено</span></span></div></div></div></div><h3>Автоматические отчеты</h3><p>Отслеживайте просрочки, узкие места, загрузку команды и&nbsp;скорость выполнения заказов без&nbsp;Excel.</p></div>
+    <div class="fcard"><div class="fcard__illu gmc-illu"><div class="fm"><div class="card gmc-card"><div class="gmk"><div class="gmk__hd"><svg viewBox="0 0 104 104" fill="none"><g clip-path="url(#gmkMark)"><path d="M76.8113 0H27.1887C12.1728 0 0 12.1661 0 27.1738V76.8262C0 91.8339 12.1728 104 27.1887 104H76.8113C91.8272 104 104 91.8339 104 76.8262V27.1738C104 12.1661 91.8272 0 76.8113 0Z" fill="#F11F24"/><path d="M41.4148 11.3364L11.3364 41.4148C5.55453 47.1967 5.55453 56.571 11.3364 62.3529L41.4148 92.4313C47.1967 98.2132 56.571 98.2132 62.3529 92.4313L92.4313 62.3529C98.2132 56.571 98.2132 47.1967 92.4313 41.4148L62.3529 11.3364C56.571 5.55453 47.1967 5.55453 41.4148 11.3364Z" fill="#78FFC7"/><path d="M51.715 77.4267C65.917 77.4267 77.43 65.9144 77.43 51.7133C77.43 37.5123 65.917 26 51.715 26C37.513 26 26 37.5123 26 51.7133C26 65.9144 37.513 77.4267 51.715 77.4267Z" fill="#7D4CCF"/></g><defs><clipPath id="gmkMark"><rect width="104" height="104" rx="52" fill="white"/></clipPath></defs></svg><span class="gmk__logo">Kaiten</span><span class="gmk__hdbtns"><i></i><i></i><i></i></span></div><div class="gmk__board"><div class="gmk__lane"><div class="gmk__lanehd"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><span>Цели</span></div><div class="gmk__cols"><div class="gmk__col"><div class="gmk__colhd"><span class="t">Очередь</span><span class="gmk__cnt">1</span></div><div class="gmk__card"><div class="gmk__box"></div><span class="gmk__bar" style="background:#7d4ccf"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:80%"></i><i style="width:66%"></i></div></div></div><div class="gmk__col"><div class="gmk__colhd"><span class="t">В&nbsp;работе</span><span class="gmk__cnt">1</span></div><div class="gmk__card"><div class="gmk__box"></div><span class="gmk__bar" style="background:#e0a400"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:80%"></i><i style="width:66%"></i></div></div></div></div></div><div class="gmk__lane"><div class="gmk__lanehd"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="9" cy="6" r="1"/><circle cx="9" cy="12" r="1"/><circle cx="9" cy="18" r="1"/><circle cx="15" cy="6" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="18" r="1"/></svg><span>Текущие задачи</span></div><div class="gmk__cols"><div class="gmk__col"><div class="gmk__colhd"><span class="t">Очередь</span><span class="gmk__cnt">2</span></div><div class="gmk__card"><div class="gmk__blk"><em>✋</em><i></i></div><span class="gmk__bar" style="background:#4caf51"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:75%"></i></div></div><div class="gmk__card"><span class="gmk__bar" style="background:#7d4ccf"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:80%"></i><i style="width:66%"></i></div></div></div><div class="gmk__col"><div class="gmk__colhd"><span class="t">В&nbsp;работе</span><span class="gmk__cnt">2</span></div><div class="gmk__card"><span class="gmk__bar" style="background:#e0a400"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:80%"></i><i style="width:66%"></i></div></div><div class="gmk__card"><span class="gmk__bar" style="background:#4caf51"></span><div class="gmk__lines"><i style="width:100%"></i><i style="width:80%"></i><i style="width:66%"></i></div></div></div></div></div></div><div class="gmk__glow"></div></div></div></div></div><h3>Мобильное приложение</h3><p>Мастера, кладовщики и&nbsp;сотрудники производства обновляют статусы и&nbsp;работают с&nbsp;задачами прямо с&nbsp;телефона.</p></div>
+  </div>
+</div></section>
+
+<!-- START IN ONE DAY -->
+<section class="s s--alt" id="start"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Начните работу в&nbsp;Кайтен за&nbsp;один день</h2>
+    <p class="sh__desc">Не&nbsp;нужен ИТ-отдел и&nbsp;долгая настройка. Есть готовые шаблоны под&nbsp;производственные процессы.</p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4><a class="step-link" href="https://kaiten.ru/teams/kaiten-for-factory">Зарегистрируйтесь</a> в&nbsp;Кайтен</h4><p>Заполните короткую форму и&nbsp;получите бесплатный доступ — без&nbsp;оплаты и&nbsp;привязки карты.</p></div>
+    <div class="step"><div class="num">2</div><h4>Скопируйте готовый шаблон</h4><p>Пространство руководителя проекта, ОТК, согласование документов — остается подстроить под&nbsp;свой процесс.</p></div>
+    <div class="step"><div class="num">3</div><h4>Добавьте сотрудников</h4><p>Пригласите мастеров, технологов, снабженцев. Каждый управляет только своими задачами.</p></div>
+    <div class="step"><div class="num">4</div><h4>Начните контролировать процессы в&nbsp;одном окне</h4><p>С&nbsp;первого дня видите статус каждого заказа, загрузку отделов и&nbsp;задачи со&nbsp;сроками.</p></div>
+  </div>
+</div></section>
+
+<!-- TEMPLATES -->
+<section class="s" id="templates"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Готовые шаблоны</h2>
+  </div>
+  <div class="tpl" style="margin-top:0">
+    <a class="tplc" href="https://elli.kaiten.ru/p/732ed0a8-b3b6-4466-bcd2-522138568248">
+      <span class="tplc__media"><img src="assets/templates/ruk.png" alt="" onerror="this.remove()"></span>
+      <span class="tplc__title">Пространство руководителя проекта</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tplc" href="https://elli.kaiten.ru/p/8d67f1ed-068d-4343-a5f0-cccd57f33240">
+      <span class="tplc__media"><img src="assets/templates/otk.png" alt="" onerror="this.remove()"></span>
+      <span class="tplc__title">ОТК</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tplc" href="https://demo-ru.kaiten.ru/p/7a9554e4-3438-489a-9f78-8ccdacf284f7/space/353321/boards">
+      <span class="tplc__media"><img src="assets/templates/soglasovanie.png" alt="" onerror="this.remove()"></span>
+      <span class="tplc__title">Согласование документов</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tplc" href="https://elli.kaiten.ru/p/51761c66-bc6a-48fb-85a5-13f920dc9d1f">
+      <span class="tplc__media"><img src="assets/templates/planerka.png" alt="" onerror="this.remove()"></span>
+      <span class="tplc__title">Шаблон планерки</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="s" id="cta"><div class="container">
+  <div class="fcta">
+    <div class="fcta__blur" aria-hidden="true"></div>
+    <div class="fcta__in">
+      <div class="fcta__copy">
+        <h2>Попробуйте Кайтен и&nbsp;управляйте производством без&nbsp;хаоса, потерянных задач и&nbsp;ручного контроля</h2>
+        <p>Соберите процессы, сотрудников и&nbsp;документацию в&nbsp;одном рабочем пространстве.</p>
+        <div class="fcta__cta">
+          <a class="btn btn--lg btn--fill" href="https://kaiten.ru/teams/kaiten-for-factory">Попробовать Кайтен бесплатно</a>
+          <a class="btn btn--lg btn--outline" href="#cta">Запросить демонстрацию</a>
+        </div>
+      </div>
+      <div class="fcta__visual">
+        <div class="ctamain" aria-hidden="true">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <symbol id="ava" viewBox="0 0 40 40"><clipPath id="avaClip"><circle cx="20" cy="20" r="20"/></clipPath><g clip-path="url(#avaClip)"><rect width="40" height="40" fill="#9fb277"/><ellipse cx="20" cy="41" rx="15" ry="11" fill="#c9a7d6"/><path d="M9 19c0-7 4.5-12 11-12s11 5 11 12c0 3-.5 6-1.5 8.5-1-6-4-8.5-9.5-8.5s-8.5 2.5-9.5 8.5C9.5 25 9 22 9 19z" fill="#e3b96f"/><ellipse cx="20" cy="21" rx="8" ry="9" fill="#f2caa4"/><path d="M11.5 16c1.5-5 5-7.5 8.5-7.5s7 2.5 8.5 7.5c-2.5-3.5-5.3-5-8.5-5s-6 1.5-8.5 5z" fill="#e3b96f"/><g fill="#ffffff" fill-opacity="0.3" stroke="#3c3733" stroke-width="1.2"><rect x="12.4" y="18.2" width="6" height="5" rx="2.2"/><rect x="21.6" y="18.2" width="6" height="5" rx="2.2"/></g><path d="M18.4 20.6h3.2" stroke="#3c3733" stroke-width="1.2"/><path d="M17 26q3 2 6 0" stroke="#c07f64" stroke-width="1.2" fill="none" stroke-linecap="round"/></g></symbol>
+            <symbol id="avaicon" viewBox="0 0 26 26"><path d="M13 0C20.176 0 26 5.824 26 13C26 20.176 20.176 26 13 26C5.824 26 0 20.176 0 13C0 5.824 5.824 0 13 0ZM13 2.6C7.267 2.6 2.6 7.267 2.6 13C2.6 15.3659 3.40561 17.5371 4.73154 19.2791C6.59054 17.0171 11.102 16.25 13 16.25C14.898 16.25 19.4095 17.0171 21.2685 19.2791C22.5944 17.5371 23.4 15.3659 23.4 13C23.4 7.267 18.733 2.6 13 2.6ZM13 5.2C15.522 5.2 17.55 7.228 17.55 9.75C17.55 12.272 15.522 14.3 13 14.3C10.478 14.3 8.45 12.272 8.45 9.75C8.45 7.228 10.478 5.2 13 5.2Z" fill="#b4a2e0"/></symbol>
+            <symbol id="usr" viewBox="0 0 26 26"><path d="M13 0C20.176 0 26 5.824 26 13C26 20.176 20.176 26 13 26C5.824 26 0 20.176 0 13C0 5.824 5.824 0 13 0ZM13 2.6C7.267 2.6 2.6 7.267 2.6 13C2.6 15.3659 3.40561 17.5371 4.73154 19.2791C6.59054 17.0171 11.102 16.25 13 16.25C14.898 16.25 19.4095 17.0171 21.2685 19.2791C22.5944 17.5371 23.4 15.3659 23.4 13C23.4 7.267 18.733 2.6 13 2.6ZM13 5.2C15.522 5.2 17.55 7.228 17.55 9.75C17.55 12.272 15.522 14.3 13 14.3C10.478 14.3 8.45 12.272 8.45 9.75C8.45 7.228 10.478 5.2 13 5.2Z" fill="#bdbdbd"/></symbol>
+          </svg>
+          <div class="frame">
+            <div class="window">
+              <div class="sidebar">
+                <div class="brand">
+                  <svg width="26" height="26" viewBox="0 0 104 104" fill="none" aria-hidden="true"><g clip-path="url(#clip0_8356_19837)"><path d="M76.8113 0H27.1887C12.1728 0 0 12.1661 0 27.1738V76.8262C0 91.8339 12.1728 104 27.1887 104H76.8113C91.8272 104 104 91.8339 104 76.8262V27.1738C104 12.1661 91.8272 0 76.8113 0Z" fill="#F11F24"/><path d="M41.4148 11.3364L11.3364 41.4148C5.55453 47.1967 5.55453 56.571 11.3364 62.3529L41.4148 92.4313C47.1967 98.2132 56.571 98.2132 62.3529 92.4313L92.4313 62.3529C98.2132 56.571 98.2132 47.1967 92.4313 41.4148L62.3529 11.3364C56.571 5.55453 47.1967 5.55453 41.4148 11.3364Z" fill="#78FFC7"/><path d="M51.715 77.4267C65.917 77.4267 77.43 65.9144 77.43 51.7133C77.43 37.5123 65.917 26 51.715 26C37.513 26 26 37.5123 26 51.7133C26 65.9144 37.513 77.4267 51.715 77.4267Z" fill="#7D4CCF"/></g><defs><clipPath id="clip0_8356_19837"><rect width="104" height="104" rx="52" fill="white"/></clipPath></defs></svg>
+                  <span class="brand-name">Kaiten</span>
+                </div>
+                <div class="search-row">
+                  <div class="search"><svg class="ico t-sec" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+                  <div class="plus"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9e9e9e" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                </div>
+                <div class="nav">
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M2 6a2 2 0 0 1 2-2h4l2 2.2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="#9e9e9e"/></svg><div class="navbar" style="width:64%"></div></div>
+                  <div class="nav-item"><span style="width:14px"></span><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.1 1.1 5.9L12 16.7 6.7 19.5l1.1-5.9L3.4 9.5l6-.8z" fill="#9e9e9e"/></svg><div class="navbar" style="width:38%"></div></div>
+                  <div class="nav-item active"><span style="width:14px"></span><svg class="ico t-acc" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/></svg><div class="navbar active" style="width:55%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M2 6a2 2 0 0 1 2-2h4l2 2.2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="#9e9e9e"/></svg><div class="navbar" style="width:34%"></div></div>
+                  <div class="nav-item sub"><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/></svg><div class="navbar" style="width:46%"></div></div>
+                  <div class="nav-item sub"><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/></svg><div class="navbar" style="width:33%"></div></div>
+                  <div style="height:6px"></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:55%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:45%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:52%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:48%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:50%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:50%"></div></div>
+                </div>
+              </div>
+              <div class="main">
+                <div class="toolbar">
+                  <span class="tool-pill"><svg class="ico t-acc" width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/></svg><div style="height:8px;width:56px;border-radius:9999px;background:var(--color-action-primary)"></div></span>
+                  <div class="tool-right"><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span></div>
+                </div>
+                <div class="board">
+                  <div>
+                    <div class="lane-head"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>Цели</div>
+                    <div class="cols">
+                      <div><div class="colhead"><span class="name">Очередь</span><span class="count">1</span></div><div class="card cover-card col"><div class="card-cover gray-c"></div><div class="card-body"><div class="accent a-violet"></div><div class="cbar" style="width:80%"></div><div class="cbar mt6" style="width:60%"></div></div></div></div>
+                      <div><div class="spacer-head"></div><div class="card cover-card col"><div class="card-cover violet-c"></div><div class="card-body"><div class="accent a-orange"></div><div class="cbar" style="width:72%"></div><div class="cbar mt6" style="width:50%"></div></div></div></div>
+                      <div><div class="colhead"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-100)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="name">Готово</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-yellow"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:84%"></div><div class="blue-bar mt6" style="width:100%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                    </div>
+                  </div>
+                  <div class="lane-divider"></div>
+                  <div>
+                    <div class="lane-head"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>Текущие задачи</div>
+                    <div class="cols">
+                      <div class="col"><div class="colhead"><span class="name">Очередь</span><span class="count">1</span></div><div class="card col h155"><div class="red-head"><span style="font-size:16px;line-height:1">✋</span><div class="red-bar"></div></div><div class="accent a-green" style="width:40px"></div><div class="cbar" style="width:72%"></div><div class="cbar mt6" style="width:50%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                      <div class="col"><div class="colhead"><span class="name">В&nbsp;работе</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-orange"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:66%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                      <div class="col"><div class="colhead"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-100)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="name">Готово</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-orange"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:74%"></div><div class="between"><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span><span class="pill-fire"><span style="font-size:12px;line-height:1">🔥</span><span class="red-bar"></span></span></div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rail">
+                <svg class="ava"><use href="#avaicon"/></svg>
+                <span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span>
+              </div>
+            </div>
+            <div class="floating">
+              <div class="accent a-violet"></div>
+              <div class="title">Новая задача: Изготовление<br>партии корпусов</div>
+              <div class="fl-tags">
+                <span class="tag tag-peach">ООО Альфа</span>
+                <span class="tag tag-violet">Производство</span>
+                <span class="tag tag-blue">ОТК</span>
+              </div>
+              <div class="fl-footer">
+                <span class="fl-meta"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>3</span>
+                <span class="fl-meta"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>1</span>
+              </div>
+              <div class="fl-assignee">
+                <svg class="ava" style="height:40px;width:40px"><use href="#avaicon"/></svg>
+                <div><div class="fl-name">Алексей Смирнов</div></div>
+                <span class="badge-urgent" style="margin-left:auto">🔥 Срочно</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="s faq-section" id="faq" aria-label="Часто задаваемые вопросы"><div class="container">
+  <div class="faq-section__container">
+    <h2 class="faq-section__title">Нас часто спрашивают</h2>
+    <ul class="faq-list">
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg" open>
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Можно&nbsp;ли пользоваться Кайтен бесплатно?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. Есть бесплатный тариф до&nbsp;5 пользователей без&nbsp;ограничений на&nbsp;задачи и&nbsp;документы. При&nbsp;регистрации — 14 дней полного доступа ко всем функциям, без&nbsp;привязки карты. <a href="https://kaiten.ru/tariffs">Все тарифы Кайтен →</a></p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Есть&nbsp;ли мобильное приложение?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. <a href="https://kaiten.ru/features/mobile/">Приложения для&nbsp;iOS и&nbsp;Android</a> с&nbsp;полным набором функций: обновление статусов, комментарии, просмотр документации и&nbsp;задач. Всё работает без&nbsp;ноутбука.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Как&nbsp;хранить и&nbsp;прикреплять проектную документацию?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md"><a href="https://kaiten.ru/features/documents/">Документы</a> хранятся прямо в&nbsp;Кайтен — в&nbsp;виде страниц базы знаний или&nbsp;вложений в&nbsp;карточки задач. Чертёж, акт или&nbsp;ТЗ всегда в&nbsp;контексте нужной задачи — не&nbsp;нужно искать по&nbsp;папкам и&nbsp;почте.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Есть&nbsp;ли диаграмма Ганта для&nbsp;долгосрочных проектов?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. В&nbsp;Кайтен встроен <a href="https://kaiten.ru/features/gant/">модуль ГАНТ с&nbsp;ресурсным планированием</a>: этапы, зависимости, загрузка специалистов. Редактируйте сроки и&nbsp;исполнителей прямо на&nbsp;таймлайне — карточки обновляются автоматически.</p>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- FOOTER (из&nbsp;kaiten-zavod_4.html) -->
+<footer class="footer" aria-label="Подвал сайта">
+  <div class="footer__container">
+    <div class="footer__top">
+      <div class="footer__cols">
+        <div><div class="footer__col-title">Компания</div>
+          <nav class="footer__links" aria-label="Компания"><a href="#pricing">Тарифы</a><a href="#cta">Контакты</a><a href="#">Сертификаты</a><a href="#">Скачать презентацию</a></nav></div>
+        <div><div class="footer__col-title">Ресурсы</div>
+          <nav class="footer__links" aria-label="Ресурсы"><a href="#">База знаний</a><a href="#cases">Кейсы</a><a href="#">Блог</a><a href="#">API</a><a href="#">Комьюнити</a></nav></div>
+        <div><div class="footer__col-title">Возможности</div>
+          <nav class="footer__links" aria-label="Возможности"><a href="#">Партнёрская программа</a><a href="#on-premise">On-premise</a><a href="#how">Внедрение</a><a href="#">Кайтен AI</a></nav></div>
+      </div>
+      <div class="footer__subscribe">
+        <div class="footer__subscribe-title">Подписаться на&nbsp;рассылку</div>
+        <div class="footer__subscribe-desc">Кейсы пользователей, статьи и&nbsp;обновления.</div>
+        <input class="footer__input" type="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail">
+        <button class="btn btn--md btn--fill btn--full" type="button">Подписаться</button>
+      </div>
+    </div>
+    <div class="footer__compare">
+      <div class="footer__col-title">Сравнили Кайтен с&nbsp;другими сервисами</div>
+      <div class="footer__compare-tags"><span>Trello</span><span>Jira</span><span>Asana</span><span>Weeek</span><span>Wrike</span><span>ClickUp</span><span>MS Project</span><span>Notion</span><span>Confluence</span><span>GanttPRO</span><span>Redmine</span><span>Youtrack</span></div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__status-row">
+      <div class="footer__status-left">
+        <div class="footer__section-title">Официальный статус российского ИТ-разработчика</div>
+        <div class="footer__section-text">Кайтен внесён в&nbsp;реестр отечественного ПО&nbsp;<strong>№14347</strong>, компания аккредитована как&nbsp;ИТ-организация.</div>
+      </div>
+      <div class="footer__status-right">
+        <div class="footer__section-title">ООО «Кайтен Софтвер»</div>
+        <div class="footer__legal-cols">
+          <div><span class="footer__legal-label">ИНН</span><span class="footer__legal-value">7714426252</span></div>
+          <div><span class="footer__legal-label">КПП</span><span class="footer__legal-value">771401001</span></div>
+          <div style="flex:1 1 240px"><span class="footer__legal-label">Юридический адрес</span><span class="footer__legal-value">125252, г. Москва, проезд Берёзовой рощи, д. 12, этаж 2, комната 55</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__bottom">
+      <div style="display:flex;align-items:center;gap:var(--sp-8);flex-wrap:wrap">
+        <a href="/" aria-label="Kaiten — на&nbsp;главную">
+          <span class="logo-img" data-logo="white"></span></a>
+        <div class="footer__contacts">
+          <a class="footer__contact" href="tel:+74994906499">+7 (499) 490-64-99</a>
+          <a class="footer__contact" href="mailto:sales@kaiten.ru">sales@kaiten.ru</a>
+        </div>
+      </div>
+      <div class="footer__legal-links">
+        <a href="#">Политика конфиденциальности</a><a href="#">Лицензионный договор</a><a href="#">Пользовательское соглашение</a><a href="#">Техническая поддержка</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
