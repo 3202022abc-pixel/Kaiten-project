@@ -1,0 +1,752 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Кайтен для юристов — поручения, сроки, документы и загрузка отдела в одной системе. Дела не теряются, сроки под контролем. Российское ПО, реестр отечественного ПО.">
+<title>Кайтен для&nbsp;юристов — система управления юридическими делами</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar navbar--desktop" aria-label="Основная навигация">
+  <div class="navbar__container"><div class="navbar__content">
+    <div class="navbar__menu-with-logo">
+      <div class="navbar__logo"><a href="/" aria-label="Kaiten — на главную"><span class="logo-img" data-logo="dark"></span></a></div>
+      <div class="navbar__nav">
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Продукт</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text navbar__link-text--active">Решения</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Услуги</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru/on-premise"><span class="navbar__link-text">On-premise</span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">AI</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/tariffs"><span class="navbar__link-text">Тарифы</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/blog"><span class="navbar__link-text">Кейсы</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/blog"><span class="navbar__link-text">Блог</span></a>
+      </div>
+    </div>
+    <div class="navbar__actions"><div class="navbar__action-group">
+      <a class="navbar__phone" href="tel:+78005005843" aria-label="Позвонить нам"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a class="btn btn--md btn--fill" href="https://kaiten.ru">Войти</a>
+      <a class="btn btn--md btn--outline" href="https://kaiten.ru">Регистрация</a>
+    </div></div>
+  </div></div>
+</nav>
+<nav class="navbar navbar--mobile" aria-label="Мобильная навигация">
+  <div class="navbar__container navbar__container--mobile"><div class="navbar__content" style="justify-content:space-between">
+    <a href="/" aria-label="Kaiten — на главную"><span class="logo-img logo-img--mobile" data-logo="dark"></span></a>
+    <button class="navbar__burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <a href="https://kaiten.ru">Продукт</a><a href="https://kaiten.ru">Решения</a><a href="https://kaiten.ru">Услуги</a><a href="https://kaiten.ru/on-premise">On-premise</a><a href="https://kaiten.ru">AI</a><a href="https://kaiten.ru/tariffs">Тарифы</a><a href="https://kaiten.ru/blog">Кейсы</a><a href="https://kaiten.ru/blog">Блог</a>
+  <a class="btn btn--md btn--fill btn--full" href="https://kaiten.ru">Войти</a>
+  <a class="btn btn--md btn--outline btn--full" href="https://kaiten.ru">Регистрация</a>
+</div>
+
+<!-- ===== Доп. стили лендинга «Кайтен для юристов» (поверх DS content_zavod) ===== -->
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div class="sh-badge"><span class="sh-badge__text">Кайтен для&nbsp;юристов</span></div>
+      <h1>Управляйте юридическими<br>делами в&nbsp;Кайтен</h1>
+      <p class="hero__sub">Поручения, сроки, документы и&nbsp;загрузка отдела — в&nbsp;одной системе. Дела не&nbsp;теряются, а&nbsp;сроки всегда под&nbsp;контролем.</p>
+      <div class="hero__cta">
+        <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+        <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="mpa" aria-hidden="true"><div class="mod">
+        <div class="hdr">
+          <span class="grip"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="nm">Поручения и&nbsp;дела</span>
+          <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+        </div>
+        <div class="colhdr">
+          <div class="c"><span class="t">Очередь</span><span class="cnt">3</span></div>
+          <div class="c"><span class="t">Новое поручение</span><span class="cnt">4</span></div>
+          <div class="c"><span class="t">В работе</span><span class="cnt">3</span></div>
+          <div class="c"><span class="t">На согласовании</span><span class="cnt">2</span></div>
+          <div class="c"><span class="chk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t">Исполнено</span><span class="cnt">5</span></div>
+        </div>
+        <div class="lane">
+          <span class="lnm">Судебные дела</span><span class="cnt2">5</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+        </div>
+        <div class="lanebody">
+          <div class="col">
+            <div class="card">
+              <div class="ct">Подготовка позиции по делу №А40-12345/2025</div>
+              <div class="tags"><span class="tag t-jud">Судебное дело</span></div>
+              <div class="row"><span class="sub"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Этапы подготовки 2/5</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span><span class="av" style="background:#8a9bc9"></span><span class="plus">+1</span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>10 нояб</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Ответ на претензию ООО «Маркет Плюс»</div>
+              <div class="tags"><span class="tag t-jud">Судебное дело</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#c9b78a"></span></span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Сбор документов для апелляции</div>
+              <div class="tags"><span class="tag t-jud">Судебное дело</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#8ac9a0"></span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>14 нояб</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Согласование позиции с клиентом</div>
+              <div class="tags"><span class="tag t-jud">Судебное дело</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#b88ac9"></span></span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Дело №А41-9981 о&nbsp;взыскании задолженности</div>
+              <div class="tags"><span class="tag t-ok">Удовлетворено частично</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="lane lane--foot">
+          <span class="lnm">Договоры</span><span class="cnt2">4</span>
+          <span class="chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+        </div>
+        <div class="lanebody">
+          <div class="col"></div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Договор поставки с&nbsp;ООО «Вектор»</div>
+              <div class="tags"><span class="tag t-prod">Договор</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#8a9bc9"></span><span class="av" style="background:#c9b78a"></span></span><span class="due"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>8 нояб</span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Согласование договора аренды офиса</div>
+              <div class="tags"><span class="tag t-prod">Договор</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#8ac9a0"></span></span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Договор аренды офиса — ООО «АН Сервис»</div>
+              <div class="tags"><span class="tag t-prod">Договор</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#b88ac9"></span></span></div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card">
+              <div class="ct">Договор аренды — ИП Кузнецов А.В.</div>
+              <div class="tags"><span class="tag t-prod">Договор</span><span class="tag t-blue">Подписан</span></div>
+              <div class="foot"><span class="avs"><span class="av" style="background:#d9a3a3"></span></span></div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BENEFITS: Данные клиентов и дел — под защитой -->
+<section class="bnf-sec"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Данные клиентов и&nbsp;дел — под&nbsp;защитой</h2>
+  </div>
+  <div class="bnf">
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5-2 8-5 8-10V6l-8-3-8 3v6c0 5 3 8 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+      <div class="bnf__t">Российское ПО</div>
+      <div class="bnf__d">Включён в&nbsp;реестр отечественного ПО №14347. Компания аккредитована как&nbsp;ИТ-организация</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="8" rx="2"/><rect x="2" y="13" width="20" height="8" rx="2"/><path d="M6 7h.01M6 17h.01"/></svg></span>
+      <div class="bnf__t">Установка на&nbsp;серверах компании</div>
+      <div class="bnf__d">Для&nbsp;организаций с&nbsp;требованиями к&nbsp;хранению данных доступна локальная версия</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+      <div class="bnf__t">Разграничение доступа</div>
+      <div class="bnf__d">Ассистент, внешний консультант, клиент, коллеги — каждый видит только то, что&nbsp;ему нужно</div>
+    </div>
+    <div class="bnf__item">
+      <span class="bnf__ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1h6c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg></span>
+      <div class="bnf__t">Легко освоить</div>
+      <div class="bnf__d">Настройка пространств и&nbsp;процессов не&nbsp;требует ИТ-отдела, интерфейс интуитивно понятен</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- В ОДНОЙ СИСТЕМЕ -->
+<section class="s s--alt" id="control"><div class="container">
+  <div class="acc-wrap">
+    <div class="acc-intro">
+        <h2 class="acc-h">Поручения от&nbsp;коллег, текущие дела, судебные проекты — в&nbsp;одной системе</h2>
+      </div>
+    <div class="acc">
+      <div class="acc-item open">
+        <button class="acc-head" type="button"><span class="acc-title">Статус каждого дела виден с&nbsp;первого взгляда</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Открыли доску — сразу видно, кто чем занят, на&nbsp;каком этапе каждое дело и&nbsp;где что&nbsp;тормозит. Не&nbsp;нужно спрашивать команду — всё на&nbsp;одном экране.</p><img class="acc-bmedia" src="assets/control/slide1.png" alt="Статус каждого дела виден с первого взгляда" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Поручения от&nbsp;коллег не&nbsp;теряются в&nbsp;почте</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Бухгалтерия, отдел персонала (HR), коммерческий блок отправляют запросы через&nbsp;форму или&nbsp;мессенджер. Все обращения падают на&nbsp;одну доску — юристы видят очередь, ничего не&nbsp;тонет в&nbsp;переписках.</p><img class="acc-bmedia" src="assets/control/slide2.png" alt="Поручения от коллег не теряются в почте" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Дела разбиты по&nbsp;направлениям</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Судебные дела, договорная работа, претензии, корпоративные вопросы — каждое направление на&nbsp;своей дорожке или&nbsp;доске. Карточка с&nbsp;делом движется по&nbsp;этапам: от&nbsp;поступления до&nbsp;исполнения.</p><img class="acc-bmedia" src="assets/control/slide3.png" alt="Дела разбиты по направлениям" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Регулярные задачи создаются автоматически</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Еженедельный статус-отчёт, ежемесячный мониторинг договоров на&nbsp;пролонгацию, регулярный созвон с&nbsp;клиентом — настройте один раз. Кайтен будет создавать карточки по&nbsp;расписанию.</p><img class="acc-bmedia" src="assets/control/slide4.png" alt="Регулярные задачи создаются автоматически" loading="lazy"></div>
+      </div>
+      <div class="lwr-cta" style="justify-content:flex-start;margin-top:var(--sp-8)">
+        <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+        <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+      </div>
+    </div>
+    <div class="acc-media">
+      <div class="acc-panel on"><img src="assets/control/slide1.png" alt="Статус каждого дела виден с первого взгляда" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/control/slide2.png" alt="Поручения от коллег не теряются в почте" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/control/slide3.png" alt="Дела разбиты по направлениям" loading="lazy"></div>
+      <div class="acc-panel"><img src="assets/control/slide4.png" alt="Регулярные задачи создаются автоматически" loading="lazy"></div>
+    </div>
+  </div>
+  
+</div></section>
+
+<!-- ВСЯ ИСТОРИЯ ПО ДЕЛУ -->
+<section class="s" id="case"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Вся история по&nbsp;делу — в&nbsp;одной карточке</h2>
+    <p class="sh__desc">Документы, переписка, правки, решения хранятся в&nbsp;карточке дела. Юрист заберёт дело и&nbsp;не&nbsp;потеряет ни&nbsp;одной детали.</p>
+  </div>
+  <div class="taskmap">
+    <div class="taskmap__col taskmap__col--l">
+      <span class="lpill" data-to="#wm-created">Фактическое время работы над&nbsp;делом</span>
+      <span class="lpill" data-to="#wm-resp">Ответственные и&nbsp;участники</span>
+      <span class="lpill" data-to="#wm-term">Сроки и&nbsp;даты (срок ответа на&nbsp;претензию, дата заседания, срок подачи документов)</span>
+      <span class="lpill" data-to="#wm-docs">Документы и&nbsp;версии (договоры, иски, позиции, претензии)</span>
+    </div>
+    <div class="wcard" aria-hidden="true">
+      <div class="wcard__t" id="wm-title">Дело №А40-12345/2025 — взыскание задолженности с&nbsp;ООО «Маркет Плюс»</div>
+      <div class="wcard__meta"><span class="wcard__lnk">#А40-12345</span> Клиент <span class="wcard__lnk">ООО «Вектор»</span></div>
+      <div class="wcard__created" id="wm-created"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round"/></svg>Создана 2 недели назад · 14&nbsp;ч работы</div>
+      <div class="wcard__tb" id="wm-tb">
+        <span class="wcard__btn p"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+        <span class="wcard__bdiv"></span>
+        <span class="wcard__pill">→ ДОКУМЕНТЫ</span>
+        <span class="wcard__btn" id="wm-comm"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <span class="wcard__btn" id="wm-rel"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.6M8.2 13.2l7.6 4.6"/></svg></span>
+        <span class="wcard__btn" id="wm-hist"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v5h5"/><path d="M3.05 13A9 9 0 1 0 6 5.3L3 8"/><path d="M12 7v5l3 2"/></svg></span>
+      </div>
+      <div class="wcard__cols">
+        <div class="wcard__col">
+          <div class="wcard__sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>Основные параметры</div>
+          <div class="wcard__rows">
+            <div class="wcard__row"><span class="k">Тип</span><span class="wcard__chip violet">Судебное дело</span></div>
+            <div class="wcard__row" id="wm-resp"><span class="k">Участники</span><span class="wcard__avs"><span class="wcard__resp"><i></i>Ответственный</span><span class="wcard__ava">К</span><span class="wcard__ava">А</span></span></div>
+            <div class="wcard__row" id="wm-term"><span class="k">Дата заседания</span><span class="wcard__lnk">18 ноября</span></div>
+            <div class="wcard__row"><span class="k">Срок документов</span><span>14 ноября</span></div>
+            <div class="wcard__row" id="wm-docs"><span class="k">Документы</span><span class="wcard__lnk">Иск, позиция, претензия</span></div>
+          </div>
+        </div>
+        <div class="wcard__col">
+          <div class="wcard__sec"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>Чек-лист подготовки</div>
+          <div class="wcard__prog"><span class="pct">50%</span><span class="bar"><i></i></span><span class="cnt">3/6</span></div>
+          <div class="wcard__chk" id="wm-check">
+            <div class="wcard__ci done"><span class="b"></span>Запрошены документы у&nbsp;клиента</div>
+            <div class="wcard__ci done"><span class="b"></span>Подготовлена правовая позиция</div>
+            <div class="wcard__ci done"><span class="b"></span>Собраны доказательства</div>
+            <div class="wcard__ci todo"><span class="b"></span>Подготовлен расчёт задолженности</div>
+            <div class="wcard__ci todo"><span class="b"></span>Согласование с&nbsp;клиентом</div>
+            <div class="wcard__ci todo"><span class="b"></span>Подача документов в&nbsp;суд</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="taskmap__col taskmap__col--r">
+      <span class="lpill" data-to="#wm-comm">Переписка с&nbsp;клиентом и&nbsp;коллегами</span>
+      <span class="lpill" data-to="#wm-rel">Связанные поручения и&nbsp;подзадачи по&nbsp;делу</span>
+      <span class="lpill" data-to="#wm-hist">История изменений</span>
+      <span class="lpill" data-to="#wm-check">Чек-листы по&nbsp;этапам подготовки</span>
+    </div>
+  </div>
+  <div class="lwr-cta">
+    <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+    <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+  </div>
+</div></section>
+
+<!-- ДОКУМЕНТЫ РЯДОМ С РАБОТОЙ -->
+<section class="s s--alt" id="documents"><div class="container">
+  <div class="acc-wrap">
+    <div class="acc-intro">
+        <h2 class="acc-h">Храните договоры, шаблоны и&nbsp;регламенты рядом с&nbsp;работой</h2>
+        <p class="acc-sub">Не&nbsp;нужен отдельный сервис или&nbsp;папка на&nbsp;диске. Создавайте документы прямо в&nbsp;Кайтене и&nbsp;прикрепляйте к&nbsp;нужному делу или&nbsp;поручению с&nbsp;помощью удобного редактора.</p>
+      </div>
+    <div class="acc">
+      <div class="acc-item open">
+        <button class="acc-head" type="button"><span class="acc-title">Шаблоны документов под&nbsp;каждый тип дел</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Храните шаблоны договоров, претензий, доверенностей в&nbsp;Кайтене и&nbsp;используйте при&nbsp;открытии нового дела. Новый юрист в&nbsp;команде найдёт всё сам — без&nbsp;вопросов к&nbsp;коллегам.</p><img class="acc-bmedia" src="assets/documents/slider1.png" alt="Шаблоны документов под каждый тип дел" loading="lazy"></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Регламенты и&nbsp;процессы отдела</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Алгоритмы работы, инструкции по&nbsp;типовым ситуациям, внутренние правила — в&nbsp;актуальном состоянии и&nbsp;доступны всей команде.</p><img class="acc-bmedia" src="assets/documents/slider2.png" alt="Регламенты и процессы отдела" loading="lazy"></div>
+      </div>
+      <div class="lwr-cta" style="justify-content:flex-start;margin-top:var(--sp-8)">
+        <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+        <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+      </div>
+    </div>
+    <div class="acc-media">
+
+      <!-- Шаблоны документов -->
+      <div class="acc-panel on"><img src="assets/documents/slider1.png" alt="Шаблоны документов под каждый тип дел" loading="lazy"></div>
+
+      <!-- Регламенты и процессы -->
+      <div class="acc-panel"><img src="assets/documents/slider2.png" alt="Регламенты и процессы отдела" loading="lazy"></div>
+
+    </div>
+  </div>
+  
+</div></section>
+
+<!-- АНАЛИТИКА -->
+<section class="s" id="analytics"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Кайтен автоматически собирает данные о&nbsp;нагрузке, сроках и&nbsp;выполненных делах</h2>
+  </div>
+  <div class="feat" style="margin-top:0">
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="ttl">Списано часов по неделям</div><svg viewBox="0 0 256 96" style="width:100%;height:104px"><line x1="6" y1="86" x2="250" y2="86" stroke="#e6e6e6"/><g><rect x="14" y="60" width="9" height="26" fill="var(--blue)"/><rect x="24" y="66" width="9" height="20" fill="#2d2d2d"/><rect x="54" y="40" width="9" height="46" fill="var(--blue)"/><rect x="64" y="48" width="9" height="38" fill="#2d2d2d"/><rect x="94" y="52" width="9" height="34" fill="var(--blue)"/><rect x="104" y="58" width="9" height="28" fill="#2d2d2d"/><rect x="134" y="22" width="9" height="64" fill="var(--blue)"/><rect x="144" y="34" width="9" height="52" fill="#2d2d2d"/><rect x="174" y="50" width="9" height="36" fill="var(--blue)"/><rect x="184" y="44" width="9" height="42" fill="#2d2d2d"/><rect x="214" y="62" width="9" height="24" fill="var(--blue)"/><rect x="224" y="56" width="9" height="30" fill="#2d2d2d"/></g></svg><div class="row" style="gap:12px;margin-top:4px"><span class="row" style="gap:4px"><i style="width:7px;height:7px;border-radius:2px;background:var(--blue)"></i><span class="lab">Запланировано</span></span><span class="row" style="gap:4px"><i style="width:7px;height:7px;border-radius:2px;background:#2d2d2d"></i><span class="lab">Фактически</span></span></div></div></div></div><h3>Сколько времени ушло на&nbsp;дело</h3><p>Каждый юрист фиксирует время в&nbsp;карточке. Видно, на&nbsp;что&nbsp;уходят ресурсы отдела — и&nbsp;есть чем обосновать стоимость юридического сопровождения.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180" style="width:240px;display:flex;flex-direction:column"><div class="ttl">Участие в делах отдела</div><div class="row" style="gap:14px;flex:1"><svg width="80" height="80" viewBox="0 0 42 42"><circle cx="21" cy="21" r="15.9" fill="none" stroke="#ad93e3" stroke-width="7" stroke-dasharray="59 41" stroke-dashoffset="25"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#ffc370" stroke-width="7" stroke-dasharray="23 77" stroke-dashoffset="-34"/><circle cx="21" cy="21" r="15.9" fill="none" stroke="#f3958e" stroke-width="7" stroke-dasharray="18 82" stroke-dashoffset="-57"/><text x="21" y="22" text-anchor="middle" dominant-baseline="central" font-size="16">⚖️</text></svg><div style="flex:1"><div class="lab" style="margin-bottom:7px">Ответственные:</div><div class="row" style="gap:6px;margin-bottom:7px"><i style="width:7px;height:7px;border-radius:50%;background:#ad93e3"></i><span class="val" style="font-weight:400">Анна Котова — 59%</span></div><div class="row" style="gap:6px;margin-bottom:7px"><i style="width:7px;height:7px;border-radius:50%;background:#ffc370"></i><span class="val" style="font-weight:400">Дмитрий Волков — 23%</span></div><div class="row" style="gap:6px"><i style="width:7px;height:7px;border-radius:50%;background:#f3958e"></i><span class="val" style="font-weight:400">Ассистент — 18%</span></div></div></div></div></div></div><h3>Что&nbsp;тормозит согласования</h3><p>Отчёты по&nbsp;поручениям, срокам исполнения и&nbsp;блокировкам собираются автоматически. Не&nbsp;нужно запрашивать данные у&nbsp;команды или&nbsp;сводить вручную.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="lz"><div class="lzhead"><span class="nm">Сотрудник</span><span class="wk">Неделя 1</span><span class="wk">Неделя 2</span></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--green)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:2%;width:30%;background:var(--green-12)"></span><span class="lzbar" style="left:40%;width:12%;background:var(--green-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--violet)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:22%;width:48%;background:var(--violet-12)"></span><span class="lzbar" style="left:78%;width:18%;background:var(--violet-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--orange)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:2%;width:24%;background:var(--orange-12)"></span><span class="lzbar" style="left:54%;width:9%;background:var(--orange-12)"></span><span class="lzbar" style="left:68%;width:14%;background:var(--orange-12)"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--blue)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:24%;width:20%;background:var(--blue-12)"></span></div></div><div class="lzrow" style="border-bottom:0"><div class="lzwho"><span class="d" style="background:var(--red)"></span><span class="ln"></span></div><div class="lztrack"><span class="lzbar" style="left:10%;width:32%;background:var(--red-12)"></span><span class="lzbar" style="left:52%;width:18%;background:var(--red-12)"></span></div></div><div class="lzdiv"></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--green)"></span><span class="ln"></span></div><div class="lzcells"><span class="r"></span><span class="r"></span><span class="g"></span><span></span><span></span><span class="r"></span><span class="g"></span><span class="g"></span><span></span><span class="r"></span></div></div><div class="lzrow"><div class="lzwho"><span class="d" style="background:var(--violet)"></span><span class="ln"></span></div><div class="lzcells"><span class="g"></span><span class="g"></span><span class="r"></span><span></span><span class="r"></span><span></span><span class="g"></span><span class="r"></span><span></span><span class="g"></span></div></div><div class="lzrow" style="border-bottom:0"><div class="lzwho"><span class="d" style="background:var(--orange)"></span><span class="ln"></span></div><div class="lzcells"><span class="r"></span><span class="g"></span><span class="r"></span><span class="g"></span><span></span><span></span><span class="r"></span><span class="g"></span><span class="g"></span><span></span></div></div></div></div></div></div><h3>Реальная загрузка отдела</h3><p>Руководитель видит, кто перегружен, а&nbsp;у&nbsp;кого есть ресурс. Распределяйте новые поручения осознанно и&nbsp;со&nbsp;знанием, когда задача будет завершена.</p></div>
+  </div>
+
+  <div class="lwr-cta">
+    <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+    <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+  </div>
+</div></section>
+
+<!-- ИИ-АССИСТЕНТЫ -->
+<section class="s s--alt" id="ai"><div class="container">
+  <div class="acc-wrap">
+    <div class="acc-intro">
+        <h2 class="acc-h">ИИ-ассистенты берут рутину на&nbsp;себя</h2>
+
+      </div>
+    <div class="acc">
+      <div class="acc-item open">
+        <button class="acc-head" type="button"><span class="acc-title">ИИ-ассистент</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Записывает встречу с&nbsp;клиентом, делает расшифровку и&nbsp;создаёт поручения с&nbsp;ответственными.</p><div class="acc-bmedia"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiA" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiA)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Запись встречи с клиентом</span></div>
+        <div class="row" style="gap:2px;align-items:center;height:24px;margin-bottom:11px">
+          <i style="width:3px;height:8px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:16px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:22px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:12px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:18px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:24px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:10px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:16px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:20px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:8px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:14px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:22px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:11px;border-radius:2px;background:#e3dcf3"></i><i style="width:3px;height:17px;border-radius:2px;background:#e3dcf3"></i><i style="width:3px;height:9px;border-radius:2px;background:#e3dcf3"></i>
+        </div>
+        <div class="lab" style="margin-bottom:7px">Создано 3 поручения</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Подготовить ответ на претензию</span><span class="av" style="width:13px;height:13px;background:#c98a8a"></span></div>
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Запросить документы у клиента</span><span class="av" style="width:13px;height:13px;background:#8a9bc9"></span></div>
+          <div class="row" style="gap:6px"><span class="cb"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Согласовать позицию по делу</span><span class="av" style="width:13px;height:13px;background:#8ac9a0"></span></div>
+        </div>
+      </div></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">ИИ-редактор</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Помогает составить описание задачи, разбить дело на&nbsp;этапы, исправляет ошибки в&nbsp;тексте.</p><div class="acc-bmedia"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiB" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiB)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Описание задачи</span></div>
+        <div class="val" style="font-size:9px;margin-bottom:8px">Иск о взыскании задолженности с ООО «Маркет Плюс»</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span class="lab" style="font-size:8px;line-height:1.4">Истец: ООО «Вектор». Ответчик: ООО «Маркет Плюс».</span>
+          <span class="lab" style="font-size:8px;line-height:1.4">Основание — договор поставки №А40-12345/2025.</span>
+          <div class="row" style="gap:6px;background:var(--violet-12);border:1px solid #d9c9f3;border-radius:6px;padding:5px 7px"><span style="color:var(--violet);font-size:10px;line-height:1">✦</span><span class="lab" style="flex:1;min-width:0;font-size:8px;line-height:1.3;color:var(--violet)">Уточните сумму основного долга и&nbsp;неустойки</span></div>
+          <span class="lab" style="font-size:8px;line-height:1.4">Приложения: договор, акты сверки, расчёт.</span>
+        </div>
+        <div class="row" style="margin-top:11px;gap:6px"><span class="chip v">Исправить ошибки</span><span class="chip o">Разбить на этапы</span></div>
+      </div></div></div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">ИИ-аналитик</span><span class="acc-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Подсказывает, сколько займёт поручение похожего типа — на&nbsp;основе реальных данных вашей команды.</p><div class="acc-bmedia"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiC" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiC)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Оценка поручения</span></div>
+        <div class="lab" style="margin-bottom:3px">Похожее поручение займёт</div>
+        <div style="font-size:20px;font-weight:600;color:var(--violet);margin-bottom:11px">≈ 3 ч 40 мин</div>
+        <div class="row" style="gap:3px;align-items:flex-end;height:48px">
+          <i style="flex:1;height:40%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:62%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:50%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:78%;border-radius:3px 3px 0 0;background:var(--violet)"></i><i style="flex:1;height:55%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:68%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:45%;border-radius:3px 3px 0 0;background:#d9c9f3"></i>
+        </div>
+        <div class="lab" style="margin-top:8px">На основе 24 похожих дел</div>
+      </div></div></div></div>
+      </div>
+      <div class="lwr-cta" style="justify-content:flex-start;margin-top:var(--sp-8)">
+        <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+        <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+      </div>
+    </div>
+    <div class="acc-media">
+
+      <!-- ИИ-ассистент: запись встречи → расшифровка → поручения -->
+      <div class="acc-panel on"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiA" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiA)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Запись встречи с клиентом</span></div>
+        <div class="row" style="gap:2px;align-items:center;height:24px;margin-bottom:11px">
+          <i style="width:3px;height:8px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:16px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:22px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:12px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:18px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:24px;border-radius:2px;background:var(--violet)"></i><i style="width:3px;height:10px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:16px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:20px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:8px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:14px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:22px;border-radius:2px;background:#d9c9f3"></i><i style="width:3px;height:11px;border-radius:2px;background:#e3dcf3"></i><i style="width:3px;height:17px;border-radius:2px;background:#e3dcf3"></i><i style="width:3px;height:9px;border-radius:2px;background:#e3dcf3"></i>
+        </div>
+        <div class="lab" style="margin-bottom:7px">Создано 3 поручения</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Подготовить ответ на претензию</span><span class="av" style="width:13px;height:13px;background:#c98a8a"></span></div>
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Запросить документы у клиента</span><span class="av" style="width:13px;height:13px;background:#8a9bc9"></span></div>
+          <div class="row" style="gap:6px"><span class="cb"></span><span class="val" style="font-weight:400;font-size:8px;flex:1;min-width:0">Согласовать позицию по делу</span><span class="av" style="width:13px;height:13px;background:#8ac9a0"></span></div>
+        </div>
+      </div></div></div>
+
+      <!-- ИИ-редактор: текст с подсказкой -->
+      <div class="acc-panel"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiB" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiB)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Описание задачи</span></div>
+        <div class="val" style="font-size:9px;margin-bottom:8px">Иск о взыскании задолженности с ООО «Маркет Плюс»</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <span class="lab" style="font-size:8px;line-height:1.4">Истец: ООО «Вектор». Ответчик: ООО «Маркет Плюс».</span>
+          <span class="lab" style="font-size:8px;line-height:1.4">Основание — договор поставки №А40-12345/2025.</span>
+          <div class="row" style="gap:6px;background:var(--violet-12);border:1px solid #d9c9f3;border-radius:6px;padding:5px 7px"><span style="color:var(--violet);font-size:10px;line-height:1">✦</span><span class="lab" style="flex:1;min-width:0;font-size:8px;line-height:1.3;color:var(--violet)">Уточните сумму основного долга и&nbsp;неустойки</span></div>
+          <span class="lab" style="font-size:8px;line-height:1.4">Приложения: договор, акты сверки, расчёт.</span>
+        </div>
+        <div class="row" style="margin-top:11px;gap:6px"><span class="chip v">Исправить ошибки</span><span class="chip o">Разбить на этапы</span></div>
+      </div></div></div>
+
+      <!-- ИИ-аналитик: оценка длительности -->
+      <div class="acc-panel"><div class="fm"><div class="card h210">
+        <div class="row" style="gap:6px;margin-bottom:10px"><svg width="18" height="18" viewBox="0 0 28 28" fill="none"><defs><linearGradient id="aiC" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.24 4.74 4 7.5 4h12.33c1.08 0 2.13.35 3 1l1.07.8A4 4 0 0 1 25.5 9v10a4 4 0 0 1-1.6 3.2l-1.07.8a5 5 0 0 1-3 1H7.5A5 5 0 0 1 2.5 19V9z" fill="url(#aiC)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="val">Оценка поручения</span></div>
+        <div class="lab" style="margin-bottom:3px">Похожее поручение займёт</div>
+        <div style="font-size:20px;font-weight:600;color:var(--violet);margin-bottom:11px">≈ 3 ч 40 мин</div>
+        <div class="row" style="gap:3px;align-items:flex-end;height:48px">
+          <i style="flex:1;height:40%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:62%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:50%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:78%;border-radius:3px 3px 0 0;background:var(--violet)"></i><i style="flex:1;height:55%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:68%;border-radius:3px 3px 0 0;background:#d9c9f3"></i><i style="flex:1;height:45%;border-radius:3px 3px 0 0;background:#d9c9f3"></i>
+        </div>
+        <div class="lab" style="margin-top:8px">На основе 24 похожих дел</div>
+      </div></div></div>
+
+    </div>
+  </div>
+  
+</div></section>
+
+<!-- ПОЛЕЗНЫЕ ФУНКЦИИ -->
+<section class="s" id="features"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Полезные функции Кайтен для&nbsp;юридического отдела</h2>
+  </div>
+  <div class="feat" style="margin-top:0">
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180" style="display:flex;flex-direction:column"><div class="val" style="border-bottom:1px solid #eee;padding-bottom:3px;margin-bottom:4px">Название задачи</div><div style="position:relative;flex:1;min-height:0"><div style="display:flex;flex-direction:column;gap:3px"><div class="row"><span class="lab" style="flex:0 0 68px">Задача №</span><span class="val">Заказчик</span></div><div class="row"><span class="lab" style="flex:0 0 68px">Расположение</span><span class="val">Доска/Статус</span></div><div class="row"><span class="lab" style="flex:0 0 68px">Тип</span><span class="lab">…</span></div><div class="row"><span class="lab" style="flex:0 0 68px">Участник</span><span class="lab">…</span></div><div class="row"><span class="lab" style="flex:0 0 68px">Срок</span><span class="lab">…</span></div></div><div style="position:absolute;top:-14px;right:0;display:flex;gap:4px"><span style="width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #d8d8da"></span><span style="width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #d8d8da"></span><span style="width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #d8d8da"></span><span style="width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #d8d8da"></span><span style="width:13px;height:13px;border-radius:50%;background:#fff;border:1px solid #d8d8da"></span></div><div style="position:absolute;right:6px;top:42px;width:108px;background:#fff;border:1px solid #d9d9d9;border-radius:8px;box-shadow:0 8px 20px -8px rgba(0,0,0,.22);padding:5px"><div class="row" style="gap:5px;background:#fff0d9;border-radius:5px;padding:3px 5px;margin-bottom:2px"><span style="font-size:9px;line-height:1">📄</span><span class="val" style="color:#b87400">Договор</span></div><div class="row" style="gap:5px;padding:3px 5px;margin-bottom:1px"><span style="font-size:9px;line-height:1">⚠️</span><span class="val" style="font-weight:400">Претензия</span></div><div class="row" style="gap:5px;padding:3px 5px;margin-bottom:1px"><span style="font-size:9px;line-height:1">⚖️</span><span class="val" style="font-weight:400">Судебное дело</span></div><div class="row" style="gap:5px;padding:3px 5px"><span style="font-size:9px;line-height:1">💬</span><span class="val" style="font-weight:400">Запрос коллеги</span></div></div></div><div class="row" style="gap:5px;border-top:1px solid #eee;padding-top:3px;margin-top:2px;margin-bottom:3px"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="#757575" stroke-width="1.3"><circle cx="4" cy="8" r="2"/><circle cx="12" cy="4" r="2"/><circle cx="12" cy="12" r="2"/><path d="M5.7 7l4.6-2.3M5.7 9l4.6 2.3"/></svg><span class="lab">Связи</span></div><div style="border:1px solid #eee;border-radius:6px;padding:3px 7px"><div class="row" style="gap:6px"><span class="lab" style="flex:0 0 36px">Задача 1</span><span class="row" style="flex:1;gap:4px"><i style="width:4px;height:4px;border-radius:50%;background:#d6d6d8;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#ededed"></span><i style="width:4px;height:4px;border-radius:50%;background:#d6d6d8;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#ededed"></span><i style="width:4px;height:4px;border-radius:50%;background:#d6d6d8;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#ededed"></span></span><span style="width:13px;height:13px;border-radius:50%;background:#ededed;flex:none"></span><span style="flex:0 0 26px;height:5px;border-radius:3px;background:#ededed"></span></div></div></div></div></div><h3>Типы карточек под&nbsp;разные дела</h3><p>Договор, претензия, судебное дело, запрос от&nbsp;коллеги — у&nbsp;каждого типа свой набор полей. Карточка сразу содержит нужную информацию под&nbsp;конкретный процесс.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="kbsh"><div class="kbside"><span class="hd"></span><div class="kbrow"><span class="dot"></span><span class="ln" style="width:70%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:55%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:70%"></span></div><div class="pj"><i></i><b>Проект</b></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:72%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:55%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:68%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:58%"></span></div></div><div class="kbmain"><div class="vtb"><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="6" height="6" rx="1.5"/><rect x="9" y="1" width="6" height="6" rx="1.5"/><rect x="1" y="9" width="6" height="6" rx="1.5"/><rect x="9" y="9" width="6" height="6" rx="1.5"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="2.5" width="13" height="11" rx="2"/><line x1="6" y1="2.5" x2="6" y2="13.5"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="1.5" y="2" width="3.4" height="12" rx="1"/><rect x="6.3" y="2" width="3.4" height="8" rx="1"/><rect x="11.1" y="2" width="3.4" height="10" rx="1"/></svg></span><span class="vi act"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="1" y="1" width="3.5" height="3.5" rx=".8"/><rect x="6.25" y="1" width="3.5" height="3.5" rx=".8"/><rect x="11.5" y="1" width="3.5" height="3.5" rx=".8"/><rect x="1" y="6.25" width="3.5" height="3.5" rx=".8"/><rect x="6.25" y="6.25" width="3.5" height="3.5" rx=".8"/><rect x="11.5" y="6.25" width="3.5" height="3.5" rx=".8"/><rect x="1" y="11.5" width="3.5" height="3.5" rx=".8"/><rect x="6.25" y="11.5" width="3.5" height="3.5" rx=".8"/><rect x="11.5" y="11.5" width="3.5" height="3.5" rx=".8"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor"><rect x="2" y="3" width="12" height="2" rx="1"/><rect x="2" y="7" width="8.5" height="2" rx="1"/><rect x="2" y="11" width="5" height="2" rx="1"/></svg></span><span class="vi"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="1.8" y="3" width="12.4" height="11" rx="2"/><line x1="1.8" y1="6.5" x2="14.2" y2="6.5"/><line x1="5" y1="1.6" x2="5" y2="4"/><line x1="11" y1="1.6" x2="11" y2="4"/></svg></span></div><div style="border:1px solid #ececec;border-radius:5px;overflow:hidden"><div class="row" style="gap:0;background:#f3f3f3;border-bottom:1px solid #ececec"><span class="lab" style="flex:2;color:var(--violet);font-weight:600;padding:3px 5px;border-right:1px solid #ececec">Название</span><span class="lab" style="flex:1;padding:3px 5px;border-right:1px solid #ececec">ID</span><span class="lab" style="flex:1.4;padding:3px 5px;border-right:1px solid #ececec">Заказчик</span><span class="lab" style="flex:1.4;padding:3px 5px">Ответст…</span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px;border-right:1px solid #f2f2f2"><span style="color:var(--t2);font-size:7px;flex:none">&#9662;</span><span style="height:6px;border-radius:3px;background:var(--violet-12);width:62%"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;border-right:1px solid #f2f2f2"></span><span style="flex:1.4"></span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px 3px 16px;border-right:1px solid #f2f2f2"><i style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#eef0f2"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px;border-right:1px solid #f2f2f2"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px 3px 16px;border-right:1px solid #f2f2f2"><i style="width:5px;height:5px;border-radius:50%;background:var(--green);flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#eef0f2"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px;border-right:1px solid #f2f2f2"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px 3px 16px;border-right:1px solid #f2f2f2"><i style="width:5px;height:5px;border-radius:50%;background:var(--red);flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#eef0f2"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px;border-right:1px solid #f2f2f2"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px 3px 16px;border-right:1px solid #f2f2f2"><i style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#eef0f2"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px;border-right:1px solid #f2f2f2"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span></div><div class="row" style="gap:0;border-bottom:1px solid #f2f2f2"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px;border-right:1px solid #f2f2f2"><span style="color:var(--t2);font-size:7px;flex:none">&#9656;</span><span style="height:6px;border-radius:3px;background:var(--violet-12);width:55%"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;border-right:1px solid #f2f2f2"></span><span style="flex:1.4"></span></div><div class="row" style="gap:0"><span style="flex:2;display:flex;align-items:center;gap:4px;padding:3px 5px 3px 16px;border-right:1px solid #f2f2f2"><i style="width:5px;height:5px;border-radius:50%;background:var(--orange);flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#eef0f2"></span></span><span style="flex:1;border-right:1px solid #f2f2f2"></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px;border-right:1px solid #f2f2f2"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span><span style="flex:1.4;display:flex;align-items:center;gap:3px;padding:0 4px"><i style="width:4px;height:4px;border-radius:50%;background:#d4d4d6;flex:none"></i><span style="flex:1;height:5px;border-radius:3px;background:#f0f0f2"></span></span></div></div></div></div></div></div></div><h3>Задачи в&nbsp;табличном виде</h3><p>Переключите доску в&nbsp;таблицу одной кнопкой: список всех дел со&nbsp;сроками, исполнителями и&nbsp;статусами. Экспорт в&nbsp;Excel в&nbsp;пару кликов.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180">
+        <div class="row" style="gap:5px;margin-bottom:7px"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="var(--violet)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 8.5l2.2 2.5L8 5"/><path d="M8 8.5l2.2 2.5L14 5"/></svg><span class="val">Чек-лист: подготовка к заседанию</span></div>
+        <div class="row" style="gap:6px;margin-bottom:7px"><span class="lab">50%</span><span style="flex:1;height:6px;border-radius:3px;background:var(--violet-12);position:relative;overflow:hidden"><span style="position:absolute;left:0;top:0;bottom:0;width:50%;background:var(--violet);border-radius:3px"></span></span><span class="lab"><b style="color:#4caf51;font-weight:600">3</b>/6</span></div>
+        <div style="display:flex;flex-direction:column;gap:5px">
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;flex:1;min-width:0">Запрошены документы</span><span class="chip solid-g">10 нояб</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;flex:1;min-width:0">Правовая позиция</span><span class="chip solid-g">12 нояб</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+          <div class="row" style="gap:6px"><span class="cb on"></span><span class="val" style="font-weight:400;flex:1;min-width:0">Собраны доказательства</span><span class="chip solid-o">14 нояб</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+          <div class="row" style="gap:6px"><span class="cb"></span><span class="lab" style="flex:1;min-width:0">Расчёт задолженности</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+          <div class="row" style="gap:6px"><span class="cb"></span><span class="lab" style="flex:1;min-width:0">Согласование с клиентом</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+          <div class="row" style="gap:6px"><span class="cb"></span><span class="lab" style="flex:1;min-width:0">Подача документов в суд</span><span style="width:14px;height:14px;border-radius:50%;background:#e9e9eb;display:flex;align-items:center;justify-content:center;flex:none"><svg width="9" height="9" viewBox="0 0 24 24" fill="#b4b4b6"><circle cx="12" cy="8.5" r="4"/><path d="M3.5 21a8.5 8.5 0 0 1 17 0z"/></svg></span></div>
+        </div>
+      </div></div></div><h3>Чек-листы внутри карточки</h3><p>Создавайте чек-листы и&nbsp;привязывайте их к&nbsp;задачам: проверка договора, подготовка к&nbsp;заседанию, открытие нового дела — юрист идёт по&nbsp;пунктам и&nbsp;ничего не&nbsp;упускает.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180"><div class="row" style="gap:6px;margin-bottom:8px"><span class="av" style="width:16px;height:16px;border-radius:5px;background:transparent;flex:none"><svg width="16" height="16" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="aiBgA" x1="14" y1="24" x2="14" y2="4" gradientUnits="userSpaceOnUse"><stop stop-color="#AB47BD"/><stop offset=".5" stop-color="#2196F3"/><stop offset="1" stop-color="#00BCD4"/></linearGradient></defs><path d="M2.5 9C2.5 6.23858 4.73858 4 7.5 4H19.8333C20.9152 4 21.9679 4.35089 22.8333 5L23.9 5.8C24.9072 6.55542 25.5 7.74097 25.5 9V19C25.5 20.259 24.9072 21.4446 23.9 22.2L22.8333 23C21.9679 23.6491 20.9152 24 19.8333 24H7.5C4.73858 24 2.5 21.7614 2.5 19V9Z" fill="url(#aiBgA)"/><rect x="4.5" y="6" width="16" height="16" rx="3" fill="#121212"/><rect x="7.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><rect x="13.3" y="9.8" width="4" height="4.2" rx="1.2" fill="#4CAF51"/><path d="M8.5 17.3Q12.5 20.6 16.5 17.3" stroke="#4CAF51" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="val">Автоматизация</span></div><div class="tabs"><span class="a">СОБЫТИЯ</span><span>СРОКИ</span><span>КНОПКИ</span><span>ЧЕК-ЛИСТЫ</span></div><div style="display:flex;gap:8px"><div style="flex:0 0 92px;min-width:0"><div class="lab" style="margin-bottom:4px">Когда</div><div class="field row" style="margin-bottom:7px"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Карточка перемещена</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div><div class="lab" style="margin-bottom:4px">Условие</div><div class="field row"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Метка карточки</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div></div><div style="flex:1"><div class="lab" style="margin-bottom:4px">Выполнить</div><div class="field row" style="margin-bottom:7px"><span class="val" style="font-weight:400;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Назначить ответ…</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div><div class="row" style="gap:5px;margin-bottom:4px"><span class="rb"></span><span class="lab">Автор события</span></div><div class="row" style="gap:5px;margin-bottom:4px"><span class="rb on"></span><span class="val" style="font-size:8px">Заказчик карточки</span></div><div class="row" style="gap:5px"><span class="rb"></span><span class="lab">Случайный польз…</span></div></div></div></div></div></div><h3>Автоматизации без&nbsp;программирования</h3><p>Назначить ответственного, сменить статус, отправить уведомление — настройте правила один раз и&nbsp;Кайтен будет делать работу за&nbsp;вас. Например: поступил новый запрос&nbsp;→ назначается дежурный юрист.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180" style="width:250px;padding:10px">
+        <div class="kbsh">
+          <div class="kbside" style="width:58px;gap:7px;justify-content:center;padding-right:9px">
+            <span class="hd" style="width:85%"></span>
+            <span class="hd" style="width:68%"></span>
+            <span class="hd" style="width:90%"></span>
+            <span class="hd" style="width:60%"></span>
+            <div class="pj"><i></i><b>Бухгалт..</b></div>
+            <span class="hd" style="width:80%"></span>
+            <span class="hd" style="width:64%"></span>
+            <span class="hd" style="width:88%"></span>
+            <span class="hd" style="width:58%"></span>
+          </div>
+          <div class="kbmain">
+            <div class="bttl" style="margin-bottom:6px;display:flex;align-items:center;gap:6px">Оплата<span class="kbc">8</span></div>
+            <div class="kboard" style="margin-bottom:9px">
+              <div class="kcol"><div class="kh">Очередь</div><span class="kk r" style="height:16px"></span><span class="kk g" style="height:14px"></span></div>
+              <div class="kcol"><div class="kh">В работе</div><span class="kk o" style="height:14px"></span><span class="kk r" style="height:17px"></span></div>
+              <div class="kcol"><div class="kh">Соглас…</div><span class="kk g" style="height:15px"></span></div>
+              <div class="kcol"><div class="kh">Готово</div><span class="kk g" style="height:14px"></span><span class="kk n" style="height:16px"></span></div>
+            </div>
+            <div class="bttl" style="margin-bottom:6px;display:flex;align-items:center;gap:6px">Платежи клиентов<span class="kbc">5</span></div>
+            <div class="kboard">
+              <div class="kcol"><div class="kh">Очередь</div><span class="kk o" style="height:16px"></span><span class="kk g" style="height:14px"></span></div>
+              <div class="kcol"><div class="kh">В работе</div><span class="kk" style="height:15px;background:#efe9f9"></span></div>
+              <div class="kcol"><div class="kh">Соглас…</div><span class="kk g" style="height:15px"></span></div>
+              <div class="kcol"><div class="kh">Готово</div><span class="kk n" style="height:14px"></span><span class="kk o" style="height:16px"></span></div>
+            </div>
+          </div>
+        </div>
+      </div></div></div><h3>Несколько досок в&nbsp;одном пространстве</h3><p>Договоры, судебные дела, входящие поручения — каждый процесс на&nbsp;своей доске, но&nbsp;всё в&nbsp;одном пространстве. Не&nbsp;нужно переключаться между&nbsp;системами.</p></div>
+    <div class="fcard"><div class="fcard__illu"><div class="fm"><div class="card h180" style="display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px"><span class="chip" style="background:#f0f0f2;color:#6b6b70;font-size:11px;padding:4px 11px">Новое дело</span><span style="color:#cfcfcf;font-size:13px;line-height:1">&#8595;</span><div style="display:flex;flex-direction:column;align-items:center;gap:4px"><span class="chip o" style="font-size:11px;padding:4px 11px">На согласовании</span><span class="row" style="gap:4px;font-size:9px;color:var(--t2)"><span style="font-size:11px">&#128274;</span>нужен прикреплённый скан</span></div><span style="color:#cfcfcf;font-size:13px;line-height:1">&#8595;</span><span class="chip g" style="font-size:11px;padding:4px 11px">Подписано</span></div></div></div><h3>Условия перехода между&nbsp;этапами</h3><p>Договор не&nbsp;попадёт в&nbsp;«Подписано» без&nbsp;прикреплённого скана, претензия не&nbsp;закроется без&nbsp;чек-листа, дело не&nbsp;возьмут в&nbsp;работу без&nbsp;срока. Процесс соблюдается сам — без&nbsp;напоминаний.</p></div>
+  </div>
+  <div class="feat-nav" aria-hidden="true"><button type="button" class="feat-arrow" data-dir="-1" aria-label="Назад"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button><span class="feat-count"><b>1</b> / 6</span><button type="button" class="feat-arrow" data-dir="1" aria-label="Вперёд"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button></div>
+
+  <div class="lwr-cta">
+    <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+    <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+  </div>
+</div></section>
+
+<!-- ЗАПУСК ЗА 30 МИНУТ -->
+<section class="s s--alt" id="start"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Запустите работу юридического отдела в&nbsp;Кайтен за&nbsp;30&nbsp;минут</h2>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><h4><a class="step-link" href="https://kaiten.ru">Зарегистрируйтесь</a></h4><p>Заполните форму и&nbsp;получите бесплатный доступ — без&nbsp;карты и&nbsp;оплаты.</p></div>
+    <div class="step"><div class="num">2</div><h4>Скопируйте шаблон</h4><p>Готовая доска для&nbsp;юридического отдела: Новое поручение&nbsp;→ В&nbsp;работе&nbsp;→ На&nbsp;согласовании&nbsp;→ Исполнено. Адаптируйте под&nbsp;свои этапы.</p></div>
+    <div class="step"><div class="num">3</div><h4>Пригласите команду</h4><p>Юристам — рабочий доступ. Ассистентам и&nbsp;подрядчикам — ограниченный. Коллегам — форма для&nbsp;поручений. Клиентам — только просмотр своих дел.</p></div>
+    <div class="step"><div class="num">4</div><h4>Начните работать</h4><p>Поручения не&nbsp;теряются, сроки подсвечиваются, история по&nbsp;каждому делу сохраняется.</p></div>
+  </div>
+
+  <div class="sh sh--center s-head" style="margin-top:var(--sp-24)">
+    <h2 class="sh__heading" style="font-size:var(--fs-4xl);line-height:var(--lh-4xl)">Готовые шаблоны</h2>
+  </div>
+  <div class="tpl tpl3" style="margin-top:0">
+    <a class="tplc" href="https://kaiten.ru">
+      <span class="tplc__media"><img src="assets/templates/portfel.png" alt="Портфель дел" loading="lazy"></span>
+      <span class="tplc__title">Портфель дел</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tplc" href="https://kaiten.ru">
+      <span class="tplc__media"><img src="assets/templates/control.png" alt="Контроль поручений" loading="lazy"></span>
+      <span class="tplc__title">Контроль поручений</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+    <a class="tplc" href="https://kaiten.ru">
+      <span class="tplc__media"><img src="assets/templates/soglasovanie.png" alt="Согласование документов" loading="lazy"></span>
+      <span class="tplc__title">Согласование документов</span>
+      <span class="tplc__btn">Попробовать шаблон <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+  </div>
+</div></section>
+
+<!-- FINAL CTA -->
+<section class="s" id="cta"><div class="container">
+  <div class="fcta">
+    <div class="fcta__blur" aria-hidden="true"></div>
+    <div class="fcta__in">
+      <div class="fcta__copy">
+        <h2>Переведите юридический отдел на&nbsp;понятные процессы</h2>
+        <p>Начните с&nbsp;готового шаблона — и&nbsp;уже в&nbsp;первую неделю поручения не&nbsp;будут теряться, а&nbsp;сроки гореть.</p>
+        <div class="fcta__cta">
+          <a class="btn btn--lg btn--fill" href="https://kaiten.ru">Попробовать бесплатно</a>
+          <a class="btn btn--lg btn--outline" href="#cta">Заказать демо</a>
+        </div>
+      </div>
+      <div class="fcta__visual">
+        <div class="ctamain" aria-hidden="true">
+          <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+            <symbol id="ava" viewBox="0 0 40 40"><clipPath id="avaClip"><circle cx="20" cy="20" r="20"/></clipPath><g clip-path="url(#avaClip)"><rect width="40" height="40" fill="#9fb277"/><ellipse cx="20" cy="41" rx="15" ry="11" fill="#c9a7d6"/><path d="M9 19c0-7 4.5-12 11-12s11 5 11 12c0 3-.5 6-1.5 8.5-1-6-4-8.5-9.5-8.5s-8.5 2.5-9.5 8.5C9.5 25 9 22 9 19z" fill="#e3b96f"/><ellipse cx="20" cy="21" rx="8" ry="9" fill="#f2caa4"/><path d="M11.5 16c1.5-5 5-7.5 8.5-7.5s7 2.5 8.5 7.5c-2.5-3.5-5.3-5-8.5-5s-6 1.5-8.5 5z" fill="#e3b96f"/><g fill="#ffffff" fill-opacity="0.3" stroke="#3c3733" stroke-width="1.2"><rect x="12.4" y="18.2" width="6" height="5" rx="2.2"/><rect x="21.6" y="18.2" width="6" height="5" rx="2.2"/></g><path d="M18.4 20.6h3.2" stroke="#3c3733" stroke-width="1.2"/><path d="M17 26q3 2 6 0" stroke="#c07f64" stroke-width="1.2" fill="none" stroke-linecap="round"/></g></symbol>
+            <symbol id="avaicon" viewBox="0 0 26 26"><path d="M13 0C20.176 0 26 5.824 26 13C26 20.176 20.176 26 13 26C5.824 26 0 20.176 0 13C0 5.824 5.824 0 13 0ZM13 2.6C7.267 2.6 2.6 7.267 2.6 13C2.6 15.3659 3.40561 17.5371 4.73154 19.2791C6.59054 17.0171 11.102 16.25 13 16.25C14.898 16.25 19.4095 17.0171 21.2685 19.2791C22.5944 17.5371 23.4 15.3659 23.4 13C23.4 7.267 18.733 2.6 13 2.6ZM13 5.2C15.522 5.2 17.55 7.228 17.55 9.75C17.55 12.272 15.522 14.3 13 14.3C10.478 14.3 8.45 12.272 8.45 9.75C8.45 7.228 10.478 5.2 13 5.2Z" fill="#b4a2e0"/></symbol>
+            <symbol id="usr" viewBox="0 0 26 26"><path d="M13 0C20.176 0 26 5.824 26 13C26 20.176 20.176 26 13 26C5.824 26 0 20.176 0 13C0 5.824 5.824 0 13 0ZM13 2.6C7.267 2.6 2.6 7.267 2.6 13C2.6 15.3659 3.40561 17.5371 4.73154 19.2791C6.59054 17.0171 11.102 16.25 13 16.25C14.898 16.25 19.4095 17.0171 21.2685 19.2791C22.5944 17.5371 23.4 15.3659 23.4 13C23.4 7.267 18.733 2.6 13 2.6ZM13 5.2C15.522 5.2 17.55 7.228 17.55 9.75C17.55 12.272 15.522 14.3 13 14.3C10.478 14.3 8.45 12.272 8.45 9.75C8.45 7.228 10.478 5.2 13 5.2Z" fill="#bdbdbd"/></symbol>
+          </svg>
+          <div class="frame">
+            <div class="window">
+              <div class="sidebar">
+                <div class="brand">
+                  <svg width="26" height="26" viewBox="0 0 104 104" fill="none" aria-hidden="true"><g clip-path="url(#clip0_8356_19837)"><path d="M76.8113 0H27.1887C12.1728 0 0 12.1661 0 27.1738V76.8262C0 91.8339 12.1728 104 27.1887 104H76.8113C91.8272 104 104 91.8339 104 76.8262V27.1738C104 12.1661 91.8272 0 76.8113 0Z" fill="#F11F24"/><path d="M41.4148 11.3364L11.3364 41.4148C5.55453 47.1967 5.55453 56.571 11.3364 62.3529L41.4148 92.4313C47.1967 98.2132 56.571 98.2132 62.3529 92.4313L92.4313 62.3529C98.2132 56.571 98.2132 47.1967 92.4313 41.4148L62.3529 11.3364C56.571 5.55453 47.1967 5.55453 41.4148 11.3364Z" fill="#78FFC7"/><path d="M51.715 77.4267C65.917 77.4267 77.43 65.9144 77.43 51.7133C77.43 37.5123 65.917 26 51.715 26C37.513 26 26 37.5123 26 51.7133C26 65.9144 37.513 77.4267 51.715 77.4267Z" fill="#7D4CCF"/></g><defs><clipPath id="clip0_8356_19837"><rect width="104" height="104" rx="52" fill="white"/></clipPath></defs></svg>
+                  <span class="brand-name">Kaiten</span>
+                </div>
+                <div class="search-row">
+                  <div class="search"><svg class="ico t-sec" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></div>
+                  <div class="plus"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9e9e9e" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div>
+                </div>
+                <div class="nav">
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M2 6a2 2 0 0 1 2-2h4l2 2.2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="#9e9e9e"/></svg><div class="navbar" style="width:64%"></div></div>
+                  <div class="nav-item"><span style="width:14px"></span><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M12 3.2l2.6 5.5 6 .8-4.4 4.1 1.1 5.9L12 16.7 6.7 19.5l1.1-5.9L3.4 9.5l6-.8z" fill="#9e9e9e"/></svg><div class="navbar" style="width:38%"></div></div>
+                  <div class="nav-item active"><span style="width:14px"></span><svg class="ico t-acc" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/></svg><div class="navbar active" style="width:55%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><path d="M2 6a2 2 0 0 1 2-2h4l2 2.2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" fill="#9e9e9e"/></svg><div class="navbar" style="width:34%"></div></div>
+                  <div class="nav-item sub"><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/></svg><div class="navbar" style="width:46%"></div></div>
+                  <div class="nav-item sub"><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#bdbdbd"/></svg><div class="navbar" style="width:33%"></div></div>
+                  <div style="height:6px"></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:55%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:45%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:52%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:48%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:50%"></div></div>
+                  <div class="nav-item"><svg class="chev" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg><svg class="ico" width="18" height="18" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="#9e9e9e"/></svg><div class="navbar" style="width:50%"></div></div>
+                </div>
+              </div>
+              <div class="main">
+                <div class="toolbar">
+                  <span class="tool-pill"><svg class="ico t-acc" width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.4" fill="currentColor"/></svg><div style="height:8px;width:56px;border-radius:9999px;background:var(--color-action-primary)"></div></span>
+                  <div class="tool-right"><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span><span class="sq"></span></div>
+                </div>
+                <div class="board">
+                  <div>
+                    <div class="lane-head"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>Цели</div>
+                    <div class="cols">
+                      <div><div class="colhead"><span class="name">Очередь</span><span class="count">1</span></div><div class="card cover-card col"><div class="card-cover gray-c"></div><div class="card-body"><div class="accent a-violet"></div><div class="cbar" style="width:80%"></div><div class="cbar mt6" style="width:60%"></div></div></div></div>
+                      <div><div class="spacer-head"></div><div class="card cover-card col"><div class="card-cover violet-c"></div><div class="card-body"><div class="accent a-orange"></div><div class="cbar" style="width:72%"></div><div class="cbar mt6" style="width:50%"></div></div></div></div>
+                      <div><div class="colhead"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-100)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="name">Готово</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-yellow"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:84%"></div><div class="blue-bar mt6" style="width:100%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                    </div>
+                  </div>
+                  <div class="lane-divider"></div>
+                  <div>
+                    <div class="lane-head"><svg class="ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="12" r="1"/><circle cx="9" cy="5" r="1"/><circle cx="9" cy="19" r="1"/><circle cx="15" cy="12" r="1"/><circle cx="15" cy="5" r="1"/><circle cx="15" cy="19" r="1"/></svg>Текущие задачи</div>
+                    <div class="cols">
+                      <div class="col"><div class="colhead"><span class="name">Очередь</span><span class="count">1</span></div><div class="card col h155"><div class="red-head"><span style="font-size:16px;line-height:1">✋</span><div class="red-bar"></div></div><div class="accent a-green" style="width:40px"></div><div class="cbar" style="width:72%"></div><div class="cbar mt6" style="width:50%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                      <div class="col"><div class="colhead"><span class="name">В работе</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-orange"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:66%"></div><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span></div></div>
+                      <div class="col"><div class="colhead"><svg class="ico" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--color-green-100)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="name">Готово</span><span class="count">1</span></div><div class="card col h155"><div class="accent a-orange"></div><div class="cbar" style="width:100%"></div><div class="cbar mt6" style="width:74%"></div><div class="between"><span class="usr-circle"><svg class="ico"><use href="#usr"/></svg></span><span class="pill-fire"><span style="font-size:12px;line-height:1">🔥</span><span class="red-bar"></span></span></div></div></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="rail">
+                <svg class="ava"><use href="#avaicon"/></svg>
+                <span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span><span class="rail-sq"></span>
+              </div>
+            </div>
+            <div class="floating" style="text-align:left">
+              <div class="accent a-violet"></div>
+              <div class="title">Новое дело: Иск к ООО<br>«Маркет Плюс»</div>
+              <div class="fl-tags">
+                <span class="tag tag-peach">ООО «Вектор»</span>
+                <span class="tag tag-violet">Судебное дело</span>
+                <span class="tag tag-blue">Претензия</span>
+              </div>
+              <div class="fl-footer">
+                <span class="fl-meta"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>3</span>
+                <span class="fl-meta"><svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>1</span>
+              </div>
+              <div class="fl-assignee">
+                <svg class="ava" style="height:40px;width:40px"><use href="#avaicon"/></svg>
+                <div><div class="fl-name">Анна Котова</div></div>
+                <span class="badge-urgent" style="margin-left:auto">🔥 Срочно</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ЛОГОТИПЫ -->
+<section class="s" id="trust"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Более 200&nbsp;тысяч компаний выбирают Кайтен</h2>
+  </div>
+  <div class="lmarq" aria-hidden="true">
+    <div class="lmarq__track">
+      <img src="assets/logos/wrap-2.png" alt="СИБАГРО" loading="lazy"><img src="assets/logos/wrap-3.png" alt="ЭКСМО" loading="lazy"><img src="assets/logos/wrap-4.png" alt="Самолёт" loading="lazy"><img src="assets/logos/wrap-5.png" alt="Теле2" loading="lazy"><img src="assets/logos/wrap-6.png" alt="DNS" loading="lazy"><img src="assets/logos/wrap.png" alt="СБЕР" loading="lazy"><img src="assets/logos/wrap-1.png" alt="РусГидро" loading="lazy"><img src="assets/logos/wrap-12.png" alt="X5 Tech" loading="lazy"><img src="assets/logos/wrap-13.png" alt="Норникель" loading="lazy"><img src="assets/logos/wrap-7.png" alt="WHOOSH" loading="lazy"><img src="assets/logos/wrap-8.png" alt="S7 Airlines" loading="lazy"><img src="assets/logos/wrap-9.png" alt="Atol" loading="lazy"><img src="assets/logos/wrap-10.png" alt="Альфа-Банк" loading="lazy"><img src="assets/logos/wrap-11.png" alt="Сколково" loading="lazy"><img src="assets/logos/wrap-2.png" alt="СИБАГРО" loading="lazy"><img src="assets/logos/wrap-3.png" alt="ЭКСМО" loading="lazy"><img src="assets/logos/wrap-4.png" alt="Самолёт" loading="lazy"><img src="assets/logos/wrap-5.png" alt="Теле2" loading="lazy"><img src="assets/logos/wrap-6.png" alt="DNS" loading="lazy"><img src="assets/logos/wrap.png" alt="СБЕР" loading="lazy"><img src="assets/logos/wrap-1.png" alt="РусГидро" loading="lazy"><img src="assets/logos/wrap-12.png" alt="X5 Tech" loading="lazy"><img src="assets/logos/wrap-13.png" alt="Норникель" loading="lazy"><img src="assets/logos/wrap-7.png" alt="WHOOSH" loading="lazy"><img src="assets/logos/wrap-8.png" alt="S7 Airlines" loading="lazy"><img src="assets/logos/wrap-9.png" alt="Atol" loading="lazy"><img src="assets/logos/wrap-10.png" alt="Альфа-Банк" loading="lazy"><img src="assets/logos/wrap-11.png" alt="Сколково" loading="lazy">
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="s faq-section" id="faq" aria-label="Часто задаваемые вопросы"><div class="container">
+  <div class="faq-section__container">
+    <h2 class="faq-section__title">Нас часто спрашивают</h2>
+    <ul class="faq-list">
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg" open>
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Можно ли использовать Кайтен бесплатно?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да, есть бесплатный тариф без&nbsp;ограничения по&nbsp;времени. Можно вести дела, работать командой до&nbsp;5 человек и&nbsp;создавать неограниченное количество документов. Платные тарифы открывают расширенную аналитику, ИИ-инструменты и&nbsp;установку на&nbsp;собственный сервер. <a href="https://kaiten.ru/tariffs">Подробнее о&nbsp;тарифах →</a></p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Можно ли работать с&nbsp;внешними контрагентами и&nbsp;клиентами?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. Пригласите контрагента с&nbsp;ограниченным доступом — он видит только свой договор, не&nbsp;видит остальные дела и&nbsp;внутренние процессы.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Как&nbsp;настроить доступы для&nbsp;разных сотрудников?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Гибко и&nbsp;без&nbsp;ИТ-специалиста. Юристы видят свои дела, ассистенты — только порученные задачи, коллеги из&nbsp;других отделов — только статус своих запросов. За&nbsp;внешних пользователей с&nbsp;доступом только на&nbsp;просмотр платить не&nbsp;нужно.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Есть ли локальная версия для&nbsp;установки на&nbsp;серверах компании?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. Для&nbsp;организаций с&nbsp;требованиями к&nbsp;хранению данных доступна локальная версия. Все данные остаются на&nbsp;ваших серверах.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Можно ли перенести данные из&nbsp;таблиц или&nbsp;другой системы?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. Импортируйте из Excel, CSV, Notion, Jira, Trello. Если данных много — команда Кайтена поможет с&nbsp;миграцией.</p>
+        </details>
+      </li>
+      <li style="width:100%;list-style:none">
+        <details class="faq-item faq-item--pad-lg">
+          <summary><span class="faq-item__question"><span class="faq-item__q-text faq-item__q-text--xl">Можно ли хранить конфиденциальные документы?</span><span class="faq-item__icon" aria-hidden="true"></span></span></summary>
+          <p class="faq-item__answer faq-item__answer--md">Да. Кайтен входит в&nbsp;реестр российского ПО, данные хранятся на&nbsp;российских серверах. Доступ к&nbsp;документам настраивается — только нужные люди видят нужные дела.</p>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div></section>
+
+<!-- FOOTER (из kaiten-zavod_4.html) -->
+<footer class="footer" aria-label="Подвал сайта">
+  <div class="footer__container">
+    <div class="footer__top">
+      <div class="footer__cols">
+        <div><div class="footer__col-title">Компания</div>
+          <nav class="footer__links" aria-label="Компания"><a href="#pricing">Тарифы</a><a href="#cta">Контакты</a><a href="#">Сертификаты</a><a href="#">Скачать презентацию</a></nav></div>
+        <div><div class="footer__col-title">Ресурсы</div>
+          <nav class="footer__links" aria-label="Ресурсы"><a href="#">База знаний</a><a href="#cases">Кейсы</a><a href="#">Блог</a><a href="#">API</a><a href="#">Комьюнити</a></nav></div>
+        <div><div class="footer__col-title">Возможности</div>
+          <nav class="footer__links" aria-label="Возможности"><a href="#">Партнёрская программа</a><a href="#on-premise">On-premise</a><a href="#how">Внедрение</a><a href="#">Кайтен AI</a></nav></div>
+      </div>
+      <div class="footer__subscribe">
+        <div class="footer__subscribe-title">Подписаться на&nbsp;рассылку</div>
+        <div class="footer__subscribe-desc">Кейсы пользователей, статьи и&nbsp;обновления.</div>
+        <input class="footer__input" type="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail">
+        <button class="btn btn--md btn--fill btn--full" type="button">Подписаться</button>
+      </div>
+    </div>
+    <div class="footer__compare">
+      <div class="footer__col-title">Сравнили Кайтен с&nbsp;другими сервисами</div>
+      <div class="footer__compare-tags"><span>Trello</span><span>Jira</span><span>Asana</span><span>Weeek</span><span>Wrike</span><span>ClickUp</span><span>MS Project</span><span>Notion</span><span>Confluence</span><span>GanttPRO</span><span>Redmine</span><span>Youtrack</span></div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__status-row">
+      <div class="footer__status-left">
+        <div class="footer__section-title">Официальный статус российского ИТ-разработчика</div>
+        <div class="footer__section-text">Кайтен внесён в&nbsp;реестр отечественного ПО <strong>№14347</strong>, компания аккредитована как&nbsp;ИТ-организация.</div>
+      </div>
+      <div class="footer__status-right">
+        <div class="footer__section-title">ООО «Кайтен Софтвер»</div>
+        <div class="footer__legal-cols">
+          <div><span class="footer__legal-label">ИНН</span><span class="footer__legal-value">7714426252</span></div>
+          <div><span class="footer__legal-label">КПП</span><span class="footer__legal-value">771401001</span></div>
+          <div style="flex:1 1 240px"><span class="footer__legal-label">Юридический адрес</span><span class="footer__legal-value">125252, г. Москва, проезд Берёзовой рощи, д. 12, этаж 2, комната 55</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__bottom">
+      <div style="display:flex;align-items:center;gap:var(--sp-8);flex-wrap:wrap">
+        <a href="/" aria-label="Kaiten — на главную">
+          <span class="logo-img" data-logo="white"></span></a>
+        <div class="footer__contacts">
+          <a class="footer__contact" href="tel:+74994906499">+7 (499) 490-64-99</a>
+          <a class="footer__contact" href="mailto:sales@kaiten.ru">sales@kaiten.ru</a>
+        </div>
+      </div>
+      <div class="footer__legal-links">
+        <a href="#">Политика конфиденциальности</a><a href="#">Лицензионный договор</a><a href="#">Пользовательское соглашение</a><a href="#">Техническая поддержка</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
