@@ -906,7 +906,7 @@ html{interpolate-size:allow-keywords}
 .fico{width:52px;height:52px;border-radius:14px;background:var(--brand-12);color:var(--brand-100);display:flex;align-items:center;justify-content:center;margin-bottom:var(--sp-4);flex:0 0 auto}
 .fico svg{width:26px;height:26px}
 .fcard--plain{padding:var(--sp-8)}
-/* зелёный/синий тег для мокапов-досок */
+/* зеленый/синий тег для мокапов-досок */
 .mpa .t-ok{background:#e7f3df;color:#2f7d33}
 .mpa .t-blue{background:#e2eefb;color:#2f6fb0}
 .mpa .t-jud{background:#efe9f9;color:#7d4ccf}
@@ -977,7 +977,7 @@ html{overflow-x:clip}
 #case .taskmap__col .lpill::before{width:9px;height:9px;margin-top:-4.5px;background:#7d4ccf}
 @media(min-width:1120px){#analytics{padding-top:0;padding-bottom:0}#control{padding-bottom:var(--sp-24)}#case{padding-top:var(--sp-24);padding-bottom:var(--sp-24)}#trust{padding-top:0;padding-bottom:var(--sp-24)}#ai{padding:128px 0}#ai .acc-wrap{margin-top:0}.acc-wrap .lwr-cta{margin-top:auto!important}#start{padding-top:var(--sp-24)}#start .s-head[style]{margin-top:128px!important}#ai .acc-media{min-height:450px}}
 @media(min-width:1280px){#cta .fcta__copy{max-width:440px}}
-/* шаблоны: убираем внутренний padding медиа, внешний отступ (padding карточки) остаётся */
+/* шаблоны: убираем внутренний padding медиа, внешний отступ (padding карточки) остается */
 .tplc__media{padding:0}
 .tplc__title{margin-top:var(--sp-3)}
 @media(max-width:860px){.acc-body p{padding-bottom:var(--sp-3)}.acc-bmedia{margin-top:0;border-radius:12px;overflow:hidden}#ai .acc-bmedia{display:flex;justify-content:center;background:transparent;padding:0 var(--sp-5) var(--sp-5)}#ai .acc-bmedia .fm{zoom:1.15}}
@@ -1012,7 +1012,7 @@ html{overflow-x:clip}
 /* единый цвет текста 2d2d2d */
 :root{--text-secondary:#757575}
 .fcta p,.hero__sub{color:#2d2d2d}
-/* карточки досок в мини-мокапах #features — лёгкая глубина + счётчик доски */
+/* карточки досок в мини-мокапах #features — легкая глубина + счетчик доски */
 #features .kbmain .kk{box-shadow:0 1px 2px rgba(45,45,45,.05)}
 .kbc{display:inline-flex;align-items:center;justify-content:center;min-width:13px;height:13px;padding:0 4px;border-radius:5px;background:#ededed;color:#898989;font-size:7px;font-weight:600}
 /* бегущая строка логотипов */
