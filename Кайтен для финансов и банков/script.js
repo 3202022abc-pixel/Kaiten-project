@@ -12,11 +12,11 @@ window.__KAITEN_LOGOS = {
     if(window.__KAITEN_LOGOS[key]){el.innerHTML=window.__KAITEN_LOGOS[key];el.setAttribute('role','img');el.setAttribute('aria-label','Kaiten');}
   });
   /* Анимация знака (снято покадрово с эталонного видео hover/mouse-leave):
-     при наведении и при уводе курсора зелёный ромб доворачивается на +90° по часовой
+     при наведении и при уводе курсора зеленый ромб доворачивается на +90° по часовой
      (в ту же сторону, не отматываясь назад), ~520мс, движение почти линейное; масштаб
      не меняется, красный квадрат и фиолетовый круг неподвижны. Быстрые enter/leave
      складываются в очередь и отыгрываются по очереди. Угол пишется покадрово в
-     style.transform (rAF) — надёжно рендерится во всех браузерах. */
+     style.transform (rAF) — надежно рендерится во всех браузерах. */
   (function(){
     var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
     var DUR=520;
@@ -43,7 +43,7 @@ window.__KAITEN_LOGOS = {
         requestAnimationFrame(frame);
       }
       function spin(){queue++;run();}
-      /* mouseenter/mouseleave — надёжнее pointer-событий в Safari-подобных движках
+      /* mouseenter/mouseleave — надежнее pointer-событий в Safari-подобных движках
          (там pointerleave порой не срабатывает); оба крутят знак на +90° CW. */
       host.addEventListener('mouseenter',spin);
       host.addEventListener('mouseleave',spin);
@@ -110,7 +110,7 @@ window.__KAITEN_LOGOS = {
     else document.addEventListener('DOMContentLoaded',fitLbt);
   })();
   /* hero-мокап первого экрана: на планшете (768–1279) вписать в ширину контейнера
-     (гуттеры 24px задаёт padding контейнера); десктоп/мобилка — масштаб из CSS */
+     (гуттеры 24px задает padding контейнера); десктоп/мобилка — масштаб из CSS */
   (function(){
     var hsi=document.querySelector('.hsi-screen__visual .hsi');
     var vis=hsi&&hsi.parentElement;
@@ -208,7 +208,7 @@ window.__KAITEN_LOGOS = {
   upd();
 })();
 
-/* TabsGallery (подразделения): вкладки + стрелки-счётчик */
+/* TabsGallery (подразделения): вкладки + стрелки-счетчик */
 (function(){
   var root=document.getElementById('dep-tabs'); if(!root) return;
   var tabs=[].slice.call(root.querySelectorAll('.stabs__tab'));
