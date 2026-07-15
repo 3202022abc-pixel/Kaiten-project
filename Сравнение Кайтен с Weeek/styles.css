@@ -1623,3 +1623,6 @@ section.s{padding:var(--sp-12) 0}
 
 /* Weeek: заголовок блока логотипов в одну строку на десктопе */
 @media(min-width:1280px){#trust .sh{max-width:none}#trust .sh__heading{white-space:nowrap}}
+
+/* Weeek: «одна платформа» — заголовок в 1 строку, описание в 2 (десктоп) */
+@media(min-width:1280px){#platform .sh{max-width:940px}#platform .sh__heading{white-space:nowrap}}
