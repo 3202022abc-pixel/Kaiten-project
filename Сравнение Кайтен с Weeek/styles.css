@@ -1627,3 +1627,8 @@ section.s{padding:var(--sp-12) 0}
 
 /* Weeek: «одна платформа» — заголовок в 1 строку, описание в 2 (десктоп) */
 @media(min-width:1280px){#platform .sh{max-width:940px}#platform .sh__heading{white-space:nowrap}}
+
+/* Weeek: картинки аккордеона фич выровнены по нижнему краю панели (десктоп/планшет) */
+#features .acc-media .acc-panel{align-items:flex-end;justify-content:center;padding:0}
+#features .acc-media .acc-panel img{width:100%;height:auto;max-height:100%;object-fit:contain;object-position:bottom;border-radius:0;display:block}
+#features .acc-media{aspect-ratio:1/1;align-self:start}
