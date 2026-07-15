@@ -1629,6 +1629,8 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px){#platform .sh__heading{white-space:nowrap}}
 @media(min-width:768px) and (max-width:1279px){#platform .sh{max-width:none}#platform .sh__heading{font-size:clamp(26px,4.3vw,36px)}}
 @media(min-width:1280px){#platform .sh{max-width:940px}}
+/* Weeek: примечание таблицы сравнения — по центру на планшете */
+@media(min-width:768px) and (max-width:1279px){.cmp__note{text-align:center}}
 /* Weeek: hero-подзаголовок — перенос перед «и служба» на планшете/десктопе */
 .hs-br{display:none}
 @media(min-width:768px){.hs-br{display:inline}}
