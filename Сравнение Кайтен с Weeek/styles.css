@@ -1568,15 +1568,6 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:767px){#features .scrum-grid{margin-top:0}}
 
 /* ===== Weeek: логотипы клиентов (marquee, шелл юристов) ===== */
-.lmarq{margin-top:var(--sp-12);overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.lmarq__track{display:flex;align-items:center;width:max-content;animation:lmarq 38s linear infinite}
-.lmarq:hover .lmarq__track{animation-play-state:paused}
-.lmarq__track img{height:46px;width:auto;margin-right:var(--sp-10);flex:none;display:block;object-fit:contain}
-@keyframes lmarq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.lmarq__track{animation:none}}
-@media(max-width:767px){.lmarq{margin-top:var(--sp-8)}.lmarq__track img{height:36px;margin-right:var(--sp-6)}}
-#trust{padding-top:var(--sp-8)}
-@media(min-width:1280px){#trust{padding-top:var(--sp-16)}}
 
 /* ===== Weeek: заголовки колонок канбан/CRM-мокапов ===== */
 .fm .kh{font-size:7px;color:#9e9e9e;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -1608,9 +1599,6 @@ section.s{padding:var(--sp-12) 0}
 /* Weeek: разделы таблицы сравнения — высота 64px на десктопе и планшете */
 @media(min-width:768px){.cmp__sec{min-height:64px;padding-top:0;padding-bottom:0}}
 
-/* Weeek: заголовок блока логотипов в одну строку на десктопе и планшете */
-@media(min-width:768px){#trust .sh{max-width:none}#trust .sh__heading{white-space:nowrap}}
-@media(min-width:768px) and (max-width:1279px){#trust .sh__heading{font-size:clamp(28px,4.4vw,36px)}}
 
 /* Weeek: «одна платформа» — заголовок в 1 строку, описание в 2 (десктоп) */
 @media(min-width:768px){#platform .sh__heading{white-space:nowrap}}
@@ -1632,3 +1620,6 @@ section.s{padding:var(--sp-12) 0}
 
 /* Weeek: hero-заголовок крупнее на десктопе */
 @media(min-width:1280px){.hero h1{font-size:var(--fs-5xl);line-height:var(--lh-5xl);letter-spacing:-1.5px}}
+
+/* Weeek: логотип Pyrobyte в отзывах чуть выше (как на Trello-лендинге) */
+.otziv-logo[src*="pyrobyte"]{height:60px}
