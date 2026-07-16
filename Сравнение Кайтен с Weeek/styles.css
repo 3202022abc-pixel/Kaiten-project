@@ -1638,7 +1638,7 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px) and (max-width:1279px){#platform .fg-head{max-width:none}#platform .fg-heading{font-size:clamp(26px,4.3vw,36px)}}
 @media(min-width:1280px){#platform .fg-head{max-width:940px}}
 /* Weeek: примечание таблицы сравнения — по центру на планшете */
-@media(min-width:768px) and (max-width:1279px){.cmp__note{text-align:center}}
+@media(min-width:768px){.cmp__note{text-align:center}}
 /* Weeek: hero-подзаголовок — перенос перед «и служба».
    Только с 1000px: ниже .hero__copy ограничен 680px и часть до переноса (740px) не влезает — строка рвётся */
 .hs-br{display:none}
