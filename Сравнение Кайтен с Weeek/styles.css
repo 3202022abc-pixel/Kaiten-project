@@ -1737,3 +1737,14 @@ section.s{padding:var(--sp-12) 0}
 }
 @media(min-width:560px) and (max-width:767px){.ctp{padding:48px}}
 @media(max-width:559px){.ctp{padding:24px}}
+
+/* Weeek: мобилка — заголовок первого экрана на ступень мельче (36/40 -> 30/36) */
+@media(max-width:767px){.hero h1{font-size:var(--fs-3xl);line-height:var(--lh-3xl)}}
+
+/* Weeek: одинаковый отступ над и под стрелками карусели отзывов — 24/32/48.
+   Сверху — margin-top у .otziv-nav (зазор от карточек), снизу — padding-bottom секции
+   (стрелки последний элемент контейнера, своего нижнего поля у них нет).
+   На >=1280 стрелки скрыты (.otziv-nav{display:none}) — правило про запас. */
+@media(max-width:767px){#cases .otziv-nav{margin-top:var(--sp-6)}#cases{padding-bottom:var(--sp-6)}}
+@media(min-width:768px) and (max-width:1279px){#cases .otziv-nav{margin-top:var(--sp-8)}#cases{padding-bottom:var(--sp-8)}}
+@media(min-width:1280px){#cases .otziv-nav{margin-top:var(--sp-12)}}
