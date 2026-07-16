@@ -1672,6 +1672,12 @@ section.s{padding:var(--sp-12) 0}
 
 /* Weeek: оптическая балансировка логотипов отзывов (пропорции сильно разные:
    JVO 3:1, Rassvet 5.9:1, Superkassa 9.2:1 — по базовым 50px/185px высоты были 50/31/20) */
-.otziv-logo{max-width:210px}
-.otziv-logo[src*="jvo"]{height:42px}
-.otziv-logo[src*="superkassa"]{max-width:240px}
+.otziv-logo{height:40px;max-width:168px}
+.otziv-logo[src*="jvo"]{height:34px}
+.otziv-logo[src*="superkassa"]{max-width:192px}
+
+
+/* Weeek: секция «одна платформа» — контейнер FeatureGrid по сетке лендинга.
+   Свой .fg-inner (1216 + padding 16) на десктопе не совпадал с .container (1280 + padding 32):
+   контент шел 41..1225 вместо 32..1233 */
+@media(min-width:1280px){#platform .fg-inner{max-width:calc(var(--container) + var(--sp-8) * 2);padding:0 var(--sp-8)}}
