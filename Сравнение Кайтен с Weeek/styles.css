@@ -1646,13 +1646,13 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:1280px){.feat-br{display:inline}}
 
 /* Weeek: картинки аккордеона фич выровнены по нижнему краю панели (десктоп/планшет) */
-/* Weeek: панель аккордеона подстраивается под высоту картинки — квадрат убран,
-   градиент не виден, ничего не режется. Все панели лежат в одной ячейке, поэтому
-   неактивные делаем абсолютными: высоту блока задает только открытая. */
-#features .acc-media{aspect-ratio:auto;height:auto;align-self:start;display:block;position:relative}
-#features .acc-media .acc-panel{position:absolute;left:0;right:0;bottom:0;height:auto;display:block;padding:0}
-#features .acc-media .acc-panel.on{position:relative}
-#features .acc-media .acc-panel img{width:100%;height:auto;max-height:none;object-fit:contain;border-radius:0;display:block}
+/* Weeek: панель — квадрат, картинка во всю ширину и прижата к нижнему краю,
+   сверху над ней остается полоса градиента (высота полосы зависит от пропорций
+   картинки: у 1088x1052 тонкая, у 1088x808 заметная). max-height:100% + contain —
+   страховка от того, чтобы картинка не вылезла за панель. */
+#features .acc-media{aspect-ratio:1/1;align-self:start}
+#features .acc-media .acc-panel{align-items:flex-end;justify-content:center;padding:0}
+#features .acc-media .acc-panel img{width:100%;height:auto;max-height:100%;object-fit:contain;object-position:bottom;border-radius:0;display:block}
 
 /* Weeek: hero-заголовок крупнее на десктопе */
 @media(min-width:1280px){.hero h1{font-size:var(--fs-5xl);line-height:var(--lh-5xl);letter-spacing:-1.5px}}
