@@ -1669,3 +1669,9 @@ section.s{padding:var(--sp-12) 0}
   #features .acc-inline{display:block;padding:0;overflow:hidden}
   #features .acc-inline img{width:100%;height:auto;display:block;object-fit:contain;object-position:bottom;border-radius:0}
 }
+
+/* Weeek: оптическая балансировка логотипов отзывов (пропорции сильно разные:
+   JVO 3:1, Rassvet 5.9:1, Superkassa 9.2:1 — по базовым 50px/185px высоты были 50/31/20) */
+.otziv-logo{max-width:210px}
+.otziv-logo[src*="jvo"]{height:42px}
+.otziv-logo[src*="superkassa"]{max-width:240px}
