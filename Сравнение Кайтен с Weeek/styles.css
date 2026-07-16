@@ -1639,9 +1639,10 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:1280px){#platform .fg-head{max-width:940px}}
 /* Weeek: примечание таблицы сравнения — по центру на планшете */
 @media(min-width:768px) and (max-width:1279px){.cmp__note{text-align:center}}
-/* Weeek: hero-подзаголовок — перенос перед «и служба» на планшете/десктопе */
+/* Weeek: hero-подзаголовок — перенос перед «и служба».
+   Только с 1000px: ниже .hero__copy ограничен 680px и часть до переноса (740px) не влезает — строка рвётся */
 .hs-br{display:none}
-@media(min-width:768px){.hs-br{display:inline}}
+@media(min-width:1000px){.hs-br{display:inline}}
 /* Weeek: описание фич — перенос после «инструменты» только на десктопе */
 .feat-br{display:none}
 @media(min-width:1280px){.feat-br{display:inline}}
