@@ -1612,8 +1612,6 @@ section.s{padding:var(--sp-12) 0}
   .fg-grid > .fg-card:last-child{margin-right:var(--sp-4)}
 }
 @media(prefers-reduced-motion:reduce){.fg-grid{scroll-behavior:auto}}
-/* Weeek: верхний отступ секции убран (стык с блоком миграции) */
-#platform.fg-mock{padding-top:0}
 /* видеозвонки — CSS галереи FeatureMocks, scoped под .fm */
 .fm .vc{display:flex;flex-direction:column;height:100%}
 .fm .vcg{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:4px}
@@ -1681,3 +1679,8 @@ section.s{padding:var(--sp-12) 0}
    Свой .fg-inner (1216 + padding 16) на десктопе не совпадал с .container (1280 + padding 32):
    контент шел 41..1225 вместо 32..1233 */
 @media(min-width:1280px){#platform .fg-inner{max-width:calc(var(--container) + var(--sp-8) * 2);padding:0 var(--sp-8)}}
+
+/* Weeek: верхний отступ секций — 96 десктоп / 64 планшет / 48 мобилка */
+@media(min-width:1280px){#features{padding-top:var(--sp-24)}#platform.fg-mock{padding-top:var(--sp-24)}}
+@media(min-width:768px) and (max-width:1279px){#features{padding-top:var(--sp-16)}#platform.fg-mock{padding-top:var(--sp-16)}}
+@media(max-width:767px){#features{padding-top:var(--sp-12)}#platform.fg-mock{padding-top:var(--sp-12)}}
