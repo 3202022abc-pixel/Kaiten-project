@@ -1678,6 +1678,9 @@ section.s{padding:var(--sp-12) 0}
 /* Weeek: мобилка — картинка аккордеона во всю ширину пункта и вплотную к нижнему краю
    (перебиваем padding от старого варианта .acc-wrap--modules с нативными мокапами) */
 @media(max-width:767px){
+  /* правило #features .acc-media{display:block} выше сильнее (id), чем display:none
+     из мобильных медиазапросов — без этой строки картинка дублируется колонкой под списком */
+  #features .acc-media{display:none}
   #features .acc-inline{display:block;padding:0;overflow:hidden}
   #features .acc-inline img{width:100%;height:auto;display:block;object-fit:contain;object-position:bottom;border-radius:0}
 }
