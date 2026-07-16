@@ -1656,8 +1656,13 @@ section.s{padding:var(--sp-12) 0}
 /* Weeek: логотип Pyrobyte в отзывах чуть выше (как на Trello-лендинге) */
 .otziv-logo[src*="pyrobyte"]{height:60px}
 
-/* Weeek: мобилка — отступ под заголовком секции фич 24px */
+/* Weeek: зазор «заголовок секции → аккордеон» — 24 мобилка / 32 планшет / 48 десктоп.
+   У .acc-wrap свой margin-top:48px, он схлопывался с margin-bottom заголовка по большему
+   и держал 48px на всех брейкпоинтах — поэтому обнуляем его и управляем зазором из заголовка */
+#features .acc-wrap{margin-top:0}
 @media(max-width:767px){#features .s-head{margin-bottom:var(--sp-6)}}
+@media(min-width:768px) and (max-width:1279px){#features .s-head{margin-bottom:var(--sp-8)}}
+@media(min-width:1280px){#features .s-head{margin-bottom:var(--sp-12)}}
 /* Weeek: мобилка — зазор шеврон↔заголовок.
    Видимая дистанция = gap + поле бокса (24 против иконки 20) + пустота внутри viewBox глифа (~5px).
    Поэтому мало уменьшить gap: убираем поле бокса и режем gap до 4px */
