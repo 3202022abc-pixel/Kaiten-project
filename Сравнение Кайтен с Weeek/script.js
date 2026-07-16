@@ -51,7 +51,7 @@
     var count = document.getElementById('platCount');
     var nav = document.getElementById('platNav');
     if (!track || !prev || !next) return;
-    var cards = track.querySelectorAll('.scard-f');
+    var cards = track.querySelectorAll('.fg-card');
     function step(){ var c = cards[0]; return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 24) : 320; }
     function update(){
       var maxScroll = track.scrollWidth - track.clientWidth;
