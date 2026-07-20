@@ -162,3 +162,15 @@
   window.addEventListener('load', fitAll);
   fitAll();
 })();
+
+/* ---- 7. FAQ: первый пункт раскрыт по умолчанию + эксклюзив (как в исходнике) ---- */
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('.faq-mock details.faq-item'));
+  if (!items.length) return;
+  if (!items.some(function (d) { return d.open; })) items[0].open = true;
+  items.forEach(function (d) {
+    d.addEventListener('toggle', function () {
+      if (d.open) items.forEach(function (o) { if (o !== d && o.open) o.open = false; });
+    });
+  });
+})();
