@@ -139,3 +139,26 @@
     }
   });
 })();
+
+
+/* ---- 6. ScaleToFit: масштабирование фиксированных макетов (борд 1360, CTA 1216)
+   в ширину контейнера — в статике нет React-скейлера, SSR замораживает scale(1) ---- */
+(function () {
+  function fitAll() {
+    document.querySelectorAll('div[style*="transform-origin"]').forEach(function (inner) {
+      var w = parseFloat(inner.style.width);
+      if (!w) return;
+      var outer = inner.parentElement;
+      var host = outer && outer.parentElement;
+      if (!host) return;
+      var avail = host.clientWidth;
+      if (!avail) return;
+      var s = Math.min(1, avail / w);
+      inner.style.transform = 'scale(' + s + ')';
+      outer.style.height = inner.offsetHeight * s + 'px';
+    });
+  }
+  window.addEventListener('resize', fitAll);
+  window.addEventListener('load', fitAll);
+  fitAll();
+})();
