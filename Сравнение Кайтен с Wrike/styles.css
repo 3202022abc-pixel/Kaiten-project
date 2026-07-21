@@ -1500,11 +1500,15 @@ section.s{padding:var(--sp-12) 0}
 /* --- Мокапы фич: иконка документа, гант, воронка, каналы ------------------ */
 .fm .dcn{width:10px;height:10px;border-radius:2px;background:#c9c9cf;flex:none;position:relative}
 .fm .dcn::after{content:"";position:absolute;left:2px;right:2px;top:3px;height:1px;background:#fff;box-shadow:0 3px 0 #fff}
-.fm .gt{position:relative;display:flex;flex-direction:column;gap:9px;padding-top:2px}
+.fm .gt{position:relative;display:flex;flex-direction:column;gap:6px;padding-top:2px}
 .fm .gt-row{display:flex;align-items:center;gap:6px}
 .fm .gt-nm{flex:0 0 42px;font-size:8px;color:var(--t2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.fm .gt-tr{position:relative;flex:1;height:10px;border-radius:3px;background:#f5f5f7}
-.fm .gt-bar{position:absolute;top:1px;height:8px;border-radius:3px;font-style:normal}
+.fm .gt-tr{position:relative;flex:1;height:13px;border-radius:3px;background:#f5f5f7}
+.fm .gt-bar{position:absolute;top:0;height:8px;border-radius:3px;font-style:normal}
+.fm .gt-plan{position:absolute;top:9px;height:3px;border-radius:2px;background:#c9c9cf;font-style:normal}
+.fm .gt-sw{width:10px;height:4px;border-radius:2px;flex:none;font-style:normal}
+.fm .gt-sw--plan{background:#c9c9cf}
+.fm .gt-sw--fact{background:#7d4ccf;height:6px}
 .fm .gt-bar.b-r{background:#e5534b}.fm .gt-bar.b-p{background:#f2b8d0}.fm .gt-bar.b-b{background:#2f9de3}
 .fm .gt-bar.b-t{background:#17a48c}.fm .gt-bar.b-v{background:#b58ae0}
 .fm .gt-link{position:absolute;height:9px;border-left:1px solid #c9c9cf;border-bottom:1px solid #c9c9cf;border-bottom-left-radius:4px;font-style:normal}
