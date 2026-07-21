@@ -1510,7 +1510,7 @@ section.s{padding:var(--sp-12) 0}
 .fm .gt-link{position:absolute;height:9px;border-left:1px solid #c9c9cf;border-bottom:1px solid #c9c9cf;border-bottom-left-radius:4px;font-style:normal}
 .fm .gt-today{position:absolute;top:0;bottom:0;width:1.5px;border-radius:1px;background:#7d4ccf;opacity:.55}
 .fm .fn{height:12px;border-radius:3px;flex:none}
-.fm .fnv{margin-left:auto;font-weight:600;color:var(--t1)}
+.fm .fnv{margin-left:auto;font-weight:600;color:var(--t2)}
 .fm .chn{width:14px;height:14px;border-radius:4px;background:#efe9f9;color:#7d4ccf;font-size:8px;line-height:1;display:inline-flex;align-items:center;justify-content:center;flex:none}
 
 /* --- Секция «одна платформа»: сетка 2×2 ----------------------------------- */
