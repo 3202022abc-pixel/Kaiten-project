@@ -1525,8 +1525,9 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:1023px){.plat-grid{grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-8)}}
 @media(max-width:767px){.plat-grid .scard-f .fm{margin-inline:auto}}
 
-/* --- Кейсы: аватар инициалами (нет фото спикеров) ------------------------- */
-.otziv-ava--ltr{background:var(--brand-12);color:var(--brand-100)}
+/* --- Кейсы: логотипы компаний ---------------------------------------------- */
+.otziv-logo[src*="vivanti"]{height:40px}
+.otziv-logo[src*="x5"]{height:44px}
 .fm .fnt{flex:1;min-width:0;display:block}
 .fm .fn{display:block}
 .fm .fnv{flex:0 0 20px;text-align:right;margin-left:0}
