@@ -1526,7 +1526,7 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:767px){.plat-grid .scard-f .fm{margin-inline:auto}}
 
 /* --- Кейсы: логотипы компаний ---------------------------------------------- */
-#cases .otziv-logo{max-width:160px}
+#cases .otziv-logo{max-width:140px}
 .otziv-logo[src*="vivanti"]{height:36px}
 .otziv-logo[src*="dreamkas"]{height:44px}
 .otziv-logo[src*="x5"]{height:40px}
