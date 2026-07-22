@@ -123,7 +123,8 @@
   (function(){
     var table = document.getElementById('cmpTable');
     if (!table) return;
-    table.querySelectorAll('.cmp__sec').forEach(function(sec){
+    var secs = table.querySelectorAll('.cmp__sec');
+    secs.forEach(function(sec){
       sec.addEventListener('click', function(){
         var open = sec.getAttribute('aria-expanded') === 'true';
         sec.setAttribute('aria-expanded', open ? 'false' : 'true');
@@ -133,6 +134,27 @@
         });
       });
     });
+
+    // Правило раскрытия (как в мокапе ComparisonTableMock): планшет и десктоп (>=768) —
+    // раскрыты ВСЕ разделы, мобилка (<768) — только первый.
+    // Ручные клики внутри режима не перетираются: пересчёт только при смене режима.
+    var mode = null;
+    function applyDefaults(){
+      var wide = window.innerWidth >= 768;
+      var m = wide ? 'w' : 'm';
+      if (mode === m) return;
+      mode = m;
+      secs.forEach(function(sec, i){
+        var open = wide || i === 0;
+        sec.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var g = sec.getAttribute('data-sec');
+        table.querySelectorAll('.cmp__cell[data-g="' + g + '"]').forEach(function(cell){
+          cell.classList.toggle('cmp__cell--hidden', !open);
+        });
+      });
+    }
+    applyDefaults();
+    window.addEventListener('resize', applyDefaults);
   })();
 
   // ScaleToFit — масштабирует доску фикс. ширины под контейнер (HeroScreenInterface)
