@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кайтен — российская альтернатива ClickUp: сравнение функций и переезд задач</title>
+<meta name="description" content="Кайтен — российская альтернатива ClickUp. Широкий набор инструментов для управления задачами и проектами — без риска ограничений доступа. Сравнение функций, автоматический импорт, бесплатный тариф." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="styles.css?v=69">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="kaiten-logo" viewBox="0 0 147.654 44"><path d="M32.4971 0H11.5029C5.15002 0 0 5.14722 0 11.4966V32.5034C0 38.8528 5.15002 44 11.5029 44H32.4971C38.85 44 44 38.8528 44 32.5034V11.4966C44 5.14722 38.85 0 32.4971 0Z" fill="#F11F24"/><path d="M17.5217 4.79618L4.79618 17.5217C2.34999 19.9679 2.34999 23.9339 4.79618 26.3801L17.5217 39.1056C19.9679 41.5518 23.9339 41.5518 26.3801 39.1056L39.1056 26.3801C41.5518 23.9339 41.5518 19.9679 39.1056 17.5217L26.3801 4.79618C23.9339 2.34999 19.9679 2.34999 17.5217 4.79618Z" fill="#78FFC7"/><path d="M21.8794 32.7575C27.888 32.7575 32.7589 27.8869 32.7589 21.8787C32.7589 15.8706 27.888 11 21.8794 11C15.8709 11 11 15.8706 11 21.8787C11 27.8869 15.8709 32.7575 21.8794 32.7575Z" fill="#7D4CCF"/><path d="M68.7116 21.4228L74.7932 29.579H71.0066L65.7281 22.4567H61.7122V29.579H58.3846V13.4964H61.7122V20.7336H65.4988L70.7769 13.4964H74.4491L68.7116 21.4228ZM78.8182 25.7881C78.8182 27.2432 79.698 27.9707 81.4575 27.9707H84.6705V23.6055H81.4575C79.698 23.6055 78.8182 24.333 78.8182 25.7881ZM84.6705 21.9972C84.6705 20.8944 84.3796 20.0826 83.7985 19.5619C83.2323 19.0411 82.4903 18.7807 81.5723 18.7807C80.8839 18.7807 80.2106 18.8879 79.5528 19.1024C78.8948 19.3015 78.3059 19.5772 77.7857 19.9294L76.9825 18.551C77.319 18.3212 77.6862 18.1221 78.0839 17.9536C78.497 17.7851 78.9177 17.6473 79.3461 17.54C79.7745 17.4175 80.1952 17.3256 80.6083 17.2644C81.0367 17.2031 81.4345 17.1724 81.8016 17.1724C82.7809 17.1724 83.6453 17.2873 84.3949 17.5171C85.1449 17.7468 85.7796 18.0761 86.2999 18.505C86.8201 18.9339 87.2102 19.447 87.4702 20.0443C87.7455 20.6264 87.8833 21.2773 87.8833 21.9972V29.579H81.4575C79.3768 29.579 77.8393 29.265 76.8447 28.637C75.8654 28.009 75.3758 27.0594 75.3758 25.7881C75.3758 24.5168 75.8654 23.5672 76.8447 22.9392C77.8393 22.3112 79.3768 21.9972 81.4575 21.9972H84.6705ZM97.1669 16.2534C95.729 16.2534 94.6425 15.9241 93.9082 15.2655C93.1739 14.5916 92.8068 13.7339 92.8068 12.6923H95.4457C95.4457 13.2743 95.6141 13.7492 95.9506 14.1168C96.3025 14.469 96.7079 14.6452 97.1669 14.6452C97.6259 14.6452 98.0237 14.469 98.3605 14.1168C98.7124 13.7492 98.8881 13.2743 98.8881 12.6923H101.527C101.527 13.7339 101.16 14.5916 100.426 15.2655C99.6913 15.9241 98.6052 16.2534 97.1669 16.2534ZM103.822 17.6319V29.579H100.609V20.6187H100.38L95.1015 29.579H90.9707V17.6319H94.1835V26.5922H94.4132L99.6913 17.6319H103.822ZM118.514 19.2402H113.695V29.579H110.482V19.2402H105.663V17.6319H118.514V19.2402ZM126.542 28.4302C127.292 28.4302 127.988 28.3 128.631 28.0396C129.288 27.7793 129.931 27.4117 130.558 26.9368L131.476 28.3154C131.186 28.5757 130.841 28.8131 130.443 29.0276C130.061 29.242 129.64 29.4258 129.181 29.579C128.738 29.7168 128.271 29.824 127.782 29.9006C127.292 29.9925 126.802 30.0385 126.313 30.0385C125.227 30.0385 124.232 29.893 123.329 29.6019C122.442 29.3263 121.685 28.9203 121.057 28.3843C120.43 27.8329 119.94 27.1589 119.589 26.3625C119.252 25.566 119.084 24.647 119.084 23.6055C119.084 22.5792 119.244 21.6679 119.566 20.8714C119.902 20.0596 120.361 19.3857 120.943 18.8496C121.539 18.2982 122.243 17.8847 123.054 17.609C123.865 17.3179 124.76 17.1724 125.739 17.1724C126.657 17.1724 127.521 17.3103 128.332 17.586C129.143 17.8617 129.847 18.2676 130.443 18.8037C131.04 19.3244 131.515 19.9601 131.866 20.7106C132.218 21.4611 132.394 22.3112 132.394 23.2608V24.8691H122.595C122.778 26.1404 123.214 27.0517 123.903 27.6031C124.607 28.1545 125.487 28.4302 126.542 28.4302ZM125.739 18.6658C125.295 18.6658 124.882 18.7501 124.5 18.9185C124.117 19.087 123.781 19.3551 123.49 19.7227C123.214 20.0903 122.985 20.5651 122.801 21.1471C122.633 21.7292 122.541 22.4337 122.526 23.2608H128.952C128.952 22.4644 128.86 21.7751 128.676 21.1931C128.493 20.611 128.248 20.1362 127.942 19.7686C127.651 19.3857 127.307 19.11 126.91 18.9415C126.527 18.7577 126.137 18.6658 125.739 18.6658ZM147.654 17.6319V29.579H144.441V24.2947H138.245V29.579H135.032V17.6319H138.245V22.6865H144.441V17.6319H147.654Z" fill="currentColor"/></symbol></svg>
+
+<!-- NAVIGATION (desktop) -->
+<nav class="navbar navbar--desktop" aria-label="Основная навигация">
+  <div class="navbar__container"><div class="navbar__content">
+    <div class="navbar__menu-with-logo">
+      <div class="navbar__logo"><a href="https://kaiten.ru" aria-label="Кайтен — на&nbsp;главную"><svg class="klogo" viewBox="0 0 147.654 44" role="img" aria-label="Кайтен"><use href="#kaiten-logo"/></svg></a></div>
+      <div class="navbar__nav">
+        <a class="navbar__link" href="#features"><span class="navbar__link-text">Продукт</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="#compare"><span class="navbar__link-text navbar__link-text--active">Сравнение</span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Услуги</span><span class="navbar__link-icon"><span class="chev"></span></span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">On-premise</span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">AI</span></a>
+        <a class="navbar__link" href="https://kaiten.ru/tariffs"><span class="navbar__link-text">Тарифы</span></a>
+        <a class="navbar__link" href="#cases"><span class="navbar__link-text">Кейсы</span></a>
+        <a class="navbar__link" href="https://kaiten.ru"><span class="navbar__link-text">Блог</span></a>
+      </div>
+    </div>
+    <div class="navbar__actions"><div class="navbar__action-group">
+      <a class="navbar__phone" href="tel:+78005005843" aria-label="Позвонить нам"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></a>
+      <a class="btn btn--md btn--fill" href="https://passport.kaiten.ru/">Войти</a>
+      <a class="btn btn--md btn--outline" href="https://passport.kaiten.ru/">Регистрация</a>
+    </div></div>
+  </div></div>
+</nav>
+<nav class="navbar navbar--mobile" aria-label="Мобильная навигация">
+  <div class="navbar__container navbar__container--mobile"><div class="navbar__content" style="justify-content:space-between">
+    <a href="https://kaiten.ru" aria-label="Кайтен — на&nbsp;главную"><svg class="klogo klogo--m" viewBox="0 0 147.654 44" role="img" aria-label="Кайтен"><use href="#kaiten-logo"/></svg></a>
+    <button class="navbar__burger" id="burger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+  </div></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features">Продукт</a><a href="#compare">Сравнение</a><a href="https://kaiten.ru">Услуги</a><a href="https://kaiten.ru">On-premise</a><a href="https://kaiten.ru">AI</a><a href="https://kaiten.ru/tariffs">Тарифы</a><a href="#cases">Кейсы</a><a href="https://kaiten.ru">Блог</a>
+  <a class="btn btn--md btn--fill btn--full" href="https://passport.kaiten.ru/">Войти</a>
+  <a class="btn btn--md btn--outline btn--full" href="https://passport.kaiten.ru/">Регистрация</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1>Кайтен — российская альтернатива ClickUp</h1>
+      <p class="hero__sub">Широкий набор инструментов для&nbsp;управления задачами и&nbsp;проектами&nbsp;—<br class="hs-br"> без&nbsp;риска ограничений доступа</p>
+      <div class="hero__cta">
+        <a class="btn btn--lg btn--fill" href="https://passport.kaiten.ru/">Попробовать бесплатно</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hsi" aria-hidden="true">
+        <div class="stf" data-dw="1360"><div class="stf-inner">
+        <div class="mod">
+          <div class="hdr">
+            <span class="grip"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="nm">Контент</span>
+            <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+          </div>
+          <div class="colhdr">
+            <div class="c"><span class="t">Идея</span><span class="cnt">2</span></div>
+            <div class="c"><span class="t">Очередь</span><span class="cnt">1</span></div>
+            <div class="c"><span class="t">В&nbsp;работе</span><span class="cnt">1</span></div>
+            <div class="c"><span class="t">Согласование</span><span class="cnt">2</span></div>
+            <div class="c"><span class="chk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t">Готово</span><span class="cnt">1</span></div>
+          </div>
+          <div class="lanebody">
+            <div class="col">
+              <div class="ghost" style="height:136px"><div class="drag-layer"><div class="card drag-card"><div class="ct-row"><span class="ct">Статья: 10 трендов e-commerce в&nbsp;2026 году</span><span class="emo">📝</span></div><div class="tags"><span class="tag t-urg">SEO</span><span class="tag t-cx">Блог</span></div><div class="foot"><span class="avs"><span class="av ltr">ЕК</span></span></div></div><span class="hand"><svg width="40" height="40" viewBox="0 0 24 24" fill="#fff" stroke="#2d2d2d" stroke-width="1.4" stroke-linejoin="round"><path d="M9 11V5.5a1.5 1.5 0 0 1 3 0V11V7.5a1.5 1.5 0 0 1 3 0V11v-1a1.5 1.5 0 0 1 3 0v5.5a5.5 5.5 0 0 1-5.5 5.5H12a5 5 0 0 1-4.3-2.5l-2.4-4a1.5 1.5 0 0 1 2.5-1.6L9 15z"/></svg></span></div></div>
+              <div class="card"><div class="ct-row"><span class="ct">Белая книга: путеводитель по&nbsp;аналитике для&nbsp;маркетолога</span><span class="emo">🦉</span></div><div class="tags"><span class="tag t-ok">Лидген</span><span class="tag t-teal">Сайт</span></div><div class="foot"><span class="avs"><span class="av ltr">СП</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>20 мар.</span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Обновить страницу «О&nbsp;компании»</span><span class="emo">🌺</span></div><div class="tags"><span class="tag t-teal">Сайт</span></div><div class="foot"><span class="avs"><span class="av ltr">ОЛ</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>31 мар.</span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Кейс: как&nbsp;мы увеличили конверсию лендинга на&nbsp;30%</span><span class="emo">📈</span></div><div class="row"><span class="cmt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>1</span><span class="tag t-cx">Блог</span></div><div class="prog"><i style="width:40%"></i><span class="l">Чек-лист</span><span class="n">2/5</span></div><div class="foot"><span class="avs"><span class="av ltr">ИР</span><span class="av ltr">М</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>1 мар.</span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Email-рассылка: весенняя распродажа</span><span class="emo">🦥</span></div><div class="row"><span class="cmt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>1</span><span class="tag t-jud">Email</span></div><div class="foot"><span class="avs"><span class="av ltr">ТЗ</span><span class="av ltr">Н</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>1 мар.</span></div></div>
+              <div class="card"><div class="ct-row"><span class="ct">Статья: зачем бизнесу CRM-маркетинг</span><span class="emo">📝</span></div><div class="row"><span class="cmt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>1</span><span class="tag t-urg">SEO</span><span class="tag t-cx">Блог</span></div><div class="foot"><span class="avs"><span class="av ltr">ЛГ</span><span class="av ltr">КС</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>1 мар.</span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Гайд: как&nbsp;запустить программу лояльности с&nbsp;нуля</span><span class="emo">🐦</span></div><div class="tags"><span class="tag t-cx">Блог</span><span class="tag t-ok">Лидген</span></div><div class="prog done"><i style="width:100%"></i><span class="l">Чек-лист</span><span class="n">✓ 6/6</span></div><div class="foot"><span class="avs"><span class="av ltr">РБ</span><span class="av ltr">А</span></span></div></div>
+            </div>
+          </div>
+          <div class="hdr" style="border-top:1px solid var(--bd)">
+            <span class="grip"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span class="nm">SMM</span>
+            <span class="chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg></span>
+          </div>
+          <div class="colhdr">
+            <div class="c"><span class="t">Идея</span><span class="cnt">1</span></div>
+            <div class="c"><span class="t">В&nbsp;работе</span><span class="cnt">2</span></div>
+            <div class="c"><span class="t">Согласование</span><span class="cnt">1</span></div>
+            <div class="c"><span class="t">Публикация</span><span class="cnt">1</span></div>
+            <div class="c"><span class="chk"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span><span class="t">Опубликовано</span><span class="cnt">2</span></div>
+          </div>
+          <div class="lanebody">
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Карусель: 5 причин попробовать наш сервис</span><span class="emo">🎪</span></div><div class="foot"><span class="avs"><span class="av ltr">ДК</span></span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Серия рилсов: закулисье производства</span><span class="emo">🎬</span></div><div class="foot"><span class="avs"><span class="av ltr">ВД</span></span><span class="due"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg>14 мар.</span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Пост: итоги участия в&nbsp;конференции</span><span class="emo">🎤</span></div><div class="foot"><span class="avs"><span class="av ltr">ЮМ</span></span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Пост: анонс весенней коллекции</span><span class="emo">👗</span></div><div class="foot"><span class="avs"><span class="av ltr">АФ</span></span></div></div>
+            </div>
+            <div class="col">
+              <div class="card"><div class="ct-row"><span class="ct">Пост: день рождения компании — 5 лет</span><span class="emo">🎂</span></div><div class="foot"><span class="avs"><span class="av ltr">ПН</span><span class="av ltr">МВ</span></span></div></div>
+            </div>
+          </div>
+        </div>
+        </div></div>
+      </div>
+    </div>
+    <div class="trust-line">
+      <div class="trust-track"><div class="trust-set"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Российское ПО</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Бесплатный тариф</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="m16 4 4 4-4 4"/><path d="M20 16H4"/><path d="m8 12-4 4 4 4"/></svg>Автоматический импорт</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>Облако и&nbsp;коробка</b></div><span class="sep trust-gap"></span><div class="trust-set" aria-hidden="true"><b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>Российское ПО</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>Бесплатный тариф</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16"/><path d="m16 4 4 4-4 4"/><path d="M20 16H4"/><path d="m8 12-4 4 4 4"/></svg>Автоматический импорт</b><span class="sep"></span>
+      <b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>Облако и&nbsp;коробка</b></div><span class="sep trust-gap"></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ОТЗЫВЫ / КЕЙСЫ -->
+<section class="reviews-sec" id="cases" aria-label="Отзывы клиентов">
+  <div class="container">
+      <div class="otziv-track" id="otzivTrack">
+        <article class="otziv">
+          <div class="otziv-top">
+            <div class="otziv-head"><img class="otziv-logo" src="assets/reviews/superkassa-logo.png" alt="Superkassa" loading="lazy"><svg class="otziv-quote" viewBox="0 0 79 60" fill="currentColor" aria-hidden="true"><path d="M63.0091 60C57.4401 60 52.8258 58.16 49.1662 54.48C45.6657 50.8 43.9154 45.52 43.9154 38.64C43.9154 31.28 45.9839 24 50.1208 16.8C54.4169 9.6 60.3837 4 68.0211 0L73.5106 8.4C65.2367 14.16 60.3041 21.44 58.713 30.24C60.145 29.6 61.8157 29.28 63.7251 29.28C68.1803 29.28 71.8399 30.72 74.7039 33.6C77.568 36.48 79 40.16 79 44.64C79 49.12 77.4884 52.8 74.4653 55.68C71.4421 58.56 67.6234 60 63.0091 60ZM19.0937 60C13.5247 60 8.91037 58.16 5.25075 54.48C1.75025 50.8 0 45.52 0 38.64C0 31.28 2.06848 24 6.20544 16.8C10.5015 9.6 16.4683 4 24.1057 0L29.5952 8.4C21.3212 14.16 16.3887 21.44 14.7976 30.24C16.2296 29.6 17.9003 29.28 19.8097 29.28C24.2649 29.28 27.9245 30.72 30.7885 33.6C33.6526 36.48 35.0846 40.16 35.0846 44.64C35.0846 49.12 33.573 52.8 30.5498 55.68C27.5267 58.56 23.708 60 19.0937 60Z"/></svg></div>
+            <div class="otziv-text"><p>«Kaiten схож с&nbsp;ClickUp — сотрудники легко перетаскивают карточки, назначают участников и&nbsp;ставить сроки. При&nbsp;этом в&nbsp;ClickUp нет учета времени работы сотрудников, что&nbsp;усложняло расчет премий и&nbsp;аналитику трудозатрат»</p></div>
+          </div>
+          <div class="otziv-author">
+            <span class="otziv-ava"><img src="assets/reviews/superkassa-ava.png" alt="Вадим Фридман" loading="lazy"></span>
+            <div><div class="otziv-name">Вадим Фридман</div><div class="otziv-role">менеджер проектов Superkassa</div></div>
+          </div>
+          <a class="otziv-btn" href="https://kaiten.ru/blog/case-superkassa/" target="_blank" rel="noopener">Читать кейс</a>
+        </article>
+        <article class="otziv">
+          <div class="otziv-top">
+            <div class="otziv-head"><img class="otziv-logo" src="assets/reviews/gocpa-logo.png" alt="GoCPA" loading="lazy"><svg class="otziv-quote" viewBox="0 0 79 60" fill="currentColor" aria-hidden="true"><path d="M63.0091 60C57.4401 60 52.8258 58.16 49.1662 54.48C45.6657 50.8 43.9154 45.52 43.9154 38.64C43.9154 31.28 45.9839 24 50.1208 16.8C54.4169 9.6 60.3837 4 68.0211 0L73.5106 8.4C65.2367 14.16 60.3041 21.44 58.713 30.24C60.145 29.6 61.8157 29.28 63.7251 29.28C68.1803 29.28 71.8399 30.72 74.7039 33.6C77.568 36.48 79 40.16 79 44.64C79 49.12 77.4884 52.8 74.4653 55.68C71.4421 58.56 67.6234 60 63.0091 60ZM19.0937 60C13.5247 60 8.91037 58.16 5.25075 54.48C1.75025 50.8 0 45.52 0 38.64C0 31.28 2.06848 24 6.20544 16.8C10.5015 9.6 16.4683 4 24.1057 0L29.5952 8.4C21.3212 14.16 16.3887 21.44 14.7976 30.24C16.2296 29.6 17.9003 29.28 19.8097 29.28C24.2649 29.28 27.9245 30.72 30.7885 33.6C33.6526 36.48 35.0846 40.16 35.0846 44.64C35.0846 49.12 33.573 52.8 30.5498 55.68C27.5267 58.56 23.708 60 19.0937 60Z"/></svg></div>
+            <div class="otziv-text"><p>«Работа с&nbsp;карточками в&nbsp;Kaiten доступна всем участникам — каждый может создать задачу, прокомментировать, назначить ответственного и&nbsp;прикрепить файл. Переход занял несколько дней, процессы не&nbsp;остановились»</p></div>
+          </div>
+          <div class="otziv-author">
+            <span class="otziv-ava"><img src="assets/reviews/avatar-man.png" alt="Егор Васильев" loading="lazy"></span>
+            <div><div class="otziv-name">Егор Васильев</div><div class="otziv-role">CTO GoCPA</div></div>
+          </div>
+          <a class="otziv-btn" href="https://kaiten.ru/blog/srochno-smienit-task-triekier-i-nie-soiti-s-uma-kak-pierieiekhat-iz-clickup-v-kaiten/" target="_blank" rel="noopener">Читать кейс</a>
+        </article>
+        <article class="otziv">
+          <div class="otziv-top">
+            <div class="otziv-head"><img class="otziv-logo" src="assets/reviews/jvo-logo.png" alt="JVO" loading="lazy"><svg class="otziv-quote" viewBox="0 0 79 60" fill="currentColor" aria-hidden="true"><path d="M63.0091 60C57.4401 60 52.8258 58.16 49.1662 54.48C45.6657 50.8 43.9154 45.52 43.9154 38.64C43.9154 31.28 45.9839 24 50.1208 16.8C54.4169 9.6 60.3837 4 68.0211 0L73.5106 8.4C65.2367 14.16 60.3041 21.44 58.713 30.24C60.145 29.6 61.8157 29.28 63.7251 29.28C68.1803 29.28 71.8399 30.72 74.7039 33.6C77.568 36.48 79 40.16 79 44.64C79 49.12 77.4884 52.8 74.4653 55.68C71.4421 58.56 67.6234 60 63.0091 60ZM19.0937 60C13.5247 60 8.91037 58.16 5.25075 54.48C1.75025 50.8 0 45.52 0 38.64C0 31.28 2.06848 24 6.20544 16.8C10.5015 9.6 16.4683 4 24.1057 0L29.5952 8.4C21.3212 14.16 16.3887 21.44 14.7976 30.24C16.2296 29.6 17.9003 29.28 19.8097 29.28C24.2649 29.28 27.9245 30.72 30.7885 33.6C33.6526 36.48 35.0846 40.16 35.0846 44.64C35.0846 49.12 33.573 52.8 30.5498 55.68C27.5267 58.56 23.708 60 19.0937 60Z"/></svg></div>
+            <div class="otziv-text"><p>«Кайтен помог навести порядок в&nbsp;задачах и&nbsp;сроках — теперь командам легче управлять задачами и&nbsp;отслеживать их&nbsp;выполнение даже при&nbsp;полностью удаленном формате работы»</p></div>
+          </div>
+          <div class="otziv-author">
+            <span class="otziv-ava"><img src="assets/reviews/jvo-ava.png" alt="Максим Логинов" loading="lazy"></span>
+            <div><div class="otziv-name">Максим Логинов</div><div class="otziv-role">генеральный директор JVO</div></div>
+          </div>
+          <a class="otziv-btn" href="https://kaiten.ru/blog/case-jvo/" target="_blank" rel="noopener">Читать кейс</a>
+        </article>
+      </div>
+      <div class="otziv-nav">
+        <button class="prev" id="otzivPrev" aria-label="Предыдущий" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.25 6L9 12.25L15.25 18.5"/></svg>
+        </button>
+        <span class="otziv-count" id="otzivCount"><b>1</b> / 3</span>
+        <button class="next" id="otzivNext" aria-label="Следующий">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.75 19L15 12.75L8.75 6.5"/></svg>
+        </button>
+      </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="s" id="features"><div class="container">
+  <div class="sh sh--center s-head">
+    <h2 class="sh__heading">Работайте с&nbsp;задачами так, как&nbsp;привыкли</h2>
+    <p class="sh__desc">Рабочие пространства, доски, карточки, несколько видов задач, автоматизации и&nbsp;документы —<br class="feat-br"> Кайтен покрывает те&nbsp;же сценарии, что&nbsp;и&nbsp;ClickUp, с&nbsp;аналогичной гибкостью настройки</p>
+  </div>
+  <div class="acc-wrap acc-wrap--benefits acc-wrap--modules">
+    <div class="bnf-col">
+      <div class="acc" id="featAcc">
+      <div class="acc-item open">
+        <button class="acc-head" type="button"><span class="acc-title">Привычная канбан-доска</span><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Карточки передвигаются между колонками, внутри — чек-листы, файлы, комментарии и&nbsp;история изменений. Настраиваемые поля, метки, фильтры. Доступны дорожки и&nbsp;подколонки — для&nbsp;команд, которым нужна более сложная визуализация</p><div class="acc-inline">
+      <img src="assets/acc/1.png?v=2" alt="Привычная канбан-доска в Кайтен" loading="lazy">
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Разное отображение задач</span><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Канбан-доска, список, таблица, календарь, диаграмма Ганта — переключайтесь между видами в&nbsp;один клик. Данные везде одинаковые, выбирайте удобный формат для&nbsp;каждой задачи</p><div class="acc-inline">
+      <img src="assets/acc/2.png?v=2" alt="Разное отображение задач в Кайтен" loading="lazy">
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Документы и&nbsp;база знаний</span><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Блочный редактор, иерархия страниц, версии документов, публичные ссылки — работают рядом с&nbsp;досками и&nbsp;задачами</p><div class="acc-inline">
+      <img src="assets/acc/3.png?v=2" alt="Документы и база знаний в Кайтен" loading="lazy">
+        </div></div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-head" type="button"><span class="acc-title">Автоматизации без&nbsp;программирования</span><span class="acc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="acc-body"><p>Передавайте рутину системе: назначить ответственного при&nbsp;смене этапа, добавить чек-лист, создать повторяющуюся задачу. Всё настраивается без&nbsp;участия ИТ-команды</p><div class="acc-inline">
+      <img src="assets/acc/4.png?v=2" alt="Автоматизации без программирования в Кайтен" loading="lazy">
+        </div></div>
+      </div>
+    </div>
+      <a class="btn btn--lg btn--fill bnf-cta" href="https://passport.kaiten.ru/">Попробовать бесплатно</a>
+    </div>
+    <div class="acc-media">
+      <div class="acc-panel on">
+      <img src="assets/acc/1.png?v=2" alt="Привычная канбан-доска в Кайтен" loading="lazy">
+      </div>
+      <div class="acc-panel">
+      <img src="assets/acc/2.png?v=2" alt="Разное отображение задач в Кайтен" loading="lazy">
+      </div>
+      <div class="acc-panel">
+      <img src="assets/acc/3.png?v=2" alt="Документы и база знаний в Кайтен" loading="lazy">
+      </div>
+      <div class="acc-panel">
+      <img src="assets/acc/4.png?v=2" alt="Автоматизации без программирования в Кайтен" loading="lazy">
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- COMPARISON TABLE -->
+<section class="s cmp-sec" id="compare"><div class="container">
+  <div class="cmp">
+    <div class="cmp__table" id="cmpTable">
+      <div class="cmp__bg cmp__bg--kaiten"></div>
+      <div class="cmp__bg cmp__bg--trello"></div>
+      <div class="cmp__grid">
+        <!-- product header -->
+        <div class="cmp__hcell cmp__hcell--label"><h2 class="cmp__title">Кайтен и ClickUp:<br class="br-m"> сравнение функций</h2></div>
+        <div class="cmp__hcell cmp__hcell--k"><svg class="cmp__logo" viewBox="0 0 147.654 44" role="img" aria-label="Кайтен"><use href="#kaiten-logo"/></svg></div>
+        <div class="cmp__hcell cmp__hcell--t">ClickUp</div>
+
+        <!-- Раздел 1: Управление задачами -->
+        <button class="cmp__sec" type="button" data-sec="1" aria-expanded="true"><span class="cmp__sec-t">Управление задачами</span><span class="cmp__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Рабочие пространства, доски, карточки</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Список, таблица, доска, календарь, Ганта</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Несколько досок в&nbsp;одном пространстве</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Одна доска в&nbsp;нескольких пространствах</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Дорожки</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Колонки второго уровня</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">WIP-лимиты</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Визуальные сигналы о&nbsp;застрявших задачах</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Блокировка задач</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Настраиваемые поля</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Чек-листы</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Создание задачи из&nbsp;пункта чек-листа</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Назначение ответственного и&nbsp;срока в&nbsp;чек-листах</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Иерархия задач</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Шаблоны задач и&nbsp;досок</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Повторяющиеся задачи</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Автоматизации</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Гостевые пользователи</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label" data-g="1">Воронка продаж (CRM)</div><div class="cmp__cell cmp__cell--k" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t" data-g="1"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+
+        <!-- Раздел 2: Планирование и Agile -->
+        <button class="cmp__sec" type="button" data-sec="2" aria-expanded="false"><span class="cmp__sec-t">Планирование и&nbsp;Agile</span><span class="cmp__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Скрам и&nbsp;спринты</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Бэклог</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Покерное планирование</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Карта пользовательских историй</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Учёт времени</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Загрузка сотрудников</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="2">Agile-аналитика (Burndown, Velocity, CFD)</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="2"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+
+        <!-- Раздел 3: Документы и знания -->
+        <button class="cmp__sec" type="button" data-sec="3" aria-expanded="false"><span class="cmp__sec-t">Документы и&nbsp;знания</span><span class="cmp__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="3">База знаний</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="3">Блочный редактор документов</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="3">Публичные ссылки</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="3">Права доступа к&nbsp;документам</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="3"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="3"><i class="cmp__ic no"></i></div>
+
+        <!-- Раздел 4: Интеграции и каналы -->
+        <button class="cmp__sec" type="button" data-sec="4" aria-expanded="false"><span class="cmp__sec-t">Интеграции и&nbsp;каналы</span><span class="cmp__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">API и&nbsp;вебхуки</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Уведомления в&nbsp;мессенджерах</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Создание задач из&nbsp;мессенджеров</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Интеграция с&nbsp;GitHub / GitLab</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Мобильное приложение</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">ИИ-функции</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Интерактивные доски</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic no"></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Встроенный чат</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="4">Видеозвонки</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="4"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+
+        <!-- Раздел 5: Платформа -->
+        <button class="cmp__sec" type="button" data-sec="5" aria-expanded="false"><span class="cmp__sec-t">Платформа</span><span class="cmp__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></button>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Облачная версия</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Установка на&nbsp;собственный сервер</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Бесплатный тариф</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Российский реестр ПО</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Техподдержка на&nbsp;русском языке</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic no"></i></div>
+        <div class="cmp__cell cmp__cell--label cmp__cell--hidden" data-g="5">Служба поддержки (Service Desk)</div><div class="cmp__cell cmp__cell--k cmp__cell--hidden" data-g="5"><i class="cmp__ic yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></i></div><div class="cmp__cell cmp__cell--t cmp__cell--hidden" data-g="5"><i class="cmp__ic no"></i></div>
+      </div>
+    </div>
+    <p class="cmp__note">Сравнение составлено на&nbsp;основании открытых источников по&nbsp;состоянию на&nbsp;19.05.2026.<br>Функциональность сервисов может отличаться в&nbsp;зависимости от&nbsp;тарифа, конфигурации и&nbsp;настроек.</p>
+  </div>
+</div></section>
+
+<!-- MIGRATION -->
+<section class="s" id="depsec"><div class="container">
+  <div class="mig">
+    <div class="mig__blur" aria-hidden="true"></div>
+    <div class="mig__copy">
+      <h2>Переходите из&nbsp;ClickUp в&nbsp;пару кликов</h2>
+      <p>Доски, карточки и&nbsp;списки переезжают автоматически.<br>Без&nbsp;ручного копирования и&nbsp;остановки работы команды</p>
+      <a class="btn btn--lg btn--fill" href="https://passport.kaiten.ru/" style="margin-top:24px">Попробовать Кайтен</a>
+    </div>
+    <div class="mig__visual">
+      <img class="mig-img" src="assets/relocation.png" alt="Перенос задач из ClickUp и других сервисов в Кайтен" loading="lazy">
+    </div>
+  </div>
+</div></section>
+
+<!-- ONE PLATFORM -->
+<section class="fg-mock" id="platform" aria-label="Кайтен — одна платформа для всей компании">
+  <div class="fg-inner">
+    <div class="fg-head">
+      <h2 class="fg-heading">Кайтен — одна платформа для&nbsp;всей компании</h2>
+      <p class="fg-desc">Оба сервиса покрывают базовые сценарии управления задачами. Кайтен ориентирован на&nbsp;команды,<br class="plat-br"> которым нужны полноценный скрам и&nbsp;работа с&nbsp;клиентскими заявками и&nbsp;общение с&nbsp;командой внутри одной платформы</p>
+
+    </div>
+    <div class="fg-grid fg-grid--4" id="platGrid">
+      <article class="fg-card">
+        <span class="fg-illus" aria-hidden="true"><div class="fm"><div class="card h180"><div class="kbsh"><div class="kbside" style="gap:5px;justify-content:center"><span class="hd"></span><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="pj"><i></i><b>Бухгал.</b></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width:60%"></span></div></div><div class="kbmain"><div class="swhdr">Оплата</div><div class="kboard" style="margin-bottom:6px"><div class="kcol"><div class="kh">Очередь</div><span class="kk g" style="height:18px"></span><span class="kk n" style="height:15px"></span></div><div class="kcol"><div class="kh">В работе</div><span class="kk o" style="height:20px"></span><span class="kk r" style="height:15px"></span></div><div class="kcol"><div class="kh">Соглас…</div><span class="kk g" style="height:15px"></span><span class="kk o" style="height:18px"></span></div><div class="kcol"><div class="kh">Готово</div><span class="kk r" style="height:15px"></span><span class="kk g" style="height:18px"></span></div></div><div class="swlane">Платежи клиентов</div><div class="swlane">Отчётность</div><div class="swlane">Еженедельные задачи</div></div></div></div></div></span>
+        <h3>Продвинутый канбан</h3>
+        <p>Дорожки, колонки второго уровня, WIP-лимиты, визуальные сигналы о&nbsp;застрявших задачах, блокировки — для&nbsp;команд, которые хотят видеть узкие места процесса в&nbsp;реальном времени</p>
+      </article>
+      <article class="fg-card">
+        <span class="fg-illus" aria-hidden="true"><div class="fm"><div class="card h180" style="display:flex;flex-direction:column">
+      <div class="val" style="margin-bottom:9px;font-weight:700">Заявки в нарушении SLA</div>
+      <div class="row" style="gap:0;border-bottom:1px solid var(--bd);padding-bottom:4px;margin-bottom:6px"><span class="lab" style="flex:0.9">Название</span><span class="lab" style="flex:1.4">Выполнение</span><span class="lab" style="flex:1.2">Реакция</span><span class="lab" style="flex:0 0 14px;text-align:center">+</span></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly">
+        <div class="row" style="gap:0;padding-bottom:4px;border-bottom:1px solid var(--bd)"><span class="row" style="flex:0.9;gap:4px"><i style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none"></i><span class="val" style="font-weight:400">Тема 1</span></span><span style="flex:1.4;font-size:8px;color:var(--t1)">16ч 0м <span style="color:var(--red)">(10ч 0м)</span></span><span style="flex:1.2;font-size:8px;color:var(--t1)">8ч 0м <span style="color:var(--red)">(7ч 0м)</span></span><span style="flex:0 0 14px"></span></div>
+        <div class="row" style="gap:0;padding-bottom:4px;border-bottom:1px solid var(--bd)"><span class="row" style="flex:0.9;gap:4px"><i style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none"></i><span class="val" style="font-weight:400">Тема 2</span></span><span style="flex:1.4;font-size:8px;color:var(--t1)">8ч 56м <span style="color:var(--red)">(2ч 56м)</span></span><span style="flex:1.2;font-size:8px;color:var(--t1)">7ч 36м <span style="color:var(--red)">(6ч 36м)</span></span><span style="flex:0 0 14px"></span></div>
+        <div class="row" style="gap:0;padding-bottom:4px;border-bottom:1px solid var(--bd)"><span class="row" style="flex:0.9;gap:4px"><i style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none"></i><span class="val" style="font-weight:400">Тема 3</span></span><span style="flex:1.4;font-size:8px;color:var(--t1)">16ч 0м <span style="color:var(--red)">(10ч 0м)</span></span><span style="flex:1.2;font-size:8px;color:var(--t1)">8ч 0м <span style="color:var(--red)">(7ч 0м)</span></span><span style="flex:0 0 14px"></span></div>
+        <div class="row" style="gap:0;padding-bottom:4px;border-bottom:1px solid var(--bd)"><span class="row" style="flex:0.9;gap:4px"><i style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none"></i><span class="val" style="font-weight:400">Тема 4</span></span><span style="flex:1.4;font-size:8px;color:var(--t1)">8ч 56м <span style="color:var(--red)">(2ч 56м)</span></span><span style="flex:1.2;font-size:8px;color:var(--t1)">7ч 36м <span style="color:var(--red)">(6ч 36м)</span></span><span style="flex:0 0 14px"></span></div>
+        <div class="row" style="gap:0"><span class="row" style="flex:0.9;gap:4px"><i style="width:5px;height:5px;border-radius:50%;background:var(--violet);flex:none"></i><span class="val" style="font-weight:400">Тема 5</span></span><span style="flex:1.4;font-size:8px;color:var(--t1)">16ч 0м <span style="color:var(--red)">(10ч 0м)</span></span><span style="flex:1.2;font-size:8px;color:var(--t1)">8ч 0м <span style="color:var(--red)">(7ч 0м)</span></span><span style="flex:0 0 14px"></span></div>
+      </div>
+      <div class="row" style="border-top:1px solid var(--bd);padding-top:6px"><span class="lab">Всего задач: 110</span></div>
+    </div></div></span>
+        <h3>Служба поддержки</h3>
+        <p>Заявки из&nbsp;почты, мессенджеров и&nbsp;клиентского портала попадают прямо на&nbsp;доску как&nbsp;карточки. Контроль сроков (SLA), шаблонные ответы, история переписки внутри задачи</p>
+      </article>
+      <article class="fg-card">
+        <span class="fg-illus" aria-hidden="true"><div class="fm"><div class="card h180" style="display:flex;flex-direction:column"><div class="row" style="margin-bottom:6px"><span class="val" style="font-weight:700">Воронка продаж</span><span class="sp" style="flex:1"></span><span class="lab" style="font-size:7.5px">Q2</span></div><div style="flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;min-height:0"><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><div class="row" style="gap:3px"><span class="kh" style="flex:1;min-width:0">Лиды</span><span style="font-size:6.5px;font-weight:600;color:var(--t2);background:#efefef;border-radius:4px;padding:0 3px">18</span></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--blue);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Северный ветер</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">320 т ₽</div></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--blue);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Pixel Studio</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">180 т ₽</div></div></div><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><div class="row" style="gap:3px"><span class="kh" style="flex:1;min-width:0">Квалиф.</span><span style="font-size:6.5px;font-weight:600;color:var(--t2);background:#efefef;border-radius:4px;padding:0 3px">11</span></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--violet);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Энергомост</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">1,25 млн</div></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--orange);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Меркурий</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">480 т ₽</div></div></div><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><div class="row" style="gap:3px"><span class="kh" style="flex:1;min-width:0">Договор</span><span style="font-size:6.5px;font-weight:600;color:var(--t2);background:#efefef;border-radius:4px;padding:0 3px">6</span></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--orange);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Атлант</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">2,4 млн</div></div></div><div style="display:flex;flex-direction:column;gap:3px;min-width:0"><div class="row" style="gap:3px"><span class="kh" style="flex:1;min-width:0">Оплата</span><span style="font-size:6.5px;font-weight:600;color:var(--t2);background:#efefef;border-radius:4px;padding:0 3px">9</span></div><div style="background:var(--surf);border-radius:4px;padding:4px 3px;min-width:0;min-height:44px"><i style="display:block;width:12px;height:2px;border-radius:2px;background:var(--green);margin-bottom:3px"></i><div style="font-size:6.5px;color:var(--t1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Bright Coffee</div><div style="font-size:7px;font-weight:700;color:var(--violet);margin-top:1px">95 т ₽</div></div></div></div><div class="row" style="border-top:1px solid var(--bd);padding-top:6px;margin-top:6px"><span class="lab">44 сделки</span><span class="sp" style="flex:1"></span><span class="val" style="font-weight:700">19,4 млн ₽</span></div></div></div></span>
+        <h3>CRM</h3>
+        <p>Воронки продаж, карточки сделок, каталог контактов — на&nbsp;тех&nbsp;же досках, что&nbsp;и&nbsp;задачи. Не&nbsp;нужно переключаться между сервисами: из&nbsp;сделки сразу создается задача для&nbsp;команды</p>
+      </article>
+      <article class="fg-card">
+        <span class="fg-illus" aria-hidden="true"><div class="fm"><div class="card h180">
+      <div class="val" style="margin-bottom:3px;font-weight:700">Запустить таймер</div>
+      <div class="lab" style="margin-bottom:2px">Начало</div>
+      <div class="field row" style="margin-bottom:4px"><span class="val" style="font-weight:400">16.03.2026 15:00</span><span class="sp"></span><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="var(--t3)" stroke-width="1.3"><rect x="1.8" y="3" width="12.4" height="11" rx="2"/><line x1="1.8" y1="6.5" x2="14.2" y2="6.5"/><line x1="5" y1="1.6" x2="5" y2="4"/><line x1="11" y1="1.6" x2="11" y2="4"/></svg></div>
+      <div class="field" style="height:22px;margin-bottom:3px"><span class="val" style="font-weight:400">Приступаю к задаче</span></div>
+      <div class="lab" style="margin-bottom:2px">Роль</div>
+      <div class="field row" style="margin-bottom:6px"><span class="val" style="font-weight:400">Куратор</span><span class="sp"></span><span style="font-size:7px;color:var(--t3)">▾</span></div>
+      <div class="row" style="justify-content:flex-end;gap:6px">
+        <span style="border:1px solid var(--bd);border-radius:6px;padding:4px 10px;font-size:8px;font-weight:600;color:var(--t2);letter-spacing:.03em">ОТМЕНА</span>
+        <span style="background:var(--violet);border-radius:6px;padding:4px 10px;font-size:8px;font-weight:600;color:#fff;letter-spacing:.03em">ЗАПУСТИТЬ ТАЙМЕР</span>
+      </div>
+    </div></div></span>
+        <h3>Учет времени</h3>
+        <p>Фиксируйте плановые и&nbsp;фактические трудозатраты по&nbsp;каждой задаче. Смотрите, сколько времени уходит на&nbsp;проект в&nbsp;целом и&nbsp;по&nbsp;каждому сотруднику</p>
+      </article>
+    </div>
+    <div class="fg-nav" id="platNav">
+      <button type="button" class="fg-prev" id="platPrev" aria-label="Предыдущий" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.25 6L9 12.25L15.25 18.5"/></svg></button>
+      <span class="fg-count" id="platCount"><b>1</b> / 4</span>
+      <button type="button" class="fg-next" id="platNext" aria-label="Следующий"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.75 19L15 12.75L8.75 6.5"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="s" id="cta"><div class="container">
+  <div class="ctp">
+    <div class="ctp__copy">
+      <h2>Попробуйте Kaiten бесплатно</h2>
+      <p>Российский сервис без&nbsp;риска блокировки. Автоматический импорт задач из&nbsp;ClickUp. Бесплатный доступ ко&nbsp;всем функциям на&nbsp;14 дней.</p>
+      <a class="ctp__btn" href="https://passport.kaiten.ru/">Попробовать бесплатно</a>
+    </div>
+    <div class="ctp__visual">
+      <img src="assets/kaiten2.png" alt="Рабочее пространство Кайтен: задачи, загрузка команды, аналитика и Гант-план" width="1480" height="1022" loading="lazy">
+    </div>
+  </div>
+</div></section>
+
+<!-- FAQ -->
+<section class="s faq-section" id="faq" aria-label="Ответы на частые вопросы"><div class="container">
+  <div class="faq-section__container">
+    <h2 class="faq-section__title">Ответы на&nbsp;частые вопросы</h2>
+    <div class="faq-list" style="list-style:none">
+      <div class="faq-item">
+        <button class="faq-q" type="button">Какие тарифы можно попробовать?<span class="pm"></span></button>
+        <div class="faq-a"><p>У&nbsp;Kaiten есть бесплатный тариф без&nbsp;ограничения по&nbsp;времени и&nbsp;14-дневный пробный период со&nbsp;всеми функциями. <a href="https://kaiten.ru/tariffs" target="_blank" rel="noopener">Подробнее о&nbsp;тарифах →</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Как работает пробный период?<span class="pm"></span></button>
+        <div class="faq-a"><p>После регистрации новые пользователи получают бесплатный доступ ко&nbsp;всем модулям на&nbsp;14 дней без&nbsp;привязки карты. После окончания пробного периода аккаунт автоматически переводится на&nbsp;бесплатный тариф.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Как начать пользоваться Кайтен?<span class="pm"></span></button>
+        <div class="faq-a"><p>Зарегистрируйтесь в&nbsp;Kaiten, создайте пространство, выберите шаблон или&nbsp;импортируйте задачи из&nbsp;другой системы — и&nbsp;можно сразу начинать работу.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Можно ли&nbsp;перенести данные из&nbsp;ClickUp в&nbsp;Кайтен?<span class="pm"></span></button>
+        <div class="faq-a"><p>Да. В&nbsp;Kaiten есть импорт данных и&nbsp;досок из&nbsp;ClickUp. <a href="https://kaiten.ru/blog/" target="_blank" rel="noopener">Пошаговая инструкция →</a></p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" type="button">Можно ли&nbsp;установить Кайтен на&nbsp;собственный сервер?<span class="pm"></span></button>
+        <div class="faq-a"><p>Да. Установка на&nbsp;собственную инфраструктуру доступна в&nbsp;корпоративном тарифе — с&nbsp;настройкой и&nbsp;обучением.</p></div>
+      </div>
+    </div>
+    <p class="faq-note">Информация приведена исключительно в&nbsp;целях сравнения и&nbsp;основана на&nbsp;открытых источниках на&nbsp;дату публикации.<br> Функциональность сервисов может изменяться правообладателями. ClickUp является товарным знаком соответствующего правообладателя.</p>
+  </div>
+</div></section>
+
+<!-- FOOTER -->
+<footer class="footer" aria-label="Подвал сайта">
+  <div class="footer__container">
+    <div class="footer__top">
+      <div class="footer__cols">
+        <div><div class="footer__col-title">Компания</div>
+          <nav class="footer__links" aria-label="Компания"><a href="https://kaiten.ru/tariffs">Тарифы</a><a href="#cta">Контакты</a><a href="#">Сертификаты</a><a href="#">Скачать презентацию</a></nav></div>
+        <div><div class="footer__col-title">Ресурсы</div>
+          <nav class="footer__links" aria-label="Ресурсы"><a href="#">База знаний</a><a href="#cases">Кейсы</a><a href="https://kaiten.ru">Блог</a><a href="#">API</a><a href="#">Комьюнити</a></nav></div>
+        <div><div class="footer__col-title">Возможности</div>
+          <nav class="footer__links" aria-label="Возможности"><a href="#">Партнёрская программа</a><a href="#">On-premise</a><a href="#">Внедрение</a><a href="#">Кайтен AI</a></nav></div>
+      </div>
+      <div class="footer__subscribe">
+        <div class="footer__subscribe-title">Подписаться на&nbsp;рассылку</div>
+        <div class="footer__subscribe-desc">Кейсы пользователей, статьи и&nbsp;обновления.</div>
+        <input class="footer__input" type="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail">
+        <button class="btn btn--md btn--fill btn--full" type="button">Подписаться</button>
+      </div>
+    </div>
+    <div class="footer__compare">
+      <div class="footer__col-title">Сравнили Кайтен с&nbsp;другими сервисами</div>
+      <div class="footer__compare-tags"><span>Trello</span><span>Jira</span><span>Asana</span><span>Weeek</span><span>Wrike</span><span>ClickUp</span><span>MS Project</span><span>Notion</span><span>Confluence</span><span>GanttPRO</span><span>Redmine</span><span>Youtrack</span></div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__status-row">
+      <div class="footer__status-left">
+        <div class="footer__section-title">Официальный статус российского ИТ-разработчика</div>
+        <div class="footer__section-text">Кайтен внесён в&nbsp;реестр отечественного ПО&nbsp;<strong>№14347</strong>, компания аккредитована как&nbsp;ИТ-организация.</div>
+      </div>
+      <div class="footer__status-right">
+        <div class="footer__section-title">ООО «Кайтен Софтвер»</div>
+        <div class="footer__legal-cols">
+          <div><span class="footer__legal-label">ИНН</span><span class="footer__legal-value">7714426252</span></div>
+          <div><span class="footer__legal-label">КПП</span><span class="footer__legal-value">771401001</span></div>
+          <div style="flex:1 1 240px"><span class="footer__legal-label">Юридический адрес</span><span class="footer__legal-value">125252, г. Москва, проезд Берёзовой рощи, д. 12, этаж 2, комната 55</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__divider" role="separator"></div>
+    <div class="footer__bottom">
+      <div style="display:flex;align-items:center;gap:var(--sp-8);flex-wrap:wrap">
+        <a href="https://kaiten.ru" aria-label="Кайтен — на&nbsp;главную"><svg class="klogo klogo--f" viewBox="0 0 147.654 44" role="img" aria-label="Кайтен"><use href="#kaiten-logo"/></svg></a>
+        <div class="footer__contacts">
+          <a class="footer__contact" href="tel:+74994906499">+7 (499) 490-64-99</a>
+          <a class="footer__contact" href="mailto:sales@kaiten.ru">sales@kaiten.ru</a>
+        </div>
+      </div>
+      <div class="footer__legal-links">
+        <a href="#">Политика конфиденциальности</a><a href="#">Лицензионный договор</a><a href="#">Пользовательское соглашение</a><a href="#">Техническая поддержка</a>
+      </div>
+    </div>
+    <div class="footer__trademark">Информация приведена исключительно в&nbsp;целях сравнения и&nbsp;основана на&nbsp;открытых источниках на&nbsp;дату публикации. Функциональность сервисов может изменяться правообладателями. ClickUp является товарным знаком соответствующего правообладателя.</div>
+  </div>
+</footer>
+
+<script src="script.js?v=23"></script>
+</body>
+</html>
