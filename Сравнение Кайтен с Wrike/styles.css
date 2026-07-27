@@ -1530,7 +1530,7 @@ section.s{padding:var(--sp-12) 0}
 .fm .fn{display:block}
 .fm .fnv{flex:0 0 20px;text-align:right;margin-left:0}
 /* --- Фичи-аккордеон: мокапы .fm центрируются в медиа-панели ---------------- */
-#features .acc-wrap--modules .acc-panel{align-items:center}
+#features .acc-wrap--modules .acc-panel{align-items:flex-end}
 /* --- Кейсы: меньше воздуха между автором и кнопкой ------------------------ */
 @media(min-width:1280px){#cases .otziv-author{min-height:76px}}
 @media(min-width:1050px) and (max-width:1279px){#cases .otziv-author{min-height:68px}}
@@ -1556,8 +1556,8 @@ section.s{padding:var(--sp-12) 0}
 /* Зазор фичи->таблица задаётся padding-bottom секции фич */
 #compare{padding-top:0!important}
 /* Фичи: картинки вписываются в панель целиком (не режутся), меньше воздух под аккордеоном */
-#features .acc-wrap--modules .acc-panel{align-items:center}
-#features .acc-wrap--modules .acc-panel img{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important}
+#features .acc-wrap--modules .acc-panel{align-items:flex-end}
+#features .acc-wrap--modules .acc-panel img{width:100%!important;height:auto!important;max-width:none!important;max-height:100%!important;object-fit:contain!important;object-position:bottom!important}
 #features{padding-bottom:64px}
 @media(min-width:768px){#features{padding-bottom:96px}}
 @media(min-width:1280px){#features{padding-bottom:128px}}
@@ -1745,7 +1745,7 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px) and (max-width:1279px){
   #features .acc-wrap{align-items:stretch!important}
   #features .acc-wrap--modules .acc-media{aspect-ratio:auto!important;align-self:stretch!important;height:auto!important;min-height:100%}
-  #features .acc-wrap--modules .acc-panel{height:100%;align-items:center}
+  #features .acc-wrap--modules .acc-panel{height:100%;align-items:flex-end}
 }
 /* Ширина карточек FeatureGrid: 318 на планшете и мобилке */
 @media(max-width:1279px){#platGrid .fg-card{flex:0 0 318px!important;max-width:318px!important}}
@@ -1758,3 +1758,7 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:767px){#platform .s-head{margin-bottom:24px}}
 /* Иллюстрация показывается от верхнего края (у высоких мокапов не срезается шапка) */
 .fg-illus{align-items:flex-start}
+/* Картинка аккордеона: во всю ширину панели, прижата к нижнему краю */
+#features .acc-media{overflow:hidden}
+#features .acc-media .acc-panel{display:block!important;position:relative;padding:0!important}
+#features .acc-media .acc-panel img{position:absolute;left:-8.84%;bottom:0;width:109.03%!important;max-width:none!important;height:auto!important;max-height:none!important;margin:0!important;display:block;border-radius:0!important}
