@@ -1600,3 +1600,8 @@ section.s{padding:var(--sp-12) 0}
   .plat-grid .scard-f{flex:0 0 318px!important;max-width:318px!important}
   #features .acc-wrap--modules .acc-media{height:auto!important;aspect-ratio:1/1!important;align-self:start!important}
 }
+/* Мокапы в «одной платформе» — натуральный размер, без сжатия */
+@media(max-width:1279px){
+  .plat-grid .scard-f .fm{width:240px!important;max-width:240px!important}
+  .plat-grid .scard-f .fm .card{width:240px!important;max-width:240px!important}
+}
