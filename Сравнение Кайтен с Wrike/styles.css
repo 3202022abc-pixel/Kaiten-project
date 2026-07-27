@@ -1751,3 +1751,6 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:1279px){#platGrid .fg-card{flex:0 0 318px!important;max-width:318px!important}}
 /* Каналы заявок: SVG-иконки вместо глифов */
 .fm .chn svg{width:9px;height:9px;display:block}
+/* Иллюстрация в FeatureGrid не выходит за свою ячейку */
+.fg-illus{overflow:hidden}
+.fg-illus>.fm{max-height:100%}
