@@ -1761,4 +1761,4 @@ section.s{padding:var(--sp-12) 0}
 /* Картинка аккордеона: во всю ширину панели, прижата к нижнему краю */
 #features .acc-media{overflow:hidden}
 #features .acc-media .acc-panel{display:block!important;position:relative;padding:0!important}
-#features .acc-media .acc-panel img{position:absolute;left:-8.84%;bottom:0;width:109.03%!important;max-width:none!important;height:auto!important;max-height:none!important;margin:0!important;display:block;border-radius:0!important}
+#features .acc-media .acc-panel img{position:absolute;left:0;bottom:0;width:100%!important;max-width:none!important;height:auto!important;max-height:none!important;margin:0!important;display:block;border-radius:0!important}
