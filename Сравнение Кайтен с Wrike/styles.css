@@ -1521,7 +1521,7 @@ section.s{padding:var(--sp-12) 0}
 .plat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-8);margin-top:var(--sp-12)}
 .plat-grid .scard-f{max-width:none}
 @media(min-width:768px){
-  .plat-grid .scard-f{display:grid;grid-template-columns:auto 1fr;column-gap:var(--sp-6);row-gap:var(--sp-2);align-content:start;padding:var(--sp-6)}
+  .plat-grid .scard-f{display:grid;grid-template-columns:auto 1fr;column-gap:var(--sp-8);row-gap:var(--sp-2);align-content:start;padding:var(--sp-6)}
   .plat-grid .scard-f .fm{grid-row:1/span 2;align-self:start;margin:0;width:216px;max-width:216px}
   .plat-grid .scard-f h3{grid-column:2;align-self:start}
   .plat-grid .scard-f p{grid-column:2;align-self:start}
@@ -1543,3 +1543,18 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:1280px){#cases .otziv-author{min-height:76px}}
 @media(min-width:1050px) and (max-width:1279px){#cases .otziv-author{min-height:68px}}
 @media(max-width:1049px){#cases .otziv-author{min-height:72px}}
+/* Секция «одна платформа» вплотную к блоку миграции сверху */
+#platform{padding-top:0}
+/* Секция фич: панель не квадратная, колонки равной высоты — убирает пустоту снизу */
+@media(min-width:768px){
+  #features .acc-wrap--benefits{align-items:stretch}
+  #features .acc-wrap--modules .acc-media{aspect-ratio:auto!important;align-self:start!important;height:auto!important;min-height:0}
+}
+/* Фичи: панель по высоте колонки (жёстко), меньше зазор над секцией «одна платформа» */
+@media(min-width:768px){
+  #features .acc-wrap{align-items:stretch}
+  #features .acc-media{aspect-ratio:auto!important;align-self:start;max-width:none;height:auto}
+}
+#depsec{padding-bottom:var(--sp-12)}
+#platform{padding-top:0}
+@media(min-width:1280px){#features .acc-wrap--modules .acc-media{height:480px!important}}
