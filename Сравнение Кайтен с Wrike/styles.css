@@ -1101,7 +1101,7 @@ section.s{padding:var(--sp-12) 0}
 .hsi .sub svg{width:13px;height:13px}
 .hsi .tags{display:flex;flex-wrap:wrap;gap:6px}
 .hsi .tag{border-radius:999px;padding:3px 10px;font-size:12.5px;font-weight:500;white-space:nowrap}
-.hsi .t-prod{background:#ededf0;color:#6b6b70}
+.hsi .t-prod{background:#e2eefb;color:#2f6fb0}
 .hsi .t-cx{background:#fff0d9;color:#b87400}
 .hsi .t-big{background:#efe9f9;color:#7d4ccf}
 .hsi .t-urg{background:#fde8e6;color:#c62334}
