@@ -1518,16 +1518,8 @@ section.s{padding:var(--sp-12) 0}
 .fm .chn{width:14px;height:14px;border-radius:4px;background:#efe9f9;color:#7d4ccf;font-size:8px;line-height:1;display:inline-flex;align-items:center;justify-content:center;flex:none}
 
 /* --- Секция «одна платформа»: сетка 2×2 ----------------------------------- */
-.plat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-8);margin-top:var(--sp-12)}
-.plat-grid .scard-f{max-width:none}
 @media(min-width:768px){
-  .plat-grid .scard-f{display:grid;grid-template-columns:auto 1fr;column-gap:var(--sp-8);row-gap:var(--sp-2);align-content:start;padding:var(--sp-6)}
-  .plat-grid .scard-f .fm{grid-row:1/span 2;align-self:start;margin:0;width:216px;max-width:216px}
-  .plat-grid .scard-f h3{grid-column:2;align-self:start}
-  .plat-grid .scard-f p{grid-column:2;align-self:start}
 }
-@media(max-width:1023px){.plat-grid{grid-template-columns:1fr;gap:var(--sp-4);margin-top:var(--sp-8)}}
-@media(max-width:767px){.plat-grid .scard-f .fm{margin-inline:auto}}
 
 /* --- Кейсы: логотипы компаний ---------------------------------------------- */
 #cases .otziv-logo{max-width:140px}
@@ -1570,7 +1562,6 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px){#features{padding-bottom:96px}}
 @media(min-width:1280px){#features{padding-bottom:128px}}
 /* Секция «одна платформа»: на таблете gap 24 */
-@media(min-width:768px) and (max-width:1279px){.plat-grid{gap:24px}}
 /* Блок миграции: уже текстовая колонка */
 @media(min-width:1024px){#depsec .mig__copy{max-width:520px}#depsec .mig h2{max-width:none}}
 /* Блок миграции: вертикальные отступы 128 / 96 / 64 */
@@ -1578,38 +1569,181 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px){#depsec{padding-top:96px!important;padding-bottom:96px!important}}
 @media(min-width:1280px){#depsec{padding-top:128px!important;padding-bottom:128px!important}}
 /* «Одна платформа»: на планшете и мобилке — карусель в один ряд со стрелками */
-.plat-nav{display:none}
 @media(max-width:1279px){
-  .plat-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x proximity;
     gap:24px;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;
     margin-inline:calc(-1 * var(--sp-6));padding-left:var(--sp-6);scroll-padding-left:var(--sp-6)}
-  .plat-grid::-webkit-scrollbar{display:none}
-  .plat-grid .scard-f{flex:0 0 min(420px,86%);max-width:none;scroll-snap-align:start;display:flex;flex-direction:column}
-  .plat-grid .scard-f .fm{width:100%;max-width:260px;margin:0 0 var(--sp-3)}
-  .plat-grid>.scard-f:last-child{margin-right:var(--sp-6)}
-  .plat-nav{display:flex;margin-top:var(--sp-6)}
 }
 @media(max-width:767px){
-  .plat-grid{gap:16px;margin-inline:calc(-1 * var(--sp-4));padding-left:var(--sp-4);scroll-padding-left:var(--sp-4)}
-  .plat-grid>.scard-f:last-child{margin-right:var(--sp-4)}
 }
 /* Подвал карточки CRM: содержимое по центру по вертикали */
-.plat-grid .fm .card .row{align-items:center}
 /* Планшет: карточки «одной платформы» — 318px; панель аккордеона выше (картинка 1:1) */
 @media(min-width:768px) and (max-width:1279px){
-  .plat-grid .scard-f{flex:0 0 318px!important;max-width:318px!important}
   #features .acc-wrap--modules .acc-media{height:auto!important;aspect-ratio:1/1!important;align-self:start!important}
 }
 /* Мокапы в «одной платформе» — натуральный размер, без сжатия */
 @media(max-width:1279px){
-  .plat-grid .scard-f .fm{width:240px!important;max-width:240px!important}
-  .plat-grid .scard-f .fm .card{width:240px!important;max-width:240px!important}
 }
 /* Адаптив «одной платформы» по образцу лендинга ClickUp: 340 на планшете, 86% на мобилке */
-@media(max-width:1279px){.plat-grid .scard-f{flex:0 0 340px!important;max-width:340px!important}}
-@media(max-width:767px){.plat-grid .scard-f{flex:0 0 86%!important;max-width:none!important}}
 /* Планшет: панель аккордеона по высоте левой колонки */
 @media(min-width:768px) and (max-width:1279px){
   #features .acc-wrap{align-items:stretch}
   #features .acc-wrap--modules .acc-media{aspect-ratio:auto!important;align-self:stretch!important;height:auto!important}
+}
+
+/* ===== FeatureGrid (перенесён из лендинга ClickUp) ===== */
+.fg-mock{font-family:inherit;color:var(--text-title);display:block;width:100%;background:var(--surface-page);padding:var(--sp-24) 0;box-sizing:border-box;overflow:hidden}
+.fg-mock,.fg-mock *{box-sizing:border-box}
+.fg-inner{max-width:1216px;margin:0 auto;padding:0 var(--sp-4)}
+/* десктоп: контент модуля 1216, края вровень с таблицей и hero (как .container) */
+@media(min-width:1280px){.fg-inner{max-width:calc(var(--container) + var(--sp-8) * 2);padding:0 var(--sp-8)}}
+.fg-head{display:flex;flex-direction:column;align-items:center;text-align:center;margin:0 auto var(--sp-12);max-width:820px}
+.fg-heading{font-size:36px;line-height:40px;font-weight:var(--fw-semi);letter-spacing:0;margin:0}
+.fg-desc{font-size:16px;line-height:24px;font-weight:var(--fw-reg);letter-spacing:var(--ls);color:var(--text-title);margin:var(--sp-4) 0 0}
+.fg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--sp-8)}
+.fg-grid--4{grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-6)}
+/* мокапы .fm нарисованы под фиксированные 240×176 — не растягиваем, а центрируем,
+   чтобы заголовки карточек стояли на одной линии */
+.fg-grid--4 .fg-illus{max-width:240px;height:176px;display:flex;align-items:center;justify-content:center}
+.fg-card{background:var(--surface-section);border-radius:var(--radius-2xl);padding:var(--sp-4) var(--sp-6) var(--sp-6);display:flex;flex-direction:column;gap:var(--sp-3)}
+.fg-illus{width:100%;max-width:260px;margin:var(--sp-3) auto}
+.fg-card h3{font-size:20px;line-height:28px;font-weight:var(--fw-semi);color:var(--text-title);margin:0}
+.fg-card p{font-size:16px;line-height:24px;color:var(--text-secondary);margin:0}
+.fg-nav{display:none;align-items:center;justify-content:center;gap:14px;margin-top:var(--sp-8)}
+.fg-nav button{width:40px;height:40px;flex:none;border-radius:9999px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#fff;border:1px solid var(--border-default);color:var(--text-title);transition:background .14s var(--ease-ui,cubic-bezier(.2,0,.2,1)),border-color .14s,color .14s,opacity .14s}
+.fg-nav button svg{width:20px;height:20px}
+.fg-nav button:not(:disabled):hover{background:var(--brand-12);border-color:var(--brand-48k);color:var(--brand-100)}
+.fg-nav button:disabled{opacity:.35;cursor:default}
+.fg-count{font-size:16px;color:var(--text-title);min-width:48px;text-align:center}
+.fg-count b{color:var(--brand-100);font-weight:var(--fw-med)}
+@media(max-width:1279px){
+  .fg-mock{padding:var(--sp-16) 0}
+  .fg-inner{padding:0 var(--sp-6)}
+  .fg-head{margin-bottom:var(--sp-8)}
+  .fg-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x proximity;gap:var(--sp-6);scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;margin-inline:calc(-1 * var(--sp-6));padding-left:var(--sp-6);scroll-padding-left:var(--sp-6)}
+  .fg-grid::-webkit-scrollbar{display:none}
+  .fg-card{flex:0 0 340px;max-width:340px;scroll-snap-align:start}
+  .fg-grid > .fg-card:last-child{margin-right:var(--sp-6)}
+  .fg-nav{display:flex}
+}
+@media(max-width:767px){
+  .fg-mock{padding:var(--sp-12) 0}
+  .fg-inner{padding:0 var(--sp-4)}
+  .fg-head{align-items:flex-start;text-align:left;margin-bottom:var(--sp-6)}
+  .fg-heading{font-size:24px;line-height:32px}
+  .fg-grid{gap:var(--sp-4);margin-inline:calc(-1 * var(--sp-4));padding-left:var(--sp-4);scroll-padding-left:var(--sp-4)}
+  .fg-card{flex:0 0 86%;max-width:none}
+  .fg-grid > .fg-card:last-child{margin-right:var(--sp-4)}
+}
+@media(prefers-reduced-motion:reduce){.fg-grid{scroll-behavior:auto}}
+/* ClickUp: верхний отступ секции убран (стык с блоком миграции) */
+#platform.fg-mock{padding-top:0}
+
+/* ClickUp: приглушенные счетчики колонок hero-доски */
+.hsi .cnt{background:#e9e9ec;color:#6b6b70}
+
+/* ClickUp: разделы таблицы сравнения — высота 64px на десктопе и планшете */
+@media(min-width:768px){.cmp__sec{min-height:64px;padding-top:0;padding-bottom:0}}
+
+/* ClickUp: «одна платформа» — заголовок в 1 строку, описание в 2 (десктоп) */
+@media(min-width:768px){#platform .fg-heading{white-space:nowrap}}
+@media(min-width:768px) and (max-width:1279px){#platform .fg-head{max-width:none}#platform .fg-heading{font-size:clamp(26px,4.3vw,36px)}}
+@media(min-width:1280px){#platform .fg-head{max-width:940px}}
+/* ClickUp: примечание таблицы сравнения — по центру на планшете */
+/* сноска таблицы — по центру; было только в планшетном диапазоне */
+.cmp__note{text-align:center}
+@media(max-width:767px){.cmp__note{text-align:left}}
+@media(max-width:767px){.cmp__note br{display:none}}
+/* ClickUp: hero-подзаголовок — на десктопе (>=1280) одна строка,
+   на планшете принудительный перенос после тире */
+.hs-br{display:none}
+@media(min-width:768px) and (max-width:1279px){.hs-br{display:inline}}
+/* ClickUp: описание фич — перенос после «инструменты» только на десктопе */
+/* перенос после тире — на десктопе и планшете; на мобилке строка рвётся сама */
+.feat-br{display:none}
+@media(min-width:768px){.feat-br{display:inline}}
+
+/* ClickUp: картинки аккордеона фич прижаты к нижнему краю панели.
+   Раньше стояло по центру — из-за широкого канбан-скриншота (1628×760),
+   но все четыре картинки заменены на квадратные 1184×1184, и причина отпала */
+#features .acc-media .acc-panel{align-items:flex-end;justify-content:center;padding:0}
+/* Картинка тянется на всю ширину панели с сохранением пропорций и прижата к низу.
+   max-height:100% убран: панель бывает шире, чем выше (1024-1279), и ограничение
+   ужимало квадратную картинку — по бокам оставалось до 102px пустого градиента.
+   Лишняя высота уходит вверх и обрезается overflow:hidden у .acc-media */
+/* Картинка вписывается в панель без обрезки и прижата к низу. object-fit:contain вместо height:auto+width:100%: в альбомной панели (1024-1279) квадратная картинка при растяжке по ширине была выше панели и обрезалась сверху; contain масштабирует по меньшей стороне без кропа. */
+#features .acc-media .acc-panel img{width:100%;height:100%;object-fit:contain;object-position:center bottom;border-radius:0;display:block}
+#features .acc-media{aspect-ratio:1/1;align-self:start}
+
+/* Планшет: панель тянется по высоте колонки аккордеона.
+   Квадрат выше перебивал шелловое .acc-wrap--benefits .acc-media (специфичность id),
+   поэтому дублируем правило с тем же #features */
+@media(min-width:768px) and (max-width:1279px){
+  /* Фрейм квадратный (по ширине колонки) и прижат к низу строки грида.
+     Картинки квадратные: полная ширина + полное вписывание без обрезки возможны
+     только когда фрейм не ниже картинки — поэтому не тянем его по аккордеону
+     (в альбомном диапазоне 1024-1279 он был ниже и резал верх), а держим 1:1. */
+  #features .acc-media{align-self:start;aspect-ratio:1/1;min-height:0}
+  /* панели наложены в одной ячейке для кроссфейда — выносим из потока */
+  #features .acc-media .acc-panel{position:absolute;inset:0}
+}
+
+/* ClickUp: hero-заголовок крупнее на десктопе */
+@media(min-width:1280px){.hero h1{font-size:var(--fs-5xl);line-height:var(--lh-5xl);letter-spacing:-1.5px}}
+
+/* ClickUp: логотип Pyrobyte в отзывах чуть выше (как на Trello-лендинге) */
+.otziv-logo[src*="pyrobyte"]{height:60px}
+
+/* ClickUp: мобилка — отступ под заголовком секции фич 24px */
+@media(max-width:767px){#features .s-head{margin-bottom:var(--sp-6)}}
+/* ClickUp: мобилка — меньше зазор между шевроном и заголовком раздела таблицы */
+@media(max-width:767px){.cmp__sec{gap:var(--sp-2)}}
+
+/* ClickUp: мобилка — картинка аккордеона во всю ширину пункта и вплотную к нижнему краю
+   (перебиваем padding от старого варианта .acc-wrap--modules с нативными мокапами) */
+@media(max-width:767px){
+  #features .acc-inline{display:block;padding:0;overflow:hidden}
+  #features .acc-inline img{width:100%;height:auto;display:block;object-fit:contain;object-position:bottom;border-radius:0}
+}
+
+/* Мобилка: бегущая строка во всю ширину экрана.
+   Раньше она была зажата отступами (контейнер 16 + свои 16), и бейджи обрывались
+   в 32px от края — обрез читался как «коробка», а не как уходящая за экран лента.
+   Отрицательный margin компенсирует padding контейнера (--sp-4 = 16px). */
+@media(max-width:767px){
+  /* width:auto растянул бы ленту по контенту (1467px) — фиксируем ровно ширину
+     экрана и центрируем её относительно контейнера */
+  .trust-line{width:100vw;margin-inline:calc(50% - 50vw);padding-inline:0;max-width:none}
+}
+
+/* ===== Десктоп: «одна платформа» — сетка 2×2 (приём с Trello-лендинга) =====
+   Внутри карточки иллюстрация слева фиксированной ширины на две строки,
+   заголовок и текст справа. У Trello это @media(min-width:1024px)
+   #features .scrum-grid; здесь ниже 1280 карточки уходят в карусель,
+   поэтому правило начинается с 1280. */
+@media(min-width:1280px){
+  .fg-grid--4{grid-template-columns:1fr 1fr;gap:var(--sp-8)}
+  .fg-grid--4 .fg-card{display:grid;grid-template-columns:auto 1fr;
+    column-gap:var(--sp-8);row-gap:var(--sp-2);align-content:start;padding:var(--sp-6)}
+  .fg-grid--4 .fg-illus{grid-row:1/span 2;align-self:start;margin:0;
+    width:216px;max-width:216px;height:176px}
+  .fg-grid--4 .fg-illus .fm,.fg-grid--4 .fg-illus .fm .card{width:100%}
+  .fg-grid--4 .fg-card h3{grid-column:2;align-self:start}
+  .fg-grid--4 .fg-card p{grid-column:2;align-self:start}
+}
+
+/* ===== CTAproduct (packages/ui/src/landing/mocks/CTAproduct.tsx) =====
+   CSS компонента перенесён дословно, без отступлений. */
+.ctp{position:relative;overflow:hidden;border-radius:16px;padding:48px;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;
+  background:linear-gradient(90deg,#ece0ff,#cdecff);
+  font-family:'Roboto',system-ui,sans-serif;color:#2d2d2d}
+.ctp__copy{position:relative;z-index:1}
+.ctp__copy h2{font-size:30px;line-height:36px;font-weight:600;color:#2d2d2d;margin:0}
+@media(min-width:1280px){.ctp__copy h2{font-size:36px;line-height:40px}}
+.ctp__copy p{font-size:16px;line-height:24px;color:#424242;margin:16px 0 0}
+/* Планшет: медиа-панель аккордеона тянется по высоте всего блока с пунктами */
+@media(min-width:768px) and (max-width:1279px){
+  #features .acc-wrap{align-items:stretch!important}
+  #features .acc-wrap--modules .acc-media{aspect-ratio:auto!important;align-self:stretch!important;height:auto!important;min-height:100%}
+  #features .acc-wrap--modules .acc-panel{height:100%;align-items:center}
 }
