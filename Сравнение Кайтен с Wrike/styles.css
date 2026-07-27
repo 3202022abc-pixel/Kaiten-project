@@ -1561,11 +1561,13 @@ section.s{padding:var(--sp-12) 0}
 /* Блок «Переходите из Wrike»: заголовок помельче */
 #depsec .mig h2{font-size:var(--fs-2xl);line-height:var(--lh-2xl)}
 @media(min-width:1280px){#depsec .mig h2{font-size:var(--fs-3xl);line-height:var(--lh-3xl)}}
-/* Меньше зазор между аккордеоном фич и таблицей сравнения */
-#compare{padding-top:var(--sp-12)}
-@media(min-width:768px) and (max-width:1279px){#compare{padding-top:var(--sp-10)}}
-@media(min-width:1280px){#compare{padding-top:var(--sp-16)}}
+/* Зазор фичи->таблица задаётся padding-bottom секции фич */
+#compare{padding-top:0!important}
 /* Фичи: картинки вписываются в панель целиком (не режутся), меньше воздух под аккордеоном */
 #features .acc-wrap--modules .acc-panel{align-items:center}
 #features .acc-wrap--modules .acc-panel img{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important}
-#features{padding-bottom:var(--sp-8)}
+#features{padding-bottom:64px}
+@media(min-width:768px){#features{padding-bottom:96px}}
+@media(min-width:1280px){#features{padding-bottom:128px}}
+/* Секция «одна платформа»: на таблете gap 24 */
+@media(min-width:768px) and (max-width:1279px){.plat-grid{gap:24px}}
