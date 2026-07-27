@@ -1573,3 +1573,7 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px) and (max-width:1279px){.plat-grid{gap:24px}}
 /* Блок миграции: уже текстовая колонка */
 @media(min-width:1024px){#depsec .mig__copy{max-width:520px}#depsec .mig h2{max-width:none}}
+/* Блок миграции: вертикальные отступы 128 / 96 / 64 */
+#depsec{padding-top:64px!important;padding-bottom:64px!important}
+@media(min-width:768px){#depsec{padding-top:96px!important;padding-bottom:96px!important}}
+@media(min-width:1280px){#depsec{padding-top:128px!important;padding-bottom:128px!important}}
