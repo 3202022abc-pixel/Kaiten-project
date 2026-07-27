@@ -1725,8 +1725,8 @@ section.s{padding:var(--sp-12) 0}
   .fg-grid--4 .fg-card{display:grid;grid-template-columns:auto 1fr;
     column-gap:var(--sp-8);row-gap:var(--sp-2);align-content:start;padding:var(--sp-6)}
   .fg-grid--4 .fg-illus{grid-row:1/span 2;align-self:start;margin:0;
-    width:216px;max-width:216px;height:176px}
-  .fg-grid--4 .fg-illus .fm,.fg-grid--4 .fg-illus .fm .card{width:100%}
+    width:240px;max-width:240px;height:176px}
+  .fg-grid--4 .fg-illus .fm,.fg-grid--4 .fg-illus .fm .card{width:240px;max-width:240px}
   .fg-grid--4 .fg-card h3{grid-column:2;align-self:start}
   .fg-grid--4 .fg-card p{grid-column:2;align-self:start}
 }
@@ -1754,3 +1754,5 @@ section.s{padding:var(--sp-12) 0}
 /* Иллюстрация в FeatureGrid не выходит за свою ячейку */
 .fg-illus{overflow:hidden}
 .fg-illus>.fm{max-height:100%}
+/* Мобилка: подзаголовок секции «одна платформа» — отступ снизу 24 */
+@media(max-width:767px){#platform .s-head{margin-bottom:24px}}
