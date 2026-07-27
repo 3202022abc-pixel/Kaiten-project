@@ -1569,12 +1569,6 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:768px){#depsec{padding-top:96px!important;padding-bottom:96px!important}}
 @media(min-width:1280px){#depsec{padding-top:128px!important;padding-bottom:128px!important}}
 /* «Одна платформа»: на планшете и мобилке — карусель в один ряд со стрелками */
-@media(max-width:1279px){
-    gap:24px;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;
-    margin-inline:calc(-1 * var(--sp-6));padding-left:var(--sp-6);scroll-padding-left:var(--sp-6)}
-}
-@media(max-width:767px){
-}
 /* Подвал карточки CRM: содержимое по центру по вертикали */
 /* Планшет: карточки «одной платформы» — 318px; панель аккордеона выше (картинка 1:1) */
 @media(min-width:768px) and (max-width:1279px){
@@ -1639,7 +1633,7 @@ section.s{padding:var(--sp-12) 0}
 #platform.fg-mock{padding-top:0}
 
 /* ClickUp: приглушенные счетчики колонок hero-доски */
-.hsi .cnt{background:#e9e9ec;color:#6b6b70}
+/* счётчики колонок — по мокапу HeroScreenInterface (тёмная плашка) */
 
 /* ClickUp: разделы таблицы сравнения — высота 64px на десктопе и планшете */
 @media(min-width:768px){.cmp__sec{min-height:64px;padding-top:0;padding-bottom:0}}
@@ -1794,3 +1788,5 @@ section.s{padding:var(--sp-12) 0}
 }
 /* Мобилка: подзаголовок секции фич — отступ до аккордеона 24 */
 @media(max-width:767px){#features .s-head{margin-bottom:24px}}
+/* Слот переноса не сжимается флексом — высота равна карточке */
+.hsi .ghost{flex:0 0 auto}
