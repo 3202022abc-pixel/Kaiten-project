@@ -1558,3 +1558,6 @@ section.s{padding:var(--sp-12) 0}
 #depsec{padding-bottom:var(--sp-12)}
 #platform{padding-top:0}
 @media(min-width:1280px){#features .acc-wrap--modules .acc-media{height:480px!important}}
+/* Блок «Переходите из Wrike»: заголовок помельче */
+#depsec .mig h2{font-size:var(--fs-2xl);line-height:var(--lh-2xl)}
+@media(min-width:1280px){#depsec .mig h2{font-size:var(--fs-3xl);line-height:var(--lh-3xl)}}
