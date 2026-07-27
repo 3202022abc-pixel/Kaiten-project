@@ -1605,3 +1605,11 @@ section.s{padding:var(--sp-12) 0}
   .plat-grid .scard-f .fm{width:240px!important;max-width:240px!important}
   .plat-grid .scard-f .fm .card{width:240px!important;max-width:240px!important}
 }
+/* Адаптив «одной платформы» по образцу лендинга ClickUp: 340 на планшете, 86% на мобилке */
+@media(max-width:1279px){.plat-grid .scard-f{flex:0 0 340px!important;max-width:340px!important}}
+@media(max-width:767px){.plat-grid .scard-f{flex:0 0 86%!important;max-width:none!important}}
+/* Планшет: панель аккордеона по высоте левой колонки */
+@media(min-width:768px) and (max-width:1279px){
+  #features .acc-wrap{align-items:stretch}
+  #features .acc-wrap--modules .acc-media{aspect-ratio:auto!important;align-self:stretch!important;height:auto!important}
+}
