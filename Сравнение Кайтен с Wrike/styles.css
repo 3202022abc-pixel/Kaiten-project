@@ -1577,3 +1577,21 @@ section.s{padding:var(--sp-12) 0}
 #depsec{padding-top:64px!important;padding-bottom:64px!important}
 @media(min-width:768px){#depsec{padding-top:96px!important;padding-bottom:96px!important}}
 @media(min-width:1280px){#depsec{padding-top:128px!important;padding-bottom:128px!important}}
+/* «Одна платформа»: на планшете и мобилке — карусель в один ряд со стрелками */
+.plat-nav{display:none}
+@media(max-width:1279px){
+  .plat-grid{display:flex;grid-template-columns:none;overflow-x:auto;scroll-snap-type:x proximity;
+    gap:24px;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px;
+    margin-inline:calc(-1 * var(--sp-6));padding-left:var(--sp-6);scroll-padding-left:var(--sp-6)}
+  .plat-grid::-webkit-scrollbar{display:none}
+  .plat-grid .scard-f{flex:0 0 min(420px,86%);max-width:none;scroll-snap-align:start;display:flex;flex-direction:column}
+  .plat-grid .scard-f .fm{width:100%;max-width:260px;margin:0 0 var(--sp-3)}
+  .plat-grid>.scard-f:last-child{margin-right:var(--sp-6)}
+  .plat-nav{display:flex;margin-top:var(--sp-6)}
+}
+@media(max-width:767px){
+  .plat-grid{gap:16px;margin-inline:calc(-1 * var(--sp-4));padding-left:var(--sp-4);scroll-padding-left:var(--sp-4)}
+  .plat-grid>.scard-f:last-child{margin-right:var(--sp-4)}
+}
+/* Подвал карточки CRM: содержимое по центру по вертикали */
+.plat-grid .fm .card .row{align-items:center}

@@ -351,7 +351,7 @@
     <h2 class="sh__heading">Кайтен — одна платформа для&nbsp;всей компании</h2>
     <p class="sh__desc">Кайтен закрывает сценарии, которые в&nbsp;Wrike реализованы иначе или&nbsp;требуют дополнительных интеграций</p>
   </div>
-  <div class="plat-grid">
+  <div class="plat-grid" id="platGrid">
 
     <div class="scard-f">
       <div class="fm"><div class="card h180" style="display:flex;flex-direction:column">
@@ -466,6 +466,16 @@
     </div>
 
   </div>
+  <div class="otziv-nav plat-nav" id="platNav">
+    <button class="prev" id="platPrev" aria-label="Предыдущий" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15.25 6L9 12.25L15.25 18.5"/></svg>
+    </button>
+    <span class="otziv-count" id="platCount"><b>1</b> / 4</span>
+    <button class="next" id="platNext" aria-label="Следующий">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8.75 19L15 12.75L8.75 6.5"/></svg>
+    </button>
+  </div>
+
 </div></section>
 
 <!-- FINAL CTA -->
@@ -575,6 +585,6 @@
   </div>
 </footer>
 
-<script src="script.js?v=1"></script>
+<script src="script.js?v=2"></script>
 </body>
 </html>

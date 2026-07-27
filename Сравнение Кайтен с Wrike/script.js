@@ -174,3 +174,29 @@
     window.addEventListener('resize', applyDefaults);
     setInterval(applyDefaults, 500);
   })();
+
+  // Карусель секции «Кайтен — одна платформа»
+  (function(){
+    var track = document.getElementById('platGrid');
+    var prev = document.getElementById('platPrev');
+    var next = document.getElementById('platNext');
+    var count = document.getElementById('platCount');
+    var nav = document.getElementById('platNav');
+    if (!track || !prev || !next) return;
+    var cards = track.querySelectorAll('.scard-f');
+    function step(){ var c = cards[0]; return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 24) : 320; }
+    function update(){
+      var maxScroll = track.scrollWidth - track.clientWidth;
+      var idx = Math.round(track.scrollLeft / step());
+      if (count) count.innerHTML = '<b>' + (idx + 1) + '</b> / ' + cards.length;
+      prev.disabled = track.scrollLeft <= 6;
+      next.disabled = track.scrollLeft >= maxScroll - 6;
+    }
+    prev.addEventListener('click', function(){ track.scrollBy({ left: -step(), behavior: 'smooth' }); });
+    next.addEventListener('click', function(){ track.scrollBy({ left: step(), behavior: 'smooth' }); });
+    track.addEventListener('scroll', function(){ window.requestAnimationFrame(update); });
+    window.addEventListener('resize', update);
+    window.addEventListener('load', update);
+    if (window.ResizeObserver) { new ResizeObserver(update).observe(track); }
+    update();
+  })();
