@@ -1571,3 +1571,5 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:1280px){#features{padding-bottom:128px}}
 /* Секция «одна платформа»: на таблете gap 24 */
 @media(min-width:768px) and (max-width:1279px){.plat-grid{gap:24px}}
+/* Блок миграции: уже текстовая колонка */
+@media(min-width:1024px){#depsec .mig__copy{max-width:520px}#depsec .mig h2{max-width:none}}
