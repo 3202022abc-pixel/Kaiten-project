@@ -1790,3 +1790,5 @@ section.s{padding:var(--sp-12) 0}
 @media(max-width:767px){#features .s-head{margin-bottom:24px}}
 /* Слот переноса не сжимается флексом — высота равна карточке */
 .hsi .ghost{flex:0 0 auto}
+/* Мобилка: суммарный зазор «подзаголовок → аккордеон» ровно 24 */
+@media(max-width:767px){#features .acc-wrap{margin-top:0}}
