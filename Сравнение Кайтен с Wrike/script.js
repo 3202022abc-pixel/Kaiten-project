@@ -157,7 +157,7 @@
     if (!table) return;
     var lastMode = null;
     function applyDefaults(){
-      var desktop = window.innerWidth >= 1280;
+      var desktop = window.innerWidth >= 768;
       var mode = desktop ? 'd' : 'm';
       if (mode === lastMode) return;
       lastMode = mode;
@@ -199,4 +199,15 @@
     window.addEventListener('load', update);
     if (window.ResizeObserver) { new ResizeObserver(update).observe(track); }
     update();
+  })();
+
+  // Аккордеон фич: переключение по наведению (только там, где есть настоящий hover)
+  (function(){
+    if (!window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+    document.querySelectorAll('.acc .acc-head').forEach(function(head){
+      head.addEventListener('mouseenter', function(){
+        var item = head.parentElement;
+        if (!item.classList.contains('open')) head.click();
+      });
+    });
   })();

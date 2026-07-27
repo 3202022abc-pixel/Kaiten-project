@@ -1756,3 +1756,5 @@ section.s{padding:var(--sp-12) 0}
 .fg-illus>.fm{max-height:100%}
 /* Мобилка: подзаголовок секции «одна платформа» — отступ снизу 24 */
 @media(max-width:767px){#platform .s-head{margin-bottom:24px}}
+/* Иллюстрация показывается от верхнего края (у высоких мокапов не срезается шапка) */
+.fg-illus{align-items:flex-start}
