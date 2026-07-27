@@ -1595,3 +1595,8 @@ section.s{padding:var(--sp-12) 0}
 }
 /* Подвал карточки CRM: содержимое по центру по вертикали */
 .plat-grid .fm .card .row{align-items:center}
+/* Планшет: карточки «одной платформы» — 318px; панель аккордеона выше (картинка 1:1) */
+@media(min-width:768px) and (max-width:1279px){
+  .plat-grid .scard-f{flex:0 0 318px!important;max-width:318px!important}
+  #features .acc-wrap--modules .acc-media{height:auto!important;aspect-ratio:1/1!important;align-self:start!important}
+}
