@@ -1749,3 +1749,5 @@ section.s{padding:var(--sp-12) 0}
 }
 /* Ширина карточек FeatureGrid: 318 на планшете и мобилке */
 @media(max-width:1279px){#platGrid .fg-card{flex:0 0 318px!important;max-width:318px!important}}
+/* Каналы заявок: SVG-иконки вместо глифов */
+.fm .chn svg{width:9px;height:9px;display:block}
