@@ -1567,5 +1567,5 @@ section.s{padding:var(--sp-12) 0}
 @media(min-width:1280px){#compare{padding-top:var(--sp-16)}}
 /* Фичи: картинки вписываются в панель целиком (не режутся), меньше воздух под аккордеоном */
 #features .acc-wrap--modules .acc-panel{align-items:center}
-#features .acc-wrap--modules .acc-panel img{width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;object-position:center}
+#features .acc-wrap--modules .acc-panel img{width:auto!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important}
 #features{padding-bottom:var(--sp-8)}
