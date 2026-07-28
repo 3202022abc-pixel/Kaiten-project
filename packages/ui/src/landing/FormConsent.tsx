@@ -16,8 +16,18 @@ const NEWSLETTER_HREF = 'https://hq.kaiten.ru/p/d/d238e01f-788c-44dd-8620-4272c6
  *
  * `idPrefix` — префикс id чекбоксов (обычно anchorId формы): форма может
  * рендериться дважды на странице, поэтому id обязаны различаться.
+ *
+ * `newsletterRequired` — сделать согласие на рассылку тоже обязательным. По
+ * умолчанию false (рассылка добровольна — так корректнее по 152-ФЗ). Включается
+ * точечно для конкретного лендинга через спек, а не глобально.
  */
-export function FormConsent({ idPrefix }: { idPrefix: string }) {
+export function FormConsent({
+  idPrefix,
+  newsletterRequired = false,
+}: {
+  idPrefix: string;
+  newsletterRequired?: boolean;
+}) {
   return (
     <div className="mt-5 flex flex-col gap-3">
       <Consent
@@ -37,6 +47,7 @@ export function FormConsent({ idPrefix }: { idPrefix: string }) {
       <Consent
         id={`${idPrefix}-newsletter`}
         name="consent_newsletter"
+        required={newsletterRequired}
         label={
           <>
             Я&nbsp;согласен{' '}

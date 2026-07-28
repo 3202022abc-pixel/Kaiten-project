@@ -58,6 +58,7 @@ stale: false
 | Слот | Компонент |
 |---|---|
 | Форма | `RegistrationForm` — имя\*, email\*, телефон + стандартный блок согласий `FormConsent` (обязательное «Политика + согласие на обработку ПД» 152-ФЗ и опциональное «рассылка Кайтен», фикс. юр-ссылки). Поле «Компания / роль» на эталоне убрано. Правило: `form-consent-standard` |
+| Мессенджер-регистрация | `FormMessengers` — кнопки Telegram + MAX (регистрация через ботов), opt-in по `form.telegramHref` / `form.maxHref`. Стандарт **только для вебинаров**, не для форм других архетипов. Правило: `webinar-messenger-registration` |
 | Финальный CTA | `RegistrationCta` (форма справа на `GradientPanel`) |
 | Промежуточный CTA | `CtaBanner` с `gradient: true` (та же подложка `GradientPanel`) |
 | Ведущий | `SpeakerCard` на `GradientPanel` |

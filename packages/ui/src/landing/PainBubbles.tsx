@@ -142,8 +142,8 @@ function Bubble({ text, index }: { text: string; index: number }) {
         // ширина по контенту, но с запасом от края колонки — для гуляния по X
         'relative w-fit max-w-[85%] rounded-(--radius-xl) lg:rounded-(--radius-2xl)',
         'border border-(--color-border-default) bg-(--color-surface-card)',
-        'px-4 py-3 md:px-5 md:py-3.5',
-        'text-sm text-(--color-text-primary) md:text-base',
+        'px-5 py-3.5 md:px-6 md:py-4',
+        'text-base text-(--color-text-primary) md:text-lg',
         'shadow-[0_10px_30px_-20px_rgba(0,0,0,0.35)]',
         TILT[index % TILT.length],
         ALIGN[index % ALIGN.length],

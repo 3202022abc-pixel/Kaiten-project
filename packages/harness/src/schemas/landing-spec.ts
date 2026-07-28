@@ -161,6 +161,8 @@ const RegistrationFormSlotSchema = z.object({
   telegramHref: z.string().optional(),
   /** Deep-link регистрации через бота в MAX. Задан → рендерится кнопка «MAX». */
   maxHref: z.string().optional(),
+  /** Сделать согласие на рассылку тоже обязательным (по умолчанию оно опционально). */
+  newsletterRequired: z.boolean().optional(),
   /** Мягкая строка под кнопкой. */
   note: z.string().max(200).optional(),
 });

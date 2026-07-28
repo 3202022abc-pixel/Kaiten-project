@@ -1,5 +1,6 @@
 import { cn } from '../primitives/cn';
 import { FormConsent } from './FormConsent';
+import { FormMessengers } from './FormMessengers';
 
 export interface RegistrationFormProps {
   /** Заголовок карточки. Опционален: в первом экране форма идёт без своего заголовка. */
@@ -28,6 +29,8 @@ export interface RegistrationFormProps {
    * Ссылка на регистрацию через бота в MAX. `undefined` → кнопка не рендерится.
    */
   maxHref?: string;
+  /** Сделать согласие на рассылку тоже обязательным (по умолчанию оно опционально). */
+  newsletterRequired?: boolean;
   /** @deprecated Ссылки согласий теперь фиксированы в компоненте (юр-ссылки Кайтен). Поле оставлено для совместимости со спеком. */
   dataConsentHref?: string;
 }
@@ -52,6 +55,7 @@ export function RegistrationForm({
   action = '#',
   telegramHref,
   maxHref,
+  newsletterRequired,
 }: RegistrationFormProps) {
   // Префикс id полей — от якоря: форма рендерится дважды (первый экран и финал),
   // и с общим префиксом id полей дублировались бы на одной странице.
@@ -96,7 +100,7 @@ export function RegistrationForm({
         />
       </div>
 
-      <FormConsent idPrefix={anchorId ?? 'reg'} />
+      <FormConsent idPrefix={anchorId ?? 'reg'} newsletterRequired={newsletterRequired} />
 
       <button
         type="submit"
@@ -110,76 +114,12 @@ export function RegistrationForm({
         {submitLabel}
       </button>
 
-      {(telegramHref || maxHref) && (
-        <>
-          <div className="mt-5 flex items-center gap-3 text-xs text-(--color-text-secondary)">
-            <span aria-hidden className="h-px flex-1 bg-(--color-border-default)" />
-            или в один клик через мессенджер
-            <span aria-hidden className="h-px flex-1 bg-(--color-border-default)" />
-          </div>
-
-          <div
-            className={cn(
-              'mt-4 grid gap-3',
-              telegramHref && maxHref ? 'grid-cols-2' : 'grid-cols-1',
-            )}
-          >
-            {telegramHref && (
-              <a href={telegramHref} className={cn(MESSENGER_BTN)}>
-                <TelegramIcon />
-                Telegram
-              </a>
-            )}
-            {maxHref && (
-              <a href={maxHref} className={cn(MESSENGER_BTN)}>
-                <MaxIcon />
-                MAX
-              </a>
-            )}
-          </div>
-        </>
-      )}
+      <FormMessengers telegramHref={telegramHref} maxHref={maxHref} />
 
       {note && (
         <p className="mt-4 text-center text-sm text-(--color-text-secondary)">{note}</p>
       )}
     </form>
-  );
-}
-
-/** Общий стиль кнопки-мессенджера: аутлайн-кнопка в тон DS, фирменный знак — цветом. */
-const MESSENGER_BTN = cn(
-  'inline-flex h-11 items-center justify-center gap-2 rounded-(--radius-lg)',
-  'border border-(--color-border-default) bg-(--color-surface-page)',
-  'text-sm font-medium text-(--color-text-primary) transition',
-  'hover:border-(--color-action-primary) hover:bg-(--color-action-primary)/5',
-  'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--color-action-primary)/30',
-);
-
-/** Фирменный самолётик Telegram (бренд-синий #229ED9). */
-function TelegramIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5 shrink-0" fill="#229ED9" aria-hidden>
-      <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z" />
-    </svg>
-  );
-}
-
-/** Знак MAX — у мессенджера нет открытого SVG-лого, поэтому нейтральный «пузырь» в акценте DS. */
-function MaxIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className="h-5 w-5 shrink-0"
-      fill="none"
-      stroke="var(--color-action-primary)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden
-    >
-      <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-    </svg>
   );
 }
 

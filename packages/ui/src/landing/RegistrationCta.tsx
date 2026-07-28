@@ -14,6 +14,7 @@ export interface RegistrationCtaProps {
   dataConsentHref?: string;
   telegramHref?: string;
   maxHref?: string;
+  newsletterRequired?: boolean;
 }
 
 /**
@@ -36,6 +37,7 @@ export function RegistrationCta({
   dataConsentHref,
   telegramHref,
   maxHref,
+  newsletterRequired,
 }: RegistrationCtaProps) {
   return (
     <section className="px-4 py-16 md:px-6 xl:px-0 md:py-24 lg:py-32">
@@ -71,6 +73,7 @@ export function RegistrationCta({
             dataConsentHref={dataConsentHref}
             telegramHref={telegramHref}
             maxHref={maxHref}
+            newsletterRequired={newsletterRequired}
           />
         </div>
       </GradientPanel>

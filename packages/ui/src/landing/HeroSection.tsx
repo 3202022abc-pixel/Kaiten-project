@@ -132,6 +132,7 @@ export interface HeroFormProps {
   dataConsentHref?: string;
   telegramHref?: string;
   maxHref?: string;
+  newsletterRequired?: boolean;
   note?: string;
 }
 
@@ -323,6 +324,7 @@ export function HeroSection({
                   dataConsentHref={form.dataConsentHref}
                   telegramHref={form.telegramHref}
                   maxHref={form.maxHref}
+                  newsletterRequired={form.newsletterRequired}
                   note={form.note}
                 />
               </div>
