@@ -12,7 +12,7 @@
       "component": "HeroSection",
       "props": {
         "eyebrow": "Бесплатный вебинар · 6 августа, 16:00 МСК · онлайн",
-        "title": "Внедрение Кайтена без стресса",
+        "title": "Внедрение Кайтен без стресса",
         "accentWord": "без стресса",
         "accentPill": false,
         "subtitle": "как переехать на новую систему, чтобы никто не сбежал обратно в чаты и таблицы",
@@ -35,9 +35,9 @@
         },
         "speaker": {
           "name": "Давид Гаранян",
-          "role": "Пресейл-инженер Кайтена",
+          "role": "Пресейл-инженер Kaiten",
           "photoSrc": "/landings/webinar-vnedrenie-kaiten/david-garanyan.png",
-          "photoAlt": "Давид Гаранян, Кайтен",
+          "photoAlt": "Давид Гаранян, Kaiten",
           "initials": "ДГ"
         },
         "flush": true
@@ -179,7 +179,7 @@
       "component": "SpeakerCard",
       "props": {
         "name": "Давид Гаранян",
-        "role": "Пресейл-инженер и специалист по настройке Кайтена",
+        "role": "Пресейл-инженер и специалист по настройке Kaiten",
         "photoSrc": "/landings/webinar-vnedrenie-kaiten/david-garanyan.png",
         "photoAlt": "Давид Гаранян, Kaiten",
         "initials": "ДГ",
