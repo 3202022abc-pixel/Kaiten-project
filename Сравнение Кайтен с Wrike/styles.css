@@ -1706,3 +1706,5 @@ section.s{padding:var(--sp-12) 0}
   .fg-grid--4 .fg-card h3{grid-column:2;align-self:start}
   .fg-grid--4 .fg-card p{grid-column:2;align-self:start}
 }
+/* Секция FeatureGrid не создаёт горизонтальный скролл (карусель full-bleed) */
+.fg-mock{overflow:hidden}
