@@ -160,8 +160,8 @@ export default async function DashboardPage() {
           </p>
         ) : (
           grouped.map(({ group, items }) => (
-          <div key={group} className="mb-8">
-            <div className="mb-2 flex items-end justify-between">
+          <div key={group} className="mb-6 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
+            <div className="mb-3 flex items-end justify-between">
               <h3 className="text-sm font-semibold uppercase tracking-wide">
                 {group}
               </h3>
