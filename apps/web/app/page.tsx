@@ -223,7 +223,7 @@ export default async function DashboardPage() {
                     </span>
                   )}
                 </span>
-                <div className="grid shrink-0 grid-cols-[78px_54px_78px_78px_64px] items-center gap-x-5 text-xs">
+                <div className="grid shrink-0 grid-cols-[repeat(4,auto)_auto] items-center gap-x-3 text-xs sm:grid-cols-[70px_48px_70px_70px_58px] sm:gap-x-3.5">
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
@@ -232,7 +232,7 @@ export default async function DashboardPage() {
                       className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                     >
                       <ActionIcon name="preview" />
-                      preview
+                      <span className="hidden sm:inline">preview</span>
                     </a>
                   ) : (
                     <Link
@@ -242,7 +242,7 @@ export default async function DashboardPage() {
                       className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                     >
                       <ActionIcon name="preview" />
-                      preview
+                      <span className="hidden sm:inline">preview</span>
                     </Link>
                   )}
                   {design ? (
@@ -258,14 +258,14 @@ export default async function DashboardPage() {
                         className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                       >
                         <ActionIcon name="edit" />
-                        edit
+                        <span className="hidden sm:inline">edit</span>
                       </Link>
                       <Link
                         href={`/approve/${slug}`}
                         className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                       >
                         <ActionIcon name="approve" />
-                        approve
+                        <span className="hidden sm:inline">approve</span>
                       </Link>
                       <a
                         href={`/api/handoff/${slug}`}
@@ -274,12 +274,12 @@ export default async function DashboardPage() {
                         title="Скачать ZIP-архив для разработчика"
                       >
                         <ActionIcon name="handoff" />
-                        handoff
+                        <span className="hidden sm:inline">handoff</span>
                       </a>
                     </>
                   )}
                   {design ? (
-                    <span className="justify-self-end rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
+                    <span className="hidden justify-self-end rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:inline-block">
                       Design
                     </span>
                   ) : (
