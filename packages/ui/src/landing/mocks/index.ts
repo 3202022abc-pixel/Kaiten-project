@@ -106,3 +106,11 @@ export { FeatureGridMock } from './FeatureGridMock';
 
 export { default as RoadmapSteps } from './RoadmapSteps';
 export type { RoadmapStepsProps, RoadmapStep } from './RoadmapSteps';
+
+export { RfiEnvelopeMock, SupportChatMock, ServerInstallMock } from './OnPremAnimatedMocks';
+export type {
+  RfiEnvelopeMockProps,
+  SupportChatMockProps,
+  SupportChatMessage,
+  ServerInstallMockProps,
+} from './OnPremAnimatedMocks';
