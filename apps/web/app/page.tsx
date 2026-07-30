@@ -26,8 +26,8 @@ function ActionIcon({ name }: { name: 'preview' | 'edit' | 'approve' | 'handoff'
   return (
     <svg
       aria-hidden
-      width="14"
-      height="14"
+      width="12"
+      height="12"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -234,7 +234,7 @@ export default async function DashboardPage() {
                     </span>
                   )}
                 </span>
-                <div className="grid shrink-0 grid-cols-[92px_64px_92px_92px_72px] items-center text-sm">
+                <div className="grid shrink-0 grid-cols-[78px_54px_78px_78px_64px] items-center text-xs">
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
