@@ -162,7 +162,7 @@ export default async function DashboardPage() {
           grouped.map(({ group, items }) => (
           <div key={group} className="mb-8">
             <div className="mb-2 flex items-end justify-between">
-              <h3 className="text-sm font-semibold uppercase tracking-wide text-(--color-text-secondary)">
+              <h3 className="text-sm font-semibold uppercase tracking-wide">
                 {group}
               </h3>
               <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
