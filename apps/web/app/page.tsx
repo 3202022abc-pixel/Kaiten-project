@@ -160,14 +160,30 @@ export default async function DashboardPage() {
           </p>
         ) : (
           grouped.map(({ group, items }) => (
-          <div key={group} className="mb-6 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
-            <div className="mb-3 flex items-end justify-between">
+          <details key={group} open className="group mb-6 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
+            <summary className="flex cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
               <h3 className="text-sm font-semibold uppercase tracking-wide">
                 {group}
               </h3>
-              <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
-            </div>
-            <ul className="grid grid-cols-1 gap-2">
+              <span className="flex items-center gap-3">
+                <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
+                <svg
+                  aria-hidden
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-(--color-text-secondary) transition-transform group-open:rotate-180"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </span>
+            </summary>
+            <ul className="mt-3 grid grid-cols-1 gap-2">
             {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
@@ -230,7 +246,7 @@ export default async function DashboardPage() {
               </li>
             ))}
             </ul>
-          </div>
+          </details>
           ))
         )}
       </section>
