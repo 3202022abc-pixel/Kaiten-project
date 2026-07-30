@@ -215,20 +215,22 @@ export default async function DashboardPage() {
                 key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex flex-col gap-2 rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-3 py-3 transition-colors hover:border-(--color-border-default) sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-4"
               >
-                {design && (
-                  <span className="self-start rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:hidden">
-                    Design
-                  </span>
-                )}
                 <span className="flex min-w-0 flex-col gap-0.5">
-                  <span className="truncate text-sm font-medium">{slug}</span>
+                  <span className="flex min-w-0 items-center justify-between gap-2">
+                    <span className="truncate text-sm font-medium">{slug}</span>
+                    {design && (
+                      <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:hidden">
+                        Design
+                      </span>
+                    )}
+                  </span>
                   {title && (
                     <span className="text-xs text-(--color-text-secondary) lg:truncate" title={title}>
                       {title}
                     </span>
                   )}
                 </span>
-                <div className="grid shrink-0 grid-cols-[repeat(4,auto)_auto] items-center gap-x-3 text-xs sm:grid-cols-[60px_40px_60px_60px_50px] sm:gap-x-2 lg:grid-cols-[70px_48px_70px_70px_58px] lg:gap-x-3.5">
+                <div className="flex items-center justify-end gap-x-4 text-xs sm:grid sm:shrink-0 sm:grid-cols-[64px_44px_64px_64px_54px] sm:justify-normal sm:gap-x-2.5 lg:grid-cols-[70px_48px_70px_70px_58px] lg:gap-x-3.5">
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
