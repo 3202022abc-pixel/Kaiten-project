@@ -3,6 +3,7 @@ import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { CTAsecondaryMock, type CTAButton } from './mocks/CTAsecondaryMock';
 import { MockVisual, type MockVariant } from './mocks';
+import CTAdark from './mocks/CTAdark';
 
 export interface FinalCtaProps {
   title: string;
@@ -12,8 +13,9 @@ export interface FinalCtaProps {
   /**
    * 'solid' (по умолчанию) — прежняя сплошная фиолетовая заливка (старые лендинги).
    * 'gradient' — градиентный блок `CTAsecondaryMock` (ритейл и последующие лендинги).
+   * 'dark' — тёмный CTA-блок `CTAdark` (текст + терминал), для лендингов про терминал/CLI.
    */
-  variant?: 'solid' | 'gradient';
+  variant?: 'solid' | 'gradient' | 'dark';
   /** Интерфейс справа (только для variant='gradient') под тематику лендинга. */
   visualVariant?: MockVariant;
 }
@@ -32,6 +34,31 @@ export function FinalCta({
   variant = 'solid',
   visualVariant,
 }: FinalCtaProps) {
+  if (variant === 'dark') {
+    return (
+      <section
+        className={cn('mx-auto w-full max-w-(--container-kaiten)', 'px-4 py-16 md:px-6 xl:px-0 lg:py-24')}
+      >
+        <CTAdark
+          title={title}
+          text={description ?? ''}
+          buttonLabel={primaryCta.label}
+          buttonHref={primaryCta.href}
+          terminalTitle="bash — кайтен@ваш-сервер"
+          lines={[
+            [{ text: '$ ', kind: 'prompt' }, { text: 'uv tool install git+https://github.com/ViktorOgnev/kaiten-cli.git' }],
+            [{ text: 'Resolved 1 package · Installed kaiten-cli', kind: 'key' }],
+            [{ text: '$ ', kind: 'prompt' }, { text: 'kaiten cards create --title "Починить flaky-тесты в CI"' }],
+            [{ text: '$ ', kind: 'prompt' }, { text: 'kaiten cards update --card-id 482 --column "Готово"' }],
+            [{ text: '✓ карточка #482 закрыта', kind: 'ok' }],
+            [{ text: 'stats · ', kind: 'key' }, { text: 'http_request_count: 1' }],
+          ]}
+          showCursor
+        />
+      </section>
+    );
+  }
+
   if (variant === 'gradient') {
     const buttons: CTAButton[] = [
       { label: primaryCta.label, href: primaryCta.href, variant: 'fill' },

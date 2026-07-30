@@ -298,9 +298,9 @@ const FinalCtaSchema = z.object({
     primaryCta: CtaSchema,
     secondaryCta: CtaSchema.nullable().optional(),
     variant: z
-      .enum(['solid', 'gradient'])
+      .enum(['solid', 'gradient', 'dark'])
       .optional()
-      .describe("'solid' (дефолт) — сплошная заливка (старые лендинги); 'gradient' — блок CTAsecondaryMock (ритейл и новые)"),
+      .describe("'solid' (дефолт) — сплошная заливка (старые лендинги); 'gradient' — блок CTAsecondaryMock (ритейл и новые); 'dark' — тёмный CTAdark (текст + терминал), для CLI-лендингов"),
     visualVariant: z
       .string()
       .optional()
@@ -375,6 +375,8 @@ const ProcessStepsSchema = z.object({
       )
       .min(2)
       .max(6),
+    /** 'cards' (дефолт) — карточки-сетка; 'roadmap' — дорожная карта RoadmapSteps (линия + точки). */
+    variant: z.enum(['cards', 'roadmap']).optional(),
   }),
 });
 

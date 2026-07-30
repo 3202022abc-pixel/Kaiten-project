@@ -2,7 +2,7 @@
 slug: kaiten-cli-release
 type: landing
 created: 2026-07-21
-updated: 2026-07-23
+updated: 2026-07-30
 status: draft
 brief: content/briefs/kaiten-cli-release.json
 archetype: saas_landing
@@ -51,7 +51,7 @@ sections:
   - kaiten_footer
 generator: host-agent
 durationMs: 0
-tokenEstimate: 47185
+tokenEstimate: 47379
 tags:
   - landing
   - saas_landing
@@ -65,7 +65,7 @@ stale: false
 - **archetype:** `saas_landing`
 - **goal:** `download` (brief.cta = "Установить")
 - **sections used:** `site_header, hero, benefits_strip, media_copy, comparison_table, features, features, process, features, media_copy, metrics_split, tabbed_feature, media_copy, features, legal_note, final_cta, kaiten_footer`
-- **token estimate:** `47185`
+- **token estimate:** `47379`
 - **generation duration:** `0ms`
 - **generator:** `host-agent`
 
@@ -188,7 +188,7 @@ stale: false
 - **Score:** 54.79 / 100 (threshold 70) — ❌ fail
 - **Resolved segments:** IT
 - **CTA types detected:** Unknown
-- **Generated:** 2026-07-23T14:27:01.825Z
+- **Generated:** 2026-07-30T11:12:33.219Z
 
 ## Breakdown
 

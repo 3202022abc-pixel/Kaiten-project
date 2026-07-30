@@ -1,6 +1,7 @@
 import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { Icon } from '../primitives/Icon';
+import RoadmapSteps from './mocks/RoadmapSteps';
 
 export interface ProcessStepProps {
   icon?: string;
@@ -13,13 +14,21 @@ export interface ProcessStepsProps {
   title: string;
   description?: string;
   steps: ProcessStepProps[];
+  /** 'cards' (дефолт) — карточки-сетка; 'roadmap' — дорожная карта RoadmapSteps (линия + точки). */
+  variant?: 'cards' | 'roadmap';
 }
 
 /**
  * Numbered process — 3-4 card grid с большой цифрой шага, заголовком и
  * описанием. Каждая карточка имеет акцентный градиент сверху.
  */
-export function ProcessSteps({ eyebrow, title, description, steps }: ProcessStepsProps) {
+export function ProcessSteps({
+  eyebrow,
+  title,
+  description,
+  steps,
+  variant = 'cards',
+}: ProcessStepsProps) {
   return (
     <section
       className={cn(
@@ -46,6 +55,19 @@ export function ProcessSteps({ eyebrow, title, description, steps }: ProcessStep
         )}
       </div>
 
+      {variant === 'roadmap' ? (
+        <div className="rounded-(--radius-2xl) bg-(--color-surface-section) px-6 py-16 md:px-12 md:py-20">
+          <RoadmapSteps
+            ariaLabel={title}
+            sectionBg="var(--color-surface-section)"
+            steps={steps.map((step) => ({
+              title: step.title,
+              text: step.description,
+              icon: step.icon ? <Icon name={step.icon} className="h-[18px] w-[18px]" /> : undefined,
+            }))}
+          />
+        </div>
+      ) : (
       <div
         className={cn(
           'grid grid-cols-1 gap-6 md:grid-cols-2',
@@ -96,6 +118,7 @@ export function ProcessSteps({ eyebrow, title, description, steps }: ProcessStep
           </Inspect>
         ))}
       </div>
+      )}
     </section>
   );
 }

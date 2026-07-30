@@ -59,7 +59,6 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
-        "eyebrow": "Open source и сообщество",
         "title": "Проект сообщества",
         "description": "Kaiten CLI Издание сообщества — публичный проект для автоматизации работы в Kaiten и интеграций с LLM-инструментами. Проект разрабатывается и поддерживается сообществом разработчиков-энтузиастов из комьюнити Kaiten.",
         "checklist": [
@@ -88,7 +87,6 @@
       "id": "comparison_table",
       "component": "ComparisonTable",
       "props": {
-        "eyebrow": "Проблема и решение",
         "title": "Меньше кликов, больше автоматизации",
         "competitor": "Облачная версия Kaiten",
         "brandLabel": "Kaiten CLI Издание сообщества",
@@ -151,7 +149,6 @@
       "id": "features",
       "component": "FeatureGrid",
       "props": {
-        "eyebrow": "Что умеет CLI",
         "title": "Ключевые возможности",
         "items": [
           {
@@ -192,7 +189,6 @@
       "id": "features",
       "component": "FeatureGrid",
       "props": {
-        "eyebrow": "Что такое Kaiten CLI",
         "title": "Работает самостоятельно",
         "description": "Kaiten CLI — интерфейс командной строки для Kaiten. Не тот же самый, что MCP.",
         "items": [
@@ -219,7 +215,6 @@
       "id": "process",
       "component": "ProcessSteps",
       "props": {
-        "eyebrow": "Установка",
         "title": "Установка за пару команд",
         "description": "Нужен аккаунт Kaiten и API-токен. Python 3.11 или новее.",
         "steps": [
@@ -238,14 +233,14 @@
             "title": "Проверка",
             "description": "Проверьте установку: CLI покажет версию. Не встал через uv — поставьте через pipx."
           }
-        ]
+        ],
+        "variant": "roadmap"
       }
     },
     {
       "id": "features",
       "component": "FeatureGrid",
       "props": {
-        "eyebrow": "Сценарии и роли",
         "title": "Кому и зачем",
         "items": [
           {
@@ -281,7 +276,6 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
-        "eyebrow": "Локально и приватно",
         "title": "Данные остаются у вас",
         "description": "Терминал обращается к локальному кэшу и снимкам SQLite, затем к API Kaiten — облачному или локальному.",
         "checklist": [
@@ -310,7 +304,6 @@
       "id": "metrics_split",
       "component": "MetricsSplit",
       "props": {
-        "eyebrow": "Технические характеристики",
         "title": "356 инструментов, 31 модуль",
         "description": "Масштаб реестра и инженерные свойства инструмента. Числа по описанию проекта на 21 июля 2026 года, меняются с выпусками.",
         "metrics": [
@@ -355,7 +348,6 @@
       "id": "tabbed_feature",
       "component": "TabbedFeatureSection",
       "props": {
-        "eyebrow": "Рецепты",
         "title": "Готовые сценарии",
         "description": "Живые команды под типовые задачи. У каждой — кнопка «Скопировать».",
         "tabs": [
@@ -426,7 +418,6 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
-        "eyebrow": "Для LLM-агентов",
         "title": "Готов к работе с агентами",
         "description": "Полный доступ к Kaiten, меньше токенов, данные не уходят наружу. Агент находит нужные команды сам и работает в безопасном режиме.",
         "checklist": [
@@ -458,7 +449,6 @@
       "id": "features",
       "component": "FeatureGrid",
       "props": {
-        "eyebrow": "Kaiten CLI и MCP",
         "title": "Когда CLI, когда MCP",
         "description": "Выбор зависит от задачи и требований к данным.",
         "items": [
@@ -497,8 +487,7 @@
           "label": "Документация",
           "href": "https://github.com/ViktorOgnev/kaiten-cli/blob/master/README.md"
         },
-        "variant": "gradient",
-        "visualVariant": "cli-terminal-final-animated"
+        "variant": "dark"
       }
     },
     {
@@ -538,11 +527,11 @@
       "wiki/layouts/single-module-deep-dive.md",
       "wiki/layouts/index.md"
     ],
-    "generatedAt": "2026-07-23T14:27:01.835Z",
+    "generatedAt": "2026-07-30T11:12:33.229Z",
     "generator": "host-agent",
     "archetype": "saas_landing",
     "layout": "single-module-deep-dive",
-    "tokenEstimate": 47185,
+    "tokenEstimate": 47379,
     "domain": "cli-community-edition"
   }
 }
