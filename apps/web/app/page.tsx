@@ -1,8 +1,45 @@
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 export const dynamic = 'force-dynamic';
+
+function ActionIcon({ name }: { name: 'preview' | 'edit' | 'approve' | 'handoff' }) {
+  const paths: Record<string, ReactNode> = {
+    preview: (
+      <>
+        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
+        <circle cx="12" cy="12" r="3" />
+      </>
+    ),
+    edit: <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" />,
+    approve: <path d="M20 6 9 17l-5-5" />,
+    handoff: (
+      <>
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+        <path d="m7 10 5 5 5-5" />
+        <path d="M12 15V3" />
+      </>
+    ),
+  };
+  return (
+    <svg
+      aria-hidden
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="shrink-0"
+    >
+      {paths[name]}
+    </svg>
+  );
+}
 
 async function listLandings(): Promise<string[]> {
   const dir = resolve(process.cwd(), '..', '..', 'content', 'landings');
@@ -83,7 +120,7 @@ export default async function DashboardPage() {
   })).filter(({ items }) => items.length > 0);
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <main className="mx-auto max-w-6xl px-6 py-12">
       <header className="mb-8">
         <p className="text-xs uppercase tracking-wide text-(--color-text-secondary)">Контент-завод Кайтен</p>
         <h1 className="text-3xl font-semibold tracking-tight">LLM harness для лендингов</h1>
@@ -92,7 +129,7 @@ export default async function DashboardPage() {
         </p>
       </header>
 
-      <section className="mb-10 grid grid-cols-1 gap-4">
+      <section className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Link
           href="/new"
           className="group rounded-(--radius-2xl) border border-(--color-action-primary)/30 bg-(--color-action-primary-soft) p-6 transition hover:border-(--color-action-primary)"
@@ -162,11 +199,7 @@ export default async function DashboardPage() {
           grouped.map(({ group, items }) => (
           <details key={group} open className="group mb-6 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
             <summary className="flex cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
-              <h3 className="text-sm font-semibold uppercase tracking-wide">
-                {group}
-              </h3>
-              <span className="flex items-center gap-3">
-                <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
+              <span className="flex items-center gap-2">
                 <svg
                   aria-hidden
                   width="16"
@@ -177,11 +210,15 @@ export default async function DashboardPage() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  className="text-(--color-text-secondary) transition-transform group-open:rotate-180"
+                  className="-rotate-90 text-(--color-text-secondary) transition-transform group-open:rotate-0"
                 >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
+                <h3 className="text-sm font-semibold uppercase tracking-wide">
+                  {group}
+                </h3>
               </span>
+              <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
             </summary>
             <ul className="mt-3 grid grid-cols-1 gap-2">
             {items.map(({ slug, title, design }) => (
@@ -203,8 +240,9 @@ export default async function DashboardPage() {
                       href={`/design/${slug}/index.html`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-medium text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1 font-medium text-(--color-text-accent) hover:underline"
                     >
+                      <ActionIcon name="preview" />
                       preview
                     </a>
                     <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
@@ -212,34 +250,38 @@ export default async function DashboardPage() {
                     </span>
                   </div>
                 ) : (
-                  <div className="flex gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-sm">
                     <Link
                       href={`/landings/${slug}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="font-medium text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1 font-medium text-(--color-text-accent) hover:underline"
                     >
+                      <ActionIcon name="preview" />
                       preview
                     </Link>
                     <Link
                       href={`/edit/${slug}`}
-                      className="text-(--color-text-secondary) hover:underline"
+                      className="inline-flex items-center gap-1 text-(--color-text-secondary) hover:underline"
                     >
+                      <ActionIcon name="edit" />
                       edit
                     </Link>
                     <Link
                       href={`/approve/${slug}`}
-                      className="text-(--color-text-secondary) hover:underline"
+                      className="inline-flex items-center gap-1 text-(--color-text-secondary) hover:underline"
                     >
+                      <ActionIcon name="approve" />
                       approve
                     </Link>
                     <a
                       href={`/api/handoff/${slug}`}
                       download={`landing-${slug}.zip`}
-                      className="text-emerald-700 hover:underline"
+                      className="inline-flex items-center gap-1 text-emerald-700 hover:underline"
                       title="Скачать ZIP-архив для разработчика"
                     >
-                      handoff ↓
+                      <ActionIcon name="handoff" />
+                      handoff
                     </a>
                   </div>
                 )}
