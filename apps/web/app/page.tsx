@@ -17,8 +17,26 @@ async function listLandings(): Promise<string[]> {
   }
 }
 
+async function listDesignLandings(): Promise<string[]> {
+  const dir = resolve(process.cwd(), 'public', 'design');
+  try {
+    const entries = await readdir(dir, { withFileTypes: true });
+    return entries
+      .filter((e) => e.isDirectory())
+      .map((e) => e.name)
+      .sort();
+  } catch {
+    return [];
+  }
+}
+
 export default async function DashboardPage() {
   const landings = await listLandings();
+  const designLandings = await listDesignLandings();
+  const allLandings = [
+    ...designLandings.map((slug) => ({ slug, design: true })),
+    ...landings.map((slug) => ({ slug, design: false })),
+  ].sort((a, b) => a.slug.localeCompare(b.slug));
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
@@ -90,50 +108,70 @@ export default async function DashboardPage() {
       <section>
         <div className="mb-3 flex items-end justify-between">
           <h2 className="text-xl font-medium">Существующие лендинги</h2>
-          <span className="text-xs text-(--color-text-secondary)">{landings.length} шт.</span>
+          <span className="text-xs text-(--color-text-secondary)">{allLandings.length} шт.</span>
         </div>
-        {landings.length === 0 ? (
+        {allLandings.length === 0 ? (
           <p className="text-sm text-(--color-text-secondary)">
             Пока нет. Начните с <Link href="/new" className="underline">/new</Link>.
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {landings.map((slug) => (
+            {allLandings.map(({ slug, design }) => (
               <li
-                key={slug}
+                key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
               >
-                <code className="text-sm font-medium">{slug}</code>
-                <div className="flex gap-3 text-sm">
-                  <Link
-                    href={`/landings/${slug}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium text-(--color-text-accent) hover:underline"
-                  >
-                    preview
-                  </Link>
-                  <Link
-                    href={`/edit/${slug}`}
-                    className="text-(--color-text-secondary) hover:underline"
-                  >
-                    edit
-                  </Link>
-                  <Link
-                    href={`/approve/${slug}`}
-                    className="text-(--color-text-secondary) hover:underline"
-                  >
-                    approve
-                  </Link>
-                  <a
-                    href={`/api/handoff/${slug}`}
-                    download={`landing-${slug}.zip`}
-                    className="text-emerald-700 hover:underline"
-                    title="Скачать ZIP-архив для разработчика"
-                  >
-                    handoff ↓
-                  </a>
-                </div>
+                <span className="flex min-w-0 items-center gap-2">
+                  <code className="truncate text-sm font-medium">{slug}</code>
+                  {design && (
+                    <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
+                      Design
+                    </span>
+                  )}
+                </span>
+                {design ? (
+                  <div className="flex gap-3 text-sm">
+                    <a
+                      href={`/design/${slug}/index.html`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-(--color-text-accent) hover:underline"
+                    >
+                      preview
+                    </a>
+                  </div>
+                ) : (
+                  <div className="flex gap-3 text-sm">
+                    <Link
+                      href={`/landings/${slug}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="font-medium text-(--color-text-accent) hover:underline"
+                    >
+                      preview
+                    </Link>
+                    <Link
+                      href={`/edit/${slug}`}
+                      className="text-(--color-text-secondary) hover:underline"
+                    >
+                      edit
+                    </Link>
+                    <Link
+                      href={`/approve/${slug}`}
+                      className="text-(--color-text-secondary) hover:underline"
+                    >
+                      approve
+                    </Link>
+                    <a
+                      href={`/api/handoff/${slug}`}
+                      download={`landing-${slug}.zip`}
+                      className="text-emerald-700 hover:underline"
+                      title="Скачать ZIP-архив для разработчика"
+                    >
+                      handoff ↓
+                    </a>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
