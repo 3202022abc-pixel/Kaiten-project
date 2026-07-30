@@ -8,20 +8,13 @@ export const dynamic = 'force-dynamic';
 function ActionIcon({ name }: { name: 'preview' | 'edit' | 'approve' | 'handoff' }) {
   const paths: Record<string, ReactNode> = {
     preview: (
-      <>
-        <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z" />
-        <circle cx="12" cy="12" r="3" />
-      </>
+      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5Zm0 12.5a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-8a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" />
     ),
-    edit: <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3Z" />,
-    approve: <path d="M20 6 9 17l-5-5" />,
-    handoff: (
-      <>
-        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-        <path d="m7 10 5 5 5-5" />
-        <path d="M12 15V3" />
-      </>
+    edit: (
+      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25ZM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83Z" />
     ),
+    approve: <path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17Z" />,
+    handoff: <path d="M19 9h-4V3H9v6H5l7 7 7-7ZM5 18v2h14v-2H5Z" />,
   };
   return (
     <svg
@@ -29,11 +22,7 @@ function ActionIcon({ name }: { name: 'preview' | 'edit' | 'approve' | 'handoff'
       width="12"
       height="12"
       viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      fill="currentColor"
       className="shrink-0"
     >
       {paths[name]}
@@ -187,9 +176,9 @@ export default async function DashboardPage() {
       </section>
 
       <section>
-        <div className="mb-3 flex items-baseline gap-2">
+        <div className="mb-3 flex items-end justify-between pr-4 sm:pr-5">
           <h2 className="text-xl font-medium">Существующие лендинги</h2>
-          <span className="text-xs text-(--color-text-secondary)">{allLandings.length} шт.</span>
+          <span className="text-xs text-(--color-text-primary)">{allLandings.length} шт.</span>
         </div>
         {allLandings.length === 0 ? (
           <p className="text-sm text-(--color-text-secondary)">
@@ -218,7 +207,7 @@ export default async function DashboardPage() {
                   {group}
                 </h3>
               </span>
-              <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
+              <span className="text-xs text-(--color-text-primary)">{items.length} шт.</span>
             </summary>
             <ul className="mt-4 grid grid-cols-1 gap-2 sm:mt-5">
             {items.map(({ slug, title, design }) => (
@@ -240,7 +229,7 @@ export default async function DashboardPage() {
                       href={`/design/${slug}/index.html`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary) hover:underline"
+                      className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                     >
                       <ActionIcon name="preview" />
                       preview
@@ -250,7 +239,7 @@ export default async function DashboardPage() {
                       href={`/landings/${slug}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary) hover:underline"
+                      className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                     >
                       <ActionIcon name="preview" />
                       preview
@@ -266,14 +255,14 @@ export default async function DashboardPage() {
                     <>
                       <Link
                         href={`/edit/${slug}`}
-                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary) hover:underline"
+                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                       >
                         <ActionIcon name="edit" />
                         edit
                       </Link>
                       <Link
                         href={`/approve/${slug}`}
-                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary) hover:underline"
+                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                       >
                         <ActionIcon name="approve" />
                         approve
@@ -281,7 +270,7 @@ export default async function DashboardPage() {
                       <a
                         href={`/api/handoff/${slug}`}
                         download={`landing-${slug}.zip`}
-                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary) hover:underline"
+                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
                         title="Скачать ZIP-архив для разработчика"
                       >
                         <ActionIcon name="handoff" />
