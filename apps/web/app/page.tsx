@@ -227,7 +227,7 @@ export default async function DashboardPage() {
                 className="flex items-center justify-between rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-4 py-3 transition-colors hover:border-(--color-border-default)"
               >
                 <span className="flex min-w-0 flex-col gap-0.5">
-                  <code className="truncate text-sm font-medium">{slug}</code>
+                  <span className="truncate text-sm font-medium">{slug}</span>
                   {title && (
                     <span className="truncate text-xs text-(--color-text-secondary)" title={title}>
                       {title}
