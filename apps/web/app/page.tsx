@@ -19,8 +19,8 @@ function ActionIcon({ name }: { name: 'preview' | 'edit' | 'approve' | 'handoff'
   return (
     <svg
       aria-hidden
-      width="12"
-      height="12"
+      width="14"
+      height="14"
       viewBox="0 0 24 24"
       fill="currentColor"
       className="shrink-0"
@@ -176,7 +176,7 @@ export default async function DashboardPage() {
       </section>
 
       <section>
-        <div className="mb-3 flex items-end justify-between pr-4 sm:pr-5">
+        <div className="mb-5 flex items-end justify-between pr-4 sm:pr-5">
           <h2 className="text-xl font-medium">Существующие лендинги</h2>
           <span className="text-xs text-(--color-text-primary)">{allLandings.length} шт.</span>
         </div>
@@ -218,12 +218,12 @@ export default async function DashboardPage() {
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <span className="truncate text-sm font-medium">{slug}</span>
                   {title && (
-                    <span className="truncate text-xs text-(--color-text-secondary)" title={title}>
+                    <span className="text-xs text-(--color-text-secondary) lg:truncate" title={title}>
                       {title}
                     </span>
                   )}
                 </span>
-                <div className="grid shrink-0 grid-cols-[repeat(4,auto)_auto] items-center gap-x-3 text-xs sm:grid-cols-[70px_48px_70px_70px_58px] sm:gap-x-3.5">
+                <div className="grid shrink-0 grid-cols-[repeat(4,auto)_auto] items-center gap-x-3 text-xs sm:grid-cols-[60px_40px_60px_60px_50px] sm:gap-x-2 lg:grid-cols-[70px_48px_70px_70px_58px] lg:gap-x-3.5">
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
@@ -247,9 +247,9 @@ export default async function DashboardPage() {
                   )}
                   {design ? (
                     <>
-                      <span />
-                      <span />
-                      <span />
+                      <span className="hidden sm:block" />
+                      <span className="hidden sm:block" />
+                      <span className="hidden sm:block" />
                     </>
                   ) : (
                     <>
@@ -279,11 +279,11 @@ export default async function DashboardPage() {
                     </>
                   )}
                   {design ? (
-                    <span className="hidden justify-self-end rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:inline-block">
+                    <span className="hidden justify-self-end rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:inline-block">
                       Design
                     </span>
                   ) : (
-                    <span />
+                    <span className="hidden sm:block" />
                   )}
                 </div>
               </li>
