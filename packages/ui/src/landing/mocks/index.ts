@@ -103,3 +103,6 @@ export { CliInstallMock } from './CliInstallMock';
 export { FitContain } from './FitContain';
 
 export { FeatureGridMock } from './FeatureGridMock';
+
+export { default as RoadmapSteps } from './RoadmapSteps';
+export type { RoadmapStepsProps, RoadmapStep } from './RoadmapSteps';
