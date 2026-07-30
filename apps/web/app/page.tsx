@@ -186,7 +186,7 @@ export default async function DashboardPage() {
           </p>
         ) : (
           grouped.map(({ group, items }) => (
-          <details key={group} open className="group mb-6 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
+          <details key={group} open className="group mb-4 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
             <summary className="flex cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
               <span className="flex items-center gap-2">
                 <svg
