@@ -186,7 +186,7 @@ export default async function DashboardPage() {
           </p>
         ) : (
           grouped.map(({ group, items }) => (
-          <details key={group} open className="group mb-4 rounded-(--radius-2xl) bg-(--color-surface-section) p-4 sm:p-5">
+          <details key={group} open className="group mb-4 rounded-(--radius-2xl) bg-(--color-surface-section) px-2 py-4 sm:p-5">
             <summary className="flex cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
               <span className="flex items-center gap-2">
                 <svg
@@ -213,7 +213,7 @@ export default async function DashboardPage() {
             {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
-                className="flex flex-col gap-2 rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-4 py-3 transition-colors hover:border-(--color-border-default) sm:flex-row sm:items-center sm:justify-between sm:gap-0"
+                className="flex flex-col gap-2 rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-3 py-3 transition-colors hover:border-(--color-border-default) sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-4"
               >
                 {design && (
                   <span className="self-start rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:hidden">
