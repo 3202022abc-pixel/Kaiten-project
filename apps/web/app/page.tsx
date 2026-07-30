@@ -220,7 +220,7 @@ export default async function DashboardPage() {
               </span>
               <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
             </summary>
-            <ul className="mt-3 grid grid-cols-1 gap-2">
+            <ul className="mt-4 grid grid-cols-1 gap-2 sm:mt-5">
             {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
