@@ -187,7 +187,7 @@ export default async function DashboardPage() {
       </section>
 
       <section>
-        <div className="mb-3 flex items-end justify-between">
+        <div className="mb-3 flex items-baseline gap-2">
           <h2 className="text-xl font-medium">Существующие лендинги</h2>
           <span className="text-xs text-(--color-text-secondary)">{allLandings.length} шт.</span>
         </div>
@@ -234,7 +234,7 @@ export default async function DashboardPage() {
                     </span>
                   )}
                 </span>
-                <div className="grid shrink-0 grid-cols-[78px_54px_78px_78px_64px] items-center text-xs">
+                <div className="grid shrink-0 grid-cols-[78px_54px_78px_78px_64px] items-center gap-x-5 text-xs">
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
