@@ -142,21 +142,14 @@ export default async function DashboardPage() {
             Пока нет. Начните с <Link href="/new" className="underline">/new</Link>.
           </p>
         ) : (
-          <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-2">
             {allLandings.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
               >
                 <span className="flex min-w-0 flex-col gap-0.5">
-                  <span className="flex min-w-0 items-center gap-2">
-                    {design && (
-                      <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
-                        Design
-                      </span>
-                    )}
-                    <code className="truncate text-sm font-medium">{slug}</code>
-                  </span>
+                  <code className="truncate text-sm font-medium">{slug}</code>
                   {title && (
                     <span className="truncate text-xs text-(--color-text-secondary)" title={title}>
                       {title}
@@ -164,7 +157,7 @@ export default async function DashboardPage() {
                   )}
                 </span>
                 {design ? (
-                  <div className="flex gap-3 text-sm">
+                  <div className="flex items-center gap-3 text-sm">
                     <a
                       href={`/design/${slug}/index.html`}
                       target="_blank"
@@ -173,6 +166,9 @@ export default async function DashboardPage() {
                     >
                       preview
                     </a>
+                    <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
+                      Design
+                    </span>
                   </div>
                 ) : (
                   <div className="flex gap-3 text-sm">
