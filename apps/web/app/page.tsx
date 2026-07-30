@@ -128,7 +128,7 @@ export default async function DashboardPage() {
               <h2 className="text-lg font-semibold text-(--color-text-accent)">
                 Как создать лендинг
               </h2>
-              <p className="mt-1 text-sm text-(--color-text-secondary)">
+              <p className="mt-1 text-sm text-(--color-text-secondary) transition-colors group-hover:text-(--color-text-primary)">
                 Открой claude / codex в терминале → кинь ТЗ → попроси сгенерить.
                 Инструкция и готовые шаблоны промптов.
               </p>
@@ -146,7 +146,7 @@ export default async function DashboardPage() {
           <div className="flex items-start justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold">Каталог блоков</h2>
-              <p className="mt-1 text-sm text-(--color-text-secondary)">
+              <p className="mt-1 text-sm text-(--color-text-secondary) transition-colors group-hover:text-(--color-text-primary)">
                 22 секции + 39 моков с живыми примерами. Всё прямо в браузере, без запуска
                 Storybook.
               </p>
@@ -164,7 +164,7 @@ export default async function DashboardPage() {
           <div className="flex items-start justify-between gap-3">
             <div>
               <h2 className="text-lg font-semibold">Как устроен конвейер</h2>
-              <p className="mt-1 text-sm text-(--color-text-secondary)">
+              <p className="mt-1 text-sm text-(--color-text-secondary) transition-colors group-hover:text-(--color-text-primary)">
                 Справочник по всем этапам: что на входе и выходе, правила и гейты, команды.
               </p>
             </div>
