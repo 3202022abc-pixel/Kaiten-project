@@ -65,13 +65,13 @@ export default async function DashboardPage() {
     ...specLandings.map(({ slug, title }) => ({ slug, title, design: false })),
   ].sort((a, b) => a.slug.localeCompare(b.slug));
 
-  const GROUPS = ['Отрасли и команды', 'Сравнения', 'Продукт и фичи', 'Вебинары', 'Тестовые'] as const;
+  const GROUPS = ['Кайтен для отраслей', 'Сравнение Кайтен с продуктом', 'Продукт и фичи', 'Вебинары', 'Тестовые'] as const;
   const groupOf = (slug: string): (typeof GROUPS)[number] => {
     if (/^kaiten-vs-/.test(slug) || ['kaiten-clickup', 'kaiten-wrike', 'kaiten-trello', 'kaiten-asana', 'kaiten-weeek', 'kaiten-evateam', 'kaiten-youtrack'].includes(slug)) {
-      return 'Сравнения';
+      return 'Сравнение Кайтен с продуктом';
     }
     if (/^kaiten-dlya-/.test(slug) || ['kaiten-finance', 'kaiten-manufacturing', 'kaiten-retail'].includes(slug)) {
-      return 'Отрасли и команды';
+      return 'Кайтен для отраслей';
     }
     if (/^webinar-/.test(slug)) return 'Вебинары';
     if (/^(test-|sample-)/.test(slug) || ['test-kaiten', 'sample-kaiten'].includes(slug)) return 'Тестовые';
@@ -171,7 +171,7 @@ export default async function DashboardPage() {
             {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
-                className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
+                className="flex items-center justify-between rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-4 py-3 transition-colors hover:border-(--color-border-default)"
               >
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <code className="truncate text-sm font-medium">{slug}</code>
