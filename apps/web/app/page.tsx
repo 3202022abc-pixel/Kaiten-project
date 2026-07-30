@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { readdir } from 'node:fs/promises';
+import { readdir, readFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
 export const dynamic = 'force-dynamic';
@@ -17,25 +17,52 @@ async function listLandings(): Promise<string[]> {
   }
 }
 
-async function listDesignLandings(): Promise<string[]> {
+async function listDesignLandings(): Promise<{ slug: string; title: string | null }[]> {
   const dir = resolve(process.cwd(), 'public', 'design');
   try {
     const entries = await readdir(dir, { withFileTypes: true });
-    return entries
+    const slugs = entries
       .filter((e) => e.isDirectory())
       .map((e) => e.name)
       .sort();
+    return Promise.all(
+      slugs.map(async (slug) => {
+        const title = await readFile(resolve(dir, slug, 'title.txt'), 'utf8')
+          .then((t) => t.trim() || null)
+          .catch(() => null);
+        return { slug, title };
+      }),
+    );
   } catch {
     return [];
+  }
+}
+
+async function specTitle(slug: string): Promise<string | null> {
+  const file = resolve(process.cwd(), '..', '..', 'content', 'landings', `${slug}.json`);
+  try {
+    const spec = JSON.parse(await readFile(file, 'utf8')) as {
+      sections?: { props?: { title?: unknown } }[];
+    };
+    for (const section of spec.sections ?? []) {
+      const title = section?.props?.title;
+      if (typeof title === 'string' && title.trim()) return title.trim();
+    }
+    return null;
+  } catch {
+    return null;
   }
 }
 
 export default async function DashboardPage() {
   const landings = await listLandings();
   const designLandings = await listDesignLandings();
+  const specLandings = await Promise.all(
+    landings.map(async (slug) => ({ slug, title: await specTitle(slug) })),
+  );
   const allLandings = [
-    ...designLandings.map((slug) => ({ slug, design: true })),
-    ...landings.map((slug) => ({ slug, design: false })),
+    ...designLandings.map(({ slug, title }) => ({ slug, title, design: true })),
+    ...specLandings.map(({ slug, title }) => ({ slug, title, design: false })),
   ].sort((a, b) => a.slug.localeCompare(b.slug));
 
   return (
@@ -116,18 +143,25 @@ export default async function DashboardPage() {
           </p>
         ) : (
           <ul className="grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {allLandings.map(({ slug, design }) => (
+            {allLandings.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
               >
-                <span className="flex min-w-0 items-center gap-2">
-                  {design && (
-                    <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
-                      Design
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <span className="flex min-w-0 items-center gap-2">
+                    {design && (
+                      <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
+                        Design
+                      </span>
+                    )}
+                    <code className="truncate text-sm font-medium">{slug}</code>
+                  </span>
+                  {title && (
+                    <span className="truncate text-xs text-(--color-text-secondary)" title={title}>
+                      {title}
                     </span>
                   )}
-                  <code className="truncate text-sm font-medium">{slug}</code>
                 </span>
                 {design ? (
                   <div className="flex gap-3 text-sm">
