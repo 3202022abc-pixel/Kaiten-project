@@ -1,61 +1,54 @@
 import { cn } from '../../primitives/cn';
-import { Prompt, Flag, CheckGlyph } from './CliTerminalHeroMock';
+import { DarkTerminal, ResultCard, TPrompt, TFlag, TNum, TOk } from './DarkTerminal';
 
 /**
  * Локальные снимки и метрики Kaiten CLI: команда snapshot build один раз читает
  * пространство, а query metrics считает поток задач по снимку без обращений к
  * API. Терминал сверху, таблица результата по доскам снизу. Одна ось цвета —
- * «локально / без сети» (зелёный). Домен: cli-community-edition.
+ * «локально / без сети» (зелёный). Терминал — в едином стиле DarkTerminal.
+ * Домен: cli-community-edition.
  */
 export function CliSnapshotMetricsMock() {
   return (
-    <div
-      aria-hidden
-      className={cn(
-        'relative mx-auto w-full max-w-[720px] overflow-hidden rounded-(--radius-3xl)',
-        'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_30px_80px_-30px_rgba(125,76,207,0.28)]',
-      )}
-    >
-      <div className="space-y-2 bg-(--color-neutral-950) px-5 py-4 font-mono text-[11.5px] leading-relaxed md:text-[12px]">
+    <div aria-hidden className="mx-auto w-full max-w-[600px] space-y-3">
+      <DarkTerminal title="bash — кайтен@ваш-сервер">
         {/* сбор снимка */}
-        <div className="flex flex-wrap items-baseline gap-x-2">
-          <Prompt />
-          <Flag>--json</Flag>
-          <span className="text-(--color-neutral-000)">snapshot build</span>
-          <Flag>--name</Flag>
-          <span className="text-(--color-blue-100)">team-q1</span>
-          <Flag>--preset</Flag>
-          <span className="text-(--color-blue-100)">analytics</span>
+        <div className="ln">
+          <TPrompt />
+          <TFlag>--json</TFlag>
+          <span>snapshot build</span>
+          <TFlag>--name</TFlag>
+          <TNum>team-q1</TNum>
+          <TFlag>--preset</TFlag>
+          <TNum>analytics</TNum>
         </div>
-        <div className="flex flex-wrap items-baseline gap-x-2 pl-3 text-(--color-neutral-500)">
-          <Flag>--window-start</Flag>
+        <div className="ln ind">
+          <TFlag>--window-start</TFlag>
           <span>2026-01-01</span>
-          <Flag>--window-end</Flag>
+          <TFlag>--window-end</TFlag>
           <span>2026-03-31</span>
         </div>
-        <div className="flex items-center gap-2 text-(--color-neutral-400)">
-          <CheckGlyph />
-          <span>снимок team-q1 собран · <span className="text-(--color-green-100)">1</span> чтение из API</span>
-        </div>
+        <TOk>
+          снимок team-q1 собран · <TNum>1</TNum> чтение из API
+        </TOk>
 
         {/* расчёт метрик */}
-        <div className="flex flex-wrap items-baseline gap-x-2 pt-1.5">
-          <Prompt />
-          <Flag>--json</Flag>
-          <span className="text-(--color-neutral-000)">query metrics</span>
-          <Flag>--metric</Flag>
-          <span className="text-(--color-blue-100)">throughput</span>
-          <Flag>--group-by</Flag>
-          <span className="text-(--color-blue-100)">board_id</span>
+        <div className="ln" style={{ marginTop: 10 }}>
+          <TPrompt />
+          <TFlag>--json</TFlag>
+          <span>query metrics</span>
+          <TFlag>--metric</TFlag>
+          <TNum>throughput</TNum>
+          <TFlag>--group-by</TFlag>
+          <TNum>board_id</TNum>
         </div>
-      </div>
+      </DarkTerminal>
 
-      {/* таблица результата */}
-      <div className="border-t border-(--color-border-default) bg-(--color-surface-card) px-5 py-4">
-        <div className="mb-2 flex items-center justify-between">
+      {/* результат: поток задач по доскам — бар-чарт (стиль CrmAnalyticsMock) */}
+      <ResultCard>
+        <div className="mb-3 flex items-center justify-between">
           <span className="text-[11px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">
-            Поток задач за квартал
+            Поток задач за квартал · завершено
           </span>
           <span className="inline-flex items-center gap-1 rounded-full bg-(--color-green-12) px-2 py-0.5 text-[10px] font-semibold text-green-700">
             <OfflineGlyph />
@@ -63,30 +56,35 @@ export function CliSnapshotMetricsMock() {
           </span>
         </div>
 
-        <table className="w-full border-collapse font-mono text-[11.5px]">
-          <thead>
-            <tr className="text-left text-(--color-text-secondary)">
-              <th className="pb-1.5 font-medium">доска</th>
-              <th className="pb-1.5 text-right font-medium">завершено</th>
-            </tr>
-          </thead>
-          <tbody className="text-(--color-text-primary)">
-            <MetricRow board="Разработка · спринты" value={128} />
-            <MetricRow board="Поддержка · заявки" value={214} />
-            <MetricRow board="Инфраструктура" value={57} />
-          </tbody>
-        </table>
-      </div>
+        <div className="space-y-2.5">
+          {BOARDS.map((b) => (
+            <MetricBar key={b.board} board={b.board} value={b.value} width={b.width} />
+          ))}
+        </div>
+      </ResultCard>
     </div>
   );
 }
 
-function MetricRow({ board, value }: { board: string; value: number }) {
+const BOARDS = [
+  { board: 'Разработка · спринты', value: 128, width: 'w-[60%]' },
+  { board: 'Поддержка · заявки', value: 214, width: 'w-full' },
+  { board: 'Инфраструктура', value: 57, width: 'w-[27%]' },
+];
+
+function MetricBar({ board, value, width }: { board: string; value: number; width: string }) {
   return (
-    <tr className="border-t border-(--color-border-default)">
-      <td className="py-1.5">{board}</td>
-      <td className="py-1.5 text-right font-semibold text-(--color-text-accent)">{value}</td>
-    </tr>
+    <div className="flex items-center gap-3">
+      <span className="w-36 shrink-0 truncate text-[11.5px] font-medium text-(--color-text-primary)">
+        {board}
+      </span>
+      <div className="relative h-5 flex-1 overflow-hidden rounded-md bg-(--color-neutral-200)">
+        <div className={cn('h-full rounded-md bg-(--color-action-primary)', width)} />
+      </div>
+      <span className="w-9 shrink-0 text-right font-mono text-[12px] font-semibold text-(--color-text-primary) tabular-nums">
+        {value}
+      </span>
+    </div>
   );
 }
 

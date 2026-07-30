@@ -99,6 +99,8 @@ export { CliTerminalFinalAnimatedMock } from './CliTerminalFinalAnimatedMock';
 export { CliMarkdownExportMock } from './CliMarkdownExportMock';
 export { CliSnapshotMetricsMock } from './CliSnapshotMetricsMock';
 export { CliBatchStatsMock } from './CliBatchStatsMock';
+export { CliProjectGanttMock } from './CliProjectGanttMock';
+export { CliSafeModeMock } from './CliSafeModeMock';
 export { CliInstallMock } from './CliInstallMock';
 export { FitContain } from './FitContain';
 

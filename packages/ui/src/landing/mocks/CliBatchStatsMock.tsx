@@ -1,101 +1,103 @@
 import { cn } from '../../primitives/cn';
-import { Prompt, Flag } from './CliTerminalHeroMock';
+import { DarkTerminal, ResultCard, TPrompt, TFlag, TStr, TNum, TKey } from './DarkTerminal';
 
 /**
  * Скрипты и ИИ-агенты Kaiten CLI: массовое чтение batch-get берёт список
  * карточек за один заход, а строка stats показывает, сколько обращений к API
  * ушло на задачу. Внизу — сравнение «по одной карточке» и «batch-get».
  * Одна ось цвета — экономия обращений (зелёный = меньше запросов).
+ * Терминал — в едином стиле DarkTerminal (эталон CTAdark).
  * Домен: cli-community-edition.
  */
 export function CliBatchStatsMock() {
   return (
-    <div
-      aria-hidden
-      className={cn(
-        'relative mx-auto w-full max-w-[720px] overflow-hidden rounded-(--radius-3xl)',
-        'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_30px_80px_-30px_rgba(125,76,207,0.28)]',
-      )}
-    >
-      <div className="space-y-2 bg-(--color-neutral-950) px-5 py-4 font-mono text-[11.5px] leading-relaxed md:text-[12px]">
-        <div className="flex flex-wrap items-baseline gap-x-2">
-          <Prompt />
-          <Flag>--json</Flag>
-          <span className="text-(--color-neutral-000)">card-location-history batch-get</span>
+    <div aria-hidden className="mx-auto w-full max-w-[600px] space-y-3">
+      <DarkTerminal title="bash — кайтен@ваш-сервер">
+        <div className="ln">
+          <TPrompt />
+          <TFlag>--json</TFlag>
+          <span>card-location-history batch-get</span>
         </div>
-        <div className="flex flex-wrap items-baseline gap-x-2 pl-3">
-          <Flag>--card-ids</Flag>
-          <span className="text-(--color-green-100)">'[101, 102, 103]'</span>
+        <div className="ln ind">
+          <TFlag>--card-ids</TFlag>
+          <TStr>&apos;[101, 102, 103]&apos;</TStr>
         </div>
 
         {/* stats-блок */}
-        <div className="mt-1 rounded-lg border border-(--color-neutral-800) bg-(--color-neutral-900) px-3 py-2 text-(--color-neutral-400)">
-          <div>
-            <span className="text-(--color-violet-100)">"stats"</span>: {'{'}
+        <div className="dterm__panel">
+          <div className="ln">
+            <TKey>&quot;stats&quot;</TKey>
+            <span>{'{'}</span>
           </div>
-          <div className="pl-3">
-            <span className="text-(--color-violet-100)">"cards"</span>: <span className="text-(--color-blue-100)">3</span>,{' '}
-            <span className="text-(--color-violet-100)">"http_request_count"</span>:{' '}
-            <span className="text-(--color-green-100)">1</span>
+          <div className="ln ind">
+            <TKey>&quot;cards&quot;</TKey>
+            <span>:</span>
+            <TNum>3</TNum>
+            <span>,</span>
+            <TKey>&quot;http_request_count&quot;</TKey>
+            <span>:</span>
+            <TNum>1</TNum>
           </div>
-          <div>{'}'}</div>
+          <div className="ln">
+            <span>{'}'}</span>
+          </div>
         </div>
-      </div>
+      </DarkTerminal>
 
-      {/* сравнение стратегий чтения */}
-      <div className="grid gap-2 border-t border-(--color-border-default) bg-(--color-surface-card) px-5 py-4 sm:grid-cols-2">
-        <CompareCard
-          label="По одной карточке"
-          requests="3 обращения к API"
-          strong={false}
-        />
-        <CompareCard
-          label="batch-get"
-          requests="1 обращение к API"
-          strong
-        />
-      </div>
+      {/* результат: сравнение стратегий чтения — одна карта, две строки */}
+      <ResultCard>
+        <div className="mb-3 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">
+          Обращений к API за задачу
+        </div>
+        <div className="space-y-2">
+          <CompareRow label="По одной карточке" requests="3 запроса" width="w-full" strong={false} />
+          <CompareRow label="batch-get" requests="1 запрос" width="w-[34%]" strong />
+        </div>
+      </ResultCard>
     </div>
   );
 }
 
-function CompareCard({
+function CompareRow({
   label,
   requests,
+  width,
   strong,
 }: {
   label: string;
   requests: string;
+  width: string;
   strong: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        'rounded-(--radius-xl) border px-3.5 py-3',
-        strong
-          ? 'border-(--color-green-100) bg-(--color-green-12)'
-          : 'border-(--color-border-default) bg-(--color-surface-section)',
-      )}
-    >
-      <div className="flex items-center justify-between">
-        <span className="font-mono text-[11px] font-medium text-(--color-text-primary)">{label}</span>
+    <div className="flex items-center gap-3">
+      <span className="flex w-36 shrink-0 items-center gap-1.5 text-[11.5px] font-medium text-(--color-text-primary)">
         {strong ? (
-          <span className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-(--color-green-100) text-(--color-neutral-000)">
+          <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-(--color-green-100) text-(--color-neutral-000)">
             <svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4">
               <path d="M5 12l5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
         ) : null}
+        {label}
+      </span>
+      <div className="relative h-5 flex-1 overflow-hidden rounded-md bg-(--color-neutral-200)">
+        <div
+          className={cn(
+            'h-full rounded-md',
+            width,
+            strong ? 'bg-(--color-green-100)' : 'bg-(--color-neutral-400)',
+          )}
+        />
       </div>
-      <div
+      <span
         className={cn(
-          'mt-1 text-sm font-semibold',
+          'w-20 shrink-0 text-right text-[12px] font-semibold tabular-nums',
           strong ? 'text-green-700' : 'text-(--color-text-secondary)',
         )}
       >
         {requests}
-      </div>
+      </span>
     </div>
   );
 }

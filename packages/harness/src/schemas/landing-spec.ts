@@ -86,6 +86,8 @@ export const AssetRefSchema = z.object({
       'cli-markdown-export',
       'cli-snapshot-metrics',
       'cli-batch-stats',
+      'cli-project-gantt',
+      'cli-safe-mode',
       'cli-install',
       'hero-screen-interface',
       'generic',
@@ -495,6 +497,8 @@ const MediaCopySchema = z.object({
       'cli-markdown-export',
       'cli-snapshot-metrics',
       'cli-batch-stats',
+      'cli-project-gantt',
+      'cli-safe-mode',
       'cli-install',
       ])
       .optional(),
@@ -836,6 +840,8 @@ export const MockVariantSchema = z.enum([
 'cli-markdown-export',
 'cli-snapshot-metrics',
 'cli-batch-stats',
+'cli-project-gantt',
+'cli-safe-mode',
 'cli-install',
 ]);
 export type MockVariant = z.infer<typeof MockVariantSchema>;

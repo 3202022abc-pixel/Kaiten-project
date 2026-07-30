@@ -16,14 +16,18 @@ import { ScaleToFit } from './ScaleToFit';
  * Стили заскоуплены под .cth, разметка статична (dangerouslySetInnerHTML) —
  * без клиентских хуков. Домен: cli-community-edition.
  */
-const CSS = `.cth{ --bg:#121212; --w:#ffffff; --fl:#9e9e9e; --mut:#bdbdbd; --grn:#4caf51; --blu:#2196f3; --vio:#7d4ccf; --tp:#2d2d2d; --ts:#757575; --bd:#e0e0e0; --sec:#f5f5f5; --pur12:#f4e8f7; }
+const CSS = `.cth{ --bg:#1b1626; --w:#cfc6e4; --fl:#8f82ab; --mut:#8f82ab; --grn:#78ffc7; --blu:#b79cff; --vio:#7d4ccf; --tp:#2d2d2d; --ts:#757575; --bd:#e0e0e0; --sec:#f5f5f5; --pur12:#f4e8f7; }
 .cth *{ box-sizing:border-box; margin:0; padding:0; }
 .cth{ font-family:"Inter",system-ui,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
 .cth .wrap{ position:relative; width:700px; height:400px; }
 
-/* — терминал (внахлёст: слева-сверху, сзади) — */
-.cth .term{ position:absolute; top:0; left:0; width:580px; z-index:1; overflow:hidden; border-radius:20px; border:1px solid var(--bd); background:#fff; box-shadow:0 30px 80px -30px rgba(125,76,207,.30); }
-.cth .body{ background:var(--bg); padding:16px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; line-height:1.75; min-height:250px; }
+/* — терминал (внахлёст: слева-сверху, сзади), стиль DarkTerminal/CTAdark — */
+.cth .term{ position:absolute; top:0; left:0; width:580px; z-index:1; overflow:hidden; border-radius:16px; border:1px solid rgba(143,130,171,.18); background:#1b1626; box-shadow:0 30px 80px -30px rgba(0,0,0,.5); }
+.cth .bar{ display:flex; align-items:center; gap:6px; background:#251d36; padding:10px 14px; }
+.cth .bar i{ width:10px; height:10px; border-radius:50%; background:#4a3f63; }
+.cth .bar i:first-child{ background:#f44336; } .cth .bar i:nth-child(2){ background:#ffa100; } .cth .bar i:nth-child(3){ background:#4caf51; }
+.cth .bar b{ margin-left:8px; color:#8f82ab; font-size:11px; font-weight:400; }
+.cth .body{ background:var(--bg); padding:16px 18px; font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:12px; line-height:1.75; min-height:224px; }
 .cth .line{ display:flex; align-items:center; white-space:nowrap; opacity:0; }
 .cth .l1{ animation:cthL1 15s linear infinite; }
 .cth .l2{ animation:cthL2 15s linear infinite; }
@@ -36,7 +40,7 @@ const CSS = `.cth{ --bg:#121212; --w:#ffffff; --fl:#9e9e9e; --mut:#bdbdbd; --grn
 .cth .c3{ animation:cthT3 15s steps(47,end) infinite; }
 .cth .c4{ animation:cthT4 15s steps(53,end) infinite; }
 .cth .cmd .w{ color:var(--w); } .cth .cmd .fl{ color:var(--fl); } .cth .cmd .num{ color:var(--blu); } .cth .cmd .str{ color:var(--grn); }
-.cth .cur{ display:inline-block; width:6px; height:14px; margin-left:1px; background:var(--w); opacity:0; }
+.cth .cur{ display:inline-block; width:6px; height:14px; margin-left:1px; background:#b79cff; opacity:0; }
 .cth .u1{ animation:cthBlink 1s steps(1) infinite, cthU1 15s linear infinite; }
 .cth .u2{ animation:cthBlink 1s steps(1) infinite, cthU2 15s linear infinite; }
 .cth .u3{ animation:cthBlink 1s steps(1) infinite, cthU3 15s linear infinite; }
@@ -84,7 +88,7 @@ const CSS = `.cth{ --bg:#121212; --w:#ffffff; --fl:#9e9e9e; --mut:#bdbdbd; --grn
 .cth .card .tpurple{ background:var(--pur12); color:#7b2e8e; }
 .cth .card .ring{ position:absolute; inset:-1px; border-radius:18px; pointer-events:none; box-shadow:0 0 0 0 rgba(125,76,207,0); animation:cthRing 15s ease infinite; }
 
-@keyframes cthBlink{ 0%,50%{background:var(--w)} 51%,100%{background:transparent} }
+@keyframes cthBlink{ 0%,50%{background:#b79cff} 51%,100%{background:transparent} }
 
 @keyframes cthL1{ 0%,0.9%{opacity:0} 1%,92%{opacity:1} 93%,100%{opacity:0} }
 @keyframes cthL2{ 0%,13.9%{opacity:0} 14%,92%{opacity:1} 93%,100%{opacity:0} }
@@ -120,6 +124,7 @@ const PLAY = '<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor
 
 const MARKUP = `<div class="wrap" aria-hidden="true">
   <div class="term">
+    <div class="bar"><i></i><i></i><i></i><b>bash — кайтен@ваш-сервер</b></div>
     <div class="body">
       <div class="line l1"><span class="p">$</span><span class="cmd c1"><span class="w">kaiten cards create</span> <span class="fl">--title</span> <span class="str">"Оформить переезд команды"</span></span><span class="cur u1"></span></div>
       <div class="line l2"><span class="p">$</span><span class="cmd c2"><span class="w">kaiten members add</span> <span class="fl">--card-id</span> <span class="num">123</span> <span class="fl">--user</span> <span class="str">"Анна Петрова"</span></span><span class="cur u2"></span></div>

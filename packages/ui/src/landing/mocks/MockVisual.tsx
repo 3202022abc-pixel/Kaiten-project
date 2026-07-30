@@ -72,6 +72,8 @@ import {
   CliMarkdownExportMock,
   CliSnapshotMetricsMock,
   CliBatchStatsMock,
+  CliProjectGanttMock,
+  CliSafeModeMock,
   CliInstallMock,
 } from '.';
 
@@ -181,6 +183,8 @@ export type MockVariant =
   | 'cli-markdown-export'
   | 'cli-snapshot-metrics'
   | 'cli-batch-stats'
+  | 'cli-project-gantt'
+  | 'cli-safe-mode'
   | 'cli-install';
 
 export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
@@ -375,6 +379,10 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
       return <CliSnapshotMetricsMock />;
     case 'cli-batch-stats':
       return <CliBatchStatsMock />;
+    case 'cli-project-gantt':
+      return <CliProjectGanttMock />;
+    case 'cli-safe-mode':
+      return <CliSafeModeMock />;
     case 'cli-install':
       return <CliInstallMock />;
     default:

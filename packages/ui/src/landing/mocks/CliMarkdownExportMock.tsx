@@ -1,59 +1,52 @@
 import { cn } from '../../primitives/cn';
-import { Prompt, Flag, Path, OkLine } from './CliTerminalHeroMock';
+import { DarkTerminal, ResultCard, TPrompt, TFlag, TStr, TNum, TOk, TMut } from './DarkTerminal';
 
 /**
  * Главный сценарий Kaiten CLI: карточка или документ открывается там же, где
  * идёт работа. Слева — терминал с командой экспорта документа в Markdown,
  * справа — получившийся файл .md с заголовком, чек-листом и ссылкой на
- * вложение в формате API Kaiten. Домен: cli-community-edition.
+ * вложение в формате API Kaiten. Терминал — в едином стиле DarkTerminal.
+ * Домен: cli-community-edition.
  */
 export function CliMarkdownExportMock() {
   return (
     <div
       aria-hidden
-      className={cn(
-        'relative mx-auto w-full max-w-[760px] overflow-hidden rounded-(--radius-3xl)',
-        'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_30px_80px_-30px_rgba(125,76,207,0.28)] p-4 md:p-5',
-      )}
+      className="mx-auto grid w-full max-w-[760px] items-stretch gap-3 md:grid-cols-[1.05fr_0.95fr]"
     >
-      <div className="grid items-stretch gap-4 md:grid-cols-[1.05fr_0.95fr]">
-        {/* — терминал — */}
-        <div className="overflow-hidden rounded-(--radius-xl) border border-(--color-border-default)">
-          <div className="space-y-2 bg-(--color-neutral-950) px-4 py-4 font-mono text-[11.5px] leading-relaxed">
-            <div className="flex flex-wrap items-baseline gap-x-2">
-              <Prompt />
-              <Flag>--json</Flag>
-              <span className="text-(--color-neutral-000)">documents get</span>
-            </div>
-            <div className="flex flex-wrap items-baseline gap-x-2 pl-3">
-              <Flag>--document-uid</Flag>
-              <span className="text-(--color-blue-100)">d1f7a2</span>
-            </div>
-            <div className="flex flex-wrap items-baseline gap-x-2 pl-3">
-              <Flag>--markdown</Flag>
-              <Flag>--output</Flag>
-              <Path>./reglament.md</Path>
-            </div>
-            <OkLine>
-              <Path>./reglament-pereezda.md</Path>
-            </OkLine>
-            <div className="pt-0.5 pl-1 text-(--color-neutral-500)">
-              вложения → формат API Kaiten
-            </div>
+      {/* — терминал — */}
+      <DarkTerminal title="bash — кайтен@ваш-сервер">
+          <div className="ln">
+            <TPrompt />
+            <TFlag>--json</TFlag>
+            <span>documents get</span>
           </div>
-        </div>
+          <div className="ln ind">
+            <TFlag>--document-uid</TFlag>
+            <TNum>d1f7a2</TNum>
+          </div>
+          <div className="ln ind">
+            <TFlag>--markdown</TFlag>
+            <TFlag>--output</TFlag>
+            <TStr>./reglament.md</TStr>
+          </div>
+          <TOk>
+            <TStr>./reglament-pereezda.md</TStr>
+          </TOk>
+          <div className="ln ind">
+            <TMut>вложения → формат API Kaiten</TMut>
+          </div>
+        </DarkTerminal>
 
-        {/* — готовый файл .md — */}
-        <MarkdownFile />
-      </div>
+      {/* — готовый файл .md — */}
+      <MarkdownFile />
     </div>
   );
 }
 
 function MarkdownFile() {
   return (
-    <div className="flex flex-col overflow-hidden rounded-(--radius-xl) border border-(--color-border-default) bg-(--color-surface-card)">
+    <ResultCard className="flex flex-col overflow-hidden p-0">
       {/* вкладка файла */}
       <div className="flex items-center gap-2 border-b border-(--color-border-default) bg-(--color-surface-section) px-3.5 py-2.5">
         <MarkdownGlyph />
@@ -96,7 +89,7 @@ function MarkdownFile() {
           </div>
         </div>
       </div>
-    </div>
+    </ResultCard>
   );
 }
 

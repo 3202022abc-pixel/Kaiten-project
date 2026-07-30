@@ -293,7 +293,7 @@
           }
         ],
         "mediaPosition": "left",
-        "mediaVariant": "cli-snapshot-metrics",
+        "mediaVariant": "cli-safe-mode",
         "primaryCta": {
           "label": "Политика безопасности",
           "href": "https://github.com/ViktorOgnev/kaiten-cli/blob/master/SECURITY.md"
@@ -409,7 +409,7 @@
                 "text": "for t in $(cat tasks.txt); do kaiten cards create --board-id 42 --title \"$t\"; done"
               }
             ],
-            "mockVariant": "cli-terminal-hero-animated"
+            "mockVariant": "cli-project-gantt"
           }
         ]
       }
@@ -438,11 +438,7 @@
           }
         ],
         "mediaPosition": "right",
-        "mediaVariant": "cli-batch-stats",
-        "primaryCta": {
-          "label": "Скиллы для агентов",
-          "href": "https://github.com/ViktorOgnev/kaiten-cli/tree/master/skills"
-        }
+        "mediaVariant": "cli-batch-stats"
       }
     },
     {
