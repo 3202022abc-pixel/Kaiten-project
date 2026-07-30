@@ -240,7 +240,7 @@ export default async function DashboardPage() {
                       href={`/design/${slug}/index.html`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-(--color-text-secondary) transition-colors hover:text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1.5 text-(--color-neutral-500) transition-colors hover:text-(--color-text-accent) hover:underline"
                     >
                       <ActionIcon name="preview" />
                       preview
@@ -255,21 +255,21 @@ export default async function DashboardPage() {
                       href={`/landings/${slug}`}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-1.5 text-(--color-text-secondary) transition-colors hover:text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1.5 text-(--color-neutral-500) transition-colors hover:text-(--color-text-accent) hover:underline"
                     >
                       <ActionIcon name="preview" />
                       preview
                     </Link>
                     <Link
                       href={`/edit/${slug}`}
-                      className="inline-flex items-center gap-1.5 text-(--color-text-secondary) transition-colors hover:text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1.5 text-(--color-neutral-500) transition-colors hover:text-(--color-text-accent) hover:underline"
                     >
                       <ActionIcon name="edit" />
                       edit
                     </Link>
                     <Link
                       href={`/approve/${slug}`}
-                      className="inline-flex items-center gap-1.5 text-(--color-text-secondary) transition-colors hover:text-(--color-text-accent) hover:underline"
+                      className="inline-flex items-center gap-1.5 text-(--color-neutral-500) transition-colors hover:text-(--color-text-accent) hover:underline"
                     >
                       <ActionIcon name="approve" />
                       approve
@@ -277,7 +277,7 @@ export default async function DashboardPage() {
                     <a
                       href={`/api/handoff/${slug}`}
                       download={`landing-${slug}.zip`}
-                      className="inline-flex items-center gap-1.5 text-(--color-text-secondary) transition-colors hover:text-emerald-700 hover:underline"
+                      className="inline-flex items-center gap-1.5 text-(--color-neutral-500) transition-colors hover:text-emerald-700 hover:underline"
                       title="Скачать ZIP-архив для разработчика"
                     >
                       <ActionIcon name="handoff" />
