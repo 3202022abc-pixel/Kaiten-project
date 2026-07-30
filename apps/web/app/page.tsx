@@ -122,12 +122,12 @@ export default async function DashboardPage() {
                 className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
               >
                 <span className="flex min-w-0 items-center gap-2">
-                  <code className="truncate text-sm font-medium">{slug}</code>
                   {design && (
                     <span className="shrink-0 rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-accent)">
                       Design
                     </span>
                   )}
+                  <code className="truncate text-sm font-medium">{slug}</code>
                 </span>
                 {design ? (
                   <div className="flex gap-3 text-sm">
