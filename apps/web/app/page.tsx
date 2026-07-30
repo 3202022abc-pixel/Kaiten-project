@@ -92,7 +92,7 @@ export default async function DashboardPage() {
         </p>
       </header>
 
-      <section className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <section className="mb-10 grid grid-cols-1 gap-4">
         <Link
           href="/new"
           className="group rounded-(--radius-2xl) border border-(--color-action-primary)/30 bg-(--color-action-primary-soft) p-6 transition hover:border-(--color-action-primary)"
