@@ -128,7 +128,7 @@ export default async function DashboardPage() {
               <h2 className="text-lg font-semibold text-(--color-text-accent)">
                 Как создать лендинг
               </h2>
-              <p className="mt-1 text-sm text-(--color-text-secondary) transition-colors group-hover:text-(--color-text-primary)">
+              <p className="mt-1 text-sm text-(--color-text-primary)">
                 Открой claude / codex в терминале → кинь ТЗ → попроси сгенерить.
                 Инструкция и готовые шаблоны промптов.
               </p>
