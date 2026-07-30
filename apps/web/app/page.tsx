@@ -121,7 +121,7 @@ export default async function DashboardPage() {
       <section className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
         <Link
           href="/new"
-          className="group rounded-(--radius-2xl) border border-(--color-action-primary)/30 bg-(--color-action-primary-soft) p-6 transition hover:border-(--color-action-primary)"
+          className="group rounded-(--radius-xl) lg:rounded-(--radius-2xl) border border-(--color-action-primary)/30 bg-(--color-action-primary-soft) p-6 transition hover:border-(--color-action-primary)"
         >
           <div className="flex items-start justify-between gap-3">
             <div>
@@ -141,7 +141,7 @@ export default async function DashboardPage() {
 
         <Link
           href="/catalog"
-          className="group rounded-(--radius-2xl) border border-(--color-border-default) bg-(--color-surface-page) p-6 transition hover:border-(--color-action-primary)/50"
+          className="group rounded-(--radius-xl) lg:rounded-(--radius-2xl) border border-(--color-border-default) bg-(--color-surface-page) p-6 transition hover:border-(--color-action-primary)/50"
         >
           <div className="flex items-start justify-between gap-3">
             <div>
@@ -159,7 +159,7 @@ export default async function DashboardPage() {
 
         <Link
           href="/pipeline"
-          className="group rounded-(--radius-2xl) border border-(--color-border-default) bg-(--color-surface-page) p-6 transition hover:border-(--color-action-primary)/50"
+          className="group rounded-(--radius-xl) lg:rounded-(--radius-2xl) border border-(--color-border-default) bg-(--color-surface-page) p-6 transition hover:border-(--color-action-primary)/50"
         >
           <div className="flex items-start justify-between gap-3">
             <div>
@@ -186,7 +186,7 @@ export default async function DashboardPage() {
           </p>
         ) : (
           grouped.map(({ group, items }) => (
-          <details key={group} open className="group mb-4 rounded-(--radius-2xl) bg-(--color-surface-section) px-2 py-4 sm:p-5">
+          <details key={group} open className="group mb-4 rounded-(--radius-xl) lg:rounded-(--radius-2xl) bg-(--color-surface-section) px-2 py-4 sm:p-5">
             <summary className="flex cursor-pointer list-none items-center justify-between [&::-webkit-details-marker]:hidden">
               <span className="flex items-center gap-2">
                 <svg
