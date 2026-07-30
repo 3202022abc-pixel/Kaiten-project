@@ -12,7 +12,10 @@
  * - ServerInstallMock — установка на сервер: прогресс-бар с процентами,
  *   заголовок «установка → установлен», серверные юниты с бегущими диодами.
  *
- * Все три уважают prefers-reduced-motion: анимации выключаются, содержимое
+ * - IllustrationCTA   — композиция финального CTA: карточка установки плюс
+ *   коробка продукта справа на градиентной подложке.
+ *
+ * Все они уважают prefers-reduced-motion: анимации выключаются, содержимое
  * показывается в конечном состоянии.
  */
 import React, { useEffect, useRef } from 'react';
@@ -459,6 +462,50 @@ export function ServerInstallMock({
           ))}
         </div>
       </div>
+    </div>
+  );
+}
+
+/* ------------------------------------------------- композиция финального CTA */
+
+export type IllustrationCTAProps = ServerInstallMockProps & {
+  /** Коробка продукта — PNG/WebP с прозрачным фоном */
+  box: { src: string; alt?: string };
+  /** Фон подложки; null — без подложки, если блок уже на градиенте */
+  background?: string | null;
+};
+
+const cssCta = `.opm-cta{position:relative;display:flex;align-items:center;justify-content:flex-start;
+  width:560px;max-width:100%;min-height:360px;padding:24px;border-radius:24px;
+  font-family:'Roboto',system-ui,sans-serif}
+.opm-cta .opm-cta__server{position:relative;z-index:2;width:290px;flex:none}
+.opm-cta .opm-install .ci-server{width:290px}
+.opm-cta .opm-cta__box{position:absolute;right:8px;top:50%;transform:translateY(-50%);width:340px;height:auto;
+  display:block;z-index:1;filter:drop-shadow(0 20px 34px -20px rgba(45,45,45,.42))}
+@media (max-width:767px){
+  .opm-cta{min-height:280px;padding:16px;border-radius:16px}
+  .opm-cta .opm-cta__server{width:230px}
+  .opm-cta .opm-install .ci-server{width:230px}
+  .opm-cta .opm-cta__box{width:180px}
+}`;
+
+/**
+ * Карточка установки слева и коробка продукта справа поверх неё.
+ * Эталон — блок «Готовы развернуть Кайтен на своём сервере»
+ * лендинга kaiten-on-premise.
+ */
+export default function IllustrationCTA({
+  box,
+  background = 'linear-gradient(90deg,#ece0ff,#cdecff)',
+  ...server
+}: IllustrationCTAProps) {
+  return (
+    <div className="opm-cta" style={background ? { background } : undefined}>
+      <style dangerouslySetInnerHTML={{ __html: cssCta }} />
+      <div className="opm-cta__server">
+        <ServerInstallMock {...server} />
+      </div>
+      <img className="opm-cta__box" src={box.src} alt={box.alt ?? ''} aria-hidden={!box.alt} />
     </div>
   );
 }
