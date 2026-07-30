@@ -109,7 +109,7 @@ export default async function DashboardPage() {
   })).filter(({ items }) => items.length > 0);
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-12">
+    <main className="mx-auto max-w-6xl px-3 py-12 sm:px-6">
       <header className="mb-8">
         <p className="text-xs uppercase tracking-wide text-(--color-text-secondary)">Контент-завод Кайтен</p>
         <h1 className="text-3xl font-semibold tracking-tight">LLM harness для лендингов</h1>
@@ -213,8 +213,13 @@ export default async function DashboardPage() {
             {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
-                className="flex items-center justify-between rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-4 py-3 transition-colors hover:border-(--color-border-default)"
+                className="flex flex-col gap-2 rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-4 py-3 transition-colors hover:border-(--color-border-default) sm:flex-row sm:items-center sm:justify-between sm:gap-0"
               >
+                {design && (
+                  <span className="self-start rounded-full bg-(--color-action-primary-soft) px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-(--color-text-accent) sm:hidden">
+                    Design
+                  </span>
+                )}
                 <span className="flex min-w-0 flex-col gap-0.5">
                   <span className="truncate text-sm font-medium">{slug}</span>
                   {title && (
