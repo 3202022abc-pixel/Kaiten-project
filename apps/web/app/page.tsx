@@ -65,6 +65,23 @@ export default async function DashboardPage() {
     ...specLandings.map(({ slug, title }) => ({ slug, title, design: false })),
   ].sort((a, b) => a.slug.localeCompare(b.slug));
 
+  const GROUPS = ['Отрасли и команды', 'Сравнения', 'Продукт и фичи', 'Вебинары', 'Тестовые'] as const;
+  const groupOf = (slug: string): (typeof GROUPS)[number] => {
+    if (/^kaiten-vs-/.test(slug) || ['kaiten-clickup', 'kaiten-wrike', 'kaiten-trello', 'kaiten-asana', 'kaiten-weeek', 'kaiten-evateam', 'kaiten-youtrack'].includes(slug)) {
+      return 'Сравнения';
+    }
+    if (/^kaiten-dlya-/.test(slug) || ['kaiten-finance', 'kaiten-manufacturing', 'kaiten-retail'].includes(slug)) {
+      return 'Отрасли и команды';
+    }
+    if (/^webinar-/.test(slug)) return 'Вебинары';
+    if (/^(test-|sample-)/.test(slug) || ['test-kaiten', 'sample-kaiten'].includes(slug)) return 'Тестовые';
+    return 'Продукт и фичи';
+  };
+  const grouped = GROUPS.map((group) => ({
+    group,
+    items: allLandings.filter(({ slug }) => groupOf(slug) === group),
+  })).filter(({ items }) => items.length > 0);
+
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
       <header className="mb-8">
@@ -142,8 +159,16 @@ export default async function DashboardPage() {
             Пока нет. Начните с <Link href="/new" className="underline">/new</Link>.
           </p>
         ) : (
-          <ul className="grid grid-cols-1 gap-2">
-            {allLandings.map(({ slug, title, design }) => (
+          grouped.map(({ group, items }) => (
+          <div key={group} className="mb-8">
+            <div className="mb-2 flex items-end justify-between">
+              <h3 className="text-sm font-semibold uppercase tracking-wide text-(--color-text-secondary)">
+                {group}
+              </h3>
+              <span className="text-xs text-(--color-text-secondary)">{items.length} шт.</span>
+            </div>
+            <ul className="grid grid-cols-1 gap-2">
+            {items.map(({ slug, title, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex items-center justify-between rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-page) px-4 py-3"
@@ -204,7 +229,9 @@ export default async function DashboardPage() {
                 )}
               </li>
             ))}
-          </ul>
+            </ul>
+          </div>
+          ))
         )}
       </section>
 
