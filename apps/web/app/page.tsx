@@ -1,7 +1,17 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir, readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
+
+const dateFmt = new Intl.DateTimeFormat('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+
+async function publishedAt(file: string): Promise<string | null> {
+  try {
+    return dateFmt.format((await stat(file)).mtime);
+  } catch {
+    return null;
+  }
+}
 
 export const dynamic = 'force-dynamic';
 
@@ -43,7 +53,7 @@ async function listLandings(): Promise<string[]> {
   }
 }
 
-async function listDesignLandings(): Promise<{ slug: string; title: string | null }[]> {
+async function listDesignLandings(): Promise<{ slug: string; title: string | null; date: string | null }[]> {
   const dir = resolve(process.cwd(), 'public', 'design');
   try {
     const entries = await readdir(dir, { withFileTypes: true });
@@ -56,7 +66,7 @@ async function listDesignLandings(): Promise<{ slug: string; title: string | nul
         const title = await readFile(resolve(dir, slug, 'title.txt'), 'utf8')
           .then((t) => t.trim() || null)
           .catch(() => null);
-        return { slug, title };
+        return { slug, title, date: await publishedAt(resolve(dir, slug, 'index.html')) };
       }),
     );
   } catch {
@@ -83,12 +93,17 @@ async function specTitle(slug: string): Promise<string | null> {
 export default async function DashboardPage() {
   const landings = await listLandings();
   const designLandings = await listDesignLandings();
+  const specDir = resolve(process.cwd(), '..', '..', 'content', 'landings');
   const specLandings = await Promise.all(
-    landings.map(async (slug) => ({ slug, title: await specTitle(slug) })),
+    landings.map(async (slug) => ({
+      slug,
+      title: await specTitle(slug),
+      date: await publishedAt(resolve(specDir, `${slug}.json`)),
+    })),
   );
   const allLandings = [
-    ...designLandings.map(({ slug, title }) => ({ slug, title, design: true })),
-    ...specLandings.map(({ slug, title }) => ({ slug, title, design: false })),
+    ...designLandings.map(({ slug, title, date }) => ({ slug, title, date, design: true })),
+    ...specLandings.map(({ slug, title, date }) => ({ slug, title, date, design: false })),
   ].sort((a, b) => a.slug.localeCompare(b.slug));
 
   const GROUPS = ['Кайтен для отраслей', 'Сравнение Кайтен с продуктом', 'Продукт и фичи', 'Вебинары', 'Тестовые'] as const;
@@ -210,7 +225,7 @@ export default async function DashboardPage() {
               <span className="text-xs text-(--color-text-primary)">{items.length} шт.</span>
             </summary>
             <ul className="mt-4 grid grid-cols-1 gap-2 sm:mt-5">
-            {items.map(({ slug, title, design }) => (
+            {items.map(({ slug, title, date, design }) => (
               <li
                 key={`${design ? 'design' : 'spec'}-${slug}`}
                 className="flex flex-col gap-2 rounded-(--radius-lg) border border-transparent bg-(--color-surface-page) px-3 py-3 transition-colors hover:border-(--color-border-default) sm:flex-row sm:items-center sm:justify-between sm:gap-0 sm:px-4"
@@ -230,7 +245,13 @@ export default async function DashboardPage() {
                     </span>
                   )}
                 </span>
-                <div className="flex items-center justify-end gap-x-4 text-xs sm:grid sm:shrink-0 sm:grid-cols-[64px_44px_64px_64px_54px] sm:justify-normal sm:gap-x-2.5 lg:grid-cols-[70px_48px_70px_70px_58px] lg:gap-x-3.5">
+                <div className="flex items-center justify-end gap-x-4 text-xs sm:grid sm:shrink-0 sm:grid-cols-[80px_64px_64px_64px_54px] sm:justify-normal sm:gap-x-2.5 lg:grid-cols-[84px_70px_70px_70px_58px] lg:gap-x-3.5">
+                  <span
+                    className="text-(--color-neutral-500)"
+                    title="Дата публикации"
+                  >
+                    {date}
+                  </span>
                   {design ? (
                     <a
                       href={`/design/${slug}/index.html`}
@@ -256,17 +277,9 @@ export default async function DashboardPage() {
                     <>
                       <span className="hidden sm:block" />
                       <span className="hidden sm:block" />
-                      <span className="hidden sm:block" />
                     </>
                   ) : (
                     <>
-                      <Link
-                        href={`/edit/${slug}`}
-                        className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
-                      >
-                        <ActionIcon name="edit" />
-                        <span className="hidden sm:inline">edit</span>
-                      </Link>
                       <Link
                         href={`/approve/${slug}`}
                         className="inline-flex items-center gap-1.5 justify-self-start text-(--color-neutral-500) transition-colors hover:text-(--color-text-primary)"
