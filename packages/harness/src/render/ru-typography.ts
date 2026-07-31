@@ -40,13 +40,39 @@ export function ruNbsp(text: string): string {
   return t;
 }
 
+/**
+ * Поля спека, которые НЕ копирайт, а идентификаторы: имена mock-вариантов,
+ * подписи плиток галереи, иконки, ссылки, слаги. Их нельзя трогать — рендер
+ * ищет по ним ресурс точным совпадением, и подставленный неразрывный пробел
+ * ломает поиск (напр. featureTile «Обращения и поддержка» → плитка не найдена).
+ */
+export const IDENTIFIER_KEYS = new Set([
+  'featureTile',
+  'mockVariant',
+  'visualVariant',
+  'variant',
+  'assetId',
+  'illustrationId',
+  'icon',
+  'href',
+  'src',
+  'photoSrc',
+  'logoSrc',
+  'id',
+  'component',
+  'anchorId',
+  'action',
+]);
+
 /** Глубокий обход: применяет ruNbsp ко всем строковым значениям структуры. */
 export function ruNbspDeep<T>(value: T): T {
   if (typeof value === 'string') return ruNbsp(value) as unknown as T;
   if (Array.isArray(value)) return value.map((v) => ruNbspDeep(v)) as unknown as T;
   if (value && typeof value === 'object') {
     const out: Record<string, unknown> = {};
-    for (const [k, v] of Object.entries(value)) out[k] = ruNbspDeep(v);
+    for (const [k, v] of Object.entries(value)) {
+      out[k] = IDENTIFIER_KEYS.has(k) ? v : ruNbspDeep(v);
+    }
     return out as T;
   }
   return value;

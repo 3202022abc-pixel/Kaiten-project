@@ -1,5 +1,5 @@
 import type { LandingSpec, Section } from '../schemas/landing-spec';
-import { ruNbsp } from './ru-typography';
+import { IDENTIFIER_KEYS, ruNbsp } from './ru-typography';
 
 /**
  * Детерминированный TSX-string renderer для handoff (этап 6 ZIP).
@@ -16,17 +16,18 @@ function jsxString(value: string): string {
   return `"${ruNbsp(value).replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
 }
 
-function literal(value: unknown): string {
+function literal(value: unknown, key?: string): string {
   if (value === null) return 'null';
-  if (typeof value === 'string') return jsxString(value);
+  if (typeof value === 'string')
+    return key && IDENTIFIER_KEYS.has(key) ? JSON.stringify(value) : jsxString(value);
   if (typeof value === 'number' || typeof value === 'boolean') return String(value);
   if (Array.isArray(value)) {
-    return `[${value.map(literal).join(', ')}]`;
+    return `[${value.map((v) => literal(v, key)).join(', ')}]`;
   }
   if (value && typeof value === 'object') {
     const entries = Object.entries(value)
       .filter(([, v]) => v !== undefined)
-      .map(([k, v]) => `${JSON.stringify(k)}: ${literal(v)}`);
+      .map(([k, v]) => `${JSON.stringify(k)}: ${literal(v, k)}`);
     return `{ ${entries.join(', ')} }`;
   }
   return 'undefined';
@@ -114,8 +115,9 @@ function renderSection(section: Section): string {
   const attrs = Object.entries(props)
     .filter(([, v]) => v !== undefined)
     .map(([k, v]) => {
-      if (typeof v === 'string') return `${INDENT}${k}=${jsxString(v)}`;
-      return `${INDENT}${k}={${literal(v)}}`;
+      if (typeof v === 'string')
+        return `${INDENT}${k}=${IDENTIFIER_KEYS.has(k) ? JSON.stringify(v) : jsxString(v)}`;
+      return `${INDENT}${k}={${literal(v, k)}}`;
     });
   return `<${tagName}\n${attrs.join('\n')}\n/>`;
 }

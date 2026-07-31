@@ -1,6 +1,7 @@
 import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { Icon } from '../primitives/Icon';
+import { FeatureTile, FeatureTilesStyle } from './mocks/FeatureTile';
 
 export interface BentoCellProps {
   icon?: string;
@@ -9,6 +10,12 @@ export interface BentoCellProps {
   /** Размер ячейки: 1x1 (small), 2x1 (wide), 1x2 (tall), 2x2 (large). */
   size?: 'small' | 'wide' | 'tall' | 'large';
   accent?: boolean;
+  /**
+   * Подпись плитки из галереи мини-мокапов фич (`FeatureMocksV01`), напр.
+   * «Канбан-доски». Когда задана — вместо иконки рисуется интерфейсный
+   * мини-мокап фичи. Неизвестная подпись — молча падаем обратно на иконку.
+   */
+  featureTile?: string;
 }
 
 export interface BentoGridProps {
@@ -63,6 +70,8 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
         )}
       </div>
 
+      {cells.some((c) => c.featureTile) && <FeatureTilesStyle />}
+
       <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
         {cells.map((c, i) => (
           <Inspect
@@ -77,18 +86,31 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
                 : 'border-(--color-border-default) bg-(--color-surface-card)',
             )}
           >
-            {c.icon && (
-              <span
+            {c.featureTile ? (
+              <div
                 aria-hidden
                 className={cn(
-                  'mb-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-(--radius-xl)',
-                  c.accent
-                    ? 'bg-(--color-surface-card) text-(--color-text-accent)'
-                    : 'bg-(--color-action-primary-soft) text-(--color-text-accent)',
+                  'mb-5 flex w-full items-center justify-center overflow-hidden',
+                  'rounded-(--radius-xl) p-3',
+                  c.accent ? 'bg-(--color-surface-card)' : 'bg-(--color-surface-section)',
                 )}
               >
-                <Icon name={c.icon} className="h-5 w-5" />
-              </span>
+                <FeatureTile caption={c.featureTile} withStyle={false} />
+              </div>
+            ) : (
+              c.icon && (
+                <span
+                  aria-hidden
+                  className={cn(
+                    'mb-4 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-(--radius-xl)',
+                    c.accent
+                      ? 'bg-(--color-surface-card) text-(--color-text-accent)'
+                      : 'bg-(--color-action-primary-soft) text-(--color-text-accent)',
+                  )}
+                >
+                  <Icon name={c.icon} className="h-5 w-5" />
+                </span>
+              )
             )}
             <h3
               data-comp={`bento_grid.cells[${i}].title`}
