@@ -710,6 +710,15 @@ const BentoGridSchema = z.object({
           title: z.string().min(2).max(80),
           description: z.string().min(10).max(280),
           size: z.enum(['small', 'wide', 'tall', 'large']).default('small'),
+          featureTile: z
+            .string()
+            .max(80)
+            .optional()
+            .describe(
+              'Подпись плитки из галереи мини-мокапов фич FeatureMocksV01 (напр. «Канбан-доски», ' +
+                '«База знаний», «Роадмап проектов», «Обращения и поддержка», «CRM», «Комментарии и упоминания»). ' +
+                'Когда задана — вместо иконки рисуется интерфейсный мини-мокап фичи. Правило: `bento-feature-tiles`',
+            ),
           accent: z.boolean().default(false),
         }),
       )

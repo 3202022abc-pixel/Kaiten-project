@@ -163,7 +163,7 @@ stale: false
 - **Score:** 88.43 / 100 (threshold 70) — ✅ pass
 - **Resolved segments:** IT, Торговля, Производство, Строительство
 - **CTA types detected:** Trial, Demo
-- **Generated:** 2026-07-31T16:21:59.736Z
+- **Generated:** 2026-07-31T16:52:02.903Z
 
 ## Breakdown
 

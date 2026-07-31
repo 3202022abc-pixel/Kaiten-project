@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-07-31T16:21:59.909Z",
+  "updatedAt": "2026-07-31T16:52:02.981Z",
   "entries": [
     {
       "kind": "mock-use",
@@ -432,7 +432,7 @@
       "sectionId": "hero",
       "sectionIdx": 1,
       "domain": "pm",
-      "recordedAt": "2026-07-31T16:21:59.909Z"
+      "recordedAt": "2026-07-31T16:52:02.981Z"
     }
   ]
 }
