@@ -249,3 +249,21 @@ Append-only хроника операций harness'а. Формат запис�
 ## [2026-07-20 15:57] generate | webinar-vnedrenie-kaiten | ok | agent-ingest archetype=event_landing sections=10 errors=0 audienceScore=50.17/70
 
 ## [2026-07-20 19:15] generate | webinar-vnedrenie-kaiten | ok | agent-ingest archetype=event_landing sections=10 errors=0 audienceScore=50.17/70
+
+## [2026-07-31 18:42] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
+
+## [2026-07-31 18:46] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
+
+## [2026-07-31 18:53] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
+
+## [2026-07-31 18:55] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
+
+## [2026-07-31 18:57] lint | — | fail | scope=all files=97 errors=9 warnings=86
+
+## [2026-07-31 18:57] lint | — | fail | scope=all files=97 errors=9 warnings=86
+
+## [2026-07-31 18:57] lint | — | fail | scope=all files=97 errors=9 warnings=86
+
+## [2026-07-31 19:08] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
+
+## [2026-07-31 19:21] generate | kaiten-task-tracker | ok | agent-ingest archetype=saas_landing sections=13 errors=0 audienceScore=88.43/70
