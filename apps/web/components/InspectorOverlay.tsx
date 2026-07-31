@@ -50,6 +50,7 @@ const SECTION_TO_COMPONENT: Record<string, string> = {
   timeline_roadmap: 'TimelineRoadmap',
   bento_grid: 'BentoGrid',
   logo_cloud: 'LogoCloud',
+  logo_marquee: 'LogoMarquee',
   testimonial_quote: 'TestimonialQuote',
 };
 

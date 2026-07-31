@@ -22,6 +22,7 @@ import {
   TimelineRoadmap,
   BentoGrid,
   LogoCloud,
+  LogoMarquee,
   TestimonialQuote,
   LegalNote,
   PainBubbles,
@@ -126,6 +127,8 @@ function RenderSection({ section }: { section: Section }) {
       return <TimelineRoadmap {...section.props} />;
     case 'BentoGrid':
       return <BentoGrid {...section.props} />;
+    case 'LogoMarquee':
+      return <LogoMarquee {...section.props} />;
     case 'LogoCloud':
       return <LogoCloud {...section.props} />;
     case 'TestimonialQuote':
