@@ -93,6 +93,9 @@ export type { BentoGridProps, BentoCellProps } from './BentoGrid';
 export { LogoCloud } from './LogoCloud';
 export type { LogoCloudProps, LogoCloudItemProps } from './LogoCloud';
 
+export { LogoMarquee } from './LogoMarquee';
+export type { LogoMarqueeProps, LogoMarqueeItemProps } from './LogoMarquee';
+
 export { TestimonialQuote } from './TestimonialQuote';
 export type { TestimonialQuoteProps } from './TestimonialQuote';
 

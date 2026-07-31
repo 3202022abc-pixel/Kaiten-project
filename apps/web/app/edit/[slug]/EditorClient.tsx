@@ -23,6 +23,7 @@ import {
   IndustryPickerSection,
   LandingFooter,
   LogoCloud,
+  LogoMarquee,
   MediaCopy,
   MetricsSplit,
   PricingPlans,
@@ -73,6 +74,7 @@ const COMPONENT_MAP: Record<string, (props: AnyProps) => React.ReactElement> = {
   TimelineRoadmap: (p) => renderAs(TimelineRoadmap, p),
   BentoGrid: (p) => renderAs(BentoGrid, p),
   LogoCloud: (p) => renderAs(LogoCloud, p),
+  LogoMarquee: (p) => renderAs(LogoMarquee, p),
   TestimonialQuote: (p) => renderAs(TestimonialQuote, p),
 };
 

@@ -738,6 +738,40 @@ const LogoCloudSchema = z.object({
   }),
 });
 
+/* ─── LogoMarquee (бегущая строка логотипов клиентов) ─────────────── */
+const LogoMarqueeSchema = z.object({
+  id: z.literal('logo_marquee'),
+  component: z.literal('LogoMarquee'),
+  props: z.object({
+    eyebrow: z.string().max(80).optional(),
+    title: z.string().min(4).max(120).optional(),
+    accentWord: z
+      .string()
+      .max(40)
+      .optional()
+      .describe('Слово заголовка в фирменном фиолетовом, напр. «200 тысяч»'),
+    description: z.string().max(280).optional(),
+    items: z
+      .array(
+        z.object({
+          brand: z.string().min(1).max(60).describe('Название компании — идёт в alt'),
+          logoSrc: z
+            .string()
+            .min(1)
+            .describe('Путь к логотипу, напр. /brand/client-logos/wrap-1.png'),
+        }),
+      )
+      .min(4)
+      .max(20),
+    durationSec: z
+      .number()
+      .min(10)
+      .max(120)
+      .optional()
+      .describe('Длительность полного цикла прокрутки, сек (дефолт 38)'),
+  }),
+});
+
 /* ─── TestimonialQuote (case-study deep-dive, story-led) ──────────── */
 const TestimonialQuoteSchema = z.object({
   id: z.literal('testimonial_quote'),
@@ -1084,6 +1118,7 @@ export const SectionSchema = z.discriminatedUnion('component', [
   TimelineRoadmapSchema,
   BentoGridSchema,
   LogoCloudSchema,
+  LogoMarqueeSchema,
   TestimonialQuoteSchema,
   LegalNoteSchema,
   PainBubblesSchema,

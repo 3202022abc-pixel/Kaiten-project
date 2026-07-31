@@ -144,6 +144,23 @@ export const REGISTRY: ComponentEntry[] = [
     constraints: ['min_2_cases', 'max_6_cases'],
   },
   {
+    name: 'LogoMarquee',
+    specComponent: 'LogoMarquee',
+    sectionId: 'logo_marquee',
+    category: 'social_proof',
+    description:
+      'Блок доверия «Более 200 тысяч компаний работают эффективнее с Кайтен»: центрированный заголовок с акцентным словом (`accentWord` красится в фирменный фиолетовый) + подзаголовок про отрасли, под ними бесконечная бегущая лента настоящих логотипов клиентов (растворение по краям, пауза на hover, отключение анимации по prefers-reduced-motion). ДЕФОЛТ для блока логотипов на новых лендингах. Ассеты — `apps/web/public/brand/client-logos/wrap-1..13.png`: 1 РусГидро, 2 Сибагро, 3 Эксмо, 4 Самолет, 5 Tele2, 6 DNS, 7 Whoosh, 8 S7 Airlines, 9 АТОЛ, 10 Альфа-Банк, 11 Сколково, 12 X5 Tech, 13 Норникель. `LogoCloud` (статичная сетка инициалов-заглушек) — старый вариант, остаётся у старых лендингов.',
+    props: {
+      eyebrow: 'string (<=80) | undefined',
+      title: 'string (4..120) | undefined',
+      accentWord: 'string (<=40) | undefined — слово заголовка в фиолетовом',
+      description: 'string (<=280) | undefined',
+      items: 'Array<{ brand: 1..60; logoSrc: путь к логотипу }> (4..20)',
+      durationSec: 'number (10..120) | undefined — цикл прокрутки, дефолт 38',
+    },
+    constraints: ['min_4_items', 'max_20_items', 'each_item_needs_logosrc'],
+  },
+  {
     name: 'ReviewSlider',
     specComponent: 'ReviewSlider',
     sectionId: 'reviews',
