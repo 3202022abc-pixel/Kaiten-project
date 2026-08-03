@@ -51,7 +51,7 @@ export function TabbedFeatureSection({
     <section
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
-        'px-4 py-16 md:px-6 xl:px-0 lg:py-24',
+        'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
       )}
     >
       <div className="mb-10 max-w-2xl">
@@ -109,66 +109,79 @@ export function TabbedFeatureSection({
       </div>
 
       {/* content panel */}
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
-        <div className="order-2 lg:order-1">
-          {active.eyebrow && (
-            <p
-              data-comp={`tabbed_feature.tabs[${activeIndex}].eyebrow`}
-              className="mb-3 text-sm font-medium uppercase tracking-wide text-(--color-text-accent)"
-            >
-              {active.eyebrow}
-            </p>
-          )}
-          <h3
-            data-comp={`tabbed_feature.tabs[${activeIndex}].title`}
-            className="text-2xl font-semibold leading-tight md:text-3xl"
-          >
-            {active.title}
-          </h3>
-          {active.description && (
-            <p
-              data-comp={`tabbed_feature.tabs[${activeIndex}].description`}
-              className="mt-4 text-lg leading-relaxed text-(--color-text-primary)"
-            >
-              {active.description}
-            </p>
-          )}
-          {active.checklist && active.checklist.length > 0 && (
-            <ul className="mt-6 space-y-3">
-              {active.checklist.map((item, i) => (
-                <Inspect
-                  as="li"
-                  key={i}
-                  name={`tabbed_feature.tabs[${activeIndex}].checklist[${i}]`}
-                  className="flex items-start gap-3"
+      <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start lg:gap-16">
+        {/* левая колонка: все вкладки стопкой в одной grid-ячейке — высота
+            равна самой высокой, поэтому при переключении блок не прыгает */}
+        <div className="order-2 grid lg:order-1">
+          {tabs.map((t, idx) => {
+            const isActive = t.id === activeId;
+            return (
+              <div
+                key={t.id}
+                aria-hidden={!isActive}
+                className={cn('[grid-area:1/1]', !isActive && 'invisible')}
+              >
+                {t.eyebrow && (
+                  <p
+                    data-comp={`tabbed_feature.tabs[${idx}].eyebrow`}
+                    className="mb-3 text-sm font-medium uppercase tracking-wide text-(--color-text-accent)"
+                  >
+                    {t.eyebrow}
+                  </p>
+                )}
+                <h3
+                  data-comp={`tabbed_feature.tabs[${idx}].title`}
+                  className="text-2xl font-semibold leading-tight md:text-3xl"
                 >
-                  <span
-                    className={cn(
-                      'mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full',
-                      'bg-(--color-action-primary-soft) text-(--color-text-accent)',
-                    )}
+                  {t.title}
+                </h3>
+                {t.description && (
+                  <p
+                    data-comp={`tabbed_feature.tabs[${idx}].description`}
+                    className="mt-4 text-lg leading-relaxed text-(--color-text-primary)"
                   >
-                    <Icon name={item.icon ?? 'Check'} className="h-3.5 w-3.5" strokeWidth={2.5} />
-                  </span>
-                  <span
-                    data-comp={`tabbed_feature.tabs[${activeIndex}].checklist[${i}].text`}
-                    className="text-base leading-relaxed text-(--color-text-primary)"
-                  >
-                    {item.text}
-                  </span>
-                </Inspect>
-              ))}
-            </ul>
-          )}
-          {active.primaryCta && (
-            <div className="mt-8">
-              <Inspect name={`tabbed_feature.tabs[${activeIndex}].primaryCta`}>
-                <ButtonLink size="lg" href={active.primaryCta.href}>
-                  {active.primaryCta.label}
-                </ButtonLink>
-              </Inspect>
-            </div>
-          )}
+                    {t.description}
+                  </p>
+                )}
+                {t.checklist && t.checklist.length > 0 && (
+                  <ul className="mt-6 space-y-3">
+                    {t.checklist.map((item, i) => (
+                      <Inspect
+                        as="li"
+                        key={i}
+                        name={`tabbed_feature.tabs[${idx}].checklist[${i}]`}
+                        className="flex items-start gap-3"
+                      >
+                        <span
+                          className={cn(
+                            'mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full',
+                            'bg-(--color-action-primary-soft) text-(--color-text-accent)',
+                          )}
+                        >
+                          <Icon name={item.icon ?? 'Check'} className="h-3.5 w-3.5" strokeWidth={2.5} />
+                        </span>
+                        <span
+                          data-comp={`tabbed_feature.tabs[${idx}].checklist[${i}].text`}
+                          className="text-base leading-relaxed text-(--color-text-primary)"
+                        >
+                          {item.text}
+                        </span>
+                      </Inspect>
+                    ))}
+                  </ul>
+                )}
+                {t.primaryCta && (
+                  <div className="mt-8">
+                    <Inspect name={`tabbed_feature.tabs[${idx}].primaryCta`}>
+                      <ButtonLink size="lg" href={t.primaryCta.href}>
+                        {t.primaryCta.label}
+                      </ButtonLink>
+                    </Inspect>
+                  </div>
+                )}
+              </div>
+            );
+          })}
         </div>
         <Inspect
           as="div"

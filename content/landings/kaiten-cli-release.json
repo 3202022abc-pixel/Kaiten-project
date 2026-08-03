@@ -13,7 +13,7 @@
       "props": {
         "eyebrow": "Community Edition",
         "title": "Kaiten CLI — Издание сообщества",
-        "subtitle": "Управляйте карточками, досками и аналитикой Kaiten прямо из терминала. Одни и те же команды запускают человек, скрипт и AI‑агент.",
+        "subtitle": "Управляйте Kaiten из окна чата LLM-инструментов или из терминала. Команды могут запускать человек, скрипт и ИИ‑агент. Нужен только ваш аккаунт Kaiten и API‑токен.",
         "primaryCta": {
           "label": "Установить",
           "href": "https://github.com/ViktorOgnev/kaiten-cli"
@@ -36,6 +36,10 @@
       "props": {
         "items": [
           {
+            "icon": "Gift",
+            "text": "Бесплатно, open source"
+          },
+          {
             "icon": "Users",
             "text": "Издание сообщества"
           },
@@ -46,10 +50,6 @@
           {
             "icon": "Code",
             "text": "Python 3.11+"
-          },
-          {
-            "icon": "Gift",
-            "text": "Бесплатно, open source"
           }
         ],
         "variant": "chips"
@@ -81,6 +81,66 @@
           "label": "Связаться с разработчиками",
           "href": "https://github.com/ViktorOgnev/kaiten-cli/issues"
         }
+      }
+    },
+    {
+      "id": "tabbed_feature",
+      "component": "TabbedFeatureSection",
+      "props": {
+        "title": "Готовые сценарии",
+        "description": "Живые команды под типовые задачи. У каждой — кнопка «Скопировать».",
+        "tabs": [
+          {
+            "id": "project",
+            "label": "Запуск проекта",
+            "icon": "Rocket",
+            "title": "Поднять проект из скрипта",
+            "description": "Стартуете проект по брифу? Заведите карточки, вехи и связи одной прогонкой скрипта — вместо ручной сборки по одной карточке.",
+            "checklist": [
+              {
+                "icon": "Terminal",
+                "text": "for t in $(cat tasks.txt); do kaiten cards create --board-id 42 --title \"$t\"; done"
+              }
+            ],
+            "mockVariant": "cli-project-gantt"
+          },
+          {
+            "id": "migrate",
+            "label": "Переезд в Kaiten",
+            "icon": "ArrowRightLeft",
+            "title": "Переезд в Kaiten из другого трекера",
+            "description": "Переезжаете с Jira, Trello или из таблиц? Перенесите доски, карточки, участников и связи в Kaiten одной прогонкой команд import — без ручного копирования.",
+            "checklist": [
+              {
+                "icon": "Terminal",
+                "text": "kaiten import boards --from trello --file ./export.json"
+              },
+              {
+                "icon": "Terminal",
+                "text": "kaiten import cards --from csv --board-id 42 --map title,status,assignee"
+              }
+            ],
+            "mockVariant": "cli-migrate"
+          },
+          {
+            "id": "metrics",
+            "label": "Метрики за период",
+            "icon": "BarChart3",
+            "title": "Загрузка команды за период",
+            "description": "Продвинутый сценарий. Соберите снимок пространства за период и посчитайте пропускную способность по доскам — локально, без нагрузки на API.",
+            "checklist": [
+              {
+                "icon": "Terminal",
+                "text": "kaiten --json snapshot build --name team --space-id 10 --preset analytics"
+              },
+              {
+                "icon": "Terminal",
+                "text": "kaiten --json query metrics --snapshot team --metric throughput --group-by board_id"
+              }
+            ],
+            "mockVariant": "cli-snapshot-metrics"
+          }
+        ]
       }
     },
     {
@@ -265,8 +325,8 @@
           },
           {
             "icon": "Briefcase",
-            "title": "Проджект в агентстве",
-            "description": "Статусы по доскам и отчёты клиенту готовыми командами. Настройку один раз делает технический коллега."
+            "title": "Менеджер проектов",
+            "description": "Отчёты и статусы клиенту — готовыми командами, без ручной сборки."
           }
         ],
         "columns": 3
@@ -293,11 +353,7 @@
           }
         ],
         "mediaPosition": "left",
-        "mediaVariant": "cli-safe-mode",
-        "primaryCta": {
-          "label": "Политика безопасности",
-          "href": "https://github.com/ViktorOgnev/kaiten-cli/blob/master/SECURITY.md"
-        }
+        "mediaVariant": "cli-safe-mode"
       }
     },
     {
@@ -345,73 +401,29 @@
       }
     },
     {
-      "id": "tabbed_feature",
-      "component": "TabbedFeatureSection",
+      "id": "features",
+      "component": "FeatureGrid",
       "props": {
-        "title": "Готовые сценарии",
-        "description": "Живые команды под типовые задачи. У каждой — кнопка «Скопировать».",
-        "tabs": [
+        "title": "Надёжно в проде",
+        "description": "Как безопасно завязывать CLI на автоматизацию и CI.",
+        "items": [
           {
-            "id": "cards",
-            "label": "Список карточек",
-            "icon": "List",
-            "title": "Список карточек доски",
-            "description": "Нужна быстрая сводка по доске? Выгрузите карточки списком — id, заголовок и статус, — чтобы посмотреть глазами или отдать данные в скрипт.",
-            "checklist": [
-              {
-                "icon": "Terminal",
-                "text": "kaiten --json cards list --board-id 42 --compact --fields id,title,state"
-              }
-            ],
-            "mockVariant": "cli-batch-stats"
+            "icon": "Tag",
+            "title": "Предсказуемые обновления",
+            "description": "Семантическое версионирование и changelog — обновляетесь осознанно, без сюрпризов."
           },
           {
-            "id": "markdown",
-            "label": "Документ в Markdown",
-            "icon": "FileDown",
-            "title": "Документ в Markdown для клиента",
-            "description": "Надо отправить регламент клиенту или проработать внутри LLM? Сохраните документ Kaiten в файл .md без экспорта из веба.",
-            "checklist": [
-              {
-                "icon": "Terminal",
-                "text": "kaiten --json documents get --document-uid <uid> --markdown --output ./report.md"
-              }
-            ],
-            "mockVariant": "cli-markdown-export"
+            "icon": "Plug",
+            "title": "Совместимость с API Kaiten",
+            "description": "Можно закрепить версию под ваш контур и обновлять по готовности."
           },
           {
-            "id": "metrics",
-            "label": "Метрики за период",
-            "icon": "BarChart3",
-            "title": "Загрузка команды за период",
-            "description": "Продвинутый сценарий. Соберите снимок пространства за период и посчитайте пропускную способность по доскам — локально, без нагрузки на API.",
-            "checklist": [
-              {
-                "icon": "Terminal",
-                "text": "kaiten --json snapshot build --name team --space-id 10 --preset analytics"
-              },
-              {
-                "icon": "Terminal",
-                "text": "kaiten --json query metrics --snapshot team --metric throughput --group-by board_id"
-              }
-            ],
-            "mockVariant": "cli-snapshot-metrics"
-          },
-          {
-            "id": "project",
-            "label": "Запуск проекта",
-            "icon": "Rocket",
-            "title": "Поднять проект из скрипта",
-            "description": "Стартуете проект по брифу? Заведите карточки, вехи и связи одной прогонкой скрипта — вместо ручной сборки по одной карточке.",
-            "checklist": [
-              {
-                "icon": "Terminal",
-                "text": "for t in $(cat tasks.txt); do kaiten cards create --board-id 42 --title \"$t\"; done"
-              }
-            ],
-            "mockVariant": "cli-project-gantt"
+            "icon": "ShieldCheck",
+            "title": "Безопасные прогоны",
+            "description": "Режим только для чтения (--read-only) и dry-run — проверяете, ничего не меняя."
           }
-        ]
+        ],
+        "columns": 3
       }
     },
     {
@@ -438,7 +450,7 @@
           }
         ],
         "mediaPosition": "right",
-        "mediaVariant": "cli-batch-stats"
+        "mediaVariant": "cli-ai-models"
       }
     },
     {
@@ -466,7 +478,7 @@
       "id": "legal_note",
       "component": "LegalNote",
       "props": {
-        "text": "Стандартное коммерческое соглашение Kaiten об уровне обслуживания (SLA) не распространяется на проект, если не оговорено отдельно. По корпоративной поддержке, аудиту и индивидуальным интеграциям обращайтесь в Kaiten."
+        "text": "Kaiten CLI — open-source-проект: код открыт, ставится за минуту. Стандартный коммерческий SLA Kaiten на него не распространяется. SLA (Service Level Agreement) — соглашение об уровне обслуживания: гарантии доступности сервиса и времени реакции поддержки. Для прод-поддержки с SLA, аудита и индивидуальных интеграций — корпоративная поддержка Kaiten."
       }
     },
     {

@@ -100,6 +100,8 @@ export { CliMarkdownExportMock } from './CliMarkdownExportMock';
 export { CliSnapshotMetricsMock } from './CliSnapshotMetricsMock';
 export { CliBatchStatsMock } from './CliBatchStatsMock';
 export { CliProjectGanttMock } from './CliProjectGanttMock';
+export { CliMigrateMock } from './CliMigrateMock';
+export { CliAiModelsMock } from './CliAiModelsMock';
 export { CliSafeModeMock } from './CliSafeModeMock';
 export { CliInstallMock } from './CliInstallMock';
 export { FitContain } from './FitContain';

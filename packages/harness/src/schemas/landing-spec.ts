@@ -87,6 +87,8 @@ export const AssetRefSchema = z.object({
       'cli-snapshot-metrics',
       'cli-batch-stats',
       'cli-project-gantt',
+      'cli-migrate',
+      'cli-ai-models',
       'cli-safe-mode',
       'cli-install',
       'hero-screen-interface',
@@ -498,6 +500,8 @@ const MediaCopySchema = z.object({
       'cli-snapshot-metrics',
       'cli-batch-stats',
       'cli-project-gantt',
+      'cli-migrate',
+      'cli-ai-models',
       'cli-safe-mode',
       'cli-install',
       ])
@@ -884,6 +888,8 @@ export const MockVariantSchema = z.enum([
 'cli-snapshot-metrics',
 'cli-batch-stats',
 'cli-project-gantt',
+'cli-migrate',
+'cli-ai-models',
 'cli-safe-mode',
 'cli-install',
 ]);

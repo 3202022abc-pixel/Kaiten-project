@@ -1,4 +1,3 @@
-import { cn } from '../../primitives/cn';
 import { DarkTerminal, ResultCard, TPrompt, TFlag, TStr, TNum, TOk, TMut } from './DarkTerminal';
 
 /**
@@ -46,90 +45,63 @@ export function CliMarkdownExportMock() {
 
 function MarkdownFile() {
   return (
-    <ResultCard className="flex flex-col overflow-hidden p-0">
-      {/* вкладка файла */}
-      <div className="flex items-center gap-2 border-b border-(--color-border-default) bg-(--color-surface-section) px-3.5 py-2.5">
-        <MarkdownGlyph />
-        <span className="font-mono text-[11px] font-medium text-(--color-text-primary)">
-          reglament-pereezda.md
-        </span>
+    <ResultCard className="flex flex-col">
+      {/* документ Kaiten — задний мок из finance-kb-docs (RegulationDoc), контент под переезд */}
+      <div className="mb-2 text-2xl leading-none">📦</div>
+      <div className="text-[15px] font-semibold leading-snug text-(--color-text-primary)">
+        Регламент переезда команды
       </div>
-
-      <div className="flex-1 space-y-3 px-4 py-4">
-        {/* заголовок markdown */}
-        <div className="flex items-baseline gap-1.5">
-          <span className="font-mono text-sm font-bold text-(--color-text-accent)">#</span>
-          <span className="text-sm font-semibold text-(--color-text-primary)">
-            Регламент переезда команды
-          </span>
+      <div className="mt-1 flex items-center gap-1 text-[10px] text-(--color-text-tertiary)">
+        <span className="text-xs leading-none">＋</span> Добавить участников
+      </div>
+      <div className="mt-3 border-t border-(--color-border-default) pt-3">
+        <div className="rounded-lg border-l-2 border-(--color-action-primary) bg-(--color-surface-page) px-3 py-2 text-[11px] leading-snug text-(--color-text-secondary)">
+          Порядок переноса досок, задач и участников из прежней системы в Kaiten.
         </div>
-
-        {/* абзац-плейсхолдер */}
-        <div className="space-y-1.5">
-          <span className="block h-2 w-full rounded-full bg-(--color-neutral-200)" />
-          <span className="block h-2 w-[88%] rounded-full bg-(--color-neutral-200)" />
-          <span className="block h-2 w-[64%] rounded-full bg-(--color-neutral-200)" />
+        <div className="mt-3 text-[10px] font-medium uppercase tracking-wide text-(--color-text-tertiary)">
+          Содержание
         </div>
-
-        {/* чек-лист */}
-        <div className="space-y-1.5 pt-0.5">
-          <ChecklistRow done>Экспортировать доски из прежней системы</ChecklistRow>
-          <ChecklistRow done>Сверить список задач с командой</ChecklistRow>
-          <ChecklistRow>Назначить ответственных на дорожки</ChecklistRow>
-        </div>
-
-        {/* ссылка на вложение */}
-        <div className="rounded-lg border border-(--color-border-default) bg-(--color-surface-section) px-2.5 py-2">
-          <div className="flex items-center gap-1.5 text-[10px] font-medium text-(--color-text-secondary)">
-            <PaperclipGlyph />
-            вложение
+        <ul className="mt-1.5 space-y-1">
+          {TOC.map((t) => (
+            <li key={t} className="text-[11.5px] text-(--color-text-accent) underline underline-offset-2">
+              {t}
+            </li>
+          ))}
+        </ul>
+        <div className="mt-3 overflow-hidden rounded-lg border border-(--color-border-default)">
+          <div className="grid grid-cols-[1fr_auto_auto] gap-x-3 bg-(--color-surface-page) px-3 py-1.5 text-[10px] font-medium text-(--color-text-tertiary)">
+            <span>Этап</span>
+            <span className="text-right">Срок</span>
+            <span className="text-right">Ответственный</span>
           </div>
-          <div className="mt-1 break-all font-mono text-[10px] text-(--color-text-accent)">
-            /api/documents/d1f7a2/files/9c04e1
-          </div>
+          {STAGES.map(([stage, due, who], i) => (
+            <div
+              key={stage}
+              className={
+                'grid grid-cols-[1fr_auto_auto] gap-x-3 px-3 py-1.5 text-[11px] text-(--color-text-primary) ' +
+                (i < STAGES.length - 1 ? 'border-b border-(--color-border-default)' : '')
+              }
+            >
+              <span>{stage}</span>
+              <span className="text-right tabular-nums text-(--color-text-secondary)">{due}</span>
+              <span className="text-right text-(--color-text-secondary)">{who}</span>
+            </div>
+          ))}
         </div>
       </div>
     </ResultCard>
   );
 }
 
-function ChecklistRow({ children, done }: { children: React.ReactNode; done?: boolean }) {
-  return (
-    <div className="flex items-start gap-2 text-[11px] leading-snug">
-      <span
-        className={cn(
-          'mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-[4px] border',
-          done
-            ? 'border-(--color-green-100) bg-(--color-green-100) text-(--color-neutral-000)'
-            : 'border-(--color-border-strong) bg-(--color-surface-card)',
-        )}
-      >
-        {done ? (
-          <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4">
-            <path d="M5 12l5 5L20 7" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        ) : null}
-      </span>
-      <span className={done ? 'text-(--color-text-secondary) line-through' : 'text-(--color-text-primary)'}>
-        {children}
-      </span>
-    </div>
-  );
-}
+const TOC = [
+  'Экспорт из прежней системы',
+  'Перенос досок и дорожек',
+  'Сверка задач с командой',
+  'Назначение ответственных',
+];
 
-/* — глифы — */
-function MarkdownGlyph() {
-  return (
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-(--color-text-accent)">
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="M7 15V9l3 3 3-3v6M17.5 9v4.5M15.5 12.5l2 2 2-2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-function PaperclipGlyph() {
-  return (
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-(--color-text-secondary)">
-      <path d="M21 11.5l-8.5 8.5a5 5 0 01-7-7l8.5-8.5a3.3 3.3 0 014.7 4.7l-8.5 8.5a1.7 1.7 0 01-2.4-2.4l7.8-7.8" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
+const STAGES: [string, string, string][] = [
+  ['Экспорт досок', 'День 1', 'Teamlead'],
+  ['Сверка задач', 'День 2', 'Команда'],
+  ['Назначить ответственных', 'День 3', 'PM'],
+];
