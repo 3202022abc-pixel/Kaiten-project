@@ -889,7 +889,7 @@ section.s{padding:var(--sp-12) 0}
 
 /* Финальный CTA переведен на компонент CTAproduct (класс .ctp).
    Отличия от эталона — контент: чеклист вместо абзаца и нативный мокап вместо <img>. */
-@media(min-width:1280px){.ctp__copy h2{font-size:36px;line-height:40px}}
+@media(min-width:1280px){.ctp__copy h2{font-size:30px;line-height:36px}}
 .ctp__list{list-style:none;margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px}
 .ctp__list li{display:flex;align-items:flex-start;gap:12px;font-size:16px;line-height:24px;color:#424242}
 .ctp__tick{flex:none;width:20px;height:20px;margin-top:2px;border-radius:9999px;background:#fff;color:#7d4ccf;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(45,45,45,.12)}
@@ -1027,7 +1027,7 @@ section.s{padding:var(--sp-12) 0}
 #depsec .fcta__blur{position:absolute;width:786px;height:744px;left:55%;top:-120px;border-radius:9999px;background:linear-gradient(-90deg,#e298ff,#6fe5ff);filter:blur(200px);opacity:.5;pointer-events:none;z-index:0}
 #depsec .fcta__in{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:var(--sp-10);align-items:center}
 #depsec .fcta__copy{max-width:560px;align-self:start;margin:0}
-#depsec .fcta h2{font-size:var(--fs-4xl);line-height:var(--lh-4xl);font-weight:var(--fw-semi);margin:0 0 var(--sp-4);color:var(--text-title)}
+#depsec .fcta h2{font-size:var(--fs-3xl);line-height:var(--lh-3xl);font-weight:var(--fw-semi);margin:0 0 var(--sp-4);color:var(--text-title)}
 #depsec .fcta p{font-size:var(--fs-lg);line-height:var(--lh-lg)}
 #depsec .fcta p{font-size:16px;line-height:24px;color:#2d2d2d;margin:0 0 var(--sp-8)}
 #depsec .fcta__cta{display:flex;gap:var(--sp-3);justify-content:flex-start;flex-wrap:nowrap;margin:0}
@@ -1053,3 +1053,6 @@ section.s{padding:var(--sp-12) 0}
 
 /* Фичи: отступ под заголовком на планшете 32 */
 @media(min-width:768px) and (max-width:1279px){#features .s-head{margin-bottom:var(--sp-8)}}
+
+/* Фичи: отступ сверху на планшете 64 */
+@media(min-width:768px) and (max-width:1279px){#features{padding-top:var(--sp-16)}}
