@@ -1019,7 +1019,7 @@ section.s{padding:var(--sp-12) 0}
 .stabs__caption{display:none}
 @media(max-width:767px){
   #teamTabs .stabs__tabs{display:none}
-  #teamTabs .stabs__caption{display:block;text-align:left;font-size:var(--fs-md);line-height:var(--lh-md);font-weight:var(--fw-med);color:var(--text-title);padding:0 var(--sp-4) var(--sp-4)}
+  #teamTabs .stabs__caption{display:block;order:-1;text-align:left;font-size:var(--fs-md);line-height:var(--lh-md);font-weight:var(--fw-med);color:var(--text-title);padding:var(--sp-4) var(--sp-4) 0}
   #teamTabs .stabs__nav{display:flex;margin-top:var(--sp-5)}
 }
 
