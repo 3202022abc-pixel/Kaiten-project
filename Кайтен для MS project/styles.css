@@ -1058,3 +1058,6 @@ section.s{padding:var(--sp-12) 0}
 
 /* Фичи: отступ сверху на планшете 64 */
 @media(min-width:768px) and (max-width:1279px){#features{padding-top:var(--sp-16)}}
+
+/* Вкладки команд: отступ до карточки на планшете 32 */
+@media(min-width:768px) and (max-width:1279px){#teamTabs .stabs__tabs{margin-bottom:var(--sp-8)}}
