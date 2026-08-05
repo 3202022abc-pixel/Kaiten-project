@@ -43,7 +43,13 @@ import { ruNbspDeep } from './ru-typography';
  * этот рендерит прямо в дереве через discriminated union на section.component.
  */
 
-function RenderSection({ section }: { section: Section }) {
+function RenderSection({
+  section,
+  expandTabs = false,
+}: {
+  section: Section;
+  expandTabs?: boolean;
+}) {
   switch (section.component) {
     case 'HeroSection':
       return <HeroSection {...section.props} />;
@@ -82,7 +88,7 @@ function RenderSection({ section }: { section: Section }) {
     case 'MetricsSplit':
       return <MetricsSplit {...section.props} />;
     case 'TabbedFeatureSection':
-      return <TabbedFeatureSection {...section.props} />;
+      return <TabbedFeatureSection {...section.props} staticTabs={expandTabs} />;
     case 'AccordionFeatureSection': {
       // Компонент теперь self-contained (ReactNode-пропсы), а spec остаётся
       // JSON (mockVariant-строки) — конвертируем на границе рендера.
@@ -149,7 +155,14 @@ function RenderSection({ section }: { section: Section }) {
   }
 }
 
-export function RenderLanding({ spec }: { spec: LandingSpec }) {
+export function RenderLanding({
+  spec,
+  expandTabs = false,
+}: {
+  spec: LandingSpec;
+  /** Хендофф-режим: секции-табы раскрываются в стопку (все моки в DOM). */
+  expandTabs?: boolean;
+}) {
   // Правило DS `ru-nbsp-typography` зашито в рендер: неразрывные пробелы для
   // висячих предлогов/союзов/частиц и длинного тире проставляются автоматически.
   const s = ruNbspDeep(spec);
@@ -161,7 +174,7 @@ export function RenderLanding({ spec }: { spec: LandingSpec }) {
           data-comp={section.id}
           data-comp-index={String(i)}
         >
-          <RenderSection section={section} />
+          <RenderSection section={section} expandTabs={expandTabs} />
         </div>
       ))}
     </>
