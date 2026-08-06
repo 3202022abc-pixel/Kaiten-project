@@ -222,23 +222,38 @@ export async function buildStaticHandoff(
   html = html.replace(/(src|href)="(\/_next\/[^"]*)"/g, `$1="${base}$2"`);
   html = html.replace('</head>', '<link rel="stylesheet" href="styles.css">\n</head>');
 
-  // Единственный скрипт пакета: переключение вкладок (секции TabbedFeatureSection
-  // в handoff-режиме рендерят кнопки [data-kt-tab] + панели [data-kt-panel]). Клик
-  // по кнопке подсвечивает её и показывает свою панель, пряча остальные. Ванильный,
-  // без зависимостей — верстальщик может переиспользовать или заменить своим.
-  const TAB_SCRIPT =
-    '<script>/* handoff: переключение вкладок */\n' +
-    '(function(){document.querySelectorAll("[data-kt-tabs]").forEach(function(root){' +
-    'var btns=root.querySelectorAll("[data-kt-tab]");' +
-    'var panels=root.querySelectorAll("[data-kt-panel]");' +
-    'btns.forEach(function(btn){btn.addEventListener("click",function(){' +
-    'var idx=btn.getAttribute("data-kt-tab");' +
+  // Единственный скрипт пакета — ванильный, без зависимостей. Делает три вещи,
+  // которые в живом лендинге держатся на React/хуках (в статике их нет):
+  //   1) tabs  — переключение вкладок (TabbedFeatureSection: [data-kt-tab]/[data-kt-panel]);
+  //   2) fit   — масштабирование моков фикс. ширины под контейнер (замена компонента
+  //              ScaleToFit) — иначе на узких экранах терминал 700px вылезает/режется;
+  //   3) band  — на мобиле опускает подсветку колонки в таблице сравнения под
+  //              полноширинный заголовок (--kctc-bg-top / --kct-bg-top), иначе полоса
+  //              лезет вверх в шапку. Всё пересчитывается на resize/load.
+  const HELPER_SCRIPT =
+    '<script>/* handoff: вкладки + адаптив моков (без React) */\n' +
+    '(function(){' +
+    'function tabs(){document.querySelectorAll("[data-kt-tabs]").forEach(function(root){' +
+    'var btns=root.querySelectorAll("[data-kt-tab]"),panels=root.querySelectorAll("[data-kt-panel]");' +
+    'btns.forEach(function(btn){btn.addEventListener("click",function(){var idx=btn.getAttribute("data-kt-tab");' +
     'btns.forEach(function(b){b.removeAttribute("data-active")});btn.setAttribute("data-active","");' +
-    'panels.forEach(function(p){p.style.display=p.getAttribute("data-kt-panel")===idx?"":"none";});' +
-    '});});});})();</script>';
+    'panels.forEach(function(p){p.style.display=p.getAttribute("data-kt-panel")===idx?"":"none";});});});});}' +
+    'function fit(){document.querySelectorAll("[style*=\\"transform-origin\\"]").forEach(function(inner){' +
+    'var w=parseFloat(inner.style.width);if(!w)return;var outer=inner.parentElement;' +
+    'if(!outer||!outer.clientWidth)return;' + // нет ширины (ещё не в лэйауте) → не трогаем, чтобы не схлопнуть в scale(0)
+    'var s=Math.min(1,outer.clientWidth/w);inner.style.transform="scale("+s+")";' +
+    'outer.style.height=(inner.offsetHeight*s)+"px";});}' +
+    'function band(){[[".kctc-table","--kctc-bg-top",".kctc-hcell--label"],' +
+    '[".kct-table","--kct-bg-top",".kct-hcell--label"]].forEach(function(c){' +
+    'document.querySelectorAll(c[0]).forEach(function(t){var h=t.querySelector(c[2]);' +
+    't.style.setProperty(c[1],(window.innerWidth<768&&h?h.offsetHeight:0)+"px");});});}' +
+    'function adapt(){fit();band();}' +
+    'tabs();adapt();window.addEventListener("resize",adapt);' +
+    'window.addEventListener("load",adapt);setTimeout(adapt,300);' +
+    '})();</script>';
   html = html.includes('</body>')
-    ? html.replace('</body>', TAB_SCRIPT + '\n</body>')
-    : html + TAB_SCRIPT;
+    ? html.replace('</body>', HELPER_SCRIPT + '\n</body>')
+    : html + HELPER_SCRIPT;
 
   // 7. иконки: уникальные инлайн-SVG → assets/icons/
   const svgs = [...html.matchAll(/<svg\b[\s\S]*?<\/svg>/g)].map((m) => m[0]);
