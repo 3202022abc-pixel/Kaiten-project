@@ -119,3 +119,5 @@ export type {
   ServerInstallMockProps,
   IllustrationCTAProps,
 } from './IllustrationCTA';
+export { default as GanttSteps } from './GanttSteps';
+export type { GanttStepsProps, GanttStep } from './GanttSteps';
