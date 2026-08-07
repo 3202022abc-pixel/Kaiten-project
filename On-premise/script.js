@@ -34,7 +34,7 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     els.forEach(function(e){ io.observe(e); });
-    // Страховка: если observer не сработал (старые webview), раскрываем всё
+    // Страховка: если observer не сработал (старые webview), раскрываем все
     setTimeout(function(){
       if (!document.querySelector('.rv.on')){
         els.forEach(function(e){ e.classList.add('on'); });
@@ -107,11 +107,17 @@
       var c = cards[0];
       return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 24) : 320;
     }
+    // Число позиций листания = число колонок: на планшете сетка в две строки
+    function cols(){
+      var seen = {}, n = 0;
+      cards.forEach(function(c){ var l = Math.round(c.offsetLeft); if (!seen[l]) { seen[l] = 1; n++; } });
+      return n || cards.length;
+    }
     function update(){
       var maxScroll = track.scrollWidth - track.clientWidth;
       if (nav) nav.style.display = maxScroll > 6 ? '' : 'none';
       var idx = Math.round(track.scrollLeft / step());
-      count.innerHTML = '<b>' + (idx + 1) + '</b> / ' + cards.length;
+      count.innerHTML = '<b>' + (idx + 1) + '</b> / ' + cols();
       prev.disabled = track.scrollLeft <= 6;
       next.disabled = track.scrollLeft >= maxScroll - 6;
     }
@@ -223,7 +229,7 @@
     if (!boxes.length) return;
     function fit(b){ var kb=b.querySelector('.kb'); if(!kb) return;
       var w=b.clientWidth, h=b.clientHeight;
-      if (!w) return;                      // ещё нет раскладки — ждём
+      if (!w) return;                      // еще нет раскладки — ждем
       b.__w=w; b.__h=h;
       kb.style.setProperty('--kbs', w/720);
       // вертикальный масштаб — только когда высота уже известна (картинка загружена)
@@ -262,11 +268,17 @@
       var c = cards[0];
       return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 16) : 296;
     }
+    // Число позиций листания = число колонок: на планшете сетка в две строки
+    function cols(){
+      var seen = {}, n = 0;
+      cards.forEach(function(c){ var l = Math.round(c.offsetLeft); if (!seen[l]) { seen[l] = 1; n++; } });
+      return n || cards.length;
+    }
     function update(){
       var maxScroll = track.scrollWidth - track.clientWidth;
       if (nav) nav.style.display = maxScroll > 6 ? '' : 'none';
       var idx = Math.round(track.scrollLeft / step());
-      count.innerHTML = '<b>' + (idx + 1) + '</b> / ' + cards.length;
+      count.innerHTML = '<b>' + (idx + 1) + '</b> / ' + cols();
       prev.disabled = track.scrollLeft <= 6;
       next.disabled = track.scrollLeft >= maxScroll - 6;
     }
@@ -317,7 +329,7 @@
     function upd(){
       ticking = false;
       var r = map.getBoundingClientRect(), vh = window.innerHeight || 800;
-      // 0 — блок только вошёл снизу; 1 — центр блока достиг середины экрана
+      // 0 — блок только вошел снизу; 1 — центр блока достиг середины экрана
       var enter = vh * 0.78, mid = vh * 0.5 - r.height / 2;
       var p = (enter - r.top) / Math.max(1, enter - mid);
       p = Math.max(0, Math.min(1, p));
