@@ -1,0 +1,743 @@
+{
+  "pageType": "saas_landing",
+  "goal": "try_free",
+  "sections": [
+    {
+      "id": "site_header",
+      "component": "SiteHeader",
+      "props": {}
+    },
+    {
+      "id": "hero",
+      "component": "HeroSection",
+      "props": {
+        "eyebrow": "Российское ПО | Бесплатный тариф | Автоматический импорт | Облако и коробка",
+        "title": "Кайтен — альтернатива GanttPRO",
+        "accentWord": "альтернатива",
+        "subtitle": "Все, что есть в GanttPRO для планирования проектов — плюс канбан-доски, документы, Agile-инструменты и полноценное мобильное приложение",
+        "primaryCta": {
+          "label": "Попробовать бесплатно",
+          "href": "/signup"
+        },
+        "secondaryCta": null,
+        "visual": {
+          "type": "product_screenshot",
+          "assetId": "kaiten-ganttpro-board",
+          "variant": "hero-screen-interface"
+        },
+        "visualPosition": "side",
+        "board": {
+          "boardTitle": "Портфель проектов команды",
+          "columns": [
+            {
+              "label": "План",
+              "count": 4
+            },
+            {
+              "label": "В работе",
+              "count": 5
+            },
+            {
+              "label": "Готово",
+              "count": 3,
+              "done": true
+            }
+          ],
+          "lanes": [
+            {
+              "name": "Проекты",
+              "count": 7,
+              "columns": [
+                [
+                  {
+                    "title": "Перенос проектов из GanttPRO",
+                    "tags": [
+                      {
+                        "label": "Импорт",
+                        "variant": "blue"
+                      }
+                    ],
+                    "assignees": [
+                      "#64b5f6"
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "title": "Связать задачи и проверить критический путь",
+                    "tags": [
+                      {
+                        "label": "Ганта",
+                        "variant": "jud"
+                      }
+                    ],
+                    "checklist": {
+                      "label": "Чек-лист",
+                      "done": 3,
+                      "total": 5
+                    },
+                    "assignees": [
+                      "#64b5f6",
+                      "#81c784"
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "title": "Базовый план утвержден",
+                    "tags": [
+                      {
+                        "label": "Готово",
+                        "variant": "ok"
+                      }
+                    ],
+                    "assignees": [
+                      "#9575cd"
+                    ],
+                    "due": "4 июн"
+                  }
+                ]
+              ]
+            },
+            {
+              "name": "Ресурсы",
+              "count": 5,
+              "columns": [
+                [
+                  {
+                    "title": "Загрузка команды на июнь",
+                    "tags": [
+                      {
+                        "label": "Ресурсы",
+                        "variant": "prod"
+                      }
+                    ],
+                    "assignees": [
+                      "#4db6ac"
+                    ]
+                  }
+                ],
+                [
+                  {
+                    "title": "Вехи проекта: сдвиг сроков",
+                    "tags": [
+                      {
+                        "label": "В работе",
+                        "variant": "urg"
+                      }
+                    ],
+                    "assignees": [
+                      "#ff8a65"
+                    ],
+                    "due": "12 июн"
+                  }
+                ],
+                [
+                  {
+                    "title": "Отчет по отклонениям от плана",
+                    "tags": [
+                      {
+                        "label": "Готово",
+                        "variant": "ok"
+                      }
+                    ],
+                    "assignees": [
+                      "#a1887f"
+                    ]
+                  }
+                ]
+              ]
+            }
+          ],
+          "animate": true,
+          "animatedCard": {
+            "card": {
+              "title": "Согласовать перенос проектов",
+              "tags": [
+                {
+                  "label": "Миграция",
+                  "variant": "blue"
+                }
+              ],
+              "assignees": [
+                "#e57373"
+              ]
+            },
+            "fromColumn": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "accordion_feature",
+      "component": "AccordionFeatureSection",
+      "props": {
+        "title": "Планируйте проекты так, как привыкли",
+        "items": [
+          {
+            "id": "gantt",
+            "title": "Диаграмма Ганта",
+            "description": "Стройте временную шкалу проекта, задавайте вехи, связывайте задачи. Сдвинули одну — зависимые пересчитываются автоматически. Базовый план позволяет в любой момент сравнить плановые сроки с фактическими",
+            "icon": "gantt-chart",
+            "mockVariant": "gantt-chart"
+          },
+          {
+            "id": "dependencies",
+            "title": "Зависимости между задачами",
+            "description": "Связывайте задачи по типу финиш–старт: выполнение одной автоматически определяет старт следующей. Критический путь показывает, какие задачи напрямую влияют на срок сдачи проекта",
+            "icon": "git-branch",
+            "mockVariant": "window-links"
+          },
+          {
+            "id": "resources",
+            "title": "Ресурсное планирование",
+            "description": "Назначайте исполнителей на задачи, отслеживайте загрузку и доступность команды. Плановые и фактические трудозатраты — в одном месте. Видно, кто перегружен, до того как срок уже горит",
+            "icon": "users",
+            "mockVariant": "window-resource"
+          },
+          {
+            "id": "reports",
+            "title": "Отчеты и аналитика",
+            "description": "Встроенные отчеты показывают статус проекта, загрузку команды и отклонения от плана — без экспорта в сторонние инструменты. Данные обновляются автоматически по мере работы команды",
+            "icon": "bar-chart-3",
+            "mockVariant": "window-reports"
+          }
+        ],
+        "mediaPosition": "right"
+      }
+    },
+    {
+      "id": "cta_buttons",
+      "component": "CtaButtons",
+      "props": {
+        "primaryCta": {
+          "label": "Попробовать бесплатно",
+          "href": "/signup"
+        },
+        "secondaryCta": null
+      }
+    },
+    {
+      "id": "comparison_table",
+      "component": "ComparisonTable",
+      "props": {
+        "title": "Кайтен и GanttPRO: сравнение функций",
+        "competitor": "GanttPRO",
+        "footnote": "Сравнение составлено на основании открытых источников по состоянию на 19.05.2026. Функциональность сервисов может отличаться в зависимости от тарифа, конфигурации и настроек.",
+        "sections": [
+          {
+            "title": "Планирование проектов",
+            "rows": [
+              {
+                "label": "Диаграмма Ганта с зависимостями",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Вехи проекта",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Автоматический пересчет сроков",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Базовый план (план vs факт)",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Критический путь",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Многоуровневая иерархия задач",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Процент выполнения задачи",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Портфель проектов",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Встроенные отчеты",
+                "a": true,
+                "b": true
+              }
+            ]
+          },
+          {
+            "title": "Ресурсное планирование",
+            "rows": [
+              {
+                "label": "Назначение ресурсов на задачи",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Загрузка сотрудников",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Плановые и фактические трудозатраты",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Учет времени",
+                "a": true,
+                "b": true
+              }
+            ]
+          },
+          {
+            "title": "Управление задачами",
+            "rows": [
+              {
+                "label": "Канбан-доска",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Список и таблица",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Календарь",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Несколько досок в одном пространстве",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Скрам и спринты",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Бэклог",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Покерное планирование",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Настраиваемые поля",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Чек-листы в карточках",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Назначение ответственного в чек-листах",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Автоматизации",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Шаблоны проектов",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Повторяющиеся задачи",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Гостевые пользователи",
+                "a": true,
+                "b": false
+              }
+            ]
+          },
+          {
+            "title": "Документы и знания",
+            "rows": [
+              {
+                "label": "База знаний с блочным редактором",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Иерархия документов",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Публичные ссылки на документы",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Хранение файлов как вложений",
+                "a": true,
+                "b": true
+              }
+            ]
+          },
+          {
+            "title": "Интеграции и каналы",
+            "rows": [
+              {
+                "label": "API и вебхуки",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Уведомления в Telegram",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Создание задач из Telegram",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Интеграция с GitHub / GitLab",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Экспорт в Excel (XLSX)",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Мобильное приложение",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Работа с Гантом в мобильном приложении",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Встроенный чат",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Видеозвонки",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "ИИ-ассистент",
+                "a": true,
+                "b": false
+              }
+            ]
+          },
+          {
+            "title": "Платформа",
+            "rows": [
+              {
+                "label": "Облачная версия",
+                "a": true,
+                "b": true
+              },
+              {
+                "label": "Установка на собственный сервер",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Бесплатный тариф",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Российский реестр ПО",
+                "a": true,
+                "b": false
+              },
+              {
+                "label": "Техподдержка на русском языке",
+                "a": true,
+                "b": true
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "cta_banner",
+      "component": "CtaBanner",
+      "props": {
+        "title": "Переходите из GanttPRO без потери данных",
+        "description": "Проекты, задачи, сроки и структура переносятся через импорт CSV — без ручного пересоздания",
+        "primaryCta": {
+          "label": "Попробовать Кайтен",
+          "href": "/signup"
+        },
+        "secondaryCta": null,
+        "gradient": true
+      }
+    },
+    {
+      "id": "tabbed_feature",
+      "component": "TabbedFeatureSection",
+      "props": {
+        "title": "Кайтен подходит для любых команд",
+        "description": "Создайте проект, запланируйте задачи, добавьте взаимосвязи, распределите ресурсы и следите за ходом выполнения",
+        "tabs": [
+          {
+            "id": "dev",
+            "label": "Разработка",
+            "icon": "code",
+            "title": "Разработка",
+            "checklist": [
+              {
+                "text": "Создайте проект"
+              },
+              {
+                "text": "Запланируйте задачи"
+              },
+              {
+                "text": "Добавьте взаимосвязи"
+              },
+              {
+                "text": "Распределите ресурсы"
+              },
+              {
+                "text": "Следите за ходом выполнения"
+              }
+            ],
+            "mockVariant": "pm-board"
+          },
+          {
+            "id": "marketing",
+            "label": "Маркетинг",
+            "icon": "megaphone",
+            "title": "Маркетинг",
+            "checklist": [
+              {
+                "text": "Создайте проект"
+              },
+              {
+                "text": "Запланируйте задачи"
+              },
+              {
+                "text": "Добавьте взаимосвязи"
+              },
+              {
+                "text": "Распределите ресурсы"
+              },
+              {
+                "text": "Следите за ходом выполнения"
+              }
+            ],
+            "mockVariant": "kanban-minimal"
+          },
+          {
+            "id": "construction",
+            "label": "Строительство",
+            "icon": "hard-hat",
+            "title": "Строительство",
+            "checklist": [
+              {
+                "text": "Создайте проект"
+              },
+              {
+                "text": "Запланируйте задачи"
+              },
+              {
+                "text": "Добавьте взаимосвязи"
+              },
+              {
+                "text": "Распределите ресурсы"
+              },
+              {
+                "text": "Следите за ходом выполнения"
+              }
+            ],
+            "mockVariant": "portfolio-board"
+          },
+          {
+            "id": "hr",
+            "label": "HR и кадровые процессы",
+            "icon": "users",
+            "title": "HR и кадровые процессы",
+            "checklist": [
+              {
+                "text": "Создайте проект"
+              },
+              {
+                "text": "Запланируйте задачи"
+              },
+              {
+                "text": "Добавьте взаимосвязи"
+              },
+              {
+                "text": "Распределите ресурсы"
+              },
+              {
+                "text": "Следите за ходом выполнения"
+              }
+            ],
+            "mockVariant": "pm-board-1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "features",
+      "component": "FeatureGrid",
+      "props": {
+        "title": "Одна платформа для всей компании",
+        "description": "Кайтен объединяет задачи всех отделов, а также документацию компании, воронку продаж, внутренние коммуникации и поддержку клиентов",
+        "items": [
+          {
+            "icon": "square-kanban",
+            "title": "Скрам и канбан",
+            "description": "Создавайте задачи прямо из сделок, назначайте исполнителей и отслеживайте сроки работы команды. Канбан и Scrum-доски · Автоматизации процессов · Учет времени · Контроль загрузки команды"
+          },
+          {
+            "icon": "users",
+            "title": "CRM",
+            "description": "Настройте воронку продаж и работайте со сделками в единой системе. Воронки продаж, · Карточки сделок · Каталог контактов · Автоматические отчеты"
+          },
+          {
+            "icon": "book-open",
+            "title": "Документы и база знаний",
+            "description": "Храните регламенты, инструкции, скрипты продаж и внутреннюю документацию рядом с задачами и сделками. Блочный редактор · Иерархия страниц · Комментарии и совместная работа · Публичные ссылки"
+          },
+          {
+            "icon": "life-buoy",
+            "title": "Служба поддержки",
+            "description": "Собирайте заявки так же, где ведете задачи. Каждое обращение появляется на доске как обычная карточка. Заявки из мессенджеров · Портал поддержки · Справочный центр для клиентов"
+          }
+        ],
+        "columns": 2
+      }
+    },
+    {
+      "id": "cta_buttons",
+      "component": "CtaButtons",
+      "props": {
+        "primaryCta": {
+          "label": "Зарегистрироваться в Кайтен",
+          "href": "/signup"
+        },
+        "secondaryCta": null
+      }
+    },
+    {
+      "id": "final_cta",
+      "component": "FinalCta",
+      "props": {
+        "title": "Попробуйте Kaiten бесплатно",
+        "description": "Российский сервис без риска блокировки · Импорт задач из GanttPRO · Бесплатный доступ ко всем функциям на 14 дней",
+        "primaryCta": {
+          "label": "Попробовать бесплатно",
+          "href": "/signup"
+        },
+        "secondaryCta": null,
+        "variant": "gradient",
+        "visualVariant": "portfolio-board"
+      }
+    },
+    {
+      "id": "faq",
+      "component": "FAQAccordion",
+      "props": {
+        "title": "Ответы на частые вопросы",
+        "items": [
+          {
+            "question": "Какие тарифы есть в Кайтен и можно ли использовать инструмент бесплатно?",
+            "answer": "Да, у Kaiten есть бесплатный тариф без ограничения по времени. Он подходит для небольших команд и включает базовые инструменты для управления задачами, документами и совместной работы: доски, карточки, календарь, таблицы и списки. Также доступны платные тарифы и модули — например, диаграмма Ганта, автоматизации, Scrum/Kanban-отчеты, Service Desk и ресурсное планирование."
+          },
+          {
+            "question": "Как работает пробный период?",
+            "answer": "После регистрации новым пользователям открывается 14-дневный пробный период со всеми модулями и функциями Kaiten. Можно протестировать диаграмму Ганта, автоматизации, Scrum-инструменты, учет времени и другие возможности без привязки банковской карты. После завершения теста аккаунт автоматически переключится на бесплатный тариф, а все данные сохранятся."
+          },
+          {
+            "question": "Как перенести проект из GanttPRO в Кайтен?",
+            "answer": "Проекты можно перенести через импорт CSV/XLS-файлов или JSON. Для этого нужно выгрузить данные из GanttPRO, создать рабочее пространство в Kaiten и импортировать задачи, сроки, исполнителей и структуру проекта. Это позволяет перейти на Kaiten без ручного пересоздания процессов."
+          },
+          {
+            "question": "Как начать пользоваться Кайтен?",
+            "answer": "Достаточно зарегистрироваться на сайте Kaiten и создать первое рабочее пространство. После этого можно выбрать подходящий формат работы — Kanban, Scrum, диаграмму Ганта или обычный список задач — пригласить команду и начать вести проекты. Для новых пользователей сразу доступен бесплатный тест всех функций системы."
+          }
+        ]
+      }
+    },
+    {
+      "id": "legal_note",
+      "component": "LegalNote",
+      "props": {
+        "text": "Информация приведена исключительно в целях сравнения и основана на открытых источниках на дату публикации. Функциональность сервисов может изменяться правообладателями. GanttPRO является товарным знаком соответствующего правообладателя."
+      }
+    },
+    {
+      "id": "kaiten_footer",
+      "component": "LandingFooterMock",
+      "props": {}
+    }
+  ],
+  "seo": {
+    "title": "Kaiten вместо GanttPRO: российская альтернатива для планирования",
+    "description": "Кайтен — альтернатива GanttPRO: диаграмма Ганта, вехи, критический путь и ресурсное планирование. Перенос проектов импортом, бесплатный тариф, коробка."
+  },
+  "illustrationSpecs": [],
+  "meta": {
+    "sources": [
+      "wiki/brand/redpolitika.md",
+      "wiki/references/kaiten-product-facts.md",
+      "wiki/references/anglicism-dictionary.md",
+      "wiki/design-system/voice.md",
+      "wiki/design-system/colors.md",
+      "wiki/design-system/typography.md",
+      "wiki/design-system/spacing.md",
+      "wiki/design-system/radius.md",
+      "wiki/design-system/motion.md",
+      "wiki/design-system/grid.md",
+      "wiki/design-system/components/hero.md",
+      "wiki/design-system/components/feature-grid.md",
+      "wiki/design-system/components/pricing.md",
+      "wiki/design-system/components/faq.md",
+      "wiki/design-system/components/accordion.md",
+      "wiki/design-system/components/final-cta.md",
+      "wiki/design-system/components/footer.md",
+      "wiki/design-system/components/button.md",
+      "wiki/archetypes/saas_landing.md",
+      "packages/harness/src/skills/conversion-landing.md",
+      "packages/harness/src/prompts/section-mock-skill.md",
+      "wiki/layouts/index.md"
+    ],
+    "generatedAt": "2026-08-07T14:45:00.448Z",
+    "generator": "host-agent",
+    "archetype": "saas_landing",
+    "layout": "comparison-vs-competitor",
+    "tokenEstimate": 48142,
+    "domain": "pm"
+  }
+}
