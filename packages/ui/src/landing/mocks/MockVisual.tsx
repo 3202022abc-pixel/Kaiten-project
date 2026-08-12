@@ -16,6 +16,7 @@ import {
   EmailSequenceMock,
   HiringPipelineMock,
   IntegrationsConsoleMock,
+  IntegrationsHubMock,
   InventoryGridMock,
   InvoiceStatusMock,
   KnowledgeBaseMock,
@@ -95,6 +96,7 @@ export type MockVariant =
   | 'mcp-agent-board-animated'
   | 'analytics-kpi'
   | 'integrations-console'
+  | 'integrations-hub'
   | 'modules-matrix'
   // Support
   | 'support-board'
@@ -218,6 +220,15 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
       return <AnalyticsKpiMock />;
     case 'integrations-console':
       return <IntegrationsConsoleMock />;
+    // Карта интеграций фикс. ширины 1440px — в узких слотах масштабируется.
+    case 'integrations-hub':
+      return (
+        <div className="w-full overflow-hidden">
+          <ScaleToFit designWidth={1440}>
+            <IntegrationsHubMock />
+          </ScaleToFit>
+        </div>
+      );
     case 'modules-matrix':
       return <ModulesMatrixMock />;
     case 'sales-funnel':

@@ -107,6 +107,8 @@ export { CliMigrateMock } from './CliMigrateMock';
 export { CliAiModelsMock } from './CliAiModelsMock';
 export { CliSafeModeMock } from './CliSafeModeMock';
 export { CliInstallMock } from './CliInstallMock';
+export { IntegrationsHubMock } from './IntegrationsHubMock';
+export type { IntegrationsHubMockProps } from './IntegrationsHubMock';
 export { FitContain } from './FitContain';
 
 export { FeatureGridMock } from './FeatureGridMock';
