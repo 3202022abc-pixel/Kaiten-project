@@ -8,6 +8,7 @@ import {
   type HsiLane,
   type HsiAnimatedCard,
 } from './HeroScreenInterface';
+import { HeroScreenVideo } from './HeroScreenVideo';
 import { RegistrationForm } from './RegistrationForm';
 
 /**
@@ -58,7 +59,7 @@ export interface AssetRefProps {
   src?: string;
   alt?: string;
   /** Built-in detailed mocks (see ./mocks). When set, ignores src. */
-  variant?: MockVariant | 'generic' | 'hero-screen-interface';
+  variant?: MockVariant | 'generic' | 'hero-screen-interface' | 'hero-screen-video';
   /**
    * Reference to an auto-generated unique SVG illustration (P8 phase).
    * When set, renderer uses it instead of variant. Currently passed through
@@ -186,6 +187,42 @@ export function HeroSection({
         animate={board?.animate ?? true}
         animatedCard={board?.animatedCard ?? HSI_BOARD_ANIMATED}
         ariaLabel="Первый экран Kaiten"
+      />
+    );
+  }
+
+  // Вариант `hero-screen-video` — весь первый экран рендерит `HeroScreenVideo`:
+  // центрированная колонка (бейдж → H1 → подзаголовок → CTA) и видео-блок 16/9
+  // с фирменной кнопкой play. Пока ролик не передан (`visual.src`), показывается
+  // плейсхолдер с кнопкой — валидный вид до передачи ассета.
+  // `bullets` идут отдельными строками в конец подзаголовка (а не в trust-строку
+  // под видео): так короткая приписка вроде «300 + готовых сценариев» читается
+  // вместе с обещанием H1. Trust-строка при этом не рендерится (`trustItems={[]}`).
+  // Правило: `hero-screen-video`.
+  if (visual?.variant === 'hero-screen-video') {
+    return (
+      <HeroScreenVideo
+        badge={eyebrow}
+        title={accentWord ? highlightAccent(title, accentWord, accentPill) : title}
+        subtitle={
+          bullets?.length ? (
+            <>
+              {subtitle}
+              {bullets.map((line) => (
+                <span key={line} className="hsv-sub-line">
+                  {line}
+                </span>
+              ))}
+            </>
+          ) : (
+            subtitle
+          )
+        }
+        buttonLabel={primaryCta.label}
+        buttonHref={primaryCta.href}
+        videoSrc={visual.src}
+        placeholderLabel={visual.alt ?? 'Видео о продукте'}
+        trustItems={[]}
       />
     );
   }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type CSSProperties, type ReactNode } from 'react';
 
 /**
  * Review slider (мокап секции отзывов «Отзывы клиентов»).
@@ -23,18 +23,35 @@ import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react'
 export interface Review {
   /** Логотип компании: <img/>, инлайновый <svg/> или просто текст-название. */
   logo?: ReactNode;
+  /**
+   * Множитель высоты логотипа (по умолчанию 1 — базовые 60px, 50px на мобилке).
+   * Нужен, когда у компаний знаки разной плотности: широкий горизонтальный
+   * логотип рядом с компактным квадратным читается крупнее и перевешивает.
+   */
+  logoScale?: number;
   /** Текст отзыва (уже с «ёлочками», если нужно). */
   quote: string;
   /** Имя автора. */
   name: string;
-  /** Должность / роль автора. */
-  role: string;
+  /**
+   * Должность / роль автора. Необязательна: когда отзыв подписан командой,
+   * а не человеком, строка роли дублировала бы название компании из `name`.
+   * Перевод строки (`\n`) в значении сохраняется — им разбивают должность
+   * и название компании на две строки.
+   */
+  role?: string;
   /** URL фото-аватара (если есть). */
   avatar?: string;
   /** Буква-заглушка под аватар, если фото нет. */
   avatarInitial?: string;
   /** Цвет фона аватара-заглушки. */
   avatarBg?: string;
+  /**
+   * Широкое фото вместо круглого аватара — для командных снимков, где в кадре
+   * несколько человек: круглая обрезка 56×56 оставила бы половину лица.
+   * Слот становится по ширине содержимого, фон прозрачный, кадр не режется.
+   */
+  avatarWide?: boolean;
   /** Ссылка «Читать кейс» (если есть — рисуется кнопка). */
   caseUrl?: string;
   /** Подпись кнопки-ссылки. */
@@ -61,6 +78,8 @@ const STYLE = `
   font-family:'Roboto','Inter',system-ui,-apple-system,sans-serif; color:var(--text-title);
   background:var(--surface-section); padding:48px 0;
 }
+/* На десктопе секция дышит шире — 96px сверху и снизу. */
+@media(min-width:1024px){ .revx-mock{ padding:96px 0; } }
 .revx-mock *{box-sizing:border-box;}
 .revx-mock .revx__in{width:100%; max-width:var(--container); margin:0 auto; padding:0 var(--sp-4); display:flex; flex-direction:column; gap:var(--sp-12); align-items:center;}
 .revx-mock .revx__head{display:flex; flex-direction:column; gap:var(--sp-4); align-items:center; text-align:center; width:100%;}
@@ -73,15 +92,32 @@ const STYLE = `
 .revx-mock .otz__top{display:flex; flex-direction:column; gap:var(--sp-5); flex:1; min-height:0;}
 .revx-mock .otz__hd{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--sp-4);}
 .revx-mock .otz__co{font-size:18px; line-height:28px; font-weight:var(--fw-semi); color:var(--text-title);}
-.revx-mock .otz__co img{height:60px; width:auto; max-width:180px; object-fit:contain; display:block;}
+/*
+  Полоса логотипа фиксирована по высоте (--otz-logo-h), а сам знак центрируется
+  в ней. Иначе уменьшенный через logoScale логотип прижимается к верху и уезжает
+  относительно «ёлочек» и логотипов соседних карточек.
+*/
+.revx-mock .otz__co{--otz-logo-h:60px; display:flex; align-items:center; min-height:var(--otz-logo-h);}
+.revx-mock .otz__co img{height:calc(var(--otz-logo-h) * var(--otz-logo-scale, 1)); width:auto; max-width:180px; object-fit:contain; display:block;}
 .revx-mock .otz__q{flex-shrink:0; width:79px; height:60px; color:#f3f4f6;}
-.revx-mock .otz__text{font-size:16px; line-height:24px; color:var(--text-title); flex:1; display:flex; align-items:center;}
-.revx-mock .otz__author{display:flex; gap:var(--sp-4); align-items:center;}
+.revx-mock .otz__text{font-size:16px; line-height:24px; color:var(--text-secondary); flex:1; display:flex; align-items:center;}
+/*
+  Блок автора прижат к низу карточки (.otz__top растягивается), поэтому его
+  высота задаёт положение аватара. У отзыва без строки роли блок был на 16px
+  ниже соседних — резервируем место под подпись из двух строк, чтобы аватары
+  и имена стояли на одной линии во всех карточках.
+*/
+.revx-mock .otz__author{display:flex; gap:var(--sp-4); align-items:center; min-height:72px;}
 .revx-mock .otz__av{position:relative; overflow:hidden; width:56px; height:56px; border-radius:9999px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:var(--fw-semi); color:#fff; background:#c4b5e0;}
 .revx-mock .otz__av img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+/* Командное фото: показываем кадр целиком, без круглой обрезки и подложки. */
+.revx-mock .otz__av--wide{width:auto; border-radius:0; background:transparent; overflow:visible;}
+.revx-mock .otz__av--wide img{position:static; width:auto; height:100%; object-fit:contain;}
+/* Буква-заглушка нужна только пока картинки нет (или она отвалилась по onError). */
+.revx-mock .otz__av:has(img) .otz__av-initial{display:none;}
 .revx-mock .otz__who{display:flex; flex-direction:column; min-width:0;}
 .revx-mock .otz__name{font-size:16px; line-height:24px; font-weight:var(--fw-med); color:var(--text-title);}
-.revx-mock .otz__role{font-size:16px; line-height:24px; color:var(--text-secondary);}
+.revx-mock .otz__role{font-size:16px; line-height:24px; color:var(--text-secondary); white-space:pre-line;}
 .revx-mock .otz__btn{align-self:flex-start; display:inline-flex; align-items:center; border:1px solid var(--border-default); border-radius:var(--radius-lg); padding:10px var(--sp-4); font-size:16px; line-height:24px; font-weight:var(--fw-med); color:var(--brand-100); background:#fff; text-decoration:none; cursor:pointer; transition:background .18s, border-color .18s, color .18s;}
 .revx-mock .otz__btn:hover{border-color:var(--brand-48); background:var(--brand-12); color:var(--brand-hover);}
 .revx-mock .revx__nav{display:flex; gap:14px; align-items:center;}
@@ -99,7 +135,8 @@ const STYLE = `
   .revx-mock .revx__track{gap:var(--sp-3);}
   .revx-mock .otz{width:318px; max-width:calc(100vw - 64px); height:auto;}
   .revx-mock .otz__co{font-size:16px; line-height:24px;}
-  .revx-mock .otz__co img{height:50px; max-width:150px;}
+  .revx-mock .otz__co{--otz-logo-h:50px;}
+  .revx-mock .otz__co img{max-width:150px;}
 }
 `;
 
@@ -204,20 +241,32 @@ export function ReviewSlider({ title = 'Заголовок секции отзы
               <div className="otz" key={i}>
                 <div className="otz__top">
                   <div className="otz__hd">
-                    <div className="otz__co">{renderLogo(r.logo)}</div>
+                    <div
+                      className="otz__co"
+                      style={
+                        r.logoScale
+                          ? ({ '--otz-logo-scale': r.logoScale } as CSSProperties)
+                          : undefined
+                      }
+                    >
+                      {renderLogo(r.logo)}
+                    </div>
                     <QuoteMark />
                   </div>
                   <p className="otz__text">{r.quote}</p>
                 </div>
 
                 <div className="otz__author">
-                  <span className="otz__av" style={r.avatarBg ? { background: r.avatarBg } : undefined}>
+                  <span
+                    className={`otz__av${r.avatarWide ? ' otz__av--wide' : ''}`}
+                    style={r.avatarBg && !r.avatarWide ? { background: r.avatarBg } : undefined}
+                  >
                     {r.avatar ? <img src={r.avatar} alt={r.name} onError={(e) => e.currentTarget.remove()} /> : null}
-                    {r.avatarInitial ?? r.name.charAt(0)}
+                    <span className="otz__av-initial">{r.avatarInitial ?? r.name.charAt(0)}</span>
                   </span>
                   <span className="otz__who">
                     <span className="otz__name">{r.name}</span>
-                    <span className="otz__role">{r.role}</span>
+                    {r.role && <span className="otz__role">{r.role}</span>}
                   </span>
                 </div>
 

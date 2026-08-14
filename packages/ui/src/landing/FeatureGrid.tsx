@@ -2,6 +2,8 @@ import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { Icon } from '../primitives/Icon';
 import { MockVisual, type MockVariant } from './mocks/MockVisual';
+import { FeatureGridMock } from './mocks/FeatureGridMock';
+import { FeatureTile, FeatureTilesStyle } from './mocks/FeatureTile';
 
 export interface FeatureItemProps {
   icon: string;
@@ -9,6 +11,12 @@ export interface FeatureItemProps {
   description: string;
   /** Опциональное компактное мок-превью доски внутри карточки. */
   mockVariant?: MockVariant;
+  /**
+   * Подпись плитки из галереи мини-мокапов фич (`FeatureMocksV01`) —
+   * напр. «Чек-листы в задаче», «Прогноз сроков». Иллюстрация карточки
+   * в режиме `variant: 'mock'`.
+   */
+  featureTile?: string;
 }
 
 export interface FeatureGridProps {
@@ -17,6 +25,13 @@ export interface FeatureGridProps {
   description?: string;
   items: FeatureItemProps[];
   columns?: 2 | 3 | 4;
+  /**
+   * 'cards' (дефолт) — простая сетка карточек с иконкой, как у старых лендингов.
+   * 'mock' — эталонный блок `FeatureGridMock`: три колонки на десктопе,
+   * карусель со стрелками на планшете и мобилке, иллюстрация каждой карточки —
+   * мини-мокап фичи из галереи (`items[].featureTile`).
+   */
+  variant?: 'cards' | 'mock';
 }
 
 const colsClass: Record<NonNullable<FeatureGridProps['columns']>, string> = {
@@ -31,7 +46,31 @@ export function FeatureGrid({
   description,
   items,
   columns = 3,
+  variant = 'cards',
 }: FeatureGridProps) {
+  // Эталонный блок галереи фич. Иллюстрация карточки — мини-мокап из
+  // FeatureMocksV01 по подписи `featureTile`; стили галереи объёмные, поэтому
+  // подключаем их один раз на секцию, а плиткам ставим withStyle={false}.
+  if (variant === 'mock') {
+    const withTiles = items.some((it) => it.featureTile);
+    return (
+      <>
+        {withTiles && <FeatureTilesStyle />}
+        <FeatureGridMock
+          title={title}
+          subtitle={description}
+          items={items.map((it) => ({
+            title: it.title,
+            desc: it.description,
+            illustration: it.featureTile ? (
+              <FeatureTile caption={it.featureTile} withStyle={false} />
+            ) : undefined,
+          }))}
+        />
+      </>
+    );
+  }
+
   return (
     <section
       className={cn(

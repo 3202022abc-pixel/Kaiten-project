@@ -80,7 +80,7 @@ const BAR_FILL: Record<'summary' | 'green' | 'violet', string> = {
 };
 
 const GCSS = `
-.mg{font-family:'Inter',system-ui,sans-serif}
+.mg{font-family:var(--font-sans,'Roboto','Inter',system-ui,-apple-system,'Segoe UI',sans-serif)}
 .mg__head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
 .mg__title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#757575}
 .mg__month{font-size:10.5px;color:#9e9e9e}

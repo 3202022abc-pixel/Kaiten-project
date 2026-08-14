@@ -80,6 +80,12 @@ export const AssetRefSchema = z.object({
       'retail-portfolio-animated',
       'retail-mobile',
       'gantt-chart',
+      // Автоматизации (модуль Kaiten)
+      'automation-rule-trigger',
+      'automation-rule-action',
+      'automation-rules-list',
+      'automation-deadline',
+      'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
       'cli-terminal-final-animated',
@@ -92,6 +98,7 @@ export const AssetRefSchema = z.object({
       'cli-safe-mode',
       'cli-install',
       'hero-screen-interface',
+      'hero-screen-video',
       'generic',
     ])
     .optional(),
@@ -239,11 +246,20 @@ const FeatureGridSchema = z.object({
             .string()
             .optional()
             .describe('опциональное компактное мок-превью внутри карточки'),
+          featureTile: z
+            .string()
+            .max(80)
+            .optional()
+            .describe('подпись плитки из галереи мини-мокапов фич («Чек-листы в задаче», «Прогноз сроков») — иллюстрация карточки в variant: "mock"'),
         }),
       )
       .min(2)
       .max(8),
     columns: z.union([z.literal(2), z.literal(3), z.literal(4)]).default(3),
+    variant: z
+      .enum(['cards', 'mock'])
+      .optional()
+      .describe("'cards' (дефолт) — сетка карточек с иконкой; 'mock' — эталонный FeatureGridMock: 3 колонки на десктопе, карусель на планшете и мобилке, мини-мокапы фич в карточках"),
   }),
 });
 
@@ -302,13 +318,18 @@ const FinalCtaSchema = z.object({
     primaryCta: CtaSchema,
     secondaryCta: CtaSchema.nullable().optional(),
     variant: z
-      .enum(['solid', 'gradient', 'dark'])
+      .enum(['solid', 'gradient', 'dark', 'product'])
       .optional()
-      .describe("'solid' (дефолт) — сплошная заливка (старые лендинги); 'gradient' — блок CTAsecondaryMock (ритейл и новые); 'dark' — тёмный CTAdark (текст + терминал), для CLI-лендингов"),
+      .describe("'solid' (дефолт) — сплошная заливка (старые лендинги); 'gradient' — блок CTAsecondaryMock (ритейл и новые); 'dark' — тёмный CTAdark (текст + терминал), для CLI-лендингов; 'product' — блок CTAproduct: текст слева, иллюстрация платформы справа, градиент лаванда → голубой"),
     visualVariant: z
       .string()
       .optional()
       .describe('интерфейс справа для variant=gradient под тематику лендинга (напр. retail-portfolio-animated, pm-board-1)'),
+    visualSrc: z
+      .string()
+      .optional()
+      .describe("иллюстрация справа для variant=product; по умолчанию общая картинка платформы Kaiten (/brand/cta-product.png)"),
+    visualAlt: z.string().max(160).optional().describe('alt для visualSrc'),
   }),
 });
 
@@ -346,12 +367,27 @@ const ReviewSliderSchema = z.object({
       .array(
         z.object({
           logo: z.string().max(60).optional(),
+          logoScale: z
+            .number()
+            .min(0.4)
+            .max(1)
+            .optional()
+            .describe('множитель высоты логотипа (1 = базовые 60px); для знаков разной плотности'),
           quote: z.string().min(10).max(600),
           name: z.string().min(2).max(80),
-          role: z.string().min(2).max(120),
+          role: z
+            .string()
+            .min(2)
+            .max(120)
+            .optional()
+            .describe('должность автора; необязательна (отзыв от команды) — перевод строки \\n разбивает должность и компанию на две строки'),
           avatar: z.string().optional(),
           avatarInitial: z.string().max(4).optional(),
           avatarBg: z.string().max(30).optional(),
+          avatarWide: z
+            .boolean()
+            .optional()
+            .describe('широкое фото вместо круглого аватара — для командных снимков с несколькими людьми в кадре'),
           caseUrl: z.string().optional(),
           caseLabel: z.string().max(40).optional(),
         }),
@@ -415,6 +451,11 @@ const MediaCopySchema = z.object({
   props: z.object({
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
+    accentWord: z
+      .string()
+      .max(40)
+      .optional()
+      .describe('кусок заголовка фирменным фиолетовым, напр. «Шаг 1.»'),
     description: z.string().max(400).optional(),
     checklist: z
       .array(
@@ -425,8 +466,24 @@ const MediaCopySchema = z.object({
       )
       .max(8)
       .optional(),
-    mediaPosition: z.enum(['left', 'right']).optional(),
+    mediaPosition: z
+      .enum(['left', 'right', 'below'])
+      .optional()
+      .describe("'left'/'right' — две колонки; 'below' — текст сверху, визуал под ним во всю ширину (для широких схем)"),
     mediaPlaceholder: z.string().max(80).optional(),
+    align: z
+      .enum(['left', 'center'])
+      .optional()
+      .describe("'left' (дефолт); 'center' — блок центрируется от планшета (для текстовых шапок разделов)"),
+    titleSize: z
+      .enum(['default', 'small'])
+      .optional()
+      .describe("'default' — H2 раздела; 'small' — уменьшенный заголовок для секций под общей шапкой (напр. «Шаг 1»/«Шаг 2»)"),
+    mediaSrc: z
+      .string()
+      .optional()
+      .describe('растровая картинка вместо мока (напр. /brand/platform.png); отменяет mediaVariant'),
+    mediaAlt: z.string().max(160).optional().describe('alt для mediaSrc'),
     mediaVariant: z
       .enum([
         'default',
@@ -493,6 +550,12 @@ const MediaCopySchema = z.object({
       'retail-portfolio-animated',
       'retail-mobile',
       'gantt-chart',
+      // Автоматизации (модуль Kaiten)
+      'automation-rule-trigger',
+      'automation-rule-action',
+      'automation-rules-list',
+      'automation-deadline',
+      'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
       'cli-terminal-final-animated',
@@ -881,6 +944,12 @@ export const MockVariantSchema = z.enum([
 'retail-report-bottlenecks',
 'retail-report-ai',
 'gantt-chart',
+// Автоматизации (модуль Kaiten)
+'automation-rule-trigger',
+'automation-rule-action',
+'automation-rules-list',
+'automation-deadline',
+'platform-kaiten',
 // Window-моки планирования (эталон — лендинг сравнения с MS Project)
 'window-links',
 'window-resource',

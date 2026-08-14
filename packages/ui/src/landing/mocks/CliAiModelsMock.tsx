@@ -62,7 +62,7 @@ const MODELS: Model[] = [
 ];
 
 const CSS = `
-.aim{font-family:'Inter',system-ui,sans-serif}
+.aim{font-family:var(--font-sans,'Roboto','Inter',system-ui,-apple-system,'Segoe UI',sans-serif)}
 .aim__strip{border-radius:12px;border:1px solid var(--color-border-default);background:var(--color-surface-card);
   box-shadow:0 18px 48px -24px rgba(45,45,45,.28);padding:12px 14px}
 .aim__cap{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--color-text-secondary)}

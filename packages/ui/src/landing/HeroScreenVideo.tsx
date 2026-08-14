@@ -1,3 +1,5 @@
+'use client';
+
 import { useRef, useState, type ReactNode } from 'react';
 
 /**
@@ -52,7 +54,11 @@ export interface HeroScreenVideoProps {
   poster?: string;
   /** Подпись под кнопкой play в плейсхолдере (когда нет видео). */
   placeholderLabel?: ReactNode;
-  /** Пункты trust-строки. Если не передать — нейтральные плейсхолдеры. */
+  /**
+   * Пункты trust-строки. Не передан — нейтральные плейсхолдеры (вид шаблона);
+   * пустой массив — строка не рендерится вовсе (когда пункты перенесены
+   * в подзаголовок или их нет в ТЗ).
+   */
   trustItems?: HeroTrustItem[];
 }
 
@@ -65,7 +71,7 @@ const STYLE = `
   --surface-section:#f5f5f5; --text-title:#2d2d2d; --text-secondary:#757575;
   font-family:inherit; color:var(--text-title);
   display:block; width:100%; box-sizing:border-box;
-  padding:var(--sp-12) 0 0; overflow:hidden;
+  padding:var(--sp-12) 0; overflow:hidden;
   background:radial-gradient(900px 420px at 50% -140px, var(--brand-12) 0%, rgba(239,233,249,0) 70%), linear-gradient(#fff,#fff);
 }
 .hsv-mock .hsv-glow{position:absolute;width:720px;height:520px;left:50%;top:-220px;transform:translateX(-50%);border-radius:9999px;background:linear-gradient(-90deg,#e298ff,#6fe5ff);filter:blur(220px);opacity:.28;pointer-events:none;z-index:0}
@@ -78,11 +84,13 @@ const STYLE = `
 .hsv-mock .sh-badge__text{font-size:14px; line-height:20px; font-weight:var(--fw-med); letter-spacing:var(--ls); color:var(--brand-100); white-space:nowrap;}
 .hsv-mock h1{font-size:48px; line-height:52px; font-weight:var(--fw-semi); letter-spacing:-1px; margin:var(--sp-4) 0 var(--sp-5);}
 .hsv-mock .hero__sub{font-size:20px; line-height:28px; color:var(--text-title); font-weight:var(--fw-reg); max-width:760px; margin:0 auto var(--sp-8);}
+/* Приписка под подзаголовком («300 + готовых сценариев») — фирменным фиолетовым. */
+.hsv-mock .hero__sub .hsv-sub-line{display:block; margin-top:var(--sp-2); color:var(--brand-100);}
 .hsv-mock .hero__cta{display:flex; gap:var(--sp-3); flex-wrap:wrap; justify-content:center;}
 .hsv-mock .hsv-btn{display:inline-flex; align-items:center; justify-content:center; gap:var(--sp-1); height:48px; padding:var(--sp-3) var(--sp-5); font-size:16px; line-height:24px; font-weight:var(--fw-med); letter-spacing:var(--ls); border-radius:var(--radius-lg); border:none; cursor:pointer; text-decoration:none; white-space:nowrap; background:var(--brand-100); color:#fff; transition:background .18s;}
 .hsv-mock .hsv-btn:hover{background:var(--brand-hover);}
 .hsv-mock .hero__visual{width:100%; display:flex; justify-content:center;}
-.hsv-mock .video-ph{width:100%; max-width:1008px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius-2xl); background:var(--surface-section); border:1px solid var(--border-default); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:var(--sp-4); box-shadow:0 24px 60px -30px rgba(45,45,45,.22); position:relative; overflow:hidden;}
+.hsv-mock .video-ph{width:100%; max-width:1008px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius-2xl); background:var(--surface-section); border:4px solid var(--border-default); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:var(--sp-4); box-shadow:0 24px 60px -30px rgba(45,45,45,.22); position:relative; overflow:hidden;}
 .hsv-mock .video-ph__video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; border:none; background:#000; z-index:0;}
 .hsv-mock .video-ph__play{position:relative; z-index:2; width:72px; height:72px; padding:0; border:none; cursor:pointer; border-radius:9999px; background:var(--brand-100); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px -8px rgba(125,76,207,.5);}
 .hsv-mock .video-ph__play svg{width:30px; height:30px; margin-left:4px;}
@@ -166,7 +174,8 @@ export function HeroScreenVideo({
   placeholderLabel = 'Видео о продукте',
   trustItems,
 }: HeroScreenVideoProps) {
-  const data = trustItems && trustItems.length ? trustItems : PLACEHOLDER_TRUST;
+  // `undefined` — вид шаблона с плейсхолдерами; `[]` — осознанное «строки нет».
+  const data = trustItems ?? PLACEHOLDER_TRUST;
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const play = () => { videoRef.current?.play(); };
@@ -218,14 +227,16 @@ export function HeroScreenVideo({
             </div>
           </div>
 
-          <div className="trust-line">
-            <div className="trust-track">
-              <TrustSet items={data} />
-              <span className="sep trust-gap" />
-              <TrustSet items={data} ariaHidden />
-              <span className="sep trust-gap" />
+          {data.length > 0 && (
+            <div className="trust-line">
+              <div className="trust-track">
+                <TrustSet items={data} />
+                <span className="sep trust-gap" />
+                <TrustSet items={data} ariaHidden />
+                <span className="sep trust-gap" />
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>

@@ -122,6 +122,9 @@ export type { Review, ReviewSliderProps } from './Review';
 
 export { TemplateGalleryMock } from './TemplateGalleryMock';
 
+export { HeroScreenVideo } from './HeroScreenVideo';
+export type { HeroScreenVideoProps, HeroTrustItem } from './HeroScreenVideo';
+
 export { HeroScreenInterface } from './HeroScreenInterface';
 export type {
   HeroScreenInterfaceProps,

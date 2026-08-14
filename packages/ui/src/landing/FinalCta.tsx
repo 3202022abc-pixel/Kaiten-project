@@ -4,6 +4,10 @@ import { cn } from '../primitives/cn';
 import { CTAsecondaryMock, type CTAButton } from './mocks/CTAsecondaryMock';
 import { MockVisual, type MockVariant } from './mocks';
 import CTAdark from './mocks/CTAdark';
+import CTAproduct from './mocks/CTAproduct';
+
+/** Иллюстрация платформы Kaiten по умолчанию для variant='product'. */
+const CTA_PRODUCT_IMAGE = '/brand/cta-product.png';
 
 export interface FinalCtaProps {
   title: string;
@@ -14,10 +18,19 @@ export interface FinalCtaProps {
    * 'solid' (по умолчанию) — прежняя сплошная фиолетовая заливка (старые лендинги).
    * 'gradient' — градиентный блок `CTAsecondaryMock` (ритейл и последующие лендинги).
    * 'dark' — тёмный CTA-блок `CTAdark` (текст + терминал), для лендингов про терминал/CLI.
+   * 'product' — блок `CTAproduct`: текст слева, иллюстрация платформы справа,
+   *   градиент лаванда → голубой (эталон — «Переходите из Trello за пару кликов»).
    */
-  variant?: 'solid' | 'gradient' | 'dark';
+  variant?: 'solid' | 'gradient' | 'dark' | 'product';
   /** Интерфейс справа (только для variant='gradient') под тематику лендинга. */
   visualVariant?: MockVariant;
+  /**
+   * Иллюстрация справа для variant='product'. Не задана — общая картинка
+   * платформы Kaiten (`/brand/cta-product.png`).
+   */
+  visualSrc?: string;
+  /** Alt для `visualSrc`. */
+  visualAlt?: string;
 }
 
 /**
@@ -33,7 +46,28 @@ export function FinalCta({
   secondaryCta,
   variant = 'solid',
   visualVariant,
+  visualSrc,
+  visualAlt,
 }: FinalCtaProps) {
+  if (variant === 'product') {
+    return (
+      <section
+        className={cn('mx-auto w-full max-w-(--container-kaiten)', 'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16')}
+      >
+        <CTAproduct
+          title={title}
+          text={description ?? ''}
+          buttonLabel={primaryCta.label}
+          buttonHref={primaryCta.href}
+          image={{
+            src: visualSrc ?? CTA_PRODUCT_IMAGE,
+            alt: visualAlt ?? 'Интерфейс Kaiten: задачи, загрузка команды, аналитика и Гант-план',
+          }}
+        />
+      </section>
+    );
+  }
+
   if (variant === 'dark') {
     return (
       <section

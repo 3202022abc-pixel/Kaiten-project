@@ -50,6 +50,8 @@ export const IDENTIFIER_KEYS = new Set([
   'featureTile',
   'mockVariant',
   'visualVariant',
+  'visualSrc',
+  'mediaSrc',
   'variant',
   'assetId',
   'illustrationId',

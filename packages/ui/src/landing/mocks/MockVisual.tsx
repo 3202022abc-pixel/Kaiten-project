@@ -67,6 +67,11 @@ import {
   RetailDocMiniMock,
   RetailReportMiniMock,
   GanttChartMock,
+  ModulePlatformKaiten,
+  AutomationRuleTriggerMock,
+  AutomationRuleActionMock,
+  AutomationRulesListMock,
+  AutomationDeadlineMock,
   WindowLinksMock,
   WindowResourceMock,
   WindowReportsMock,
@@ -183,6 +188,12 @@ export type MockVariant =
   | 'retail-report-bottlenecks'
   | 'retail-report-ai'
   | 'gantt-chart'
+  // Автоматизации (модуль Kaiten): конструктор правила «если — то» и сценарии
+  | 'automation-rule-trigger'
+  | 'automation-rule-action'
+  | 'automation-rules-list'
+  | 'automation-deadline'
+  | 'platform-kaiten'
   // Window-моки планирования (эталон — лендинг сравнения с MS Project)
   | 'window-links'
   | 'window-resource'
@@ -386,6 +397,22 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
         <div className="w-full overflow-hidden">
           <ScaleToFit designWidth={1040}>
             <GanttChartMock />
+          </ScaleToFit>
+        </div>
+      );
+    case 'automation-rule-trigger':
+      return <AutomationRuleTriggerMock />;
+    case 'automation-rule-action':
+      return <AutomationRuleActionMock />;
+    case 'automation-rules-list':
+      return <AutomationRulesListMock />;
+    case 'automation-deadline':
+      return <AutomationDeadlineMock />;
+    case 'platform-kaiten':
+      return (
+        <div className="w-full overflow-hidden">
+          <ScaleToFit designWidth={2000}>
+            <ModulePlatformKaiten />
           </ScaleToFit>
         </div>
       );

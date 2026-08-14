@@ -181,7 +181,12 @@ export function TabbedFeatureSection({
         'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
       )}
     >
-      <div className="mb-10 max-w-2xl">
+      {/*
+        Шапка секции центрируется от планшета. Ширину не зажимаем: заголовок
+        на десктопе идёт в одну строку (lg:whitespace-nowrap), а max-w-2xl
+        выталкивал бы его за контейнер. Ограничение осталось на описании.
+      */}
+      <div className="mb-10 md:text-center">
         {eyebrow && (
           <p
             data-comp="tabbed_feature.eyebrow"
@@ -192,14 +197,14 @@ export function TabbedFeatureSection({
         )}
         <h2
           data-comp="tabbed_feature.title"
-          className="text-3xl font-semibold leading-tight md:text-4xl"
+          className="text-3xl font-semibold leading-tight md:text-4xl lg:whitespace-nowrap"
         >
           {title}
         </h2>
         {description && (
           <p
             data-comp="tabbed_feature.description"
-            className="mt-4 text-lg text-(--color-text-primary)"
+            className="mx-auto mt-4 max-w-2xl text-lg text-(--color-text-primary)"
           >
             {description}
           </p>

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-07T14:45:00.557Z",
+  "updatedAt": "2026-08-14T08:51:30.431Z",
   "entries": [
     {
       "kind": "mock-use",
@@ -478,6 +478,69 @@
       "sectionIdx": 6,
       "domain": "pm",
       "recordedAt": "2026-08-07T14:45:00.557Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "hero-screen-video",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "hero",
+      "sectionIdx": 1,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.327Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "none",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 4,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.340Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "automation-rule-trigger",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 5,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.356Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "automation-rule-action",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 6,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.367Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "kanban-minimal",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.384Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "automation-rules-list",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.405Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "automation-deadline",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-08-14T08:51:30.431Z"
     }
   ]
 }
