@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-08-14T08:51:30.431Z",
+  "updatedAt": "2026-08-25T09:22:31.065Z",
   "entries": [
     {
       "kind": "mock-use",
@@ -486,7 +486,7 @@
       "sectionId": "hero",
       "sectionIdx": 1,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.327Z"
+      "recordedAt": "2026-08-25T09:22:30.998Z"
     },
     {
       "kind": "mock-use",
@@ -495,7 +495,7 @@
       "sectionId": "media_copy",
       "sectionIdx": 4,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.340Z"
+      "recordedAt": "2026-08-25T09:22:31.008Z"
     },
     {
       "kind": "mock-use",
@@ -504,7 +504,7 @@
       "sectionId": "media_copy",
       "sectionIdx": 5,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.356Z"
+      "recordedAt": "2026-08-25T09:22:31.021Z"
     },
     {
       "kind": "mock-use",
@@ -513,16 +513,7 @@
       "sectionId": "media_copy",
       "sectionIdx": 6,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.367Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "kanban-minimal",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "tabbed_feature",
-      "sectionIdx": 8,
-      "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.384Z"
+      "recordedAt": "2026-08-25T09:22:31.032Z"
     },
     {
       "kind": "mock-use",
@@ -531,7 +522,16 @@
       "sectionId": "tabbed_feature",
       "sectionIdx": 8,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.405Z"
+      "recordedAt": "2026-08-25T09:22:31.041Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "automation-checklist-done",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-08-25T09:22:31.054Z"
     },
     {
       "kind": "mock-use",
@@ -540,7 +540,7 @@
       "sectionId": "tabbed_feature",
       "sectionIdx": 8,
       "domain": "pm",
-      "recordedAt": "2026-08-14T08:51:30.431Z"
+      "recordedAt": "2026-08-25T09:22:31.065Z"
     }
   ]
 }

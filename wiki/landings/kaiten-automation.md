@@ -2,7 +2,7 @@
 slug: kaiten-automation
 type: landing
 created: 2026-08-12
-updated: 2026-08-14
+updated: 2026-08-25
 status: draft
 brief: content/briefs/kaiten-automation.json
 archetype: saas_landing
@@ -155,10 +155,10 @@ stale: false
 <!-- gen:audience-score -->
 # Audience score — `kaiten-automation`
 
-- **Score:** 70.07 / 100 (threshold 70) — ✅ pass
+- **Score:** 66.73 / 100 (threshold 70) — ❌ fail
 - **Resolved segments:** IT
 - **CTA types detected:** Trial, Unknown
-- **Generated:** 2026-08-14T08:51:30.283Z
+- **Generated:** 2026-08-25T09:22:30.966Z
 
 ## Breakdown
 
@@ -166,7 +166,7 @@ stale: false
 |---|---|---|---|---|---|
 | S1 | Story coverage | 46.01 | 0.4 | 18.4 | top-6 stories: compare(w=0.98, c=0.30), migrate-jira(w=0.95, c=0.30), fast-check(w=0.94, c=1.00), ux-check(w=0.71, c=0.53), sandbox(w=0.62, c=0.30), security(w=0.53, c=0.17) |
 | S2 | Segment fit | 100 | 0.3 | 30 | mentioned=1/1 [IT] |
-| S3 | Role addressability | 58.33 | 0.2 | 11.67 | PM=0.67, DM=0.50 |
+| S3 | Role addressability | 41.67 | 0.2 | 8.33 | PM=0.33, DM=0.50 |
 | S4 | CTA alignment | 100 | 0.1 | 10 | cta-types=[Trial,Unknown], match=1/1 |
 
 ## Story coverage (top-N)
@@ -182,7 +182,8 @@ stale: false
 
 ## Issues
 
-_None — все правила пройдены._
+- **score-below-threshold**: Audience-score 66.73 ниже порога 70.
+  - _suggestion:_ Слабее всего S3 (Role addressability=41.67): PM=0.33, DM=0.50. Не покрыты stories: compare (Хочу сравнить с тем, что уже есть); migrate-jira (Хочу понять, стоит ли переезжать с Jira); ux-check (Хочу проверить UX до решения). Добавь соответствующие секции или ключевые слова.
 
 <!-- /gen:audience-score -->
 

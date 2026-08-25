@@ -101,6 +101,8 @@ export { AutomationRuleTriggerMock } from './AutomationRuleTriggerMock';
 export { AutomationRuleActionMock } from './AutomationRuleActionMock';
 export { AutomationRulesListMock } from './AutomationRulesListMock';
 export { AutomationDeadlineMock } from './AutomationDeadlineMock';
+export { AutomationChecklistDoneMock } from './AutomationChecklistDoneMock';
+export { AutomationCardFlowMock } from './AutomationCardFlowMock';
 export { CliTerminalHeroMock } from './CliTerminalHeroMock';
 export { CliTerminalHeroAnimatedMock } from './CliTerminalHeroAnimatedMock';
 export { CliTerminalFinalAnimatedMock } from './CliTerminalFinalAnimatedMock';

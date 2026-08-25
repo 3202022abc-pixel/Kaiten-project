@@ -52,7 +52,12 @@ export function FinalCta({
   if (variant === 'product') {
     return (
       <section
-        className={cn('mx-auto w-full max-w-(--container-kaiten)', 'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16')}
+        className={cn(
+          'mx-auto w-full max-w-(--container-kaiten)',
+          'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          // Отбивка от подвала: 48 на мобилке, 64 на планшете, 96 на десктопе.
+          'pb-12 md:pb-16 lg:pb-24',
+        )}
       >
         <CTAproduct
           title={title}

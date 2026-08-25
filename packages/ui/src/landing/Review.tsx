@@ -89,7 +89,8 @@ const STYLE = `
 .revx-mock .revx__track{display:flex; gap:var(--sp-8); align-items:stretch; width:max-content; transition:transform .35s ease;}
 .revx-mock .revx__track--single{width:100%; justify-content:center;}
 .revx-mock .otz{flex-shrink:0; width:384px; height:460px; background:#fff; border-radius:var(--radius-2xl); padding:var(--sp-6); display:flex; flex-direction:column; gap:var(--sp-6);}
-.revx-mock .otz__top{display:flex; flex-direction:column; gap:var(--sp-5); flex:1; min-height:0;}
+/* gap задаёт воздух между логотипом и текстом отзыва. */
+.revx-mock .otz__top{display:flex; flex-direction:column; gap:var(--sp-8); flex:1; min-height:0;}
 .revx-mock .otz__hd{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--sp-4);}
 .revx-mock .otz__co{font-size:18px; line-height:28px; font-weight:var(--fw-semi); color:var(--text-title);}
 /*
@@ -100,7 +101,9 @@ const STYLE = `
 .revx-mock .otz__co{--otz-logo-h:60px; display:flex; align-items:center; min-height:var(--otz-logo-h);}
 .revx-mock .otz__co img{height:calc(var(--otz-logo-h) * var(--otz-logo-scale, 1)); width:auto; max-width:180px; object-fit:contain; display:block;}
 .revx-mock .otz__q{flex-shrink:0; width:79px; height:60px; color:#f3f4f6;}
-.revx-mock .otz__text{font-size:16px; line-height:24px; color:var(--text-secondary); flex:1; display:flex; align-items:center;}
+/* Текст отзыва прижат к верху: при align-items:center короткие цитаты
+   висели по центру, и в соседних карточках первые строки не совпадали. */
+.revx-mock .otz__text{font-size:16px; line-height:24px; color:var(--text-secondary); flex:1; display:flex; align-items:flex-start;}
 /*
   Блок автора прижат к низу карточки (.otz__top растягивается), поэтому его
   высота задаёт положение аватара. У отзыва без строки роли блок был на 16px
@@ -175,7 +178,7 @@ const PLACEHOLDER_REVIEWS: Review[] = Array.from({ length: 4 }, (_, i) => ({
 
 const GAP = 32;
 
-export function ReviewSlider({ title = 'Заголовок секции отзывов', subtitle, reviews }: ReviewSliderProps) {
+export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
   const data = reviews && reviews.length ? reviews : PLACEHOLDER_REVIEWS;
 
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -230,10 +233,12 @@ export function ReviewSlider({ title = 'Заголовок секции отзы
     <section className="revx-mock" aria-label="Отзывы клиентов">
       <style dangerouslySetInnerHTML={{ __html: STYLE }} />
       <div className="revx__in">
-        <div className="revx__head">
-          <h2>{title}</h2>
-          {subtitle ? <p>{subtitle}</p> : null}
-        </div>
+        {(title || subtitle) && (
+          <div className="revx__head">
+            {title ? <h2>{title}</h2> : null}
+            {subtitle ? <p>{subtitle}</p> : null}
+          </div>
+        )}
 
         <div className="revx__wrap" ref={wrapRef}>
           <div className={`revx__track${data.length === 1 ? ' revx__track--single' : ''}`} ref={trackRef}>

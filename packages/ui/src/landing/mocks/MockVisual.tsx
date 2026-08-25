@@ -72,6 +72,8 @@ import {
   AutomationRuleActionMock,
   AutomationRulesListMock,
   AutomationDeadlineMock,
+  AutomationChecklistDoneMock,
+  AutomationCardFlowMock,
   WindowLinksMock,
   WindowResourceMock,
   WindowReportsMock,
@@ -193,6 +195,8 @@ export type MockVariant =
   | 'automation-rule-action'
   | 'automation-rules-list'
   | 'automation-deadline'
+  | 'automation-checklist-done'
+  | 'automation-card-flow'
   | 'platform-kaiten'
   // Window-моки планирования (эталон — лендинг сравнения с MS Project)
   | 'window-links'
@@ -408,6 +412,10 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
       return <AutomationRulesListMock />;
     case 'automation-deadline':
       return <AutomationDeadlineMock />;
+    case 'automation-checklist-done':
+      return <AutomationChecklistDoneMock />;
+    case 'automation-card-flow':
+      return <AutomationCardFlowMock />;
     case 'platform-kaiten':
       return (
         <div className="w-full overflow-hidden">

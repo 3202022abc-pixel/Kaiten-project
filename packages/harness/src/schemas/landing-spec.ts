@@ -85,6 +85,8 @@ export const AssetRefSchema = z.object({
       'automation-rule-action',
       'automation-rules-list',
       'automation-deadline',
+      'automation-checklist-done',
+      'automation-card-flow',
       'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
@@ -211,6 +213,11 @@ const HeroSectionSchema = z.object({
     board: HeroBoardSchema.optional(),
     /** Короткие буллеты под подзаголовком («что заберёте»). Только layout 'side'. */
     bullets: z.array(z.string().min(2).max(160)).max(4).optional(),
+    trust: z
+      .array(z.object({ icon: z.string().max(40).optional(), label: z.string().min(2).max(60) }))
+      .max(4)
+      .optional()
+      .describe('строка доверия под видео: пункты с фиолетовыми иконками'),
     /**
      * Карточка формы регистрации в правой колонке вместо `visual` — для лендингов,
      * где целевое действие это заполнить форму, а не перейти по кнопке. Подпись
@@ -425,13 +432,42 @@ const CtaBannerSchema = z.object({
   id: z.literal('cta_banner'),
   component: z.literal('CtaBanner'),
   props: z.object({
-    title: z.string().min(4).max(120),
+    title: z.string().min(4).max(120).optional(),
     description: z.string().max(280).optional(),
-    primaryCta: CtaSchema,
+    primaryCta: CtaSchema.optional(),
     secondaryCta: CtaSchema.nullable().optional(),
+    cards: z
+      .array(
+        z.object({
+          icon: z.string().max(40).optional(),
+          title: z.string().min(4).max(120),
+          description: z.string().max(400).optional(),
+          cta: CtaSchema,
+          tone: z.enum(['violet', 'gray']).optional(),
+        }),
+      )
+      .min(2)
+      .max(3)
+      .optional()
+      .describe('пара карточек в строку вместо широкого баннера: иконка, заголовок, описание, ссылка'),
+    featureTile: z
+      .string()
+      .max(80)
+      .optional()
+      .describe('подпись плитки из галереи мини-мокапов фич — визуал у правого края баннера; кнопка при этом уходит под текст'),
     /** Градиентный вид (подложка GradientPanel). Opt-in, старые лендинги без него. */
     gradient: z.boolean().optional(),
   }),
+}).superRefine((section, ctx) => {
+  // Секция рисует либо широкий баннер, либо пару карточек — что-то одно должно быть заполнено.
+  const { title, primaryCta, cards } = section.props;
+  if (!cards && !(title && primaryCta)) {
+    ctx.addIssue({
+      code: 'custom',
+      path: ['props'],
+      message: 'cta_banner: нужен либо title + primaryCta, либо cards',
+    });
+  }
 });
 
 /* ─── CtaButtons (одиночная/парная кнопка по центру, без карточки) ──── */
@@ -441,6 +477,10 @@ const CtaButtonsSchema = z.object({
   props: z.object({
     primaryCta: CtaSchema,
     secondaryCta: CtaSchema.nullable().optional(),
+    flushTop: z
+      .boolean()
+      .optional()
+      .describe('убрать верхний отступ секции — когда кнопки идут сразу за предыдущим блоком'),
   }),
 });
 
@@ -475,6 +515,10 @@ const MediaCopySchema = z.object({
       .enum(['left', 'center'])
       .optional()
       .describe("'left' (дефолт); 'center' — блок центрируется от планшета (для текстовых шапок разделов)"),
+    flushTop: z
+      .boolean()
+      .optional()
+      .describe('убрать верхний отступ секции — когда блок идёт сразу под текстовой шапкой раздела'),
     titleSize: z
       .enum(['default', 'small'])
       .optional()
@@ -555,6 +599,8 @@ const MediaCopySchema = z.object({
       'automation-rule-action',
       'automation-rules-list',
       'automation-deadline',
+      'automation-checklist-done',
+      'automation-card-flow',
       'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
@@ -949,6 +995,8 @@ export const MockVariantSchema = z.enum([
 'automation-rule-action',
 'automation-rules-list',
 'automation-deadline',
+'automation-checklist-done',
+'automation-card-flow',
 'platform-kaiten',
 // Window-моки планирования (эталон — лендинг сравнения с MS Project)
 'window-links',
@@ -975,6 +1023,15 @@ const TabbedFeatureSectionSchema = z.object({
   props: z.object({
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
+    variant: z
+      .enum(['tabs', 'list'])
+      .optional()
+      .describe("'tabs' (дефолт) — переключаемые вкладки; 'list' — раскрытый список: все сценарии сразу, друг под другом"),
+    accentWord: z
+      .string()
+      .max(40)
+      .optional()
+      .describe('кусок заголовка фирменным фиолетовым, напр. «более 300 сценариев»'),
     description: z.string().max(280).optional(),
     tabs: z
       .array(

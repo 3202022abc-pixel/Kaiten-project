@@ -9,6 +9,12 @@
       "autoPort": true
     },
     {
+      "name": "out-static",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "4321", "--directory", "out"],
+      "port": 4321
+    },
+    {
       "name": "storybook",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["--prefix", "packages/ui", "run", "storybook"],

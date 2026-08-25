@@ -2,6 +2,7 @@ import { AccentText } from '../primitives/AccentText';
 import { ButtonLink } from '../primitives/ButtonLink';
 import { Icon } from '../primitives/Icon';
 import { Inspect } from '../primitives/Inspect';
+import { MockFit } from '../primitives/MockFit';
 import { cn } from '../primitives/cn';
 import { MockVisual, type MockVariant } from './mocks';
 
@@ -45,6 +46,12 @@ export interface MediaCopyProps {
    * заголовком), чтобы иерархия читалась.
    */
   titleSize?: 'default' | 'small';
+  /**
+   * Убрать верхний отступ секции. Нужно, когда блок идёт сразу под текстовой
+   * шапкой раздела: иначе складываются нижний отступ шапки и верхний этого
+   * блока, и между ними зияет двойной интервал.
+   */
+  flushTop?: boolean;
   mediaVariant?: MediaCopyVariant;
   /**
    * Растровая картинка вместо mock-компонента (напр. /brand/platform.png).
@@ -78,6 +85,7 @@ export function MediaCopy({
   mediaPlaceholder = 'product UI',
   align = 'left',
   titleSize = 'default',
+  flushTop = false,
   mediaVariant = 'default',
   mediaSrc,
   mediaAlt,
@@ -91,6 +99,7 @@ export function MediaCopy({
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
         'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+        flushTop && 'pt-0 md:pt-0 lg:pt-0',
       )}
     >
       <div
@@ -104,8 +113,8 @@ export function MediaCopy({
               )
             : isStacked
               ? 'flex flex-col gap-10'
-              : 'grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16 lg:items-center',
-          !hideMedia && mediaPosition === 'left' && 'lg:[&>div:first-child]:order-2',
+              : 'grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center lg:gap-16',
+          !hideMedia && mediaPosition === 'left' && 'md:[&>div:first-child]:order-2',
         )}
       >
         {/*
@@ -236,12 +245,16 @@ function MediaCopyVisual({
         src={src}
         alt={alt ?? ''}
         loading="lazy"
-        className="block h-auto w-full rounded-(--radius-2xl)"
+        className="block h-auto w-full rounded-(--radius-xl) lg:rounded-(--radius-2xl)"
       />
     );
   }
   if (variant === 'default') return <ProductMock label={placeholder} />;
-  const rendered = <MockVisual variant={variant} />;
+  const rendered = (
+    <MockFit>
+      <MockVisual variant={variant} />
+    </MockFit>
+  );
   return rendered ?? <ProductMock label={placeholder} />;
 }
 

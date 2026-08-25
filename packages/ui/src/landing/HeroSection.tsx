@@ -1,4 +1,5 @@
 import { ButtonLink } from '../primitives/ButtonLink';
+import { Icon } from '../primitives/Icon';
 import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { MockVisual, type MockVariant } from './mocks';
@@ -107,6 +108,8 @@ export interface HeroSectionProps {
    * Рендерятся только в layout 'side'.
    */
   bullets?: string[];
+  /** Строка доверия под видео: пункты с фиолетовыми иконками через разделители. */
+  trust?: { icon?: string; label: string }[];
   /**
    * Карточка формы регистрации в правой колонке — вместо `visual`. Когда задана,
    * кнопки CTA не рендерятся: submit формы и есть целевое действие, а его подпись
@@ -165,6 +168,7 @@ export function HeroSection({
   visualPosition = 'side',
   board,
   bullets,
+  trust,
   form,
   speaker,
   flush,
@@ -222,7 +226,10 @@ export function HeroSection({
         buttonHref={primaryCta.href}
         videoSrc={visual.src}
         placeholderLabel={visual.alt ?? 'Видео о продукте'}
-        trustItems={[]}
+        trustItems={(trust ?? []).map((t) => ({
+          icon: t.icon ? <Icon name={t.icon} className="h-full w-full" strokeWidth={2} /> : undefined,
+          label: t.label,
+        }))}
       />
     );
   }

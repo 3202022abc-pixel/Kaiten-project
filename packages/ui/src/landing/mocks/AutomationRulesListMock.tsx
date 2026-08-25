@@ -73,7 +73,7 @@ export function AutomationRulesListMock() {
       className={cn(
         'relative w-[680px] overflow-hidden rounded-(--radius-3xl)',
         'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_30px_80px_-30px_rgba(125,76,207,0.30)]',
+        'shadow-[0_0_40px_-12px_rgba(125,76,207,0.30)]',
       )}
     >
       {/* window-chrome */}

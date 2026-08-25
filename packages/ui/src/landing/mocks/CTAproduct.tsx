@@ -28,7 +28,7 @@ export type CTAproductProps = {
 };
 
 const css = `
-.ctp{position:relative;overflow:hidden;border-radius:24px;padding:48px;
+.ctp{position:relative;overflow:hidden;border-radius:16px;padding:48px;
   display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:48px;
   background:linear-gradient(90deg,#ece0ff,#cdecff);
   font-family:'Roboto',system-ui,sans-serif;color:#2d2d2d}
@@ -45,12 +45,12 @@ const css = `
 .ctp__visual img{width:100%;height:auto;display:block;border-radius:16px}
 @media(min-width:1280px){.ctp__visual img{width:85%}}
 @media(max-width:1023px){
-  .ctp{grid-template-columns:1fr;text-align:center;background:linear-gradient(180deg,#ece0ff,#cdecff)}
+  .ctp{grid-template-columns:1fr;text-align:center;border-radius:12px;background:linear-gradient(180deg,#ece0ff,#cdecff)}
   .ctp__btn{margin-inline:auto}
   .ctp__visual{order:2}
 }
 @media(max-width:767px){
-  .ctp{border-radius:16px;text-align:left}
+  .ctp{text-align:left}
   .ctp__copy h2{font-size:24px;line-height:32px}
   .ctp__btn{display:flex;width:fit-content}
 }
