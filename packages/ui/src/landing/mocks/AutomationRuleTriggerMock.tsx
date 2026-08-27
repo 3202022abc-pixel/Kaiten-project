@@ -67,9 +67,9 @@ export function AutomationRuleTriggerMock() {
     <div
       aria-hidden
       className={cn(
-        'relative w-[520px] overflow-hidden rounded-(--radius-3xl)',
+        'relative w-[520px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-2xl)',
         'bg-(--color-surface-card) p-5',
-        'shadow-[0_0_40px_-12px_rgba(125,76,207,0.30)]',
+        'shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]',
       )}
     >
       <div className="mb-3.5 text-center text-[15px] font-semibold text-(--color-text-accent)">Когда</div>

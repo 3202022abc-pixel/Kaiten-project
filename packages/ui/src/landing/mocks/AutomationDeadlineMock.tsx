@@ -70,9 +70,9 @@ export function AutomationDeadlineMock() {
     <div
       aria-hidden
       className={cn(
-        'relative w-[680px] overflow-hidden rounded-(--radius-3xl)',
-        'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_0_40px_-12px_rgba(125,76,207,0.30)]',
+        'relative w-[680px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-2xl)',
+        'bg-(--color-surface-card)',
+        'shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]',
       )}
     >
       {/* window-chrome */}
@@ -82,7 +82,6 @@ export function AutomationDeadlineMock() {
         <span className="h-2 w-2 rounded-full bg-green-300" />
         <div className="ml-2 flex flex-wrap items-center gap-3 text-[11px] text-(--color-text-secondary)">
           <span className="font-medium text-(--color-text-primary)">Текущие задачи</span>
-          <span>Сроки</span>
           <span>Напоминания</span>
         </div>
       </div>
@@ -96,15 +95,18 @@ export function AutomationDeadlineMock() {
           </Column>
 
           <Column title="В работе" count="2">
+            {IN_PROGRESS.map((c) => (
+              <MutedCard key={c.title} {...c} />
+            ))}
+
             {/* карточка, у которой горит срок */}
             <div className="rounded-(--radius-lg) border border-(--color-red-100)/40 bg-(--color-surface-card) px-2.5 pb-2.5 pt-1.5 shadow-[0_0_10px_-2px_rgba(24,24,27,0.10)]">
-              <span className="inline-flex h-4 items-center rounded-full bg-(--color-red-12) px-1.5 text-[10px] font-medium text-red-700">
-                Срочно
-              </span>
+              <div className="text-[9px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">
+                Родительская карточка
+              </div>
               <div className="mt-1.5 text-[12px] font-medium leading-snug text-(--color-text-primary)">
                 Заменить картинку на сайте
               </div>
-              <div className="mt-1.5 text-[10px] text-(--color-text-secondary)">Чек-лист 1/2</div>
               <div className="mt-2 flex items-center gap-1.5">
                 <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-(--color-action-primary-soft) text-[9px] font-semibold text-(--color-text-accent)">
                   АК
@@ -113,6 +115,16 @@ export function AutomationDeadlineMock() {
                   <Icon name="Clock" aria-hidden className="h-2.5 w-2.5" strokeWidth={2.5} />
                   Сегодня
                 </span>
+              </div>
+              {/* прогресс чек-листа — тот же вид, что в соседних моках */}
+              <div className="mt-1.5">
+                <div className="mb-1.5 flex items-center gap-2">
+                  <span className="text-[10px] text-(--color-text-secondary)">Чек-лист</span>
+                  <span className="ml-auto text-[10px] font-semibold text-(--color-text-secondary)">1/2</span>
+                </div>
+                <div className="h-1 overflow-hidden rounded-full bg-(--color-neutral-200)">
+                  <div className="h-full w-1/2 rounded-full bg-(--color-action-primary)" />
+                </div>
               </div>
               <ul className="mt-3 space-y-1">
                 {[
@@ -135,9 +147,6 @@ export function AutomationDeadlineMock() {
               </ul>
             </div>
 
-            {IN_PROGRESS.map((c) => (
-              <MutedCard key={c.title} {...c} />
-            ))}
           </Column>
 
           <Column title="Готово" count="2">
@@ -148,7 +157,7 @@ export function AutomationDeadlineMock() {
         </div>
 
         {/* уведомление Kaiten: лежит поверх пустого низа доски, карточек не задевает */}
-        <div className="absolute right-16 top-[180px] w-[300px] rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) p-3 shadow-[0_0_40px_-12px_rgba(24,24,27,0.35)]">
+        <div className="absolute right-8 top-[258px] w-[300px] rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) p-3 shadow-[0_0_40px_-12px_rgba(24,24,27,0.35)]">
           <div className="flex gap-2.5">
             <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center">
               <KaitenLogo markOnly className="h-full w-full" />

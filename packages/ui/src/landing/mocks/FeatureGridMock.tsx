@@ -94,6 +94,9 @@ const STYLE = `
     display:flex; grid-template-columns:none; overflow-x:auto; scroll-snap-type:x proximity;
     gap:var(--sp-6); scrollbar-width:none; -ms-overflow-style:none; padding-bottom:4px;
     margin-inline:calc(-1 * var(--sp-6)); padding-left:var(--sp-6); scroll-padding-left:var(--sp-6);
+    /* пока карточки помещаются — держим их по центру; как только лента шире экрана,
+       safe откатывает на flex-start, чтобы левый край не уезжал за пределы прокрутки */
+    justify-content:safe center;
   }
   .fg-grid::-webkit-scrollbar{ display:none; }
   .fg-card{ flex:0 0 340px; max-width:340px; scroll-snap-align:start; }
@@ -106,9 +109,11 @@ const STYLE = `
   .fg-head{ align-items:flex-start; text-align:left; margin-bottom:var(--sp-6); }
   .fg-heading{ font-size:24px; line-height:32px; }
   .fg-grid{ gap:var(--sp-4); margin-inline:calc(-1 * var(--sp-4)); padding-left:var(--sp-4); scroll-padding-left:var(--sp-4); }
-  .fg-card{ flex:0 0 86%; max-width:none; }
+  .fg-card{ flex:0 0 318px; max-width:318px; }
   .fg-grid > .fg-card:last-child{ margin-right:var(--sp-4); }
 }
+/* планшет: та же карточка 318, что и на мобилке */
+@media(min-width:768px) and (max-width:1023px){ .fg-card{ flex:0 0 318px; max-width:318px; } }
 @media(prefers-reduced-motion:reduce){ .fg-grid{ scroll-behavior:auto; } }
 `;
 

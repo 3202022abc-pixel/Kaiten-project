@@ -25,7 +25,17 @@ const SIGNUP = 'https://passport.kaiten.ru/ru/registration';
 
 export function SiteHeader() {
   return (
-    <header className="relative isolate">
+    <header data-kt-header className="isolate">
+      {/*
+        Рендерер оборачивает каждую секцию в свой div, поэтому sticky на самой
+        шапке залипал бы внутри обёртки высотой в шапку. Липким делаем родителя.
+      */}
+      <style
+        dangerouslySetInnerHTML={{
+          __html:
+            ':has(> header[data-kt-header]){position:sticky;top:0;z-index:50}',
+        }}
+      />
       <div className="border-b border-(--color-border-default) bg-(--color-surface-page)">
         <div className="mx-auto flex w-full max-w-(--container-kaiten) items-center gap-6 px-4 py-3.5 md:px-6 xl:px-0">
           {/* logo */}

@@ -43,13 +43,13 @@ export function LogoMarquee({
   durationSec,
 }: LogoMarqueeProps) {
   return (
-    <section className={cn('w-full overflow-hidden px-4 py-12 md:px-6 md:py-16')}>
+    <section className={cn('w-full overflow-hidden px-4 py-16 md:px-6 md:py-24 lg:py-32')}>
       {(eyebrow || title || description) && (
         // Отступ до ленты задаёт сам мок (.lmq__marq margin-top).
         // Ширину блока не зажимаем: заголовок на десктопе идёт в одну строку
         // (lg:whitespace-nowrap) и при max-w-3xl вылезал за контейнер, из-за
         // чего казался сдвинутым влево. Ограничение осталось на описании.
-        <div className="mx-auto text-center">
+        <div className="mx-auto text-left md:text-center">
           {eyebrow && (
             <p
               data-comp="logo_marquee.eyebrow"

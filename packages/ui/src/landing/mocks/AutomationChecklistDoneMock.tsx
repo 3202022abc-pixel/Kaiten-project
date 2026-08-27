@@ -126,9 +126,9 @@ export function AutomationChecklistDoneMock() {
     <div
       aria-hidden
       className={cn(
-        'acd relative w-[680px] overflow-hidden rounded-(--radius-3xl)',
-        'border border-(--color-border-default) bg-(--color-surface-card)',
-        'shadow-[0_0_40px_-12px_rgba(125,76,207,0.30)]',
+        'acd relative w-[680px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-2xl)',
+        'bg-(--color-surface-card)',
+        'shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]',
       )}
     >
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
@@ -140,7 +140,6 @@ export function AutomationChecklistDoneMock() {
         <span className="h-2 w-2 rounded-full bg-green-300" />
         <div className="ml-2 flex flex-wrap items-center gap-3 text-[11px] text-(--color-text-secondary)">
           <span className="font-medium text-(--color-text-primary)">Текущие задачи</span>
-          <span>Доска</span>
           <span>Чек-листы</span>
         </div>
       </div>
@@ -175,8 +174,8 @@ export function AutomationChecklistDoneMock() {
         <div className="acd__card absolute" style={{ top: CARD_TOP, left: CARD_LEFT, width: CARD_W }}>
           <div className="rounded-(--radius-lg) border border-[#ededed] bg-(--color-surface-card) p-2.5 shadow-[0_0_10px_-2px_rgba(24,24,27,0.10)]">
             <div className="flex items-center gap-2">
-              <span className="inline-flex h-4 items-center rounded-full bg-(--color-blue-12) px-1.5 text-[10px] font-medium text-(--color-blue-100)">
-                Backend
+              <span className="whitespace-nowrap text-[9.5px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">
+                Родительская карточка
               </span>
               <span className="acd__done ml-auto inline-flex items-center gap-1 rounded-full bg-(--color-green-12) px-1.5 py-0.5 text-[9.5px] font-medium text-green-700">
                 Готово

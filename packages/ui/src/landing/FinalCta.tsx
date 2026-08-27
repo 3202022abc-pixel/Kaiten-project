@@ -55,6 +55,8 @@ export function FinalCta({
         className={cn(
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          // Сверху отступа нет — блок примыкает к предыдущей секции.
+          'pt-0 md:pt-0 lg:pt-0',
           // Отбивка от подвала: 48 на мобилке, 64 на планшете, 96 на десктопе.
           'pb-12 md:pb-16 lg:pb-24',
         )}

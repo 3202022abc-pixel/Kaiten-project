@@ -60,10 +60,10 @@ function CtaBannerCards({ cards }: { cards: CtaBannerCardProps[] }) {
     <section
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
-        'px-4 py-10 pb-20 pt-16 md:px-6 xl:px-0 lg:py-12 lg:pb-28 lg:pt-24',
+        'px-4 pb-0 pt-16 md:px-6 xl:px-0 lg:pb-0 lg:pt-24',
       )}
     >
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
         {cards.map((c, i) => (
           <Inspect
             as="div"
@@ -97,7 +97,12 @@ function CtaBannerCards({ cards }: { cards: CtaBannerCardProps[] }) {
             )}
             <div className="mt-auto pt-6">
               <Inspect name={`cta_banner.cards[${i}].cta`}>
-                <ButtonLink size="lg" href={c.cta.href}>
+                <ButtonLink
+                  size="lg"
+                  variant={c.tone === 'gray' ? 'outline' : undefined}
+                  href={c.cta.href}
+                  className="whitespace-nowrap"
+                >
                   {c.cta.label}
                 </ButtonLink>
               </Inspect>

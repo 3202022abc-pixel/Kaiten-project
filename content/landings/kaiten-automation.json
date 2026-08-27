@@ -13,8 +13,6 @@
       "props": {
         "eyebrow": "Модуль «Автоматизации»",
         "title": "Избавьтесь от рутины и сократите количество ручной работы",
-        "accentWord": "рутины",
-        "accentPill": false,
         "subtitle": "Настройте правило один раз — Кайтен сам назначит ответственных, переместит карточки, напомнит о задаче, добавит чек-лист и не только",
         "primaryCta": {
           "label": "Попробовать бесплатно",
@@ -64,7 +62,9 @@
             "role": "«Технологии Надежности»",
             "avatar": "/brand/reviews/tehnologii-avatar.png",
             "avatarInitial": "ТН",
-            "avatarWide": true
+            "avatarWide": true,
+            "caseUrl": "https://kaiten.ru/blog/tag/case/",
+            "caseLabel": "Читать кейс"
           },
           {
             "logo": "/brand/reviews/buzzolls-logo.png",
@@ -73,7 +73,9 @@
             "name": "Владимир Фаст",
             "role": "руководитель ИТ-отдела\nBuzzolls",
             "avatar": "/brand/reviews/buzzolls-avatar.png",
-            "avatarInitial": "ВФ"
+            "avatarInitial": "ВФ",
+            "caseUrl": "https://kaiten.ru/blog/tag/case/",
+            "caseLabel": "Читать кейс"
           },
           {
             "logo": "/brand/reviews/proctoredu-logo.png",
@@ -81,7 +83,9 @@
             "name": "Марат Закиров",
             "role": "руководитель отдела развития ProctorEdu",
             "avatar": "/brand/reviews/proctoredu-avatar.png",
-            "avatarInitial": "МЗ"
+            "avatarInitial": "МЗ",
+            "caseUrl": "https://kaiten.ru/blog/tag/case/",
+            "caseLabel": "Читать кейс"
           }
         ]
       }
@@ -192,7 +196,7 @@
                 "text": "Карточка заблокирована → автоматически меняется ее статус, чтобы команда сразу видела затор"
               }
             ],
-            "mockVariant": "automation-checklist-done"
+            "mockVariant": "automation-card-flow"
           },
           {
             "id": "routine",
@@ -210,7 +214,7 @@
                 "text": "Изменилось поле в карточке → значение автоматически подставляется в связанные дочерние карточки"
               }
             ],
-            "mockVariant": "automation-card-flow"
+            "mockVariant": "automation-checklist-done"
           },
           {
             "id": "deadlines",
@@ -331,7 +335,8 @@
         "description": "Кайтен — это не только задачи и автоматизации. Здесь могут работать все отделы компании: от бухгалтерии до разработки. Вы не теряете контекст между командами и не платите за десяток разных сервисов",
         "mediaPosition": "below",
         "mediaSrc": "/brand/platform.png",
-        "mediaAlt": "Карта продукта Кайтен: ядро платформы, инструменты и модули, сквозной ИИ"
+        "mediaAlt": "Карта продукта Кайтен: ядро платформы, инструменты и модули, сквозной ИИ",
+        "flushTop": true
       }
     },
     {

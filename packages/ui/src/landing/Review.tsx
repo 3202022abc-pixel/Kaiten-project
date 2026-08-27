@@ -77,6 +77,7 @@ const STYLE = `
   --border-default:#dbe1e0; --text-title:#2d2d2d; --text-secondary:#757575; --surface-section:#f7f7f8;
   font-family:'Roboto','Inter',system-ui,-apple-system,sans-serif; color:var(--text-title);
   background:var(--surface-section); padding:48px 0;
+  overflow-x:clip;
 }
 /* На десктопе секция дышит шире — 96px сверху и снизу. */
 @media(min-width:1024px){ .revx-mock{ padding:96px 0; } }
@@ -85,10 +86,15 @@ const STYLE = `
 .revx-mock .revx__head{display:flex; flex-direction:column; gap:var(--sp-4); align-items:center; text-align:center; width:100%;}
 .revx-mock .revx__head h2{font-size:36px; line-height:40px; font-weight:var(--fw-semi); color:var(--text-title); margin:0;}
 .revx-mock .revx__head p{font-size:16px; line-height:24px; color:var(--text-title); max-width:680px; margin:0;}
-.revx-mock .revx__wrap{width:100%; overflow:hidden; position:relative;}
+/*
+ * Лента выходит из контейнера во всю ширину экрана: первая карточка остаётся
+ * выровненной по заголовку (padding слева = отступ контейнера), а справа лента
+ * доезжает до края экрана, а не обрывается по границе контейнера.
+ */
+.revx-mock .revx__wrap{width:100vw; margin-inline:calc(50% - 50vw); padding-left:calc(50vw - 50%); overflow:hidden; position:relative;}
 .revx-mock .revx__track{display:flex; gap:var(--sp-8); align-items:stretch; width:max-content; transition:transform .35s ease;}
 .revx-mock .revx__track--single{width:100%; justify-content:center;}
-.revx-mock .otz{flex-shrink:0; width:384px; height:460px; background:#fff; border-radius:var(--radius-2xl); padding:var(--sp-6); display:flex; flex-direction:column; gap:var(--sp-6);}
+.revx-mock .otz{flex-shrink:0; width:384px; min-height:460px; background:#fff; border-radius:var(--radius-2xl); padding:var(--sp-6); display:flex; flex-direction:column; gap:var(--sp-6);}
 /* gap задаёт воздух между логотипом и текстом отзыва. */
 .revx-mock .otz__top{display:flex; flex-direction:column; gap:var(--sp-8); flex:1; min-height:0;}
 .revx-mock .otz__hd{display:flex; align-items:flex-start; justify-content:space-between; gap:var(--sp-4);}
@@ -124,18 +130,23 @@ const STYLE = `
 .revx-mock .otz__btn{align-self:flex-start; display:inline-flex; align-items:center; border:1px solid var(--border-default); border-radius:var(--radius-lg); padding:10px var(--sp-4); font-size:16px; line-height:24px; font-weight:var(--fw-med); color:var(--brand-100); background:#fff; text-decoration:none; cursor:pointer; transition:background .18s, border-color .18s, color .18s;}
 .revx-mock .otz__btn:hover{border-color:var(--brand-48); background:var(--brand-12); color:var(--brand-hover);}
 .revx-mock .revx__nav{display:flex; gap:14px; align-items:center;}
-.revx-mock .revx__navbtn{width:48px; height:48px; border-radius:9999px; border:1px solid var(--border-default); background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--brand-100); transition:background .18s, border-color .18s, color .18s, box-shadow .18s;}
+.revx-mock .revx__navbtn{width:40px; height:40px; border-radius:9999px; border:1px solid var(--border-default); background:#fff; display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--brand-100); transition:background .18s, border-color .18s, color .18s, box-shadow .18s;}
 .revx-mock .revx__navbtn:hover:not(:disabled){background:var(--brand-12); border-color:var(--brand-48); color:var(--brand-hover);}
 .revx-mock .revx__navbtn:focus-visible{outline:none; box-shadow:0 0 0 4px rgba(152,162,179,.14);}
 .revx-mock .revx__navbtn:disabled{background:#fff; border-color:var(--border-default); color:var(--border-default); cursor:default;}
-.revx-mock .revx__navbtn svg{width:24px; height:24px;}
+.revx-mock .revx__navbtn svg{width:20px; height:20px;}
+/* счётчик страниц ленты — между стрелками */
+.revx-mock .revx__count{font-size:16px; line-height:24px; font-weight:var(--fw-med); color:var(--text-secondary); font-variant-numeric:tabular-nums; min-width:48px; text-align:center;}
 @media(min-width:1280px){ .revx-mock .revx__in{max-width:calc(1216px + 64px); padding:0 32px;} }
 @media(min-width:768px) and (max-width:1279px){ .revx-mock .revx__in{gap:var(--sp-8);} }
-@media(max-width:768px){
-  .revx-mock .revx__in{gap:var(--sp-8); padding:0 0 0 var(--sp-4);}
+@media(min-width:768px) and (max-width:1023px){ .revx-mock{padding-bottom:var(--sp-8);} .revx-mock .revx__track{gap:var(--sp-6);} }
+@media(max-width:767px){
+  /* под стрелками на мобилке хватает 24px — секция и так отбита фоном */
+  .revx-mock{padding-bottom:var(--sp-6);}
+  .revx-mock .revx__in{gap:var(--sp-6); padding:0 0 0 var(--sp-4);}
   .revx-mock .revx__head{align-items:flex-start; text-align:left; margin-inline:0;}
   .revx-mock .revx__head h2{font-size:24px; line-height:32px;}
-  .revx-mock .revx__track{gap:var(--sp-3);}
+  .revx-mock .revx__track{gap:var(--sp-4);}
   .revx-mock .otz{width:318px; max-width:calc(100vw - 64px); height:auto;}
   .revx-mock .otz__co{font-size:16px; line-height:24px;}
   .revx-mock .otz__co{--otz-logo-h:50px;}
@@ -186,6 +197,13 @@ export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
   const [idx, setIdx] = useState(0);
   const [maxI, setMaxI] = useState(0);
 
+  /** Фактический зазор между карточками — он разный на мобилке, планшете и десктопе. */
+  const gapPx = useCallback(() => {
+    const track = trackRef.current;
+    if (!track) return GAP;
+    return parseFloat(getComputedStyle(track).columnGap) || GAP;
+  }, []);
+
   const step = useCallback(() => {
     const track = trackRef.current;
     if (!track) return 0;
@@ -196,8 +214,8 @@ export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
     if (second) {
       return second.getBoundingClientRect().left - first.getBoundingClientRect().left;
     }
-    return first.getBoundingClientRect().width + GAP;
-  }, []);
+    return first.getBoundingClientRect().width + gapPx();
+  }, [gapPx]);
 
   const maxIdx = useCallback(() => {
     const wrap = wrapRef.current;
@@ -205,9 +223,10 @@ export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
     if (!wrap || !track) return 0;
     const s = step();
     if (!s) return 0;
-    const vis = Math.max(1, Math.floor((wrap.clientWidth + GAP) / s));
+    const padLeft = parseFloat(getComputedStyle(wrap).paddingLeft) || 0;
+    const vis = Math.max(1, Math.floor((wrap.clientWidth - padLeft + gapPx()) / s));
     return Math.max(0, track.children.length - vis);
-  }, [step]);
+  }, [gapPx, step]);
 
   const apply = useCallback(() => {
     const track = trackRef.current;
@@ -283,8 +302,8 @@ export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
           </div>
         </div>
 
-        {/* Листалки нужны только когда отзывов больше 3 (иначе всё видно сразу). */}
-        {data.length > 3 ? (
+        {/* Листалки нужны, когда лента шире контейнера: maxI > 0 значит есть куда листать. */}
+        {maxI > 0 ? (
           <div className="revx__nav" role="group" aria-label="Листать отзывы">
             <button
               type="button"
@@ -295,6 +314,9 @@ export function ReviewSlider({ title, subtitle, reviews }: ReviewSliderProps) {
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg>
             </button>
+            <span className="revx__count" aria-hidden>
+              {idx + 1} / {data.length}
+            </span>
             <button
               type="button"
               className="revx__navbtn"

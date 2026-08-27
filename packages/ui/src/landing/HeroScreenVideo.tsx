@@ -95,7 +95,7 @@ const STYLE = `
 .hsv-mock .video-ph{width:100%; max-width:1008px; margin:0 auto; aspect-ratio:16/9; border-radius:var(--radius-3xl); background:var(--surface-section); border:4px solid var(--border-default); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:var(--sp-4); box-shadow:0 0 40px -12px rgba(45,45,45,.22); position:relative; overflow:hidden;}
 .hsv-mock .video-ph__video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; border:none; background:#000; z-index:0;}
 .hsv-mock .video-ph__play{position:relative; z-index:2; width:72px; height:72px; padding:0; border:none; cursor:pointer; border-radius:9999px; background:var(--brand-100); color:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 10px 30px -8px rgba(125,76,207,.5);}
-.hsv-mock .video-ph__play svg{width:30px; height:30px; margin-left:4px;}
+.hsv-mock .video-ph__play svg{width:30px; height:30px; margin-left:2px;}
 .hsv-mock .video-ph__label{position:relative; z-index:2; font-size:18px; line-height:28px; color:var(--text-secondary);}
 .hsv-mock .trust-line{display:flex; align-items:center; justify-content:center; flex-wrap:nowrap; gap:16px; color:#424242; font-size:16px; line-height:22px; letter-spacing:-0.2px; min-width:0; max-width:100%; overflow:hidden; padding-top:0; padding-bottom:24px; margin-top:16px;}
 .hsv-mock .trust-line b{display:inline-flex; align-items:center; gap:8px; white-space:nowrap; color:#424242; font-weight:400;}
@@ -119,7 +119,7 @@ const STYLE = `
   .hsv-mock{padding-top:var(--sp-6);}
   .hsv-mock .hero__grid{align-items:flex-start; text-align:left;}
   .hsv-mock .hero__copy{text-align:left;}
-  .hsv-mock .hero__cta{justify-content:flex-start;}
+  .hsv-mock .hero__cta{justify-content:center;}
   .hsv-mock h1{font-size:36px; line-height:40px;}
   .hsv-mock .hero__sub{font-size:16px; line-height:24px;}
   .hsv-mock .video-ph__play{width:56px; height:56px;}

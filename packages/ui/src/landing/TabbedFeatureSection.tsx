@@ -80,10 +80,10 @@ export function TabbedFeatureSection({
       <section
         className={cn(
           'mx-auto w-full max-w-(--container-kaiten)',
-          'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          'px-4 py-8 pt-12 md:px-6 md:py-12 xl:px-0 lg:py-16',
         )}
       >
-        <div className="mb-6 md:mb-8 md:text-center lg:mb-12">
+        <div className="mb-10 md:mb-8 md:text-center lg:mb-12">
           {eyebrow && (
             <p
               data-comp="tabbed_feature.eyebrow"
@@ -108,13 +108,13 @@ export function TabbedFeatureSection({
           )}
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-16 lg:space-y-24">
           {tabs.map((t, idx) => (
             <div
               key={t.id}
               className={cn(
-                'grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center lg:gap-16',
-                idx % 2 === 1 && 'lg:[&>div:first-child]:order-2',
+                'grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center lg:gap-16',
+                idx % 2 === 1 && 'md:[&>div:first-child]:order-2',
               )}
             >
               <div>

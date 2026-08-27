@@ -99,6 +99,9 @@ export function MediaCopy({
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
         'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+        // Подсекции под общей шапкой («Шаг 1», «Шаг 2») стоят теснее,
+        // самостоятельные секции отбиваются от следующей сильнее.
+        titleSize === 'small' ? 'pb-12 md:pb-16' : 'pb-16 md:pb-24 lg:pb-24',
         flushTop && 'pt-0 md:pt-0 lg:pt-0',
       )}
     >
@@ -136,7 +139,7 @@ export function MediaCopy({
             data-comp="media_copy.title"
             className={cn(
               'font-semibold leading-tight',
-              titleSize === 'small' ? 'text-2xl md:text-3xl' : 'text-3xl md:text-4xl',
+              titleSize === 'small' ? 'text-xl md:text-2xl lg:text-3xl' : 'text-2xl md:text-4xl',
             )}
           >
             {/*
