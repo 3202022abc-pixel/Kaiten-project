@@ -14,7 +14,10 @@
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 
-const [, , slug = 'crm', outPathArg] = process.argv;
+const args = process.argv.slice(2);
+/** --split-css: вынести стили в соседний styles.css вместо инлайна. */
+const splitCss = args.includes('--split-css');
+const [slug = 'crm', outPathArg] = args.filter((a) => !a.startsWith('--'));
 const outPath = outPathArg ?? `out/${slug}/${slug}.html`;
 const baseUrl = process.env.BASE_URL ?? 'http://localhost:3000';
 
@@ -204,9 +207,28 @@ async function main() {
 
   const absOut = resolve(process.cwd(), outPath);
   await mkdir(dirname(absOut), { recursive: true });
-  await writeFile(absOut, finalHtml, 'utf-8');
 
-  const sizeKB = (Buffer.byteLength(finalHtml) / 1024).toFixed(1);
+  let htmlOut = finalHtml;
+  if (splitCss) {
+    console.log('→ extracting styles.css');
+    const blocks = [];
+    htmlOut = finalHtml.replace(/<style>([\s\S]*?)<\/style>/gi, (_m, css) => {
+      blocks.push(css);
+      return '';
+    });
+    const cssFile = resolve(dirname(absOut), 'styles.css');
+    const css = blocks.join('\n');
+    await writeFile(cssFile, css, 'utf-8');
+    htmlOut = htmlOut.replace(
+      /<\/head>/i,
+      '<link rel="stylesheet" href="styles.css"/></head>',
+    );
+    console.log(`✓ saved ${cssFile} (${(Buffer.byteLength(css) / 1024).toFixed(1)} KB)`);
+  }
+
+  await writeFile(absOut, htmlOut, 'utf-8');
+
+  const sizeKB = (Buffer.byteLength(htmlOut) / 1024).toFixed(1);
   console.log(`✓ saved ${absOut} (${sizeKB} KB)`);
 }
 
