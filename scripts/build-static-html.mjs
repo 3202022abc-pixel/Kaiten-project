@@ -109,6 +109,48 @@ function selectorClasses(selector) {
 }
 
 /**
+ * Разбивает список селекторов по запятым верхнего уровня. Наивный `split(',')`
+ * рвал произвольные значения Tailwind: селектор
+ * `.bg-\[linear-gradient\(180deg\,\#ece0ff\,\#cdecff\)\]` разваливался на три
+ * куска, и после сборки получался мусор, который браузер выкидывал целиком —
+ * градиент на панели аккордиона пропадал. То же и с `shadow-[…rgba(…)]`.
+ */
+function splitSelectorList(prelude) {
+  const parts = [];
+  let buf = '';
+  let depth = 0;
+  let quote = null;
+  for (let i = 0; i < prelude.length; i++) {
+    const ch = prelude[i];
+    if (ch === '\\') {
+      buf += ch + (prelude[i + 1] ?? '');
+      i++;
+      continue;
+    }
+    if (quote) {
+      buf += ch;
+      if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      quote = ch;
+      buf += ch;
+      continue;
+    }
+    if (ch === '(' || ch === '[') depth++;
+    else if (ch === ')' || ch === ']') depth--;
+    if (ch === ',' && depth === 0) {
+      parts.push(buf);
+      buf = '';
+      continue;
+    }
+    buf += ch;
+  }
+  parts.push(buf);
+  return parts;
+}
+
+/**
  * Выкидывает правила, чьи классы на странице не встречаются. Правила без
  * классов (`:root`, теги, `@property`, переменные темы) не трогаем — на них
  * держится вся типографика и палитра.
@@ -163,8 +205,7 @@ function purgeCss(css, used) {
       continue;
     }
 
-    const kept = prelude
-      .split(',')
+    const kept = splitSelectorList(prelude)
       .map((s) => s.trim())
       .filter((s) => s && selectorClasses(s).every((c) => used.has(c)));
     if (kept.length) out += `${kept.join(',')}{${body}}`;
