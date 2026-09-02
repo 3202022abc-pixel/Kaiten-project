@@ -81,12 +81,12 @@ export const AssetRefSchema = z.object({
       'retail-mobile',
       'gantt-chart',
       // Автоматизации (модуль Kaiten)
-      'automation-rule-trigger',
-      'automation-rule-action',
+      'window-rule-trigger',
+      'window-rule-action',
       'automation-rules-list',
-      'automation-deadline',
-      'automation-checklist-done',
-      'automation-card-flow',
+      'window-deadline',
+      'window-checklist-done',
+      'window-card-flow',
       'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
@@ -99,6 +99,19 @@ export const AssetRefSchema = z.object({
       'cli-ai-models',
       'cli-safe-mode',
       'cli-install',
+      'help-center-portal',
+      'help-center-sections',
+      'help-center-request-form',
+      'help-center-search',
+      'help-center-suggested-articles',
+      'help-center-request-card',
+      'help-center-requests',
+      'help-center-branding',
+      'help-center-domain',
+      'help-center-email',
+      'help-center-template',
+      'help-center-setup',
+      'help-center-portal-compact',
       'hero-screen-interface',
       'hero-screen-video',
       'generic',
@@ -267,6 +280,14 @@ const FeatureGridSchema = z.object({
       .enum(['cards', 'mock'])
       .optional()
       .describe("'cards' (дефолт) — сетка карточек с иконкой; 'mock' — эталонный FeatureGridMock: 3 колонки на десктопе, карусель на планшете и мобилке, мини-мокапы фич в карточках"),
+    flat: z
+      .boolean()
+      .optional()
+      .describe('карточки как в эталонном блоке фич: светло-серая заливка, без рамки и hover-подъёма. Opt-in — старые лендинги не трогаем'),
+    flushBottom: z
+      .boolean()
+      .optional()
+      .describe("убрать нижний отступ секции (только для variant: 'mock') — когда под блоком сразу идёт кнопка или следующая секция"),
   }),
 });
 
@@ -300,6 +321,10 @@ const FAQAccordionSchema = z.object({
   id: z.literal('faq'),
   component: z.literal('FAQAccordion'),
   props: z.object({
+    spaceTop: z
+      .boolean()
+      .optional()
+      .describe('верхний отступ секции на планшете — 96px вместо 48px. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(80),
     description: z.string().max(200).optional(),
@@ -337,6 +362,18 @@ const FinalCtaSchema = z.object({
       .optional()
       .describe("иллюстрация справа для variant=product; по умолчанию общая картинка платформы Kaiten (/brand/cta-product.png)"),
     visualAlt: z.string().max(160).optional().describe('alt для visualSrc'),
+    onSurface: z
+      .boolean()
+      .optional()
+      .describe("светло-серая подложка секции (только для variant: 'gradient'). Opt-in, старые лендинги не трогаем"),
+    spaceBottom: z
+      .boolean()
+      .optional()
+      .describe("нижний отступ секции на десктопе — 96px вместо 48px (только для variant: 'gradient')"),
+    fitVisual: z
+      .boolean()
+      .optional()
+      .describe("ужимать мокап справа под ширину слота (variant: 'gradient') — для моков фиксированной ширины, иначе на мобилке правый край обрезается. Opt-in"),
   }),
 });
 
@@ -457,6 +494,31 @@ const CtaBannerSchema = z.object({
       .describe('подпись плитки из галереи мини-мокапов фич — визуал у правого края баннера; кнопка при этом уходит под текст'),
     /** Градиентный вид (подложка GradientPanel). Opt-in, старые лендинги без него. */
     gradient: z.boolean().optional(),
+    /**
+     * Интерфейсный мок домена справа от текста (кнопки уходят под текст).
+     * Значение — variant из реестра моков, тот же набор, что у Hero и MediaCopy.
+     */
+    mediaVariant: z
+      .string()
+      .optional()
+      .describe('variant из реестра моков (MockVariantSchema объявлен ниже по файлу)'),
+    /**
+     * Кнопки под текстом, а не справа от него. Opt-in: без него остаётся прежняя
+     * раскладка «текст слева, кнопки справа» (старые лендинги не трогаем).
+     * Нужен, когда описание длинное и колонка кнопок сжимает текст.
+     */
+    ctaBelow: z.boolean().optional(),
+    /**
+     * 'product' — блок `CTAproduct`: текст и кнопка слева, иллюстрация платформы
+     * справа, собственный градиент лаванда → голубой. `gradient` с ним не нужен.
+     */
+    variant: z.enum(['default', 'product']).optional(),
+    /** Иллюстрация справа для `variant: 'product'` (дефолт — /brand/cta-product.png). */
+    visualSrc: z.string().optional(),
+    /** Alt для `visualSrc`. */
+    visualAlt: z.string().max(160).optional(),
+    /** Увеличенный нижний отступ секции: 96px вместо 48px. */
+    spaceBottom: z.boolean().optional(),
   }),
 }).superRefine((section, ctx) => {
   // Секция рисует либо широкий баннер, либо пару карточек — что-то одно должно быть заполнено.
@@ -481,6 +543,14 @@ const CtaButtonsSchema = z.object({
       .boolean()
       .optional()
       .describe('убрать верхний отступ секции — когда кнопки идут сразу за предыдущим блоком'),
+    spaceBottom: z
+      .boolean()
+      .optional()
+      .describe('нижний отступ секции на десктопе — 96px вместо 48px. Opt-in'),
+    tightSpacing: z
+      .boolean()
+      .optional()
+      .describe('компактные отступы: 24/48px на мобилке, 32/64px на планшете вместо 40/40. Opt-in'),
   }),
 });
 
@@ -489,6 +559,26 @@ const MediaCopySchema = z.object({
   id: z.literal('media_copy'),
   component: z.literal('MediaCopy'),
   props: z.object({
+    spaceTop: z
+      .boolean()
+      .optional()
+      .describe('верхний отступ секции — 96px вместо 48/64px. Opt-in'),
+    spaceBottom: z
+      .boolean()
+      .optional()
+      .describe('нижний отступ секции: 64px мобилка и планшет, 96px десктоп. Opt-in'),
+    tightBottom: z
+      .boolean()
+      .optional()
+      .describe('нижний отступ секции 32/48px вместо 64/96px — для текстовых шапок раздела. Opt-in'),
+    ctaCenterMobile: z
+      .boolean()
+      .optional()
+      .describe('на мобилке кнопки по центру и по ширине контента, а не во всю колонку. Opt-in'),
+    spaceTopMobile: z
+      .boolean()
+      .optional()
+      .describe('верхний отступ секции на мобилке — 48px вместо 32px. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     accentWord: z
@@ -497,6 +587,13 @@ const MediaCopySchema = z.object({
       .optional()
       .describe('кусок заголовка фирменным фиолетовым, напр. «Шаг 1.»'),
     description: z.string().max(400).optional(),
+    descriptionLink: z
+      .object({
+        text: z.string().min(2).max(120),
+        href: z.string().url(),
+      })
+      .optional()
+      .describe('кусок описания фирменной фиолетовой ссылкой: text ищется в описании'),
     checklist: z
       .array(
         z.object({
@@ -595,12 +692,12 @@ const MediaCopySchema = z.object({
       'retail-mobile',
       'gantt-chart',
       // Автоматизации (модуль Kaiten)
-      'automation-rule-trigger',
-      'automation-rule-action',
+      'window-rule-trigger',
+      'window-rule-action',
       'automation-rules-list',
-      'automation-deadline',
-      'automation-checklist-done',
-      'automation-card-flow',
+      'window-deadline',
+      'window-checklist-done',
+      'window-card-flow',
       'platform-kaiten',
       'cli-terminal-hero',
       'cli-terminal-hero-animated',
@@ -613,6 +710,19 @@ const MediaCopySchema = z.object({
       'cli-ai-models',
       'cli-safe-mode',
       'cli-install',
+      'help-center-portal',
+      'help-center-sections',
+      'help-center-request-form',
+      'help-center-search',
+      'help-center-suggested-articles',
+      'help-center-request-card',
+      'help-center-requests',
+      'help-center-branding',
+      'help-center-domain',
+      'help-center-email',
+      'help-center-template',
+      'help-center-setup',
+      'help-center-portal-compact',
       ])
       .optional(),
     /**
@@ -813,6 +923,14 @@ const BentoGridSchema = z.object({
   id: z.literal('bento_grid'),
   component: z.literal('BentoGrid'),
   props: z.object({
+    wideGap: z
+      .boolean()
+      .optional()
+      .describe('просвет между ячейками на десктопе — 32px вместо 20px. Opt-in'),
+    spaceY: z
+      .boolean()
+      .optional()
+      .describe('вертикальные отступы секции на десктопе — 96px вместо 64px. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     description: z.string().max(400).optional(),
@@ -837,6 +955,14 @@ const BentoGridSchema = z.object({
       )
       .min(3)
       .max(9),
+    onSurface: z
+      .boolean()
+      .optional()
+      .describe('секция на светло-серой подложке во всю ширину, ячейки — белые карточки без обводки. Opt-in, старые лендинги не трогаем'),
+    align: z
+      .enum(['left', 'center'])
+      .optional()
+      .describe("'left' (дефолт) или 'center' — шапка секции по центру"),
   }),
 });
 
@@ -991,12 +1117,12 @@ export const MockVariantSchema = z.enum([
 'retail-report-ai',
 'gantt-chart',
 // Автоматизации (модуль Kaiten)
-'automation-rule-trigger',
-'automation-rule-action',
+'window-rule-trigger',
+'window-rule-action',
 'automation-rules-list',
-'automation-deadline',
-'automation-checklist-done',
-'automation-card-flow',
+'window-deadline',
+'window-checklist-done',
+'window-card-flow',
 'platform-kaiten',
 // Window-моки планирования (эталон — лендинг сравнения с MS Project)
 'window-links',
@@ -1013,6 +1139,19 @@ export const MockVariantSchema = z.enum([
 'cli-ai-models',
 'cli-safe-mode',
 'cli-install',
+'help-center-portal',
+'help-center-sections',
+'help-center-request-form',
+'help-center-search',
+'help-center-suggested-articles',
+'help-center-request-card',
+'help-center-requests',
+'help-center-branding',
+'help-center-domain',
+'help-center-email',
+'help-center-template',
+'help-center-setup',
+'help-center-portal-compact',
 ]);
 export type MockVariant = z.infer<typeof MockVariantSchema>;
 
@@ -1024,9 +1163,20 @@ const TabbedFeatureSectionSchema = z.object({
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     variant: z
-      .enum(['tabs', 'list'])
+      .enum(['tabs', 'list', 'accordion'])
       .optional()
-      .describe("'tabs' (дефолт) — переключаемые вкладки; 'list' — раскрытый список: все сценарии сразу, друг под другом"),
+      .describe("'tabs' (дефолт) — переключаемые вкладки; 'list' — раскрытый список; 'accordion' — шапка и раскрывающиеся строки слева, мок справа"),
+    wideDescription: z
+      .boolean()
+      .optional()
+      .describe('снять ограничение ширины у описания секции, чтобы длинный подзаголовок лёг в одну строку на десктопе'),
+    flushBottom: z
+      .boolean()
+      .optional()
+      .describe('убрать нижний отступ секции, когда следующая отбивается сверху сама. Opt-in'),
+    primaryCta: CtaSchema.optional().describe(
+      'кнопка под пунктами аккордеона — одна на всю секцию',
+    ),
     accentWord: z
       .string()
       .max(40)
@@ -1102,11 +1252,30 @@ const ScenarioWalkthroughSectionSchema = z.object({
           title: z.string().min(4).max(120),
           description: z.string().min(10).max(400),
           icon: z.string().optional(),
+          primaryCta: CtaSchema.optional().describe(
+            'кнопка под текстом шага — для завершающего шага сценария',
+          ),
           mockVariant: MockVariantSchema,
         }),
       )
       .min(3)
       .max(6),
+    plainTimeline: z
+      .boolean()
+      .optional()
+      .describe('простой таймлайн: без нумерованных кружков и без вертикальной линии между шагами. Opt-in, старые лендинги не трогаем'),
+    stepInTitle: z
+      .boolean()
+      .optional()
+      .describe('номер шага (steps[].time) уходит фиолетовым в начало заголовка вместо отдельной плашки над ним'),
+    align: z
+      .enum(['left', 'center'])
+      .optional()
+      .describe("'left' (дефолт) или 'center' — шапка секции по центру"),
+    columnsFromTablet: z
+      .boolean()
+      .optional()
+      .describe('две колонки уже с планшета — та же пропорция, что на десктопе. Opt-in'),
   }),
 });
 
@@ -1297,6 +1466,7 @@ export const LandingSpecMetaSchema = z
         'docs',
         'manufacturing',
         'cli-community-edition',
+        'help-center',
         'unknown',
       ])
       .optional()

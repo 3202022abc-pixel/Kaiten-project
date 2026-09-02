@@ -141,7 +141,7 @@
         "mediaPosition": "right",
         "flushTop": true,
         "titleSize": "small",
-        "mediaVariant": "automation-rule-trigger"
+        "mediaVariant": "window-rule-trigger"
       }
     },
     {
@@ -154,7 +154,7 @@
         "mediaPosition": "left",
         "flushTop": true,
         "titleSize": "small",
-        "mediaVariant": "automation-rule-action"
+        "mediaVariant": "window-rule-action"
       }
     },
     {
@@ -196,7 +196,7 @@
                 "text": "Карточка заблокирована → автоматически меняется ее статус, чтобы команда сразу видела затор"
               }
             ],
-            "mockVariant": "automation-card-flow"
+            "mockVariant": "window-card-flow"
           },
           {
             "id": "routine",
@@ -214,7 +214,7 @@
                 "text": "Изменилось поле в карточке → значение автоматически подставляется в связанные дочерние карточки"
               }
             ],
-            "mockVariant": "automation-checklist-done"
+            "mockVariant": "window-checklist-done"
           },
           {
             "id": "deadlines",
@@ -232,7 +232,7 @@
                 "text": "Карточка заблокирована дольше нормы → срабатывает уведомление ответственному и руководителю"
               }
             ],
-            "mockVariant": "automation-deadline"
+            "mockVariant": "window-deadline"
           }
         ]
       }

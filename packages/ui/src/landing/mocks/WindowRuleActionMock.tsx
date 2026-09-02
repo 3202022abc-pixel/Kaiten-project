@@ -40,9 +40,9 @@ function RuleField({ label, value, select }: Field) {
  * Конструктор правила автоматизации Kaiten — половина «Выполнить»: действие,
  * которое Kaiten делает в ответ на событие-триггер. Второй из двух шагов сборки
  * правила «если — то» на лендинге модуля «Автоматизации».
- * Пара — AutomationRuleTriggerMock (`automation-rule-trigger`, половина «Когда»).
+ * Пара — WindowRuleTriggerMock (`window-rule-trigger`, половина «Когда»).
  */
-export function AutomationRuleActionMock() {
+export function WindowRuleActionMock() {
   return (
     <div
       aria-hidden

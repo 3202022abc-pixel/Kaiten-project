@@ -68,12 +68,12 @@ import {
   RetailReportMiniMock,
   GanttChartMock,
   ModulePlatformKaiten,
-  AutomationRuleTriggerMock,
-  AutomationRuleActionMock,
+  WindowRuleTriggerMock,
+  WindowRuleActionMock,
   AutomationRulesListMock,
-  AutomationDeadlineMock,
-  AutomationChecklistDoneMock,
-  AutomationCardFlowMock,
+  WindowDeadlineMock,
+  WindowChecklistDoneMock,
+  WindowCardFlowMock,
   WindowLinksMock,
   WindowResourceMock,
   WindowReportsMock,
@@ -88,6 +88,18 @@ import {
   CliAiModelsMock,
   CliSafeModeMock,
   CliInstallMock,
+  HelpCenterPortalMock,
+  HelpCenterSectionsMock,
+  HelpCenterRequestFormMock,
+  HelpCenterSearchMock,
+  HelpCenterSuggestedArticlesMock,
+  HelpCenterRequestCardMock,
+  HelpCenterRequestsMock,
+  HelpCenterBrandingMock,
+  HelpCenterDomainMock,
+  HelpCenterEmailMock,
+  HelpCenterTemplateMock,
+  HelpCenterSetupMock,
 } from '.';
 
 /**
@@ -191,12 +203,12 @@ export type MockVariant =
   | 'retail-report-ai'
   | 'gantt-chart'
   // Автоматизации (модуль Kaiten): конструктор правила «если — то» и сценарии
-  | 'automation-rule-trigger'
-  | 'automation-rule-action'
+  | 'window-rule-trigger'
+  | 'window-rule-action'
   | 'automation-rules-list'
-  | 'automation-deadline'
-  | 'automation-checklist-done'
-  | 'automation-card-flow'
+  | 'window-deadline'
+  | 'window-checklist-done'
+  | 'window-card-flow'
   | 'platform-kaiten'
   // Window-моки планирования (эталон — лендинг сравнения с MS Project)
   | 'window-links'
@@ -213,7 +225,21 @@ export type MockVariant =
   | 'cli-migrate'
   | 'cli-ai-models'
   | 'cli-safe-mode'
-  | 'cli-install';
+  | 'cli-install'
+  // Справочный центр (help-center): портал компании с материалами и обращениями
+  | 'help-center-portal'
+  | 'help-center-sections'
+  | 'help-center-request-form'
+  | 'help-center-search'
+  | 'help-center-suggested-articles'
+  | 'help-center-request-card'
+  | 'help-center-requests'
+  | 'help-center-branding'
+  | 'help-center-domain'
+  | 'help-center-email'
+  | 'help-center-template'
+  | 'help-center-setup'
+  | 'help-center-portal-compact';
 
 export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
   switch (variant) {
@@ -404,18 +430,18 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
           </ScaleToFit>
         </div>
       );
-    case 'automation-rule-trigger':
-      return <AutomationRuleTriggerMock />;
-    case 'automation-rule-action':
-      return <AutomationRuleActionMock />;
+    case 'window-rule-trigger':
+      return <WindowRuleTriggerMock />;
+    case 'window-rule-action':
+      return <WindowRuleActionMock />;
     case 'automation-rules-list':
       return <AutomationRulesListMock />;
-    case 'automation-deadline':
-      return <AutomationDeadlineMock />;
-    case 'automation-checklist-done':
-      return <AutomationChecklistDoneMock />;
-    case 'automation-card-flow':
-      return <AutomationCardFlowMock />;
+    case 'window-deadline':
+      return <WindowDeadlineMock />;
+    case 'window-checklist-done':
+      return <WindowChecklistDoneMock />;
+    case 'window-card-flow':
+      return <WindowCardFlowMock />;
     case 'platform-kaiten':
       return (
         <div className="w-full overflow-hidden">
@@ -452,6 +478,32 @@ export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
       return <CliSafeModeMock />;
     case 'cli-install':
       return <CliInstallMock />;
+    case 'help-center-portal':
+      return <HelpCenterPortalMock />;
+    case 'help-center-sections':
+      return <HelpCenterSectionsMock />;
+    case 'help-center-request-form':
+      return <HelpCenterRequestFormMock />;
+    case 'help-center-search':
+      return <HelpCenterSearchMock />;
+    case 'help-center-suggested-articles':
+      return <HelpCenterSuggestedArticlesMock />;
+    case 'help-center-request-card':
+      return <HelpCenterRequestCardMock />;
+    case 'help-center-requests':
+      return <HelpCenterRequestsMock />;
+    case 'help-center-branding':
+      return <HelpCenterBrandingMock />;
+    case 'help-center-domain':
+      return <HelpCenterDomainMock />;
+    case 'help-center-email':
+      return <HelpCenterEmailMock />;
+    case 'help-center-template':
+      return <HelpCenterTemplateMock />;
+    case 'help-center-setup':
+      return <HelpCenterSetupMock />;
+    case 'help-center-portal-compact':
+      return <HelpCenterPortalMock variant="compact" />;
     default:
       return null;
   }

@@ -85,7 +85,7 @@ const STYLE = `
 .hsv-mock .sh-badge{display:inline-flex; align-items:center; justify-content:center; background:var(--brand-12k); border-radius:var(--radius-2xl); padding:var(--sp-1) var(--sp-4);}
 .hsv-mock .sh-badge__text{font-size:14px; line-height:20px; font-weight:var(--fw-med); letter-spacing:var(--ls); color:var(--brand-100); white-space:nowrap;}
 .hsv-mock h1{font-size:48px; line-height:52px; font-weight:var(--fw-semi); letter-spacing:-1px; margin:var(--sp-4) 0 var(--sp-5);}
-.hsv-mock .hero__sub{font-size:20px; line-height:28px; color:var(--text-title); font-weight:var(--fw-reg); max-width:760px; margin:0 auto var(--sp-8);}
+.hsv-mock .hero__sub{font-size:18px; line-height:26px; color:var(--text-title); font-weight:var(--fw-reg); max-width:880px; margin:0 auto var(--sp-8);}
 /* Приписка под подзаголовком («300 + готовых сценариев») — фирменным фиолетовым. */
 .hsv-mock .hero__sub .hsv-sub-line{display:block; margin-top:var(--sp-2); color:var(--brand-100);}
 .hsv-mock .hero__cta{display:flex; gap:var(--sp-3); flex-wrap:wrap; justify-content:center;}

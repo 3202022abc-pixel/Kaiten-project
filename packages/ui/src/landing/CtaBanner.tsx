@@ -4,11 +4,16 @@ import { Inspect } from '../primitives/Inspect';
 import { cn } from '../primitives/cn';
 import { GradientPanel } from './GradientPanel';
 import { FeatureTile, hasFeatureTile } from './mocks/FeatureTile';
+import { MockVisual, type MockVariant } from './mocks/MockVisual';
+import CTAproduct from './mocks/CTAproduct';
 
 /** Исходный размер плитки галереи и её увеличение в баннере. */
 const TILE_W = 240;
 const TILE_H = 176;
 const TILE_SCALE = 1.5;
+
+/** Иллюстрация платформы Kaiten по умолчанию для `variant: 'product'`. */
+const CTA_PRODUCT_IMAGE = '/brand/cta-product.png';
 
 export interface CtaBannerCtaProps {
   label: string;
@@ -32,6 +37,30 @@ export interface CtaBannerProps {
    * а справа встаёт интерфейсная плитка.
    */
   featureTile?: string;
+  /**
+   * Интерфейсный мок домена справа от текста (кнопки при этом уходят под текст).
+   * В отличие от `featureTile` берётся не из галереи мини-мокапов фич, а из
+   * реестра моков `MockVisual` — тот же набор, что у Hero и MediaCopy.
+   */
+  mediaVariant?: MockVariant;
+  /**
+   * Кнопки под текстом, а не справа от него. Opt-in: без него остаётся прежняя
+   * раскладка «текст слева, кнопки справа» — чтобы не менять старые лендинги.
+   * Нужен, когда описание длинное и колонка кнопок сжимает текст.
+   */
+  ctaBelow?: boolean;
+  /**
+   * 'product' — блок `CTAproduct`: текст и кнопка слева, иллюстрация платформы
+   * справа, собственный градиент лаванда → голубой. Подложку блок несёт сам,
+   * поэтому `gradient` с ним не нужен. Opt-in, старые лендинги не трогаем.
+   */
+  variant?: 'default' | 'product';
+  /** Иллюстрация справа для `variant: 'product'`. По умолчанию — платформа Kaiten. */
+  visualSrc?: string;
+  /** Alt для `visualSrc`. */
+  visualAlt?: string;
+  /** Увеличенный нижний отступ секции: 96px вместо 48px. */
+  spaceBottom?: boolean;
   /**
    * Вариант «пара карточек»: вместо одного широкого баннера секция рисует
    * 2–3 равные карточки в строку — иконка, заголовок, описание и текстовая
@@ -125,16 +154,45 @@ export function CtaBanner({
   secondaryCta,
   gradient,
   featureTile,
+  mediaVariant,
+  ctaBelow,
+  variant,
+  visualSrc,
+  visualAlt,
+  spaceBottom,
   cards,
 }: CtaBannerProps) {
   // Пара карточек — самостоятельная раскладка, широкий баннер в ней не участвует.
   if (cards && cards.length > 0) return <CtaBannerCards cards={cards} />;
 
+  // Product-вариант: блок CTAproduct со своим градиентом и картинкой справа.
+  if (variant === 'product') {
+    return (
+      <section
+        className={cn(
+          'mx-auto w-full max-w-(--container-kaiten)',
+          'px-4 pt-10 md:px-6 xl:px-0',
+          // Нижний отступ по брейкпоинтам: 48 мобилка / 64 планшет / 96 десктоп.
+          spaceBottom ? 'pb-12 md:pb-16 lg:pb-24 lg:pt-12' : 'pb-10 lg:py-12',
+        )}
+      >
+        <CTAproduct
+          title={title}
+          text={description}
+          buttonLabel={primaryCta.label}
+          buttonHref={primaryCta.href}
+          image={{ src: visualSrc ?? CTA_PRODUCT_IMAGE, alt: visualAlt ?? '' }}
+        />
+      </section>
+    );
+  }
+
   // Плитка рисуется только если такая подпись есть в галерее — иначе баннер
   // молча остаётся в прежней раскладке «текст слева, кнопки справа».
   const withTile = Boolean(featureTile && hasFeatureTile(featureTile));
+  const withMock = Boolean(mediaVariant);
   const copy = (
-    <div className={cn(withTile ? 'max-w-xl' : 'max-w-2xl')}>
+    <div className={cn(withTile || withMock ? 'max-w-xl' : ctaBelow ? 'max-w-3xl' : 'max-w-2xl')}>
       <h3 data-comp="cta_banner.title" className="text-2xl font-semibold leading-tight md:text-3xl">
         {title}
       </h3>
@@ -150,7 +208,15 @@ export function CtaBanner({
   );
 
   const buttons = (
-    <div className={cn('flex flex-col gap-3 sm:flex-row', withTile && 'mt-6')}>
+    <div
+      className={cn(
+        'flex flex-col gap-3 sm:flex-row',
+        // В варианте с моком кнопки на мобилке по ширине контента
+        // и по центру колонки; с планшета — обычный ряд слева.
+        withMock && 'items-center sm:items-start',
+        (withTile || withMock || ctaBelow) && 'mt-6',
+      )}
+    >
       <Inspect name="cta_banner.primaryCta">
         <ButtonLink size="lg" href={primaryCta.href}>
           {primaryCta.label}
@@ -168,7 +234,18 @@ export function CtaBanner({
 
   // С плиткой: слева текст и кнопка под ним, справа визуал.
   // Без плитки: прежняя раскладка — текст слева, кнопки справа.
-  const inner = withTile ? (
+  const inner = withMock ? (
+    // С интерфейсным моком: слева текст и кнопки под ним, справа мок домена.
+    <div className="flex flex-col gap-8 px-6 py-8 md:px-10 md:py-10 lg:flex-row lg:items-center lg:justify-between">
+      <div className="lg:max-w-xl">
+        {copy}
+        {buttons}
+      </div>
+      <div aria-hidden className="w-full min-w-0 lg:max-w-md">
+        <MockVisual variant={mediaVariant as MockVariant} />
+      </div>
+    </div>
+  ) : withTile ? (
     <div className={cn('flex flex-col gap-8', 'px-6 py-8 md:px-10 md:py-10 lg:flex-row lg:items-center lg:justify-between')}>
       <div>
         {copy}
@@ -189,6 +266,13 @@ export function CtaBanner({
         </div>
       </div>
     </div>
+  ) : ctaBelow ? (
+    // Кнопки под текстом: описание занимает всю ширину баннера и не сжимается
+    // колонкой кнопок справа.
+    <div className="px-6 py-8 md:px-10 md:py-10">
+      {copy}
+      {buttons}
+    </div>
   ) : (
     <div className={cn('flex flex-col gap-6', 'px-6 py-8 md:px-10 md:py-10 lg:flex-row lg:items-center lg:justify-between')}>
       {copy}
@@ -200,7 +284,8 @@ export function CtaBanner({
     <section
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
-        'px-4 py-10 md:px-6 xl:px-0 lg:py-12',
+        'px-4 py-10 md:px-6 xl:px-0',
+        spaceBottom ? 'lg:pb-24 lg:pt-12' : 'lg:py-12',
       )}
     >
       {gradient ? (

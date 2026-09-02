@@ -327,3 +327,77 @@ Append-only хроника операций harness'а. Формат запис�
 ## [2026-08-25 11:58] generate | kaiten-automation | ok | agent-ingest archetype=saas_landing sections=15 errors=0 audienceScore=66.73/70
 
 ## [2026-08-25 12:22] generate | kaiten-automation | ok | agent-ingest archetype=saas_landing sections=15 errors=0 audienceScore=66.73/70
+
+## [2026-08-28 16:59] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-28 17:00] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-28 17:06] lint | — | fail | scope=all files=103 errors=9 warnings=92
+
+## [2026-08-28 17:06] lint | — | fail | scope=all files=103 errors=9 warnings=92
+
+## [2026-08-28 17:07] lint | — | fail | scope=all files=103 errors=9 warnings=92
+
+## [2026-08-28 17:07] lint | — | fail | scope=all files=103 errors=9 warnings=92
+
+## [2026-08-28 17:15] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-28 17:17] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-28 17:30] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 10:59] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:10] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:12] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:13] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=68.23/70
+
+## [2026-08-31 11:14] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:25] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:50] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 11:55] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 12:22] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 12:32] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 12:48] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 12:50] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-08-31 13:02] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 10:06] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 10:38] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 10:40] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 10:40] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 11:10] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 11:16] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 11:41] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 12:21] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 13:34] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 13:45] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 13:45] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 14:01] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 16:39] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 17:01] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70
+
+## [2026-09-01 17:45] generate | kaiten-help-center | ok | agent-ingest archetype=saas_landing sections=20 errors=0 audienceScore=67.45/70

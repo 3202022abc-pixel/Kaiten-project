@@ -111,6 +111,20 @@ body:has(#s7:target) .nav-row[data-for="s7"] { display:flex; }
 body:has(#s8:target) .nav-row[data-for="s8"] { display:flex; }
 body:has(#s9:target) .nav-row[data-for="s9"] { display:flex; }
 body:has(#s10:target) .nav-row[data-for="s10"] { display:flex; }
+body:has(#s11:target) .nav-row[data-for="s11"] { display:flex; }
+body:has(#s12:target) .nav-row[data-for="s12"] { display:flex; }
+body:has(#s13:target) .nav-row[data-for="s13"] { display:flex; }
+body:has(#s14:target) .nav-row[data-for="s14"] { display:flex; }
+body:has(#s15:target) .nav-row[data-for="s15"] { display:flex; }
+body:has(#s16:target) .nav-row[data-for="s16"] { display:flex; }
+body:has(#s17:target) .nav-row[data-for="s17"] { display:flex; }
+body:has(#s18:target) .nav-row[data-for="s18"] { display:flex; }
+body:has(#s19:target) .nav-row[data-for="s19"] { display:flex; }
+body:has(#s20:target) .nav-row[data-for="s20"] { display:flex; }
+body:has(#s21:target) .nav-row[data-for="s21"] { display:flex; }
+body:has(#s22:target) .nav-row[data-for="s22"] { display:flex; }
+body:has(#s23:target) .nav-row[data-for="s23"] { display:flex; }
+body:has(#s24:target) .nav-row[data-for="s24"] { display:flex; }
 
 
 /* Размытая полоса по низу. В макете это прямоугольник шириной 2005.5,

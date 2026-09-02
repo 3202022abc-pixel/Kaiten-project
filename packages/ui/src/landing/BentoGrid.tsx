@@ -23,6 +23,24 @@ export interface BentoGridProps {
   title: string;
   description?: string;
   cells: BentoCellProps[];
+  /**
+   * Секция на светло-серой подложке во всю ширину, ячейки — белые карточки
+   * без обводки. Opt-in: без него остаётся прежний белый фон и карточки
+   * с рамкой, чтобы не менять старые лендинги.
+   */
+  onSurface?: boolean;
+  /** 'left' (дефолт) или 'center' — шапка секции по центру. */
+  align?: 'left' | 'center';
+  /**
+   * Просвет между ячейками на десктопе — 32px вместо 20px.
+   * Opt-in: старые лендинги оставляем на прежней плотной сетке.
+   */
+  wideGap?: boolean;
+  /**
+   * Вертикальные отступы секции на десктопе — 96px вместо 64px. Opt-in:
+   * нужны, когда сетка отделена от соседей как самостоятельный блок.
+   */
+  spaceY?: boolean;
 }
 
 const SIZE_CLASS: Record<NonNullable<BentoCellProps['size']>, string> = {
@@ -37,15 +55,31 @@ const SIZE_CLASS: Record<NonNullable<BentoCellProps['size']>, string> = {
  * Заменяет однотонный FeatureGrid когда нужна визуальная иерархия
  * (одна крупная фича + 5 поддерживающих).
  */
-export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps) {
-  return (
+export function BentoGrid({
+  eyebrow,
+  title,
+  description,
+  cells,
+  onSurface,
+  align,
+  wideGap,
+  spaceY,
+}: BentoGridProps) {
+  const content = (
     <section
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
         'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+        // Верхний отступ по брейкпоинтам: 48 мобилка / 64 планшет / 96 десктоп.
+        spaceY && 'pt-12 md:pt-16 lg:py-24',
       )}
     >
-      <div className="mb-10 max-w-2xl">
+      <div
+        className={cn(
+          'mb-10',
+          align === 'center' ? 'mx-auto max-w-4xl md:text-center' : 'max-w-2xl',
+        )}
+      >
         {eyebrow && (
           <p
             data-comp="bento_grid.eyebrow"
@@ -63,7 +97,7 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
         {description && (
           <p
             data-comp="bento_grid.description"
-            className="mt-4 text-lg text-(--color-text-primary)"
+            className="mt-4 text-base text-(--color-text-primary) md:text-lg"
           >
             {description}
           </p>
@@ -72,18 +106,25 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
 
       {cells.some((c) => c.featureTile) && <FeatureTilesStyle />}
 
-      <div className="grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
+      <div
+        className={cn(
+          'grid auto-rows-[minmax(180px,auto)] grid-cols-1 gap-4 md:grid-cols-3 md:gap-5',
+          wideGap && 'lg:gap-8',
+        )}
+      >
         {cells.map((c, i) => (
           <Inspect
             as="div"
             key={i}
             name={`bento_grid.cells[${i}]`}
             className={cn(
-              'flex flex-col rounded-(--radius-2xl) border p-6',
+              'flex flex-col rounded-(--radius-2xl) p-6',
               SIZE_CLASS[c.size ?? 'small'],
               c.accent
-                ? 'border-(--color-action-primary)/40 bg-(--color-action-primary-soft)'
-                : 'border-(--color-border-default) bg-(--color-surface-card)',
+                ? 'border border-(--color-action-primary)/40 bg-(--color-action-primary-soft)'
+                : onSurface
+                  ? 'bg-(--color-surface-card)'
+                  : 'border border-(--color-border-default) bg-(--color-surface-card)',
             )}
           >
             {c.featureTile ? (
@@ -123,7 +164,7 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
             </h3>
             <p
               data-comp={`bento_grid.cells[${i}].description`}
-              className="mt-2 text-sm text-(--color-text-primary)"
+              className="mt-2 text-sm text-(--color-text-secondary)"
             >
               {c.description}
             </p>
@@ -132,4 +173,7 @@ export function BentoGrid({ eyebrow, title, description, cells }: BentoGridProps
       </div>
     </section>
   );
+
+  // Серая подложка тянется во всю ширину экрана, а контент остаётся в сетке.
+  return onSurface ? <div className="bg-(--color-surface-section)">{content}</div> : content;
 }

@@ -2,6 +2,7 @@ import { AccentText } from '../primitives/AccentText';
 import { ButtonLink } from '../primitives/ButtonLink';
 import { Icon } from '../primitives/Icon';
 import { Inspect } from '../primitives/Inspect';
+import { LinkedText } from '../primitives/LinkedText';
 import { MockFit } from '../primitives/MockFit';
 import { cn } from '../primitives/cn';
 import { MockVisual, type MockVariant } from './mocks';
@@ -25,6 +26,11 @@ export interface MediaCopyProps {
   /** Кусок заголовка фирменным фиолетовым, напр. «Шаг 1.». */
   accentWord?: string;
   description?: string;
+  /**
+   * Фирменная фиолетовая ссылка внутри описания: `text` ищется
+   * в тексте описания и оборачивается в `<a href>`. Opt-in.
+   */
+  descriptionLink?: { text: string; href: string };
   checklist?: MediaCopyCheckItemProps[];
   /**
    * 'left' / 'right' — две колонки (текст и визуал рядом).
@@ -52,6 +58,29 @@ export interface MediaCopyProps {
    * блока, и между ними зияет двойной интервал.
    */
   flushTop?: boolean;
+  /**
+   * Верхний отступ секции 96px на планшете и десктопе вместо 48/64px.
+   * Opt-in: нужен, когда секция открывает новый смысловой блок
+   * и должна сильнее отбиваться от предыдущего.
+   */
+  spaceTop?: boolean;
+  /**
+   * Нижний отступ секции 96px, даже если заголовок уменьшен
+   * (`titleSize: 'small'` сам по себе делает секцию плотнее). Opt-in.
+   */
+  spaceBottom?: boolean;
+  /**
+   * Нижний отступ секции 32/48px вместо 64/96px. Для текстовых шапок
+   * раздела, которые должны стоять ближе к своим подсекциям. Opt-in.
+   */
+  tightBottom?: boolean;
+  /**
+   * На мобилке кнопки по центру колонки и по ширине контента, а не во всю
+   * ширину. С планшета — обычный ряд слева. Opt-in.
+   */
+  ctaCenterMobile?: boolean;
+  /** Верхний отступ секции на мобилке — 48px вместо 32px. Opt-in. */
+  spaceTopMobile?: boolean;
   mediaVariant?: MediaCopyVariant;
   /**
    * Растровая картинка вместо mock-компонента (напр. /brand/platform.png).
@@ -80,12 +109,18 @@ export function MediaCopy({
   title,
   accentWord,
   description,
+  descriptionLink,
   checklist,
   mediaPosition = 'right',
   mediaPlaceholder = 'product UI',
   align = 'left',
   titleSize = 'default',
   flushTop = false,
+  spaceTop = false,
+  spaceBottom = false,
+  tightBottom = false,
+  ctaCenterMobile = false,
+  spaceTopMobile = false,
   mediaVariant = 'default',
   mediaSrc,
   mediaAlt,
@@ -102,7 +137,12 @@ export function MediaCopy({
         // Подсекции под общей шапкой («Шаг 1», «Шаг 2») стоят теснее,
         // самостоятельные секции отбиваются от следующей сильнее.
         titleSize === 'small' ? 'pb-12 md:pb-16' : 'pb-16 md:pb-24 lg:pb-24',
+        spaceBottom && 'pb-16 lg:pb-24',
+        tightBottom && 'pb-8 md:pb-12 lg:pb-12',
+        spaceTop && 'pt-16 md:pt-24 lg:pt-24',
         flushTop && 'pt-0 md:pt-0 lg:pt-0',
+        // Идёт после flushTop: на мобилке отступ нужен даже у секции без него.
+        spaceTopMobile && 'pt-12',
       )}
     >
       <div
@@ -158,13 +198,28 @@ export function MediaCopy({
               <AccentText text={title} accentWord={accentWord} />
             )}
           </h2>
+          {/*
+            Разметка описания в спеке: пустая строка (\n\n) — новый абзац
+            с отступом, одиночный \n — перенос строки внутри абзаца.
+          */}
           {description && (
-            <p
+            <div
               data-comp="media_copy.description"
-              className="mt-4 text-lg leading-relaxed text-(--color-text-primary)"
+              className="mt-4 space-y-5 text-base leading-relaxed text-(--color-text-primary)"
             >
-              {description}
-            </p>
+              {description.split(/\n{2,}/).map((paragraph, i) => (
+                <p key={i}>
+                  {paragraph.split('\n').map((line, j) => (
+                    <span key={j}>
+                      {/* Ручной перенос — типографика широких экранов: на узких
+                          он рвёт строку не там, поэтому только от lg. */}
+                      {j > 0 && <br className="hidden lg:inline" />}
+                      <LinkedText text={line} link={descriptionLink} />
+                    </span>
+                  ))}
+                </p>
+              ))}
+            </div>
           )}
 
           {checklist && checklist.length > 0 && (
@@ -196,7 +251,12 @@ export function MediaCopy({
           )}
 
           {(primaryCta || secondaryCta) && (
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <div
+              className={cn(
+                'mt-8 flex flex-col gap-3 sm:flex-row',
+                ctaCenterMobile && 'items-center sm:items-start',
+              )}
+            >
               {primaryCta && (
                 <Inspect name="media_copy.primaryCta">
                   <ButtonLink size="lg" href={primaryCta.href}>

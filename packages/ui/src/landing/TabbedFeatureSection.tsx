@@ -38,11 +38,33 @@ export interface TabbedFeatureSectionProps {
    */
   staticTabs?: boolean;
   /**
-   * 'tabs' (дефолт) — переключаемые вкладки. 'list' — раскрытый список:
-   * все сценарии показаны сразу, друг под другом, с чередованием стороны
-   * мока. Нужен, когда содержимое читают целиком, а не выбирают.
+   * 'tabs' (дефолт) — переключаемые вкладки.
+   * 'list' — раскрытый список: все сценарии показаны сразу, друг под другом,
+   * с чередованием стороны мока. Нужен, когда содержимое читают целиком.
+   * 'accordion' — слева заголовок раздела и стопка раскрывающихся строк,
+   * справа мок активной строки на лиловой подложке. Шапка секции уезжает
+   * в левую колонку, поэтому центрированный заголовок не рендерится.
+   * Хендофф-режим (`staticTabs`) аккордеон не поддерживает и падает
+   * обратно на табы.
    */
-  variant?: 'tabs' | 'list';
+  variant?: 'tabs' | 'list' | 'accordion';
+  /**
+   * Снять ограничение ширины у описания секции (max-w-2xl → max-w-6xl), чтобы
+   * длинный подзаголовок ложился в одну строку на десктопе. Opt-in, старые
+   * лендинги не трогаем.
+   */
+  wideDescription?: boolean;
+  /**
+   * Убрать нижний отступ секции. Нужно, когда следующая секция сама
+   * отбивается сверху и между ними складывается двойной интервал.
+   * Opt-in, старые лендинги не трогаем.
+   */
+  flushBottom?: boolean;
+  /**
+   * Кнопка под пунктами аккордеона — одна на всю секцию, не зависит
+   * от раскрытой строки. Только для `variant: 'accordion'`. Opt-in.
+   */
+  primaryCta?: { label: string; href: string };
 }
 
 /**
@@ -60,6 +82,9 @@ export function TabbedFeatureSection({
   tabs,
   staticTabs = false,
   variant = 'tabs',
+  wideDescription,
+  flushBottom,
+  primaryCta,
 }: TabbedFeatureSectionProps) {
   const [activeId, setActiveId] = useState(tabs[0]?.id ?? '');
   const activeIndex = Math.max(
@@ -81,6 +106,7 @@ export function TabbedFeatureSection({
         className={cn(
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 pt-12 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          flushBottom && 'pb-0 md:pb-0 lg:pb-0',
         )}
       >
         <div className="mb-10 md:mb-8 md:text-center lg:mb-12">
@@ -101,7 +127,10 @@ export function TabbedFeatureSection({
           {description && (
             <p
               data-comp="tabbed_feature.description"
-              className="mx-auto mt-4 max-w-2xl text-lg text-(--color-text-primary)"
+              className={cn(
+                'mx-auto mt-4 text-base text-(--color-text-primary) md:text-lg',
+                wideDescription ? 'max-w-6xl' : 'max-w-2xl',
+              )}
             >
               {description}
             </p>
@@ -134,7 +163,7 @@ export function TabbedFeatureSection({
                 {t.description && (
                   <p
                     data-comp={`tabbed_feature.tabs[${idx}].description`}
-                    className="mt-4 text-lg leading-relaxed text-(--color-text-primary)"
+                    className="mt-4 text-base leading-relaxed text-(--color-text-primary) md:text-lg"
                   >
                     {t.description}
                   </p>
@@ -201,6 +230,7 @@ export function TabbedFeatureSection({
           ns,
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          flushBottom && 'pb-0 md:pb-0 lg:pb-0',
         )}
       >
         <style dangerouslySetInnerHTML={{ __html: css }} />
@@ -214,7 +244,7 @@ export function TabbedFeatureSection({
             <AccentText text={title} accentWord={accentWord} />
           </h2>
           {description && (
-            <p className="mt-4 text-lg text-(--color-text-primary)">{description}</p>
+            <p className="mt-4 text-base text-(--color-text-primary) md:text-lg">{description}</p>
           )}
         </div>
 
@@ -258,7 +288,7 @@ export function TabbedFeatureSection({
                 )}
                 <h3 className="text-2xl font-semibold leading-tight md:text-3xl">{t.title}</h3>
                 {t.description && (
-                  <p className="mt-4 text-lg leading-relaxed text-(--color-text-primary)">
+                  <p className="mt-4 text-base leading-relaxed text-(--color-text-primary) md:text-lg">
                     {t.description}
                   </p>
                 )}
@@ -299,11 +329,206 @@ export function TabbedFeatureSection({
     );
   }
 
+  // ── вариант «аккордеон» ────────────────────────────────────────
+  // Слева шапка раздела и стопка строк, справа мок активной строки
+  // на лиловой подложке. Раскрыта всегда ровно одна строка.
+  if (variant === 'accordion') {
+    return (
+      <section
+        className={cn(
+          'mx-auto w-full max-w-(--container-kaiten)',
+          'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          flushBottom && 'pb-0 md:pb-0 lg:pb-0',
+        )}
+      >
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-6 lg:gap-8">
+          {/*
+            Шапка: на планшете — во всю ширину и по центру над обеими колонками,
+            на десктопе возвращается влево, над аккордионом.
+          */}
+          <div
+            className={cn(
+              'order-2 md:order-1',
+              'md:col-span-2 md:row-start-1 md:text-center',
+              'lg:col-span-1 lg:col-start-1 lg:text-left',
+            )}
+          >
+            {eyebrow && (
+              <p
+                data-comp="tabbed_feature.eyebrow"
+                className="mb-3 text-sm font-medium uppercase tracking-wide text-(--color-text-accent)"
+              >
+                {eyebrow}
+              </p>
+            )}
+            <h2
+              data-comp="tabbed_feature.title"
+              className="text-2xl font-semibold leading-tight md:text-3xl"
+            >
+              <AccentText text={title} accentWord={accentWord} />
+            </h2>
+            {description && (
+              <p
+                data-comp="tabbed_feature.description"
+                className="mt-4 text-base leading-relaxed text-(--color-text-primary) md:text-lg"
+              >
+                {description}
+              </p>
+            )}
+          </div>
+
+          <div className="order-2 md:order-1 md:col-start-1 md:row-start-2 lg:row-start-2">
+            <div className="space-y-3 md:mt-0">
+              {tabs.map((t, idx) => {
+                const isOpen = t.id === activeId;
+                return (
+                  <div
+                    key={t.id}
+                    className={cn(
+                      'rounded-(--radius-xl) transition-colors',
+                      isOpen
+                        ? [
+                            'border border-(--color-action-primary)',
+                            'bg-[linear-gradient(180deg,#ece0ff,#cdecff)] md:bg-(--color-surface-page) md:bg-none',
+                          ]
+                        : 'border border-transparent bg-(--color-surface-section)',
+                    )}
+                  >
+                    <button
+                      type="button"
+                      aria-expanded={isOpen}
+                      // Раскрываем по наведению — строка открывается ещё до клика.
+                      // Клик оставлен для тача и клавиатуры, где hover не приходит.
+                      onMouseEnter={() => setActiveId(t.id)}
+                      onClick={() => setActiveId(t.id)}
+                      data-comp={`tabbed_feature.tabs[${idx}].label`}
+                      className="flex w-full items-center gap-3 px-5 py-4 text-left"
+                    >
+                      {t.icon && (
+                        <Icon
+                          name={t.icon}
+                          className={cn(
+                            'h-5 w-5 shrink-0',
+                            isOpen
+                              ? 'text-(--color-text-accent)'
+                              : 'text-(--color-text-secondary)',
+                          )}
+                          strokeWidth={2}
+                        />
+                      )}
+                      <span
+                        className={cn(
+                          // На мобилке строка крупнее: она тут главный элемент
+                          // управления, на десктопе рядом есть мок и заголовок.
+                          'flex-1 text-lg font-medium md:text-base',
+                          isOpen
+                            ? 'text-(--color-text-accent)'
+                            : 'text-(--color-text-primary)',
+                        )}
+                      >
+                        {t.label}
+                      </span>
+                      <Icon
+                        name={isOpen ? 'ChevronUp' : 'ChevronDown'}
+                        className={cn(
+                          'h-5 w-5 shrink-0',
+                          isOpen
+                            ? 'text-(--color-text-accent)'
+                            : 'text-(--color-text-secondary)',
+                        )}
+                        strokeWidth={2}
+                      />
+                    </button>
+                    {isOpen && t.description && (
+                      <p
+                        data-comp={`tabbed_feature.tabs[${idx}].description`}
+                        className="px-5 pb-6 text-base leading-relaxed text-(--color-text-primary)"
+                      >
+                        {t.description}
+                      </p>
+                    )}
+                    {/*
+                      До md мок живёт внутри раскрытой строки: колонки схлопнуты
+                      в одну, и отдельная панель сверху отрывала бы картинку
+                      от своего пункта. С планшета работает панель справа.
+                    */}
+                    {isOpen && (
+                      <div className="md:hidden">
+                        <div className="p-4 pt-0">
+                          <MockVisual variant={t.mockVariant} />
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* CTA секции важнее CTA конкретной строки: он не прыгает при переключении */}
+            {/* До md колонка одна и кнопка встаёт по центру; в две колонки
+                она держится левого края, как в макете. */}
+            {(primaryCta ?? active.primaryCta) && (
+              <div className="mt-8 flex justify-center md:block">
+                <Inspect
+                  name={
+                    primaryCta
+                      ? 'tabbed_feature.primaryCta'
+                      : `tabbed_feature.tabs[${activeIndex}].primaryCta`
+                  }
+                >
+                  <ButtonLink size="lg" href={(primaryCta ?? active.primaryCta)!.href}>
+                    {(primaryCta ?? active.primaryCta)!.label}
+                  </ButtonLink>
+                </Inspect>
+              </div>
+            )}
+          </div>
+
+          {/*
+            Мок «выезжает» за правый и нижний край подложки и обрезается ею —
+            так в макете. Внутренняя обёртка шире панели, поэтому MockFit
+            подгоняет мок под неё, а не под видимую ширину; фиксированная
+            высота на десктопе держит панель ровной при переключении строк.
+          */}
+          <Inspect
+            as="div"
+            name={`tabbed_feature.tabs[${activeIndex}].mockVariant`}
+            className={cn(
+              // На планшете панель — флекс: мок стоит по центру вертикали.
+              'order-1 hidden overflow-hidden md:order-2 md:flex md:items-center lg:block',
+              'md:col-start-2 md:row-start-2 lg:row-start-1 lg:row-span-2',
+              // Вертикальный градиент лиловый -> голубой из макета. Цвета те же,
+              // что в `CTAsecondaryMock`; в токенах их нет.
+              'rounded-(--radius-xl) bg-[linear-gradient(180deg,#ece0ff,#cdecff)] md:rounded-(--radius-2xl)',
+              // На планшете панель тянется на всю высоту блока — вровень
+              // с колонкой аккордиона; мок внутри ужимается пропорционально.
+              'pt-5 pl-5 md:self-stretch md:pt-0 md:pl-7 lg:h-[520px] lg:self-auto lg:pt-16 lg:pl-12',
+            )}
+          >
+            {/*
+              Мок нарисован под 500px — столько он и занимает на десктопе
+              (92% ширины панели). На планшете те же 92% дают ~287px, и MockFit
+              ужимает мок ровно в этой пропорции: раскладка та же, просто мельче.
+            */}
+            <div className="w-[92%]">
+              <MockFit>
+                <div className="w-[500px]">
+                  <MockVisual variant={active.mockVariant} />
+                </div>
+              </MockFit>
+            </div>
+          </Inspect>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
         'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+        flushBottom && 'pb-0 md:pb-0 lg:pb-0',
       )}
     >
       {/*
@@ -329,7 +554,10 @@ export function TabbedFeatureSection({
         {description && (
           <p
             data-comp="tabbed_feature.description"
-            className="mx-auto mt-4 max-w-2xl text-lg text-(--color-text-primary)"
+            className={cn(
+              'mx-auto mt-4 text-base text-(--color-text-primary) md:text-lg',
+              wideDescription ? 'max-w-6xl' : 'max-w-2xl',
+            )}
           >
             {description}
           </p>
@@ -395,7 +623,7 @@ export function TabbedFeatureSection({
                 {t.description && (
                   <p
                     data-comp={`tabbed_feature.tabs[${idx}].description`}
-                    className="mt-4 text-lg leading-relaxed text-(--color-text-primary)"
+                    className="mt-4 text-base leading-relaxed text-(--color-text-primary) md:text-lg"
                   >
                     {t.description}
                   </p>

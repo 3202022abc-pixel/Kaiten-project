@@ -47,6 +47,8 @@ export interface FeatureGridMockProps {
   subtitle?: string;
   /** Карточки фич. Если не передать — нейтральные плейсхолдеры. */
   items?: FeatureGridMockItem[];
+  /** Убрать нижний отступ секции — когда под блоком сразу идёт кнопка или другая секция. */
+  flushBottom?: boolean;
 }
 
 const STYLE = `
@@ -111,10 +113,14 @@ const STYLE = `
   .fg-grid{ gap:var(--sp-4); margin-inline:calc(-1 * var(--sp-4)); padding-left:var(--sp-4); scroll-padding-left:var(--sp-4); }
   .fg-card{ flex:0 0 318px; max-width:318px; }
   .fg-grid > .fg-card:last-child{ margin-right:var(--sp-4); }
+  /* стрелки листания на мобилке стоят ближе к карточкам */
+  .fg-nav{ margin-top:24px; }
 }
 /* планшет: та же карточка 318, что и на мобилке */
 @media(min-width:768px) and (max-width:1023px){ .fg-card{ flex:0 0 318px; max-width:318px; } }
 @media(prefers-reduced-motion:reduce){ .fg-grid{ scroll-behavior:auto; } }
+/* Модификатор: секция без нижнего отступа — специфичность выше медиазапросов выше. */
+.fg-mock.fg-flush-b{ padding-bottom:0; }
 `;
 
 const PLACEHOLDER_ITEMS: FeatureGridMockItem[] = Array.from({ length: 6 }, () => ({
@@ -142,7 +148,12 @@ const NextIcon = () => (
   </svg>
 );
 
-export function FeatureGridMock({ title = 'Заголовок секции', subtitle, items }: FeatureGridMockProps) {
+export function FeatureGridMock({
+  title = 'Заголовок секции',
+  subtitle,
+  items,
+  flushBottom,
+}: FeatureGridMockProps) {
   const data = items && items.length ? items : PLACEHOLDER_ITEMS;
   const trackRef = useRef<HTMLDivElement>(null);
   const [nav, setNav] = useState({ idx: 0, atStart: true, atEnd: false, show: false });
@@ -183,7 +194,10 @@ export function FeatureGridMock({ title = 'Заголовок секции', sub
   };
 
   return (
-    <section className="fg-mock" aria-label="Возможности продукта">
+    <section
+      className={flushBottom ? 'fg-mock fg-flush-b' : 'fg-mock'}
+      aria-label="Возможности продукта"
+    >
       <style dangerouslySetInnerHTML={{ __html: STYLE }} />
       <div className="fg-inner">
         <div className="fg-head">

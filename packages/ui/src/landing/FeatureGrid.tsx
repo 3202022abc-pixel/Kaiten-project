@@ -32,6 +32,18 @@ export interface FeatureGridProps {
    * мини-мокап фичи из галереи (`items[].featureTile`).
    */
   variant?: 'cards' | 'mock';
+  /**
+   * Карточки как в эталонном блоке фич (`FeatureGridMock`): светло-серая
+   * заливка, без рамки и без hover-подъёма. Opt-in — без него остаётся прежняя
+   * белая карточка с обводкой, чтобы не менять старые лендинги.
+   */
+  flat?: boolean;
+  /**
+   * Убрать нижний отступ секции. Сейчас действует только для `variant: 'mock'`
+   * (у эталонного блока свой крупный padding) — нужен, когда под блоком сразу
+   * идёт кнопка или следующая секция.
+   */
+  flushBottom?: boolean;
 }
 
 const colsClass: Record<NonNullable<FeatureGridProps['columns']>, string> = {
@@ -47,6 +59,8 @@ export function FeatureGrid({
   items,
   columns = 3,
   variant = 'cards',
+  flat,
+  flushBottom,
 }: FeatureGridProps) {
   // Эталонный блок галереи фич. Иллюстрация карточки — мини-мокап из
   // FeatureMocksV01 по подписи `featureTile`; стили галереи объёмные, поэтому
@@ -59,6 +73,7 @@ export function FeatureGrid({
         <FeatureGridMock
           title={title}
           subtitle={description}
+          flushBottom={flushBottom}
           items={items.map((it) => ({
             title: it.title,
             desc: it.description,
@@ -96,7 +111,7 @@ export function FeatureGrid({
         {description && (
           <p
             data-comp="features.description"
-            className="mt-4 text-lg text-(--color-text-primary)"
+            className="mt-4 text-base text-(--color-text-primary) md:text-lg"
           >
             {description}
           </p>
@@ -110,9 +125,13 @@ export function FeatureGrid({
             key={i}
             name={`features.items[${i}]`}
             className={cn(
-              'group rounded-(--radius-2xl) border border-(--color-border-default)',
-              'bg-(--color-surface-card) p-6 transition',
-              'hover:-translate-y-0.5 hover:border-(--color-action-primary)/40 hover:shadow-sm',
+              'group rounded-(--radius-2xl) p-6',
+              flat
+                ? 'bg-(--color-surface-section)'
+                : [
+                    'border border-(--color-border-default) bg-(--color-surface-card) transition',
+                    'hover:-translate-y-0.5 hover:border-(--color-action-primary)/40 hover:shadow-sm',
+                  ],
             )}
           >
             {item.mockVariant ? (
