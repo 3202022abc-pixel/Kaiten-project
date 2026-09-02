@@ -61,7 +61,7 @@ export function HelpCenterPortalMock({ variant = 'full' }: HelpCenterPortalMockP
         // колонку: без фиксированной ширины сетка растягивается по max-content
         // и мок ужимается вдвое. Компактный остаётся текучим — он стоит
         // в узком слоте градиентного CTA без масштабирования.
-        compact ? 'w-full' : 'w-[620px]',
+        compact ? 'w-full' : 'w-[560px]',
         'border border-(--color-border-default) bg-(--color-surface-card)',
         'shadow-[0_0_40px_rgba(45,45,45,0.12)]',
       )}

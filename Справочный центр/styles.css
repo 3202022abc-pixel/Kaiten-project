@@ -1031,8 +1031,6 @@
     width: 500px;
   }.w-\[560px\]{
     width: 560px;
-  }.w-\[620px\]{
-    width: 620px;
   }.w-\[786px\]{
     width: 786px;
   }.w-auto{
@@ -1778,6 +1776,11 @@
       white-space: nowrap;
     }}@media (min-width: 80rem){.xl\:px-0{
       padding-inline: var(--spacing-0);
+    }}.\[\&_svg\]\:size-6 svg{
+    width: var(--spacing-6);
+    height: var(--spacing-6);
+  }@media (min-width: 48rem){.md\:\[\&\>div\:first-child\]\:order-2 > div:first-child{
+      order: 2;
     }}}html{
   background: var(--color-surface-page);
   color: var(--color-text-primary);

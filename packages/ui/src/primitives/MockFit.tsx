@@ -39,9 +39,10 @@ export function MockFit({ children }: { children: React.ReactNode }) {
     // Обрезка не нужна: браузер считает область прокрутки по трансформированным
     // границам, поэтому ужатый мок сам по себе не расширяет страницу. Обрезали бы —
     // срезали бы тень по краям. Задаём только высоту: её transform не меняет.
-    <div ref={outerRef} className="w-full" style={{ height }}>
+    <div ref={outerRef} data-mockfit="outer" className="w-full" style={{ height }}>
       <div
         ref={innerRef}
+        data-mockfit="inner"
         className="w-max"
         style={{ transformOrigin: 'top left', transform: `scale(${scale})` }}
       >
