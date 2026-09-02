@@ -500,9 +500,9 @@ export function TabbedFeatureSection({
               // Вертикальный градиент лиловый -> голубой из макета. Цвета те же,
               // что в `CTAsecondaryMock`; в токенах их нет.
               'rounded-(--radius-xl) bg-[linear-gradient(180deg,#ece0ff,#cdecff)] md:rounded-(--radius-2xl)',
-              // На планшете панель тянется на всю высоту блока — вровень
-              // с колонкой аккордиона; мок внутри ужимается пропорционально.
-              'pt-5 pl-5 md:self-stretch md:pt-0 md:pl-7 lg:h-[520px] lg:self-auto lg:pl-12',
+              // Панель тянется на всю высоту блока — вровень с шапкой и
+              // колонкой аккордиона; мок внутри ужимается пропорционально.
+              'pt-5 pl-5 md:self-stretch md:pt-0 md:pl-7 lg:pl-12',
             )}
           >
             {/*

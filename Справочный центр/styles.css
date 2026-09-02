@@ -1572,8 +1572,6 @@
       display: flex;
     }}@media (min-width: 64rem){.lg\:inline{
       display: inline;
-    }}@media (min-width: 64rem){.lg\:h-\[520px\]{
-      height: 520px;
     }}@media (min-width: 64rem){.lg\:max-w-5xl{
       max-width: var(--container-5xl);
     }}@media (min-width: 64rem){.lg\:max-w-md{
@@ -1596,8 +1594,6 @@
       --tw-space-y-reverse: 0;
       margin-block-start: calc(var(--spacing-14) * var(--tw-space-y-reverse));
       margin-block-end: calc(var(--spacing-14) * calc(1 - var(--tw-space-y-reverse)));
-    }}@media (min-width: 64rem){.lg\:self-auto{
-      align-self: auto;
     }}@media (min-width: 64rem){.lg\:rounded-\(--radius-3xl\){
       border-radius: var(--radius-3xl);
     }}@media (min-width: 64rem){.lg\:py-12{
