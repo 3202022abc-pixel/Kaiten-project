@@ -241,7 +241,21 @@ export type MockVariant =
   | 'help-center-setup'
   | 'help-center-portal-compact';
 
-export function MockVisual({ variant }: { variant: MockVariant | undefined }) {
+/**
+ * Обёртка-хук для темы. `display:contents` не создаёт бокс — раскладка мока не
+ * меняется, — но даёт селектор `[data-mock]`, по которому тема может подкрутить
+ * переменные внутри продуктовых моков. Тёмная тема этим пользуется: акцентный
+ * текст в мокапах идёт кеглем 11–12px, и чистый бренд на тёмном там не читается.
+ */
+export function MockVisual(props: { variant: MockVariant | undefined }) {
+  return (
+    <div data-mock className="contents">
+      <MockVisualSwitch {...props} />
+    </div>
+  );
+}
+
+function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
   switch (variant) {
     case 'support-board':
       return <SupportBoardMock />;

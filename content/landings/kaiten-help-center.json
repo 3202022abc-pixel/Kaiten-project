@@ -1,6 +1,7 @@
 {
   "pageType": "saas_landing",
   "goal": "try_free",
+  "theme": "dark",
   "sections": [
     {
       "id": "site_header",
@@ -50,41 +51,41 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "tightBottom": true,
         "title": "Как работает Справочный центр",
         "description": "Справочный центр объединяет инструкции и поддержку: пользователь сначала ищет нужную информацию\nсамостоятельно в статьях, а если ответа нет — сразу отправляет обращение",
         "align": "center",
-        "mediaVariant": "none",
-        "tightBottom": true
+        "mediaVariant": "none"
       }
     },
     {
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "spaceTopMobile": true,
         "title": "Инструкции и ответы на вопросы",
         "description": "Публикуйте инструкции, регламенты, FAQ, документацию и новости. Пользователи смогут находить нужные материалы через структуру разделов или поиск",
         "mediaPosition": "right",
         "flushTop": true,
         "titleSize": "small",
-        "mediaVariant": "help-center-sections",
-        "spaceTopMobile": true
+        "mediaVariant": "help-center-sections"
       }
     },
     {
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "ctaCenterMobile": true,
         "title": "Обращения в поддержку",
         "description": "Подключите сервисы Службы поддержки, чтобы клиенты могли отправлять заявки прямо из Справочного центра",
         "mediaPosition": "left",
+        "flushTop": true,
         "titleSize": "small",
         "mediaVariant": "help-center-request-form",
         "primaryCta": {
           "label": "Создать справочный центр",
           "href": "https://kaiten.ru/signup"
-        },
-        "flushTop": true,
-        "ctaCenterMobile": true
+        }
       }
     },
     {
@@ -138,11 +139,11 @@
             "title": "Следить за статусом обращения",
             "description": "Пользователь видит свои обращения и их статусы в Справочном центре — не нужно искать ответы в почте или переписках",
             "icon": "list-checks",
-            "mockVariant": "help-center-requests",
             "primaryCta": {
               "label": "Попробовать Кайтен бесплатно",
               "href": "https://kaiten.ru/signup"
-            }
+            },
+            "mockVariant": "help-center-requests"
           }
         ],
         "plainTimeline": true,
@@ -156,6 +157,12 @@
       "component": "TabbedFeatureSection",
       "props": {
         "title": "Справочный центр в стиле вашей компании",
+        "variant": "accordion",
+        "flushBottom": true,
+        "primaryCta": {
+          "label": "Попробовать бесплатно",
+          "href": "https://kaiten.ru/signup"
+        },
         "description": "Настройте внешний вид Справочного центра так, чтобы он стал естественной частью вашего продукта или корпоративной среды",
         "tabs": [
           {
@@ -182,13 +189,7 @@
             "description": "Настройте внешний вид писем, которые получают пользователи после создания и изменения заявок",
             "mockVariant": "help-center-email"
           }
-        ],
-        "flushBottom": true,
-        "variant": "accordion",
-        "primaryCta": {
-          "label": "Попробовать бесплатно",
-          "href": "https://kaiten.ru/signup"
-        }
+        ]
       }
     },
     {
@@ -255,6 +256,8 @@
       "id": "bento_grid",
       "component": "BentoGrid",
       "props": {
+        "wideGap": true,
+        "spaceY": true,
         "title": "Для клиентов и внутренних команд",
         "description": "Настройте Справочный центр под задачи разных отделов, продуктов и внешних пользователей",
         "cells": [
@@ -301,10 +304,8 @@
             "accent": false
           }
         ],
-        "onSurface": true,
-        "align": "center",
-        "wideGap": true,
-        "spaceY": true
+        "onSurface": false,
+        "align": "center"
       }
     },
     {
@@ -312,39 +313,39 @@
       "component": "MediaCopy",
       "props": {
         "spaceTop": true,
+        "spaceBottom": true,
+        "ctaCenterMobile": true,
         "title": "Посмотрите, как выглядит Справочный центр в Кайтен",
         "description": "Мы сами используем Справочный центр для инструкций, новостей и поддержки пользователей.\n\nВ нем есть отдельный раздел о создании Справочного центра — посмотрите, как все устроено, и попробуйте настроить свой по инструкции. Если в процессе появятся вопросы, создайте заявку в конце любой статьи — наша команда поможет разобраться",
-        "mediaPosition": "right",
-        "mediaVariant": "help-center-template",
-        "primaryCta": {
-          "label": "Посмотреть Справочный центр Kaiten",
-          "href": "https://faq-ru.kaiten.site/"
-        },
-        "titleSize": "small",
-        "spaceBottom": true,
         "descriptionLink": {
           "text": "отдельный раздел о создании Справочного центра",
           "href": "https://faq-ru.kaiten.site/spravochnyy-centr"
         },
-        "ctaCenterMobile": true
+        "mediaPosition": "right",
+        "titleSize": "small",
+        "mediaVariant": "help-center-template",
+        "primaryCta": {
+          "label": "Посмотреть Справочный центр Kaiten",
+          "href": "https://faq-ru.kaiten.site/"
+        }
       }
     },
     {
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "spaceBottom": true,
+        "ctaCenterMobile": true,
         "title": "Начните с готового шаблона",
         "description": "Не обязательно создавать структуру с нуля. Используйте готовый шаблон Справочного центра, добавьте свои инструкции и оформление, а при необходимости подключите сервисы Службы поддержки",
         "mediaPosition": "left",
+        "flushTop": true,
+        "titleSize": "small",
         "mediaVariant": "help-center-portal",
         "primaryCta": {
           "label": "Открыть шаблон",
           "href": "https://kaiten.ru/templates/"
-        },
-        "flushTop": true,
-        "titleSize": "small",
-        "spaceBottom": true,
-        "ctaCenterMobile": true
+        }
       }
     },
     {
@@ -412,7 +413,7 @@
         },
         "variant": "gradient",
         "visualVariant": "help-center-template",
-        "onSurface": true,
+        "onSurface": false,
         "spaceBottom": true,
         "fitVisual": true
       }
@@ -453,7 +454,7 @@
       "packages/harness/src/prompts/section-mock-skill.md",
       "wiki/layouts/index.md"
     ],
-    "generatedAt": "2026-09-01T14:45:43.913Z",
+    "generatedAt": "2026-09-03T08:15:18.372Z",
     "generator": "host-agent",
     "archetype": "saas_landing",
     "layout": "single-module-deep-dive",

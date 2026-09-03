@@ -2,7 +2,7 @@
 slug: kaiten-help-center
 type: landing
 created: 2026-08-28
-updated: 2026-09-01
+updated: 2026-09-03
 status: draft
 brief: content/briefs/kaiten-help-center.json
 archetype: saas_landing
@@ -36,12 +36,9 @@ sections:
   - media_copy
   - media_copy
   - media_copy
-  - cta_buttons
   - cta_banner
   - scenario_walkthrough
-  - cta_buttons
   - tabbed_feature
-  - cta_buttons
   - features
   - cta_buttons
   - bento_grid
@@ -66,7 +63,7 @@ stale: false
 - **brief:** `content/briefs/kaiten-help-center.json`
 - **archetype:** `saas_landing`
 - **goal:** `try_free` (brief.cta = "Попробовать бесплатно")
-- **sections used:** `site_header, hero, media_copy, media_copy, media_copy, cta_buttons, cta_banner, scenario_walkthrough, cta_buttons, tabbed_feature, cta_buttons, features, cta_buttons, bento_grid, media_copy, media_copy, cta_banner, faq, final_cta, kaiten_footer`
+- **sections used:** `site_header, hero, media_copy, media_copy, media_copy, cta_banner, scenario_walkthrough, tabbed_feature, features, cta_buttons, bento_grid, media_copy, media_copy, cta_banner, faq, final_cta, kaiten_footer`
 - **token estimate:** `48147`
 - **generation duration:** `0ms`
 - **generator:** `host-agent`
@@ -118,22 +115,13 @@ stale: false
 ### media_copy (MediaCopy)
 
 
-### cta_buttons (CtaButtons)
-
-
 ### cta_banner (CtaBanner)
 
 
 ### scenario_walkthrough (ScenarioWalkthroughSection)
 
 
-### cta_buttons (CtaButtons)
-
-
 ### tabbed_feature (TabbedFeatureSection)
-
-
-### cta_buttons (CtaButtons)
 
 
 ### features (FeatureGrid)
@@ -190,7 +178,7 @@ stale: false
 - **Score:** 67.45 / 100 (threshold 70) — ❌ fail
 - **Resolved segments:** IT
 - **CTA types detected:** Trial, Unknown
-- **Generated:** 2026-09-01T14:45:43.860Z
+- **Generated:** 2026-09-03T08:15:18.348Z
 
 ## Breakdown
 

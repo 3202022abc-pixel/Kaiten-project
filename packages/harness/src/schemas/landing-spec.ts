@@ -1498,6 +1498,12 @@ export type LandingSpecMeta = z.infer<typeof LandingSpecMetaSchema>;
 export const LandingSpecSchema = z.object({
   pageType: z.enum(['saas_landing', 'waitlist_landing', 'enterprise_landing', 'event_landing']),
   goal: z.string(),
+  theme: z
+    .enum(['light', 'dark'])
+    .optional()
+    .describe(
+      "Цветовая схема всей страницы. 'light' (дефолт) — обычные лендинги. 'dark' — тёмная тема V01-dark (design-system/kaiten-v01/dark): рендер оборачивается в .landing-theme-dark, семантические токены (--color-*) и кнопки переопределяются на тёмную палитру, вордмарк шапки становится белым. Продуктовые mock'и остаются светлыми — светлые карточки интерфейса на тёмной странице.",
+    ),
   sections: z.array(SectionSchema).min(1),
   seo: z.object({
     title: z.string().min(4).max(70),

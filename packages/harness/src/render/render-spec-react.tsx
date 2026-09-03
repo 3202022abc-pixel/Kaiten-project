@@ -46,9 +46,12 @@ import { ruNbspDeep } from './ru-typography';
 function RenderSection({
   section,
   expandTabs = false,
+  theme = 'light',
 }: {
   section: Section;
   expandTabs?: boolean;
+  /** Тема страницы — влияет только на chrome-компоненты (шапка). */
+  theme?: 'light' | 'dark';
 }) {
   switch (section.component) {
     case 'HeroSection':
@@ -64,7 +67,7 @@ function RenderSection({
     case 'LandingFooter':
       return <LandingFooter {...section.props} />;
     case 'SiteHeader':
-      return <SiteHeader />;
+      return <SiteHeader logoTone={theme === 'dark' ? 'light' : 'dark'} />;
     case 'LandingFooterMock':
       return <LandingFooterMock />;
     case 'SocialProof':
@@ -166,17 +169,25 @@ export function RenderLanding({
   // Правило DS `ru-nbsp-typography` зашито в рендер: неразрывные пробелы для
   // висячих предлогов/союзов/частиц и длинного тире проставляются автоматически.
   const s = ruNbspDeep(spec);
+  const theme = s.theme ?? 'light';
   return (
-    <>
+    <div
+      data-landing-theme={theme}
+      className={
+        theme === 'dark'
+          ? 'landing-theme-dark min-h-screen bg-(--color-surface-page) text-(--color-text-primary)'
+          : undefined
+      }
+    >
       {s.sections.map((section, i) => (
         <div
           key={`${section.id}-${i}`}
           data-comp={section.id}
           data-comp-index={String(i)}
         >
-          <RenderSection section={section} expandTabs={expandTabs} />
+          <RenderSection section={section} expandTabs={expandTabs} theme={theme} />
         </div>
       ))}
-    </>
+    </div>
   );
 }

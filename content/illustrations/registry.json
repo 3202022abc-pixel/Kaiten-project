@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-01T14:45:44.257Z",
+  "updatedAt": "2026-09-03T08:15:18.499Z",
   "entries": [
     {
       "kind": "mock-use",
@@ -545,11 +545,128 @@
     {
       "kind": "mock-use",
       "variant": "hero-screen-video",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "hero",
+      "sectionIdx": 1,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.224Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "none",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "media_copy",
+      "sectionIdx": 2,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.235Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-sections",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "media_copy",
+      "sectionIdx": 3,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.246Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-request-form",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "media_copy",
+      "sectionIdx": 4,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.257Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-search",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "scenario_walkthrough",
+      "sectionIdx": 6,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.268Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-suggested-articles",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "scenario_walkthrough",
+      "sectionIdx": 6,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.278Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-request-card",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "scenario_walkthrough",
+      "sectionIdx": 6,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.288Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-requests",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "scenario_walkthrough",
+      "sectionIdx": 6,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.299Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-branding",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 7,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.309Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-domain",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 7,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.320Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-email",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 7,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.329Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-template",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "media_copy",
+      "sectionIdx": 11,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.339Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "help-center-portal",
+      "landingSlug": "kaiten-help-center-dark",
+      "sectionId": "media_copy",
+      "sectionIdx": 12,
+      "domain": "help-center",
+      "recordedAt": "2026-09-03T07:52:31.351Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "hero-screen-video",
       "landingSlug": "kaiten-help-center",
       "sectionId": "hero",
       "sectionIdx": 1,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:43.949Z"
+      "recordedAt": "2026-09-03T08:15:18.388Z"
     },
     {
       "kind": "mock-use",
@@ -558,7 +675,7 @@
       "sectionId": "media_copy",
       "sectionIdx": 2,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:43.975Z"
+      "recordedAt": "2026-09-03T08:15:18.397Z"
     },
     {
       "kind": "mock-use",
@@ -567,7 +684,7 @@
       "sectionId": "media_copy",
       "sectionIdx": 3,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.008Z"
+      "recordedAt": "2026-09-03T08:15:18.406Z"
     },
     {
       "kind": "mock-use",
@@ -576,88 +693,88 @@
       "sectionId": "media_copy",
       "sectionIdx": 4,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.040Z"
+      "recordedAt": "2026-09-03T08:15:18.419Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-search",
       "landingSlug": "kaiten-help-center",
       "sectionId": "scenario_walkthrough",
-      "sectionIdx": 7,
+      "sectionIdx": 6,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.063Z"
+      "recordedAt": "2026-09-03T08:15:18.431Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-suggested-articles",
       "landingSlug": "kaiten-help-center",
       "sectionId": "scenario_walkthrough",
-      "sectionIdx": 7,
+      "sectionIdx": 6,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.090Z"
+      "recordedAt": "2026-09-03T08:15:18.441Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-request-card",
       "landingSlug": "kaiten-help-center",
       "sectionId": "scenario_walkthrough",
-      "sectionIdx": 7,
+      "sectionIdx": 6,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.113Z"
+      "recordedAt": "2026-09-03T08:15:18.448Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-requests",
       "landingSlug": "kaiten-help-center",
       "sectionId": "scenario_walkthrough",
-      "sectionIdx": 7,
+      "sectionIdx": 6,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.140Z"
+      "recordedAt": "2026-09-03T08:15:18.458Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-branding",
       "landingSlug": "kaiten-help-center",
       "sectionId": "tabbed_feature",
-      "sectionIdx": 9,
+      "sectionIdx": 7,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.159Z"
+      "recordedAt": "2026-09-03T08:15:18.466Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-domain",
       "landingSlug": "kaiten-help-center",
       "sectionId": "tabbed_feature",
-      "sectionIdx": 9,
+      "sectionIdx": 7,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.193Z"
+      "recordedAt": "2026-09-03T08:15:18.475Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-email",
       "landingSlug": "kaiten-help-center",
       "sectionId": "tabbed_feature",
-      "sectionIdx": 9,
+      "sectionIdx": 7,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.213Z"
+      "recordedAt": "2026-09-03T08:15:18.482Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-template",
       "landingSlug": "kaiten-help-center",
       "sectionId": "media_copy",
-      "sectionIdx": 14,
+      "sectionIdx": 11,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.234Z"
+      "recordedAt": "2026-09-03T08:15:18.491Z"
     },
     {
       "kind": "mock-use",
       "variant": "help-center-portal",
       "landingSlug": "kaiten-help-center",
       "sectionId": "media_copy",
-      "sectionIdx": 15,
+      "sectionIdx": 12,
       "domain": "help-center",
-      "recordedAt": "2026-09-01T14:45:44.257Z"
+      "recordedAt": "2026-09-03T08:15:18.499Z"
     }
   ]
 }
