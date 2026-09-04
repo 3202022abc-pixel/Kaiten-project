@@ -243,6 +243,40 @@ function purgeInlineCss(html) {
  * горизонтальную прокрутку. Возвращаем ровно эту логику двенадцатью строками
  * на месте: считаем масштаб по ширине контейнера и держим высоту.
  */
+/**
+ * Второй проход по стилям, уже после чистки правил: выкидывает то, на что
+ * никто не ссылается — `@property` и объявления переменных без единого `var()`,
+ * мёртвые `@keyframes`, комментарии сборки и пустые строки. Ссылки ищем и в
+ * разметке: часть переменных задаётся инлайновым style.
+ */
+function tidyCss(css, html) {
+  const both = css + html;
+  const used = new Set([...both.matchAll(/var\(\s*(--[\w-]+)/g)].map((m) => m[1]));
+  const isUsed = (name) => used.has(name);
+
+  let out = css;
+
+  // @property без единого var() — правило описывает переменную, которой нет
+  out = out.replace(/@property\s+(--[\w-]+)\s*\{[^}]*\}\s*/g, (m, name) =>
+    isUsed(name) ? m : '',
+  );
+
+  // объявления переменных, к которым никто не обращается
+  out = out.replace(/(--[\w-]+)\s*:\s*[^;{}]*;/g, (m, name) => (isUsed(name) ? m : ''));
+
+  // анимации, на которые никто не ссылается
+  out = out.replace(/@keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\}\s*/g, (m, name) =>
+    new RegExp(`animation[^;}]*\\b${name}\\b`).test(both) ? m : '',
+  );
+
+  return out
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\{\s*\}/g, '')
+    .replace(/[ \t]+$/gm, '')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
 function injectMockFit(html) {
   const script = `<script>(function(){function fit(){var outers=document.querySelectorAll('[data-mockfit="outer"]');for(var i=0;i<outers.length;i++){var o=outers[i],n=o.querySelector('[data-mockfit="inner"]');if(!n)continue;n.style.transform='none';o.style.height='';var nw=n.offsetWidth,nh=n.offsetHeight,ow=o.clientWidth;if(!nw||!ow)continue;var s=Math.min(1,ow/nw);n.style.transformOrigin='top left';n.style.transform='scale('+s+')';o.style.height=Math.round(nh*s)+'px';}}fit();addEventListener('load',fit);addEventListener('resize',fit);})();</script>`;
   return html.replace(/<\/body>/i, `${script}</body>`);
@@ -290,7 +324,10 @@ async function main() {
       return '';
     });
     const cssFile = resolve(dirname(absOut), 'styles.css');
-    const css = blocks.join('\n');
+    const raw = blocks.join('\n');
+    const css = tidyCss(raw, htmlOut);
+    const saved = (Buffer.byteLength(raw) - Buffer.byteLength(css)) / 1024;
+    console.log(`→ tidying styles.css (−${saved.toFixed(1)} KB)`);
     await writeFile(cssFile, css, 'utf-8');
     htmlOut = htmlOut.replace(
       /<\/head>/i,
