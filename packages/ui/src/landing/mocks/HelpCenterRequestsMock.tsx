@@ -58,7 +58,7 @@ export function HelpCenterRequestsMock() {
       className={cn(
         // Ширина зафиксирована: без неё мок на планшете и мобилке
         // переверстывается, а должен уменьшаться целиком, как картинка.
-        'relative w-[560px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-3xl)',
+        'relative w-[576px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-3xl)',
         'border border-(--color-border-default) bg-(--color-surface-card)',
         'shadow-[0_0_40px_rgba(45,45,45,0.12)]',
       )}

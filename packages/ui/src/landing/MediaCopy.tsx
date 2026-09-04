@@ -79,7 +79,7 @@ export interface MediaCopyProps {
    * ширину. С планшета — обычный ряд слева. Opt-in.
    */
   ctaCenterMobile?: boolean;
-  /** Верхний отступ секции на мобилке — 48px вместо 32px. Opt-in. */
+  /** Верхний отступ секции на мобилке — 32px. Opt-in. */
   spaceTopMobile?: boolean;
   mediaVariant?: MediaCopyVariant;
   /**
@@ -137,12 +137,12 @@ export function MediaCopy({
         // Подсекции под общей шапкой («Шаг 1», «Шаг 2») стоят теснее,
         // самостоятельные секции отбиваются от следующей сильнее.
         titleSize === 'small' ? 'pb-12 md:pb-16' : 'pb-16 md:pb-24 lg:pb-24',
-        spaceBottom && 'pb-16 lg:pb-24',
+        spaceBottom && 'pb-12 md:pb-16 lg:pb-24',
         tightBottom && 'pb-8 md:pb-12 lg:pb-12',
-        spaceTop && 'pt-16 md:pt-24 lg:pt-24',
+        spaceTop && 'pt-12 md:pt-24 lg:pt-24',
         flushTop && 'pt-0 md:pt-0 lg:pt-0',
         // Идёт после flushTop: на мобилке отступ нужен даже у секции без него.
-        spaceTopMobile && 'pt-12',
+        spaceTopMobile && 'pt-8',
       )}
     >
       <div

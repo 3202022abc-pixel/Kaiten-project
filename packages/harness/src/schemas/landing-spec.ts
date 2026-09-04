@@ -471,6 +471,16 @@ const CtaBannerSchema = z.object({
   props: z.object({
     title: z.string().min(4).max(120).optional(),
     description: z.string().max(280).optional(),
+    descriptionLink: z
+      .union([
+        z.object({ text: z.string().min(2).max(120), href: z.string().url() }),
+        z
+          .array(z.object({ text: z.string().min(2).max(120), href: z.string().url() }))
+          .min(1)
+          .max(4),
+      ])
+      .optional()
+      .describe('куски описания фирменными фиолетовыми ссылками: text ищется в описании; можно списком'),
     primaryCta: CtaSchema.optional(),
     secondaryCta: CtaSchema.nullable().optional(),
     cards: z
@@ -578,7 +588,7 @@ const MediaCopySchema = z.object({
     spaceTopMobile: z
       .boolean()
       .optional()
-      .describe('верхний отступ секции на мобилке — 48px вместо 32px. Opt-in'),
+      .describe('верхний отступ секции на мобилке — 32px. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     accentWord: z
@@ -931,6 +941,10 @@ const BentoGridSchema = z.object({
       .boolean()
       .optional()
       .describe('вертикальные отступы секции на десктопе — 96px вместо 64px. Opt-in'),
+    smallTitleMobile: z
+      .boolean()
+      .optional()
+      .describe('компактная шапка на мобилке: заголовок 24px и отступ до сетки 24px. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     description: z.string().max(400).optional(),
@@ -1276,6 +1290,10 @@ const ScenarioWalkthroughSectionSchema = z.object({
       .boolean()
       .optional()
       .describe('две колонки уже с планшета — та же пропорция, что на десктопе. Opt-in'),
+    onSurface: z
+      .boolean()
+      .optional()
+      .describe('светло-серая подложка секции во всю ширину экрана. Opt-in'),
   }),
 });
 

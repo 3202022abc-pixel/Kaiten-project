@@ -41,6 +41,8 @@ export interface BentoGridProps {
    * нужны, когда сетка отделена от соседей как самостоятельный блок.
    */
   spaceY?: boolean;
+  /** Компактная шапка на мобилке: заголовок 24px и отступ до сетки 24px. Opt-in. */
+  smallTitleMobile?: boolean;
 }
 
 const SIZE_CLASS: Record<NonNullable<BentoCellProps['size']>, string> = {
@@ -64,6 +66,7 @@ export function BentoGrid({
   align,
   wideGap,
   spaceY,
+  smallTitleMobile,
 }: BentoGridProps) {
   const content = (
     <section
@@ -77,6 +80,8 @@ export function BentoGrid({
       <div
         className={cn(
           'mb-10',
+          // На мобилке шапка стоит ближе к сетке карточек.
+          smallTitleMobile && 'mb-6 md:mb-10',
           align === 'center' ? 'mx-auto max-w-4xl md:text-center' : 'max-w-2xl',
         )}
       >
@@ -90,7 +95,10 @@ export function BentoGrid({
         )}
         <h2
           data-comp="bento_grid.title"
-          className="text-3xl font-semibold leading-tight md:text-4xl"
+          className={cn(
+              'text-3xl font-semibold leading-tight md:text-4xl',
+              smallTitleMobile && 'text-2xl md:text-4xl',
+            )}
         >
           {title}
         </h2>

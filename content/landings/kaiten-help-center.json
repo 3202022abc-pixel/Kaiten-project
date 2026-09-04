@@ -1,7 +1,6 @@
 {
   "pageType": "saas_landing",
   "goal": "try_free",
-  "theme": "dark",
   "sections": [
     {
       "id": "site_header",
@@ -93,7 +92,7 @@
       "component": "CtaBanner",
       "props": {
         "title": "Уже работаете в Кайтен?",
-        "description": "Создайте Справочный центр в своем пространстве по пошаговой инструкции. А чтобы получать заявки клиентов из Справочного центра, подключите модуль «Служба поддержки». Он доступен на тарифах «Стандарт» и «Бизнес» как один из модулей на выбор, а на тарифе «Корпорация» уже включен.",
+        "description": "Создайте Справочный центр в своем пространстве по пошаговой инструкции. А чтобы получать заявки клиентов из Справочного центра, подключите модуль «Служба поддержки». Он доступен на тарифах «Стандарт» и «Бизнес» как один из модулей на выбор, а на тарифе «Корпорация» уже включен",
         "primaryCta": {
           "label": "Открыть инструкцию",
           "href": "https://faq-ru.kaiten.site/"
@@ -103,7 +102,17 @@
           "href": "https://kaiten.ru/pricing/"
         },
         "gradient": true,
-        "mediaVariant": "help-center-setup"
+        "mediaVariant": "help-center-setup",
+        "descriptionLink": [
+          {
+            "text": "пошаговой инструкции",
+            "href": "https://faq-ru.kaiten.site/spravochnyy-centr"
+          },
+          {
+            "text": "тарифах «Стандарт» и «Бизнес»",
+            "href": "https://kaiten.ru/tariffs"
+          }
+        ]
       }
     },
     {
@@ -111,7 +120,6 @@
       "component": "ScenarioWalkthroughSection",
       "props": {
         "title": "От вопроса до решения — в одном Справочном центре",
-        "description": "В результате пользователи быстрее получают ответ, меньше вопросов остается в чатах, а команде не приходится снова и снова отвечать на одно и то же",
         "steps": [
           {
             "time": "Шаг 1",
@@ -149,7 +157,8 @@
         "plainTimeline": true,
         "stepInTitle": true,
         "align": "center",
-        "columnsFromTablet": true
+        "columnsFromTablet": true,
+        "description": "Как работает Справочный центр в Кайтен"
       }
     },
     {
@@ -304,8 +313,9 @@
             "accent": false
           }
         ],
-        "onSurface": false,
-        "align": "center"
+        "onSurface": true,
+        "align": "center",
+        "smallTitleMobile": true
       }
     },
     {

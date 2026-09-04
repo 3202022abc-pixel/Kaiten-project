@@ -338,10 +338,12 @@ export function TabbedFeatureSection({
         className={cn(
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
+          // На мобилке секция начинается ближе к предыдущей.
+          'pt-6 md:pt-12 lg:pt-16',
           flushBottom && 'pb-0 md:pb-0 lg:pb-0',
         )}
       >
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-start md:gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:items-start md:gap-6 lg:gap-8">
           {/*
             Шапка: на планшете — во всю ширину и по центру над обеими колонками,
             на десктопе возвращается влево, над аккордионом.
@@ -439,26 +441,38 @@ export function TabbedFeatureSection({
                         strokeWidth={2}
                       />
                     </button>
-                    {isOpen && t.description && (
-                      <p
-                        data-comp={`tabbed_feature.tabs[${idx}].description`}
-                        className="px-5 pb-6 text-base leading-relaxed text-(--color-text-primary)"
-                      >
-                        {t.description}
-                      </p>
-                    )}
                     {/*
+                      Раскрытие анимируем сеткой: 0fr -> 1fr плавно тянет высоту
+                      без замера в JS. Содержимое рендерится всегда, иначе
+                      анимировать было бы нечего.
+
                       До md мок живёт внутри раскрытой строки: колонки схлопнуты
                       в одну, и отдельная панель сверху отрывала бы картинку
                       от своего пункта. С планшета работает панель справа.
                     */}
-                    {isOpen && (
-                      <div className="md:hidden">
-                        <div className="p-4 pt-0">
-                          <MockVisual variant={t.mockVariant} />
+                    <div
+                      className={cn(
+                        'grid transition-[grid-template-rows,opacity] duration-300 ease-(--ease-ui)',
+                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0',
+                      )}
+                      aria-hidden={!isOpen}
+                    >
+                      <div className="min-h-0 overflow-hidden">
+                        {t.description && (
+                          <p
+                            data-comp={`tabbed_feature.tabs[${idx}].description`}
+                            className="px-5 pb-6 text-base leading-relaxed text-(--color-text-primary)"
+                          >
+                            {t.description}
+                          </p>
+                        )}
+                        <div className="md:hidden">
+                          <div className="p-4 pt-0">
+                            <MockVisual variant={t.mockVariant} />
+                          </div>
                         </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 );
               })}
@@ -510,7 +524,10 @@ export function TabbedFeatureSection({
               (92% ширины панели). На планшете те же 92% дают ~287px, и MockFit
               ужимает мок ровно в этой пропорции: раскладка та же, просто мельче.
             */}
-            <div className="w-[92%]">
+            <div
+              key={active.id}
+              className="w-[92%] animate-[mock-fade_260ms_var(--ease-ui)]"
+            >
               <MockFit>
                 <div className="w-[500px]">
                   <MockVisual variant={active.mockVariant} />

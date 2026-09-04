@@ -41,7 +41,7 @@ export function HelpCenterSectionsMock() {
         // Ширина зафиксирована: снаружи мок оборачивается в `w-max` и
         // масштабируется под колонку — без неё сетка растягивается по
         // max-content и мок ужимается почти вдвое.
-        'relative w-[560px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-3xl)',
+        'relative w-[576px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-3xl)',
         'border border-(--color-border-default) bg-(--color-surface-card)',
         'shadow-[0_0_40px_rgba(45,45,45,0.12)]',
       )}

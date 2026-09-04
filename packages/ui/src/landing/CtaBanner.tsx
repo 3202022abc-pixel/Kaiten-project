@@ -1,6 +1,7 @@
 import { ButtonLink } from '../primitives/ButtonLink';
 import { Icon } from '../primitives/Icon';
 import { Inspect } from '../primitives/Inspect';
+import { LinkedText, type TextLink } from '../primitives/LinkedText';
 import { cn } from '../primitives/cn';
 import { GradientPanel } from './GradientPanel';
 import { FeatureTile, hasFeatureTile } from './mocks/FeatureTile';
@@ -23,6 +24,8 @@ export interface CtaBannerCtaProps {
 export interface CtaBannerProps {
   title: string;
   description?: string;
+  /** Кусок описания фирменной фиолетовой ссылкой: `text` ищется в описании. */
+  descriptionLink?: TextLink | TextLink[];
   primaryCta: CtaBannerCtaProps;
   secondaryCta?: CtaBannerCtaProps | null;
   /**
@@ -150,6 +153,7 @@ function CtaBannerCards({ cards }: { cards: CtaBannerCardProps[] }) {
 export function CtaBanner({
   title,
   description,
+  descriptionLink,
   primaryCta,
   secondaryCta,
   gradient,
@@ -192,7 +196,14 @@ export function CtaBanner({
   const withTile = Boolean(featureTile && hasFeatureTile(featureTile));
   const withMock = Boolean(mediaVariant);
   const copy = (
-    <div className={cn(withTile || withMock ? 'max-w-xl' : ctaBelow ? 'max-w-3xl' : 'max-w-2xl')}>
+    <div
+      className={cn(
+        withTile || withMock ? 'max-w-xl' : ctaBelow ? 'max-w-3xl' : 'max-w-2xl',
+        // На планшете колонка одна: узкий блок текста центрируем целиком,
+        // иначе выровненный по центру текст всё равно жался бы влево.
+        withMock && 'md:mx-auto md:max-w-2xl lg:mx-0 lg:max-w-xl',
+      )}
+    >
       <h3 data-comp="cta_banner.title" className="text-2xl font-semibold leading-tight md:text-3xl">
         {title}
       </h3>
@@ -201,7 +212,7 @@ export function CtaBanner({
           data-comp="cta_banner.description"
           className="mt-3 text-base leading-relaxed text-(--color-text-primary)"
         >
-          {description}
+          <LinkedText text={description} link={descriptionLink} />
         </p>
       )}
     </div>
@@ -213,7 +224,7 @@ export function CtaBanner({
         'flex flex-col gap-3 sm:flex-row',
         // В варианте с моком кнопки на мобилке по ширине контента
         // и по центру колонки; с планшета — обычный ряд слева.
-        withMock && 'items-center sm:items-start',
+        withMock && 'items-center sm:items-start md:justify-center lg:justify-start',
         (withTile || withMock || ctaBelow) && 'mt-6',
       )}
     >
@@ -236,12 +247,13 @@ export function CtaBanner({
   // Без плитки: прежняя раскладка — текст слева, кнопки справа.
   const inner = withMock ? (
     // С интерфейсным моком: слева текст и кнопки под ним, справа мок домена.
-    <div className="flex flex-col gap-8 px-6 py-8 md:px-10 md:py-10 lg:flex-row lg:items-center lg:justify-between">
-      <div className="lg:max-w-xl">
+    <div className="flex flex-col gap-8 px-6 py-8 pb-6 md:px-12 md:py-10 lg:flex-row lg:items-center lg:justify-between lg:px-14 lg:py-12">
+      {/* На планшете колонка одна и текст стоит по центру; с десктопа — влево. */}
+      <div className="md:text-center lg:max-w-xl lg:text-left">
         {copy}
         {buttons}
       </div>
-      <div aria-hidden className="w-full min-w-0 lg:max-w-md">
+      <div aria-hidden className="w-full min-w-0 md:mx-auto md:max-w-md lg:mx-0">
         <MockVisual variant={mediaVariant as MockVariant} />
       </div>
     </div>

@@ -43,6 +43,11 @@ export interface ScenarioWalkthroughSectionProps {
    * на планшете складываются в одну колонку. Opt-in.
    */
   columnsFromTablet?: boolean;
+  /**
+   * Светло-серая подложка во всю ширину экрана под секцией. Opt-in:
+   * без него секция стоит на белом фоне страницы, как раньше.
+   */
+  onSurface?: boolean;
 }
 
 /**
@@ -62,8 +67,12 @@ export function ScenarioWalkthroughSection({
   stepInTitle,
   align,
   columnsFromTablet,
+  onSurface,
 }: ScenarioWalkthroughSectionProps) {
-  return (
+  const ctaStepIndex = steps.findIndex((s) => s.primaryCta);
+  const ctaStep = ctaStepIndex >= 0 ? steps[ctaStepIndex] : undefined;
+
+  const content = (
     <section
       className={cn(
         'relative',
@@ -94,7 +103,11 @@ export function ScenarioWalkthroughSection({
         */}
         <h2
           data-comp="scenario_walkthrough.title"
-          className="text-3xl font-semibold leading-tight md:text-4xl lg:whitespace-nowrap"
+          className={cn(
+            'text-3xl font-semibold leading-tight md:text-4xl lg:whitespace-nowrap',
+            // На мобилке заголовок мельче: в три строки он занимал пол-экрана.
+            columnsFromTablet && 'text-2xl md:text-4xl',
+          )}
         >
           {title}
         </h2>
@@ -209,21 +222,6 @@ export function ScenarioWalkthroughSection({
                 >
                   {s.description}
                 </p>
-                {s.primaryCta && (
-                  <div
-                    className={cn(
-                      'mt-6',
-                      // На мобилке кнопка шага по центру колонки.
-                      columnsFromTablet && 'flex justify-center sm:block',
-                    )}
-                  >
-                    <Inspect name={`scenario_walkthrough.steps[${i}].primaryCta`}>
-                      <ButtonLink size="lg" href={s.primaryCta.href}>
-                        {s.primaryCta.label}
-                      </ButtonLink>
-                    </Inspect>
-                  </div>
-                )}
               </div>
               <Inspect
                 as="div"
@@ -243,6 +241,23 @@ export function ScenarioWalkthroughSection({
           );
         })}
       </ol>
+
+      {/*
+        Кнопка шага стоит под всем списком и по центру: это призыв ко всему
+        сценарию, а не к одному шагу, и в колонке шага он терялся.
+      */}
+      {ctaStep?.primaryCta && (
+        <div className="mt-12 flex justify-center">
+          <Inspect name={`scenario_walkthrough.steps[${ctaStepIndex}].primaryCta`}>
+            <ButtonLink size="lg" href={ctaStep.primaryCta.href}>
+              {ctaStep.primaryCta.label}
+            </ButtonLink>
+          </Inspect>
+        </div>
+      )}
     </section>
   );
+
+  // Серая подложка тянется во всю ширину экрана, а контент остаётся в сетке.
+  return onSurface ? <div className="bg-(--color-surface-section)">{content}</div> : content;
 }

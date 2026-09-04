@@ -118,6 +118,7 @@ const STYLE = `
 }
 /* планшет: та же карточка 318, что и на мобилке */
 @media(min-width:768px) and (max-width:1023px){ .fg-card{ flex:0 0 318px; max-width:318px; } }
+@media(min-width:768px) and (max-width:1023px){ .fg-mock{ padding-top:var(--sp-16); } }
 @media(prefers-reduced-motion:reduce){ .fg-grid{ scroll-behavior:auto; } }
 /* Модификатор: секция без нижнего отступа — специфичность выше медиазапросов выше. */
 .fg-mock.fg-flush-b{ padding-bottom:0; }
