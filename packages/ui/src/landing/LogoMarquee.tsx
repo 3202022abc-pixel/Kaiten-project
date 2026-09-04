@@ -49,7 +49,7 @@ export function LogoMarquee({
         // Ширину блока не зажимаем: заголовок на десктопе идёт в одну строку
         // (lg:whitespace-nowrap) и при max-w-3xl вылезал за контейнер, из-за
         // чего казался сдвинутым влево. Ограничение осталось на описании.
-        <div className="mx-auto text-left md:text-center">
+        <div className="mx-auto max-w-(--container-kaiten) text-left md:text-center">
           {eyebrow && (
             <p
               data-comp="logo_marquee.eyebrow"
@@ -82,7 +82,9 @@ export function LogoMarquee({
         </div>
       )}
 
-      <Inspect as="div" name="logo_marquee.items">
+      {/* Лента держится в той же сетке 1216, что и остальные секции: логотипы
+          выцветают по краям контейнера, а не убегают в край экрана. */}
+      <Inspect as="div" name="logo_marquee.items" className="mx-auto max-w-(--container-kaiten)">
         <LogoMarqueeMock
           logos={items.map((item) => ({ src: item.logoSrc, alt: item.brand }))}
           durationSec={durationSec}
