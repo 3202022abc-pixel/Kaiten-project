@@ -15,8 +15,10 @@ export interface RegistrationCtaProps {
   telegramHref?: string;
   maxHref?: string;
   newsletterRequired?: boolean;
-  /** Вариант формы: 'default' или 'conference' (поля с иконками + вопрос про клиента). */
-  variant?: 'default' | 'conference';
+  /** Вариант формы: 'default', 'conference' (поля с иконками + вопрос про клиента) или 'partner' (заявка в партнёрскую программу). */
+  variant?: 'default' | 'conference' | 'partner';
+  /** Опции селекта «Что интересует» — только для варианта 'partner'. */
+  partnerOptions?: { value: string; label: string }[];
   /** Акцентное продолжение заголовка (градиентом на новой строке) — для conference. */
   accentWord?: string;
 }
@@ -43,6 +45,7 @@ export function RegistrationCta({
   maxHref,
   newsletterRequired,
   variant,
+  partnerOptions,
   accentWord,
 }: RegistrationCtaProps) {
   const isConf = variant === 'conference';
@@ -94,6 +97,7 @@ export function RegistrationCta({
             maxHref={maxHref}
             newsletterRequired={newsletterRequired}
             variant={variant}
+            partnerOptions={partnerOptions}
           />
         </div>
       </GradientPanel>

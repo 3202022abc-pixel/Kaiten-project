@@ -1221,6 +1221,73 @@ const IndustryPickerSectionSchema = z.object({
   }),
 });
 
+/* ─── PartnerDirectory ────────────────────────────────────────────── */
+const PartnerDirectorySchema = z.object({
+  id: z.literal('partner_directory'),
+  component: z.literal('PartnerDirectory'),
+  props: z.object({
+    eyebrow: z.string().max(80).optional(),
+    title: z.string().min(4).max(120),
+    description: z.string().max(280).optional(),
+    /** Типы партнёрства — фильтр и бейдж на карточке. */
+    types: z
+      .array(
+        z.object({
+          id: z.string().min(1).max(40),
+          label: z.string().min(2).max(40),
+          /** Пояснение, что этот тип делает для клиента (видно при выборе фильтра). */
+          description: z.string().max(200).optional(),
+          accent: z.enum(['violet', 'blue', 'green', 'orange', 'purple']).optional(),
+          icon: z.string().max(40).optional(),
+        }),
+      )
+      .min(1)
+      .max(8),
+    /** Регионы — второй фильтр. Пусто → фильтр не рендерится. */
+    regions: z
+      .array(
+        z.object({
+          id: z.string().min(1).max(40),
+          label: z.string().min(2).max(40),
+        }),
+      )
+      .max(10)
+      .optional(),
+    partners: z
+      .array(
+        z.object({
+          id: z.string().min(1).max(60),
+          /** Публичное брендовое название. Юрлицо/ИНН на страницу не выносим. */
+          name: z.string().min(2).max(80),
+          initials: z.string().max(4).optional(),
+          logoSrc: z.string().optional(),
+          logoAlt: z.string().max(160).optional(),
+          /** 'light' — светлая версия логотипа: кладётся на тёмную плашку, а не перекрашивается. */
+          logoTone: z.enum(['light', 'dark']).optional(),
+          /** Цвет плашки под светлым логотипом (по умолчанию нейтральный тёмный). */
+          logoBg: z.string().max(32).optional(),
+          type: z.string().min(1).max(40),
+          region: z.string().max(40).optional(),
+          location: z.string().max(60).optional(),
+          services: z.array(z.string().min(2).max(48)).max(4).optional(),
+          since: z.string().max(20).optional(),
+          href: z.string().optional(),
+        }),
+      )
+      .min(3)
+      .max(80),
+    allTypesLabel: z.string().max(40).optional(),
+    allRegionsLabel: z.string().max(40).optional(),
+    searchPlaceholder: z.string().max(60).optional(),
+    emptyLabel: z.string().max(200).optional(),
+    note: z.string().max(240).optional(),
+    contactCta: z
+      .object({ label: z.string().min(2).max(40), href: z.string() })
+      .optional()
+      .describe('Действие в подвале карточки, когда у партнёра нет публичной ссылки'),
+  }),
+});
+
 /* ─── LandingFooter ───────────────────────────────────────────────── */
 const LandingFooterSchema = z.object({
   id: z.literal('footer'),
@@ -1386,8 +1453,13 @@ const RegistrationCtaSchema = z.object({
     description: z.string().max(280).optional(),
     /** Подпись кнопки отправки. */
     submitLabel: z.string().min(1).max(40),
-    /** Вариант формы: 'default' или 'conference' (иконки в полях + вопрос про клиента). */
-    variant: z.enum(['default', 'conference']).optional(),
+    /** Вариант формы: 'default' | 'conference' (иконки в полях + вопрос про клиента) | 'partner' (заявка в партнёрскую программу). */
+    variant: z.enum(['default', 'conference', 'partner']).optional(),
+    /** Опции селекта «Что интересует» — только для варианта 'partner'. */
+    partnerOptions: z
+      .array(z.object({ value: z.string().min(1).max(40), label: z.string().min(2).max(80) }))
+      .max(8)
+      .optional(),
     /** Акцентное продолжение заголовка (градиентом на новой строке) — для conference. */
     accentWord: z.string().max(60).optional(),
   }),
@@ -1417,6 +1489,7 @@ export const SectionSchema = z.discriminatedUnion('component', [
   AccordionFeatureSectionSchema,
   ScenarioWalkthroughSectionSchema,
   IndustryPickerSectionSchema,
+  PartnerDirectorySchema,
   ComparisonTableSchema,
   TimelineRoadmapSchema,
   BentoGridSchema,

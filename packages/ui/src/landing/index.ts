@@ -81,6 +81,15 @@ export type {
   IndustryProps,
 } from './IndustryPickerSection';
 
+export { PartnerDirectory } from './PartnerDirectory';
+export type {
+  PartnerDirectoryProps,
+  PartnerItemProps,
+  PartnerTypeProps,
+  PartnerRegionProps,
+  PartnerAccent,
+} from './PartnerDirectory';
+
 export { ComparisonTable } from './ComparisonTable';
 export type {
   ComparisonTableProps,

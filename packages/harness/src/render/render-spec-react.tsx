@@ -20,6 +20,7 @@ import {
   AccordionFeatureSection,
   ScenarioWalkthroughSection,
   IndustryPickerSection,
+  PartnerDirectory,
   ComparisonTable,
   TimelineRoadmap,
   BentoGrid,
@@ -140,6 +141,8 @@ function RenderSection({
       return <ScenarioWalkthroughSection {...section.props} />;
     case 'IndustryPickerSection':
       return <IndustryPickerSection {...section.props} />;
+    case 'PartnerDirectory':
+      return <PartnerDirectory {...section.props} />;
     case 'ComparisonTable':
       return <ComparisonTable {...section.props} />;
     case 'TimelineRoadmap':

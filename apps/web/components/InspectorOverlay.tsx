@@ -46,6 +46,7 @@ const SECTION_TO_COMPONENT: Record<string, string> = {
   tabbed_feature: 'TabbedFeatureSection',
   scenario_walkthrough: 'ScenarioWalkthroughSection',
   industry_picker: 'IndustryPickerSection',
+  partner_directory: 'PartnerDirectory',
   comparison_table: 'ComparisonTable',
   timeline_roadmap: 'TimelineRoadmap',
   bento_grid: 'BentoGrid',
