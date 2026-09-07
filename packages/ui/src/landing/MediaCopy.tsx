@@ -81,6 +81,11 @@ export interface MediaCopyProps {
   ctaCenterMobile?: boolean;
   /** Верхний отступ секции на мобилке — 32px. Opt-in. */
   spaceTopMobile?: boolean;
+  /**
+   * Кнопка стоит под обеими колонками и по центру, а не в текстовой колонке.
+   * Так она читается как призыв ко всей секции. Opt-in.
+   */
+  ctaBelow?: boolean;
   mediaVariant?: MediaCopyVariant;
   /**
    * Растровая картинка вместо mock-компонента (напр. /brand/platform.png).
@@ -121,6 +126,7 @@ export function MediaCopy({
   tightBottom = false,
   ctaCenterMobile = false,
   spaceTopMobile = false,
+  ctaBelow = false,
   mediaVariant = 'default',
   mediaSrc,
   mediaAlt,
@@ -129,6 +135,33 @@ export function MediaCopy({
 }: MediaCopyProps) {
   const hideMedia = mediaVariant === 'none' && !mediaSrc;
   const isStacked = mediaPosition === 'below';
+  const cta =
+    primaryCta || secondaryCta ? (
+              <div
+                className={cn(
+                  'mt-8 flex flex-col gap-3 sm:flex-row',
+                // Под сеткой отступ задаёт обёртка, свой сверху не нужен.
+                ctaBelow && 'mt-0',
+                  ctaCenterMobile && 'items-center sm:items-start',
+                )}
+              >
+                {primaryCta && (
+                  <Inspect name="media_copy.primaryCta">
+                    <ButtonLink size="lg" href={primaryCta.href}>
+                      {primaryCta.label}
+                    </ButtonLink>
+                  </Inspect>
+                )}
+                {secondaryCta && (
+                  <Inspect name="media_copy.secondaryCta">
+                    <ButtonLink variant="outline" size="lg" href={secondaryCta.href}>
+                      {secondaryCta.label}
+                    </ButtonLink>
+                  </Inspect>
+                )}
+              </div>
+    ) : null;
+
   return (
     <section
       className={cn(
@@ -248,29 +281,7 @@ export function MediaCopy({
             </ul>
           )}
 
-          {(primaryCta || secondaryCta) && (
-            <div
-              className={cn(
-                'mt-8 flex flex-col gap-3 sm:flex-row',
-                ctaCenterMobile && 'items-center sm:items-start',
-              )}
-            >
-              {primaryCta && (
-                <Inspect name="media_copy.primaryCta">
-                  <ButtonLink size="lg" href={primaryCta.href}>
-                    {primaryCta.label}
-                  </ButtonLink>
-                </Inspect>
-              )}
-              {secondaryCta && (
-                <Inspect name="media_copy.secondaryCta">
-                  <ButtonLink variant="outline" size="lg" href={secondaryCta.href}>
-                    {secondaryCta.label}
-                  </ButtonLink>
-                </Inspect>
-              )}
-            </div>
-          )}
+          {!ctaBelow && cta}
         </div>
 
         {!hideMedia && (
@@ -284,6 +295,12 @@ export function MediaCopy({
           </Inspect>
         )}
       </div>
+
+      {/* Кнопка под обеими колонками: призыв ко всей секции, а не к тексту. */}
+      {ctaBelow && cta && (
+        // Отступ сверху: 24 мобилка / 32 планшет / 48 десктоп.
+        <div className="mt-6 flex justify-center md:mt-8 lg:mt-12">{cta}</div>
+      )}
     </section>
   );
 }

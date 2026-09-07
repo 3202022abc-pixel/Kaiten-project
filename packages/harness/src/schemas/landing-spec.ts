@@ -656,6 +656,10 @@ const MediaCopySchema = z.object({
       .boolean()
       .optional()
       .describe('верхний отступ секции на мобилке — 32px. Opt-in'),
+    ctaBelow: z
+      .boolean()
+      .optional()
+      .describe('кнопка под обеими колонками и по центру, а не в текстовой колонке. Opt-in'),
     eyebrow: z.string().max(80).optional(),
     title: z.string().min(4).max(120),
     accentWord: z

@@ -224,7 +224,7 @@ export function CtaBanner({
         'flex flex-col gap-3 sm:flex-row',
         // В варианте с моком кнопки на мобилке по ширине контента
         // и по центру колонки; с планшета — обычный ряд слева.
-        withMock && 'items-center sm:items-start md:justify-center lg:justify-start',
+        withMock && 'items-center justify-center sm:items-start lg:justify-start',
         (withTile || withMock || ctaBelow) && 'mt-6',
       )}
     >
