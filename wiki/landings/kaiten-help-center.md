@@ -2,7 +2,7 @@
 slug: kaiten-help-center
 type: landing
 created: 2026-08-28
-updated: 2026-09-03
+updated: 2026-09-07
 status: draft
 brief: content/briefs/kaiten-help-center.json
 archetype: saas_landing
@@ -178,7 +178,7 @@ stale: false
 - **Score:** 67.45 / 100 (threshold 70) — ❌ fail
 - **Resolved segments:** IT
 - **CTA types detected:** Trial, Unknown
-- **Generated:** 2026-09-03T08:15:18.348Z
+- **Generated:** 2026-09-07T14:04:39.236Z
 
 ## Breakdown
 
