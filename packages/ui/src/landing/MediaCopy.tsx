@@ -298,8 +298,8 @@ export function MediaCopy({
 
       {/* Кнопка под обеими колонками: призыв ко всей секции, а не к тексту. */}
       {ctaBelow && cta && (
-        // Отступ сверху: 24 мобилка / 32 планшет / 48 десктоп.
-        <div className="mt-6 flex justify-center md:mt-8 lg:mt-12">{cta}</div>
+        // Отступ сверху: 24 мобилка / 40 планшет / 48 десктоп.
+        <div className="mt-6 flex justify-center md:mt-10 lg:mt-12">{cta}</div>
       )}
     </section>
   );

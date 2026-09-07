@@ -1,7 +1,6 @@
 {
   "pageType": "saas_landing",
   "goal": "try_free",
-  "theme": "dark",
   "sections": [
     {
       "id": "site_header",

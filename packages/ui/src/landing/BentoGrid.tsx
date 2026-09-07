@@ -73,8 +73,8 @@ export function BentoGrid({
       className={cn(
         'mx-auto w-full max-w-(--container-kaiten)',
         'px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24',
-        // Верхний отступ по брейкпоинтам: 48 мобилка / 64 планшет / 96 десктоп.
-        spaceY && 'pt-12 md:pt-16 lg:py-24',
+        // Отступы секции: 48 мобилка / 48 планшет / 64 десктоп.
+        spaceY && 'py-12 md:py-12 lg:py-16',
       )}
     >
       <div

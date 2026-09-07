@@ -224,7 +224,9 @@ export function CtaBanner({
         'flex flex-col gap-3 sm:flex-row',
         // В варианте с моком кнопки на мобилке по ширине контента
         // и по центру колонки; с планшета — обычный ряд слева.
-        withMock && 'items-center justify-center sm:items-start lg:justify-start',
+        withMock &&
+          // Подписи держим в одну строку: в узкой колонке десктопа они рвались.
+          'items-center justify-center sm:items-start lg:justify-start [&_a]:whitespace-nowrap',
         (withTile || withMock || ctaBelow) && 'mt-6',
       )}
     >
@@ -247,7 +249,7 @@ export function CtaBanner({
   // Без плитки: прежняя раскладка — текст слева, кнопки справа.
   const inner = withMock ? (
     // С интерфейсным моком: слева текст и кнопки под ним, справа мок домена.
-    <div className="flex flex-col gap-8 px-6 py-8 pb-6 md:px-12 md:py-10 lg:flex-row lg:items-center lg:justify-between lg:px-14 lg:py-12">
+    <div className="flex flex-col gap-10 px-6 py-8 pb-6 md:px-12 md:py-10 lg:flex-row lg:gap-8 lg:items-center lg:justify-between lg:px-14 lg:py-12">
       {/* На планшете колонка одна и текст стоит по центру; с десктопа — влево. */}
       <div className="md:text-center lg:max-w-xl lg:text-left">
         {copy}
