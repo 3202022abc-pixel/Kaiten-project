@@ -65,7 +65,7 @@ function Column({
  * доски — уведомление от Кайтена «Обратите внимание, задача почти просрочена».
  * Показывает, что о дедлайне сообщает система, а не коллега вручную.
  */
-export function AutomationDeadlineMock() {
+export function WindowDeadlineMock() {
   return (
     <div
       aria-hidden

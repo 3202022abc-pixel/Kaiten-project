@@ -56,6 +56,7 @@ function RenderSection({
 }: {
   section: Section;
   expandTabs?: boolean;
+  /** Тема страницы — влияет только на chrome-компоненты (шапка). */
   theme?: 'light' | 'dark';
 }) {
   switch (section.component) {

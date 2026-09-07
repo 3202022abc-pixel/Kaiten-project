@@ -121,7 +121,7 @@ function Column({
   );
 }
 
-export function AutomationChecklistDoneMock() {
+export function WindowChecklistDoneMock() {
   return (
     <div
       aria-hidden

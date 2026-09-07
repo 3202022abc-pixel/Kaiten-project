@@ -233,7 +233,7 @@ function ParentCard() {
  * в «В работе» рядом со своей дочерней, а в «Готово» карточка помечена как
  * перенесённая правилом: как только она закрылась, родитель уехал следом.
  */
-export function AutomationCardFlowMock() {
+export function WindowCardFlowMock() {
   return (
     <div
       aria-hidden

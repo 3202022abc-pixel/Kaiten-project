@@ -48,8 +48,8 @@ const css = `
   background:linear-gradient(90deg,#ece0ff,#cdecff);
   font-family:'Roboto',system-ui,sans-serif;color:#2d2d2d}
 .ctp__copy{position:relative;z-index:1}
-.ctp__copy h2{font-size:24px;line-height:32px;font-weight:600;color:#2d2d2d;margin:0}
-@media(min-width:1280px){.ctp__copy h2{font-size:30px;line-height:36px}}
+.ctp__copy h2{font-size:30px;line-height:36px;font-weight:600;color:#2d2d2d;margin:0}
+@media(min-width:1280px){.ctp__copy h2{font-size:36px;line-height:40px}}
 .ctp__copy p{font-size:16px;line-height:24px;color:#424242;margin:16px 0 0}
 /* Кнопки в один ряд; в столбик уходят только на самых узких экранах,
    где две штуки физически не помещаются по ширине. */
@@ -65,10 +65,12 @@ const css = `
 .ctp__btn--ghost{background:#fff;border-color:#dbe1e0;color:#7d4ccf}
 .ctp__btn--ghost:hover{background:#efe9f9;border-color:rgba(125,76,207,.48);color:#6a3cbf}
 .ctp__visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center}
-.ctp__visual img{width:85%;height:auto;display:block;border-radius:12px}
+.ctp__visual img{width:100%;height:auto;display:block;border-radius:12px}
 @media(min-width:1024px){.ctp{border-radius:16px}.ctp__visual img{border-radius:16px}}
-@media(min-width:768px) and (max-width:1279px){.ctp__visual img{width:80%}}
-@media(min-width:1280px){.ctp__visual img{width:84%}}
+/* Иллюстрация не во всю колонку: на широких экранах она крупнее текста. */
+@media(min-width:1024px){.ctp__visual img{width:82%}}
+/* Иллюстрация отбивается от верхнего и нижнего края карточки. */
+@media(min-width:1024px){.ctp__visual{margin-block:-16px;padding-block:0}}
 @media(max-width:1023px){
   .ctp{grid-template-columns:1fr;text-align:center;background:linear-gradient(180deg,#ece0ff,#cdecff)}
   .ctp__cta{justify-content:center}
@@ -80,7 +82,11 @@ const css = `
   .ctp__cta{justify-content:center}
 }
 @media(min-width:560px) and (max-width:767px){.ctp{padding:48px}}
-@media(max-width:559px){.ctp{padding:24px}.ctp__cta{flex-wrap:wrap}}
+@media(max-width:559px){.ctp{padding:24px;padding-top:48px}.ctp__cta{flex-wrap:wrap}}
+/* На мобилке заголовок мельче: в узкой колонке 24px читались как второй H1. */
+@media(max-width:767px){.ctp__copy h2{font-size:20px;line-height:28px}.ctp__copy p{font-size:14px;line-height:22px}}
+/* На мобилке между кнопкой и картинкой хватает 24px: колонка одна. */
+@media(max-width:767px){.ctp{gap:24px}}
 `;
 
 export default function CTAproduct({

@@ -47,8 +47,11 @@ export function LogoMarquee({
     // вертикальной шкалой — иначе просвет складывается вдвое.
     <section className={cn('w-full overflow-hidden px-4 pt-16 md:px-6 md:pt-24 lg:pt-32')}>
       {(eyebrow || title || description) && (
-        // отступ до ленты задаёт сам мок (.lmq__marq margin-top)
-        <div className="mx-auto max-w-3xl text-left md:text-center">
+        // Отступ до ленты задаёт сам мок (.lmq__marq margin-top).
+        // Ширину блока не зажимаем: заголовок на десктопе идёт в одну строку
+        // (lg:whitespace-nowrap) и при max-w-3xl вылезал за контейнер, из-за
+        // чего казался сдвинутым влево. Ограничение осталось на описании.
+        <div className="mx-auto max-w-(--container-kaiten) text-left md:text-center">
           {eyebrow && (
             <p
               data-comp="logo_marquee.eyebrow"
@@ -81,7 +84,9 @@ export function LogoMarquee({
         </div>
       )}
 
-      <Inspect as="div" name="logo_marquee.items">
+      {/* Лента держится в той же сетке 1216, что и остальные секции: логотипы
+          выцветают по краям контейнера, а не убегают в край экрана. */}
+      <Inspect as="div" name="logo_marquee.items" className="mx-auto max-w-(--container-kaiten)">
         <LogoMarqueeMock
           logos={items.map((item) => ({ src: item.logoSrc, alt: item.brand }))}
           durationSec={durationSec}

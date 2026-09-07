@@ -60,9 +60,9 @@ function OutlineButton({ icon, children }: { icon: string; children: React.React
  * Конструктор правила автоматизации Kaiten — половина «Когда»: событие-триггер
  * и условие, при котором правило срабатывает. Первый из двух шагов сборки
  * правила «если — то» на лендинге модуля «Автоматизации».
- * Пара — AutomationRuleActionMock (`automation-rule-action`, половина «Выполнить»).
+ * Пара — WindowRuleActionMock (`window-rule-action`, половина «Выполнить»).
  */
-export function AutomationRuleTriggerMock() {
+export function WindowRuleTriggerMock() {
   return (
     <div
       aria-hidden

@@ -70,6 +70,18 @@ export interface FeatureGridProps {
    * мини-мокап фичи из галереи (`items[].featureTile`).
    */
   variant?: 'cards' | 'mock';
+  /**
+   * Карточки как в эталонном блоке фич (`FeatureGridMock`): светло-серая
+   * заливка, без рамки и без hover-подъёма. Opt-in — без него остаётся прежняя
+   * белая карточка с обводкой, чтобы не менять старые лендинги.
+   */
+  flat?: boolean;
+  /**
+   * Убрать нижний отступ секции. Сейчас действует только для `variant: 'mock'`
+   * (у эталонного блока свой крупный padding) — нужен, когда под блоком сразу
+   * идёт кнопка или следующая секция.
+   */
+  flushBottom?: boolean;
 }
 
 /**
@@ -131,6 +143,8 @@ export function FeatureGrid({
   variant = 'cards',
   slider = false,
   flushTop = false,
+  flat,
+  flushBottom,
 }: FeatureGridProps) {
   // На планшете и мобилке карточки не помещаются в ряд — трек листается
   // свайпом и стрелками под ним. На десктопе это обычная сетка.
@@ -185,6 +199,7 @@ export function FeatureGrid({
         <FeatureGridMock
           title={title}
           subtitle={description}
+          flushBottom={flushBottom}
           items={items.map((it) => ({
             title: it.title,
             desc: it.description,
@@ -225,7 +240,7 @@ export function FeatureGrid({
         {description && (
           <p
             data-comp="features.description"
-            className="mt-4 text-lg text-(--color-text-primary)"
+            className="mt-4 text-base text-(--color-text-primary) md:text-lg"
           >
             {description}
           </p>
@@ -257,8 +272,11 @@ export function FeatureGrid({
             key={i}
             name={`features.items[${i}]`}
             className={cn(
-              // Внутренние отступы по шкале DS: 24 / 32 / 48.
+              // Внутренние отступы по шкале DS: 24 / 32 / 48. Карточка идёт
+              // заливкой без обводки — так в эталонном блоке фич; проп `flat`
+              // остался для спек, которые просят такую карточку явно.
               'rounded-(--radius-xl) bg-(--color-surface-section) p-6 md:p-8 lg:rounded-(--radius-2xl)',
+              flat && 'bg-(--color-surface-section)',
               // в треке карточка держит свою ширину и цепляется снапом
               // Ширина карточки — доля трека, чтобы в окно попадало целое число
               // карточек: на мобилке одна, на планшете две. Фиксированная ширина

@@ -73,11 +73,28 @@ function stripPreloads(html) {
     .replace(/<link\s+[^>]*rel=["'](?:dns-prefetch|preconnect)["'][^>]*\/?>/gi, '');
 }
 
+/**
+ * В атрибуте class спецсимволы приходят сущностями: произвольный вариант
+ * Tailwind `md:[&>div:first-child]:order-2` в разметке выглядит как
+ * `md:[&amp;&gt;div:first-child]:order-2`. В CSS-селекторе он же экранирован
+ * бэкслешами, и без декодирования классы не сходятся — правило улетало при
+ * чистке, а мок вставал справа вместо левой колонки.
+ */
+function decodeEntities(text) {
+  return text
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#0*39;/g, "'")
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, '&');
+}
+
 /** Классы, реально встречающиеся в разметке страницы (включая инлайновые <style>). */
 function collectUsedClasses(html) {
   const used = new Set();
   for (const m of html.matchAll(/\sclass(?:Name)?=["']([^"']*)["']/gi)) {
-    for (const token of m[1].split(/\s+/)) if (token) used.add(token);
+    for (const token of decodeEntities(m[1]).split(/\s+/)) if (token) used.add(token);
   }
   return used;
 }
@@ -89,6 +106,48 @@ function selectorClasses(selector) {
     out.push(m[1].replace(/\\(.)/g, '$1'));
   }
   return out;
+}
+
+/**
+ * Разбивает список селекторов по запятым верхнего уровня. Наивный `split(',')`
+ * рвал произвольные значения Tailwind: селектор
+ * `.bg-\[linear-gradient\(180deg\,\#ece0ff\,\#cdecff\)\]` разваливался на три
+ * куска, и после сборки получался мусор, который браузер выкидывал целиком —
+ * градиент на панели аккордиона пропадал. То же и с `shadow-[…rgba(…)]`.
+ */
+function splitSelectorList(prelude) {
+  const parts = [];
+  let buf = '';
+  let depth = 0;
+  let quote = null;
+  for (let i = 0; i < prelude.length; i++) {
+    const ch = prelude[i];
+    if (ch === '\\') {
+      buf += ch + (prelude[i + 1] ?? '');
+      i++;
+      continue;
+    }
+    if (quote) {
+      buf += ch;
+      if (ch === quote) quote = null;
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      quote = ch;
+      buf += ch;
+      continue;
+    }
+    if (ch === '(' || ch === '[') depth++;
+    else if (ch === ')' || ch === ']') depth--;
+    if (ch === ',' && depth === 0) {
+      parts.push(buf);
+      buf = '';
+      continue;
+    }
+    buf += ch;
+  }
+  parts.push(buf);
+  return parts;
 }
 
 /**
@@ -146,8 +205,7 @@ function purgeCss(css, used) {
       continue;
     }
 
-    const kept = prelude
-      .split(',')
+    const kept = splitSelectorList(prelude)
       .map((s) => s.trim())
       .filter((s) => s && selectorClasses(s).every((c) => used.has(c)));
     if (kept.length) out += `${kept.join(',')}{${body}}`;
@@ -178,6 +236,52 @@ function purgeInlineCss(html) {
   );
 }
 
+/**
+ * Моки нарисованы под фиксированную ширину (520–620px), а в вёрстке их ужимает
+ * `MockFit` — компонент на React, и вместе с остальным JS он из выгрузки
+ * вырезан. Без него мок на планшете и мобилке вылезает за колонку и тянет
+ * горизонтальную прокрутку. Возвращаем ровно эту логику двенадцатью строками
+ * на месте: считаем масштаб по ширине контейнера и держим высоту.
+ */
+/**
+ * Второй проход по стилям, уже после чистки правил: выкидывает то, на что
+ * никто не ссылается — `@property` и объявления переменных без единого `var()`,
+ * мёртвые `@keyframes`, комментарии сборки и пустые строки. Ссылки ищем и в
+ * разметке: часть переменных задаётся инлайновым style.
+ */
+function tidyCss(css, html) {
+  const both = css + html;
+  const used = new Set([...both.matchAll(/var\(\s*(--[\w-]+)/g)].map((m) => m[1]));
+  const isUsed = (name) => used.has(name);
+
+  let out = css;
+
+  // @property без единого var() — правило описывает переменную, которой нет
+  out = out.replace(/@property\s+(--[\w-]+)\s*\{[^}]*\}\s*/g, (m, name) =>
+    isUsed(name) ? m : '',
+  );
+
+  // объявления переменных, к которым никто не обращается
+  out = out.replace(/(--[\w-]+)\s*:\s*[^;{}]*;/g, (m, name) => (isUsed(name) ? m : ''));
+
+  // анимации, на которые никто не ссылается
+  out = out.replace(/@keyframes\s+([\w-]+)\s*\{(?:[^{}]|\{[^{}]*\})*\}\s*/g, (m, name) =>
+    new RegExp(`animation[^;}]*\\b${name}\\b`).test(both) ? m : '',
+  );
+
+  return out
+    .replace(/\/\*[\s\S]*?\*\//g, '')
+    .replace(/\{\s*\}/g, '')
+    .replace(/[ \t]+$/gm, '')
+    .replace(/\n{2,}/g, '\n')
+    .trim();
+}
+
+function injectMockFit(html) {
+  const script = `<script>(function(){function fit(){var outers=document.querySelectorAll('[data-mockfit="outer"]');for(var i=0;i<outers.length;i++){var o=outers[i],n=o.querySelector('[data-mockfit="inner"]');if(!n)continue;n.style.transform='none';o.style.height='';var nw=n.offsetWidth,nh=n.offsetHeight,ow=o.clientWidth;if(!nw||!ow)continue;var s=Math.min(1,ow/nw);n.style.transformOrigin='top left';n.style.transform='scale('+s+')';o.style.height=Math.round(nh*s)+'px';}}fit();addEventListener('load',fit);addEventListener('resize',fit);})();</script>`;
+  return html.replace(/<\/body>/i, `${script}</body>`);
+}
+
 function injectStaticBanner(html, slug) {
   const banner = `\n<!--\n  Static export of /landings/${slug}\n  Generated: ${new Date().toISOString()}\n  Note: интерактив (табы, picker) показывает default-state.\n        Для полной интерактивности откройте через dev-сервер.\n-->\n`;
   return html.replace(/<html[^>]*>/i, (match) => `${match}${banner}`);
@@ -202,8 +306,11 @@ async function main() {
   console.log('→ swapping local @font-face for Google Fonts');
   const withFonts = replaceFontFaces(purged);
 
+  console.log('→ injecting mock-fit scaler');
+  const withMockFit = injectMockFit(withFonts);
+
   console.log('→ injecting static banner');
-  const finalHtml = injectStaticBanner(withFonts, slug);
+  const finalHtml = injectStaticBanner(withMockFit, slug);
 
   const absOut = resolve(process.cwd(), outPath);
   await mkdir(dirname(absOut), { recursive: true });
@@ -217,7 +324,10 @@ async function main() {
       return '';
     });
     const cssFile = resolve(dirname(absOut), 'styles.css');
-    const css = blocks.join('\n');
+    const raw = blocks.join('\n');
+    const css = tidyCss(raw, htmlOut);
+    const saved = (Buffer.byteLength(raw) - Buffer.byteLength(css)) / 1024;
+    console.log(`→ tidying styles.css (−${saved.toFixed(1)} KB)`);
     await writeFile(cssFile, css, 'utf-8');
     htmlOut = htmlOut.replace(
       /<\/head>/i,

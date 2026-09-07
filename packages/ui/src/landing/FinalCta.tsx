@@ -1,5 +1,6 @@
 import { ButtonLink } from '../primitives/ButtonLink';
 import { Inspect } from '../primitives/Inspect';
+import { MockFit } from '../primitives/MockFit';
 import { cn } from '../primitives/cn';
 import { CTAsecondaryMock, type CTAButton } from './mocks/CTAsecondaryMock';
 import { MockVisual, type MockVariant } from './mocks';
@@ -31,6 +32,16 @@ export interface FinalCtaProps {
   visualSrc?: string;
   /** Alt для `visualSrc`. */
   visualAlt?: string;
+  /** Светло-серая подложка секции (только для variant='gradient'). Opt-in. */
+  onSurface?: boolean;
+  /** Нижний отступ секции на десктопе — 96px вместо 48px (variant='gradient'). Opt-in. */
+  spaceBottom?: boolean;
+  /**
+   * Ужимать мокап справа под ширину слота (variant='gradient'). Нужен мокам
+   * фиксированной ширины: на мобилке слот ~295px, и мок 560px вылезал за
+   * карточку с обрезкой правой колонки. Текучие моки не трогаем — Opt-in.
+   */
+  fitVisual?: boolean;
 }
 
 /**
@@ -48,6 +59,9 @@ export function FinalCta({
   visualVariant,
   visualSrc,
   visualAlt,
+  onSurface,
+  spaceBottom,
+  fitVisual,
 }: FinalCtaProps) {
   if (variant === 'product') {
     return (
@@ -112,7 +126,19 @@ export function FinalCta({
         title={title}
         subtitle={description}
         buttons={buttons}
-        visual={visualVariant ? <MockVisual variant={visualVariant} /> : undefined}
+        visual={
+          visualVariant ? (
+            fitVisual ? (
+              <MockFit>
+                <MockVisual variant={visualVariant} />
+              </MockFit>
+            ) : (
+              <MockVisual variant={visualVariant} />
+            )
+          ) : undefined
+        }
+        onSurface={onSurface}
+        spaceBottom={spaceBottom}
       />
     );
   }
