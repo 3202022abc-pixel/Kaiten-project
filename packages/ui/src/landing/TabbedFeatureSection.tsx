@@ -332,6 +332,20 @@ export function TabbedFeatureSection({
   // ── вариант «аккордеон» ────────────────────────────────────────
   // Слева шапка раздела и стопка строк, справа мок активной строки
   // на лиловой подложке. Раскрыта всегда ровно одна строка.
+/**
+ * Классы строки аккордиона в двух состояниях. Вынесены в константы, потому что
+ * их же получают data-атрибуты: по ним статичная выгрузка переключает строки
+ * без React (скрипт из scripts/build-static-html.mjs).
+ */
+const ROW_ON =
+  'border-(--color-action-primary) bg-[linear-gradient(180deg,#ece0ff,#cdecff)] md:bg-(--color-surface-page) md:bg-none';
+const ROW_OFF = 'border-transparent bg-(--color-surface-section)';
+const ACCENT_ON = 'text-(--color-text-accent)';
+const ICON_OFF = 'text-(--color-text-secondary)';
+const LABEL_OFF = 'text-(--color-text-primary)';
+const REVEAL_ON = 'grid-rows-[1fr] opacity-100';
+const REVEAL_OFF = 'grid-rows-[0fr] opacity-0';
+
   if (variant === 'accordion') {
     return (
       <section
@@ -339,7 +353,7 @@ export function TabbedFeatureSection({
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
           // На мобилке секция начинается ближе к предыдущей.
-          'pt-6 md:pt-12 lg:pt-16',
+          'pt-6 md:pt-12 lg:pt-12',
           flushBottom && 'pb-0 md:pb-0 lg:pb-0',
         )}
       >
@@ -386,15 +400,10 @@ export function TabbedFeatureSection({
                 return (
                   <div
                     key={t.id}
-                    className={cn(
-                      'rounded-(--radius-xl) transition-colors',
-                      isOpen
-                        ? [
-                            'border border-(--color-action-primary)',
-                            'bg-[linear-gradient(180deg,#ece0ff,#cdecff)] md:bg-(--color-surface-page) md:bg-none',
-                          ]
-                        : 'border border-transparent bg-(--color-surface-section)',
-                    )}
+                    data-acc-row={t.id}
+                    data-acc-on={ROW_ON}
+                    data-acc-off={ROW_OFF}
+                    className={cn('rounded-(--radius-xl) border transition-colors', isOpen ? ROW_ON : ROW_OFF)}
                   >
                     <button
                       type="button"
@@ -407,39 +416,35 @@ export function TabbedFeatureSection({
                       className="flex w-full items-center gap-3 px-5 py-4 text-left"
                     >
                       {t.icon && (
-                        <Icon
-                          name={t.icon}
-                          className={cn(
-                            'h-5 w-5 shrink-0',
-                            isOpen
-                              ? 'text-(--color-text-accent)'
-                              : 'text-(--color-text-secondary)',
-                          )}
-                          strokeWidth={2}
-                        />
+                        <span
+                          data-acc-on={ACCENT_ON}
+                          data-acc-off={ICON_OFF}
+                          className={cn('flex shrink-0', isOpen ? ACCENT_ON : ICON_OFF)}
+                        >
+                          <Icon name={t.icon} className="h-5 w-5" strokeWidth={2} />
+                        </span>
                       )}
                       <span
-                        className={cn(
-                          // На мобилке строка крупнее: она тут главный элемент
-                          // управления, на десктопе рядом есть мок и заголовок.
-                          'flex-1 text-lg font-medium md:text-base',
-                          isOpen
-                            ? 'text-(--color-text-accent)'
-                            : 'text-(--color-text-primary)',
-                        )}
+                        // На мобилке строка крупнее: она тут главный элемент
+                        // управления, на десктопе рядом есть мок и заголовок.
+                        data-acc-on={ACCENT_ON}
+                        data-acc-off={LABEL_OFF}
+                        className={cn('flex-1 text-lg font-medium md:text-base', isOpen ? ACCENT_ON : LABEL_OFF)}
                       >
                         {t.label}
                       </span>
-                      <Icon
-                        name={isOpen ? 'ChevronUp' : 'ChevronDown'}
-                        className={cn(
-                          'h-5 w-5 shrink-0',
-                          isOpen
-                            ? 'text-(--color-text-accent)'
-                            : 'text-(--color-text-secondary)',
-                        )}
-                        strokeWidth={2}
-                      />
+                      <span
+                        data-acc-on={ACCENT_ON}
+                        data-acc-off={ICON_OFF}
+                        className={cn('flex shrink-0', isOpen ? ACCENT_ON : ICON_OFF)}
+                      >
+                        <span data-acc-on="" data-acc-off="hidden" className={cn('flex', !isOpen && 'hidden')}>
+                          <Icon name="ChevronUp" className="h-5 w-5" strokeWidth={2} />
+                        </span>
+                        <span data-acc-on="hidden" data-acc-off="" className={cn('flex', isOpen && 'hidden')}>
+                          <Icon name="ChevronDown" className="h-5 w-5" strokeWidth={2} />
+                        </span>
+                      </span>
                     </button>
                     {/*
                       Раскрытие анимируем сеткой: 0fr -> 1fr плавно тянет высоту
@@ -451,9 +456,11 @@ export function TabbedFeatureSection({
                       от своего пункта. С планшета работает панель справа.
                     */}
                     <div
+                      data-acc-on={REVEAL_ON}
+                      data-acc-off={REVEAL_OFF}
                       className={cn(
                         'grid transition-[grid-template-rows,opacity] duration-300 ease-(--ease-ui)',
-                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0',
+                        isOpen ? REVEAL_ON : REVEAL_OFF,
                       )}
                       aria-hidden={!isOpen}
                     >
@@ -524,16 +531,22 @@ export function TabbedFeatureSection({
               (92% ширины панели). На планшете те же 92% дают ~287px, и MockFit
               ужимает мок ровно в этой пропорции: раскладка та же, просто мельче.
             */}
-            <div
-              key={active.id}
-              className="w-[92%] animate-[mock-fade_260ms_var(--ease-ui)]"
-            >
-              <MockFit>
-                <div className="w-[500px]">
-                  <MockVisual variant={active.mockVariant} />
-                </div>
-              </MockFit>
-            </div>
+            {tabs.map((t) => (
+              <div
+                key={t.id}
+                data-acc-panel={t.id}
+                className={cn(
+                  'w-[92%] animate-[mock-fade_260ms_var(--ease-ui)]',
+                  t.id !== activeId && 'hidden',
+                )}
+              >
+                <MockFit>
+                  <div className="w-[500px]">
+                    <MockVisual variant={t.mockVariant} />
+                  </div>
+                </MockFit>
+              </div>
+            ))}
           </Inspect>
         </div>
       </section>

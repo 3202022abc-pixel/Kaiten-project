@@ -177,6 +177,7 @@ export function CtaBanner({
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 pt-10 md:px-6 xl:px-0',
           // Нижний отступ по брейкпоинтам: 48 мобилка / 64 планшет / 96 десктоп.
+          // Снизу: 48 мобилка / 64 планшет / 96 десктоп.
           spaceBottom ? 'pb-12 md:pb-16 lg:pb-24 lg:pt-12' : 'pb-10 lg:py-12',
         )}
       >

@@ -86,6 +86,8 @@ export interface MediaCopyProps {
    * Так она читается как призыв ко всей секции. Opt-in.
    */
   ctaBelow?: boolean;
+  /** Нижний отступ секции на мобилке — 24px вместо 48px. Opt-in. */
+  tightBottomMobile?: boolean;
   mediaVariant?: MediaCopyVariant;
   /**
    * Растровая картинка вместо mock-компонента (напр. /brand/platform.png).
@@ -127,6 +129,7 @@ export function MediaCopy({
   ctaCenterMobile = false,
   spaceTopMobile = false,
   ctaBelow = false,
+  tightBottomMobile = false,
   mediaVariant = 'default',
   mediaSrc,
   mediaAlt,
@@ -169,6 +172,8 @@ export function MediaCopy({
         'px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24',
         // Модификаторы отступов — opt-in: базовый ритм секции задаёт шкала DS.
         spaceBottom && 'pb-12 md:pb-16 lg:pb-24',
+        // Половинный нижний отступ на мобилке — идёт после spaceBottom.
+        tightBottomMobile && 'pb-6',
         tightBottom && 'pb-8 md:pb-12 lg:pb-12',
         spaceTop && 'pt-12 md:pt-24 lg:pt-24',
         flushTop && 'pt-0 md:pt-0 lg:pt-0',

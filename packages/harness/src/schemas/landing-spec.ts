@@ -644,6 +644,10 @@ const MediaCopySchema = z.object({
       .boolean()
       .optional()
       .describe('нижний отступ секции: 64px мобилка и планшет, 96px десктоп. Opt-in'),
+    tightBottomMobile: z
+      .boolean()
+      .optional()
+      .describe('нижний отступ секции на мобилке — 24px вместо 48px. Opt-in'),
     tightBottom: z
       .boolean()
       .optional()

@@ -89,7 +89,7 @@ const STYLE = `
 
 /* планшет + мобилка: сетка → карусель во всю ширину экрана */
 @media(max-width:1279px){
-  .fg-mock{ padding:var(--sp-16) 0 var(--sp-24); }
+  .fg-mock{ padding:var(--sp-24) 0 var(--sp-24); }
   .fg-inner{ max-width:calc(1216px + 2 * var(--sp-6)); padding:0 var(--sp-6); }
   .fg-head{ margin-bottom:var(--sp-8); }
   .fg-grid{

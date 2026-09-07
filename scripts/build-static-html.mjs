@@ -282,6 +282,18 @@ function injectMockFit(html) {
   return html.replace(/<\/body>/i, `${script}</body>`);
 }
 
+/**
+ * Аккордион «Справочный центр в стиле вашей компании» переключается наведением,
+ * а это состояние React — вместе с остальным JS оно из выгрузки вырезано, и
+ * страница застывала на первой строке. Компонент отдаёт для каждой строки пару
+ * data-атрибутов с классами «открыто» и «закрыто» и держит в панели моки всех
+ * строк, так что переключение сводится к перестановке классов.
+ */
+function injectAccordion(html) {
+  const script = `<script>(function(){var rows=document.querySelectorAll('[data-acc-row]');if(!rows.length)return;function apply(el,on){var a=el.getAttribute('data-acc-on')||'',b=el.getAttribute('data-acc-off')||'';(on?b:a).split(/\\s+/).forEach(function(c){if(c)el.classList.remove(c)});(on?a:b).split(/\\s+/).forEach(function(c){if(c)el.classList.add(c)})}function select(id){for(var i=0;i<rows.length;i++){var row=rows[i],on=row.getAttribute('data-acc-row')===id;apply(row,on);var kids=row.querySelectorAll('[data-acc-on],[data-acc-off]');for(var j=0;j<kids.length;j++)apply(kids[j],on);var btn=row.querySelector('button');if(btn)btn.setAttribute('aria-expanded',on?'true':'false')}var panels=document.querySelectorAll('[data-acc-panel]');for(var k=0;k<panels.length;k++)panels[k].classList.toggle('hidden',panels[k].getAttribute('data-acc-panel')!==id)}for(var i=0;i<rows.length;i++){(function(row){var id=row.getAttribute('data-acc-row');row.addEventListener('mouseenter',function(){select(id)});row.addEventListener('click',function(){select(id)});row.addEventListener('focusin',function(){select(id)})})(rows[i])}})();</script>`;
+  return html.replace(/<\/body>/i, `${script}</body>`);
+}
+
 function injectStaticBanner(html, slug) {
   const banner = `\n<!--\n  Static export of /landings/${slug}\n  Generated: ${new Date().toISOString()}\n  Note: интерактив (табы, picker) показывает default-state.\n        Для полной интерактивности откройте через dev-сервер.\n-->\n`;
   return html.replace(/<html[^>]*>/i, (match) => `${match}${banner}`);
@@ -309,8 +321,11 @@ async function main() {
   console.log('→ injecting mock-fit scaler');
   const withMockFit = injectMockFit(withFonts);
 
+  console.log('→ injecting accordion switcher');
+  const withAccordion = injectAccordion(withMockFit);
+
   console.log('→ injecting static banner');
-  const finalHtml = injectStaticBanner(withMockFit, slug);
+  const finalHtml = injectStaticBanner(withAccordion, slug);
 
   const absOut = resolve(process.cwd(), outPath);
   await mkdir(dirname(absOut), { recursive: true });
@@ -324,7 +339,10 @@ async function main() {
       return '';
     });
     const cssFile = resolve(dirname(absOut), 'styles.css');
-    const raw = blocks.join('\n');
+    // Чистим и собственные стили моков: они приезжают отдельными <style> и
+    // раньше проходили мимо purge — в файле оставались правила для моков,
+    // которых на этой странице нет.
+    const raw = purgeCss(blocks.join('\n'), collectUsedClasses(htmlOut));
     const css = tidyCss(raw, htmlOut);
     const saved = (Buffer.byteLength(raw) - Buffer.byteLength(css)) / 1024;
     console.log(`→ tidying styles.css (−${saved.toFixed(1)} KB)`);
