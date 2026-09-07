@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-09-07T14:04:39.971Z",
+  "updatedAt": "2026-09-07T15:16:47.682Z",
   "entries": [
     {
       "kind": "mock-use",
@@ -491,69 +491,6 @@
     {
       "kind": "mock-use",
       "variant": "hero-screen-video",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "hero",
-      "sectionIdx": 1,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:30.998Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "none",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "media_copy",
-      "sectionIdx": 4,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.008Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "window-rule-trigger",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "media_copy",
-      "sectionIdx": 5,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.021Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "window-rule-action",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "media_copy",
-      "sectionIdx": 6,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.032Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "automation-rules-list",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "tabbed_feature",
-      "sectionIdx": 8,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.041Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "window-checklist-done",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "tabbed_feature",
-      "sectionIdx": 8,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.054Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "window-deadline",
-      "landingSlug": "kaiten-automation",
-      "sectionId": "tabbed_feature",
-      "sectionIdx": 8,
-      "domain": "pm",
-      "recordedAt": "2026-08-25T09:22:31.065Z"
-    },
-    {
-      "kind": "mock-use",
-      "variant": "hero-screen-video",
       "landingSlug": "kaiten-help-center-dark",
       "sectionId": "hero",
       "sectionIdx": 1,
@@ -784,6 +721,69 @@
       "sectionIdx": 12,
       "domain": "help-center",
       "recordedAt": "2026-09-07T14:04:39.971Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "hero-screen-video",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "hero",
+      "sectionIdx": 1,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.602Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "none",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 4,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.615Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "window-rule-trigger",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 5,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.627Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "window-rule-action",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "media_copy",
+      "sectionIdx": 6,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.641Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "window-card-flow",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.656Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "window-checklist-done",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.668Z"
+    },
+    {
+      "kind": "mock-use",
+      "variant": "window-deadline",
+      "landingSlug": "kaiten-automation",
+      "sectionId": "tabbed_feature",
+      "sectionIdx": 8,
+      "domain": "pm",
+      "recordedAt": "2026-09-07T15:16:47.682Z"
     }
   ]
 }

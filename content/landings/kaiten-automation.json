@@ -124,11 +124,11 @@
       "component": "MediaCopy",
       "props": {
         "title": "Настраивайте автоматизацию в несколько кликов без помощи программиста",
+        "accentWord": "без помощи программиста",
         "description": "Каждое правило — это связка «если — то». Вы не пишете код, а собираете правило из двух шагов прямо в интерфейсе",
         "align": "center",
-        "mediaVariant": "none",
         "flushTop": true,
-        "accentWord": "без помощи программиста"
+        "mediaVariant": "none"
       }
     },
     {
@@ -169,7 +169,8 @@
           "label": "Подключить модуль",
           "href": "https://kaiten.ru/features/automation/"
         },
-        "flushTop": true
+        "flushTop": true,
+        "tightSpacing": true
       }
     },
     {
@@ -335,8 +336,7 @@
         "description": "Кайтен — это не только задачи и автоматизации. Здесь могут работать все отделы компании: от бухгалтерии до разработки. Вы не теряете контекст между командами и не платите за десяток разных сервисов",
         "mediaPosition": "below",
         "mediaSrc": "/brand/platform.png",
-        "mediaAlt": "Карта продукта Кайтен: ядро платформы, инструменты и модули, сквозной ИИ",
-        "flushTop": true
+        "mediaAlt": "Карта продукта Кайтен: ядро платформы, инструменты и модули, сквозной ИИ"
       }
     },
     {
@@ -390,11 +390,11 @@
       "packages/harness/src/prompts/section-mock-skill.md",
       "wiki/layouts/index.md"
     ],
-    "generatedAt": "2026-08-25T09:22:30.980Z",
+    "generatedAt": "2026-09-07T15:16:47.582Z",
     "generator": "host-agent",
     "archetype": "saas_landing",
     "layout": "single-module-deep-dive",
-    "tokenEstimate": 48147,
+    "tokenEstimate": 48142,
     "domain": "pm"
   }
 }
