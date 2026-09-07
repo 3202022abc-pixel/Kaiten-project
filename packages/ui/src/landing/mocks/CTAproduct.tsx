@@ -67,9 +67,10 @@ const css = `
 .ctp__visual{position:relative;z-index:1;display:flex;justify-content:center;align-items:center}
 .ctp__visual img{width:100%;height:auto;display:block;border-radius:12px}
 @media(min-width:1024px){.ctp{border-radius:16px}.ctp__visual img{border-radius:16px}}
-/* Картинка вплотную к верхнему и нижнему краю карточки: паддинг блока
-   съедается отрицательным полем колонки, высоту задаёт сама иллюстрация. */
-@media(min-width:1024px){.ctp__visual{margin-block:-48px}}
+/* Иллюстрация не во всю колонку: на широких экранах она крупнее текста. */
+@media(min-width:1024px){.ctp__visual img{width:82%}}
+/* Иллюстрация отбивается от верхнего и нижнего края карточки. */
+@media(min-width:1024px){.ctp__visual{margin-block:-16px;padding-block:0}}
 @media(max-width:1023px){
   .ctp{grid-template-columns:1fr;text-align:center;background:linear-gradient(180deg,#ece0ff,#cdecff)}
   .ctp__cta{justify-content:center}
