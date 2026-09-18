@@ -60,6 +60,10 @@ export type {
   TabbedFeatureSectionProps,
   TabbedFeatureTabProps,
 } from './TabbedFeatureSection';
+export { ViewSwitcher } from './ViewSwitcher';
+export type { ViewSwitcherProps, ViewSwitcherItem } from './ViewSwitcher';
+export { LinkGroups } from './LinkGroups';
+export type { LinkGroupsProps, LinkGroupsLink } from './LinkGroups';
 export { AccordionFeatureSection } from './AccordionFeatureSection';
 export type {
   AccordionFeatureSectionProps,

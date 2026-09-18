@@ -1,0 +1,599 @@
+{
+  "pageType": "saas_landing",
+  "goal": "try_free",
+  "sections": [
+    {
+      "id": "site_header",
+      "component": "SiteHeader",
+      "props": {}
+    },
+    {
+      "id": "hero",
+      "component": "HeroSection",
+      "props": {
+        "eyebrow": "Функция «Единое рабочее пространство»",
+        "eyebrowIcon": "workspace",
+        "title": "Единое рабочее пространство\nдля визуализации рабочих процессов",
+        "accentWord": "Единое рабочее пространство",
+        "accentPill": false,
+        "subtitle": "Гибкий рабочий инструмент, который подстраивается под ваш рабочий процесс.\nВизуализация задач, проектов, команд и их связей на одном экране",
+        "primaryCta": {
+          "label": "Попробовать бесплатно",
+          "href": "/signup"
+        },
+        "secondaryCta": {
+          "label": "Записаться на демо",
+          "href": "/demo"
+        },
+        "visual": {
+          "type": "product_screenshot",
+          "assetId": "kaiten-workspace-board",
+          "alt": "Рабочее пространство Кайтена: карточка переезжает между этапами работы на доске",
+          "variant": "hero-screen-interface"
+        },
+        "visualPosition": "side",
+        "board": {
+          "boardTitle": "Маркетинг",
+          "columns": [
+            {
+              "label": "Очередь",
+              "count": 3
+            },
+            {
+              "label": "В работе",
+              "count": 2
+            },
+            {
+              "label": "Проверка",
+              "count": 2
+            },
+            {
+              "label": "Готово",
+              "count": 2,
+              "done": true
+            }
+          ],
+          "lanes": [
+            {
+              "name": "Запуск продукта",
+              "count": 5,
+              "columns": [
+                [
+                  {
+                    "title": "Статья в блог про рабочее пространство",
+                    "tags": [
+                      {
+                        "label": "Блог",
+                        "variant": "blue"
+                      }
+                    ],
+                    "assignees": [
+                      "#8aa8c9"
+                    ],
+                    "due": "22 сен"
+                  },
+                  {
+                    "title": "Вебинар для партнеров",
+                    "tags": [
+                      {
+                        "label": "События",
+                        "variant": "big"
+                      }
+                    ],
+                    "assignees": [
+                      "#d9a3a3"
+                    ],
+                    "due": "25 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Промостраница новой функции",
+                    "tags": [
+                      {
+                        "label": "Сайт",
+                        "variant": "ok"
+                      }
+                    ],
+                    "checklist": {
+                      "label": "Чек-лист",
+                      "done": 3,
+                      "total": 5
+                    },
+                    "assignees": [
+                      "#b88ac9"
+                    ],
+                    "due": "18 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Баннеры для соцсетей",
+                    "tags": [
+                      {
+                        "label": "Дизайн",
+                        "variant": "urg"
+                      }
+                    ],
+                    "assignees": [
+                      "#8ac9a0"
+                    ],
+                    "due": "19 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Рассылка клиентам",
+                    "tags": [
+                      {
+                        "label": "Рассылка",
+                        "variant": "prod"
+                      }
+                    ],
+                    "assignees": [
+                      "#8aa8c9"
+                    ],
+                    "due": "11 сен"
+                  }
+                ]
+              ]
+            },
+            {
+              "name": "Разработка",
+              "count": 4,
+              "columns": [
+                [
+                  {
+                    "title": "Настроить права доступа для отделов",
+                    "tags": [
+                      {
+                        "label": "Платформа",
+                        "variant": "cx"
+                      }
+                    ],
+                    "assignees": [
+                      "#b88ac9"
+                    ],
+                    "due": "23 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Отчеты по пространству",
+                    "tags": [
+                      {
+                        "label": "Аналитика",
+                        "variant": "blue"
+                      }
+                    ],
+                    "assignees": [
+                      "#8ac9a0"
+                    ],
+                    "due": "24 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Импорт задач из таблиц",
+                    "tags": [
+                      {
+                        "label": "Миграция",
+                        "variant": "prod"
+                      }
+                    ],
+                    "assignees": [
+                      "#d9a3a3"
+                    ],
+                    "due": "17 сен"
+                  }
+                ],
+                [
+                  {
+                    "title": "Мобильное приложение: карточка задачи",
+                    "tags": [
+                      {
+                        "label": "Мобильное",
+                        "variant": "ok"
+                      }
+                    ],
+                    "assignees": [
+                      "#8aa8c9"
+                    ],
+                    "due": "12 сен"
+                  }
+                ]
+              ]
+            }
+          ],
+          "animate": true,
+          "animatedCard": {
+            "card": {
+              "title": "Промостраница новой функции",
+              "tags": [
+                {
+                  "label": "Сайт",
+                  "variant": "ok"
+                }
+              ],
+              "assignees": [
+                "#b88ac9"
+              ],
+              "due": "18 сен"
+            },
+            "fromColumn": 1
+          },
+          "sidebar": true
+        }
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "gapTightMobile": true,
+        "title": "Шаг 1 Создайте рабочее пространство\nи пригласите на него коллег",
+        "accentWord": "Шаг 1",
+        "accentBreak": true,
+        "mediaGap": "narrow",
+        "mediaPosition": "right",
+        "titleSize": "xsmall",
+        "mediaVariant": "workspace-create"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "gapTightMobile": true,
+        "title": "Шаг 2 Добавьте доску с этапами работы, чтобы визуализировать ход работы над задачами",
+        "accentWord": "Шаг 2",
+        "accentBreak": true,
+        "mediaGap": "narrow",
+        "mediaPosition": "left",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "workspace-view-board"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "gapTightMobile": true,
+        "title": "Шаг 3 Разбейте этапы работы на колонки",
+        "accentWord": "Шаг 3",
+        "accentBreak": true,
+        "mediaTight": true,
+        "mediaGrayShadow": true,
+        "mediaGap": "narrow",
+        "checklist": [
+          {
+            "text": "Распределите разные категории задач по дорожкам"
+          },
+          {
+            "text": "Добавьте визуальные сигналы"
+          }
+        ],
+        "mediaPosition": "right",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "kanban-minimal"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "gapTightMobile": true,
+        "title": "Шаг 4 Комбинируйте несколько досок на одном рабочем пространстве",
+        "accentWord": "Шаг 4",
+        "accentBreak": true,
+        "mediaGap": "narrow",
+        "mediaPosition": "left",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "portfolio-board-stretch"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "flushBottom": true,
+        "gapTightMobile": true,
+        "title": "Шаг 5 Создавайте любое количество пространств, чтобы навести порядок и разграничить доступы",
+        "accentWord": "Шаг 5",
+        "accentBreak": true,
+        "mediaGap": "narrow",
+        "mediaPosition": "right",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "workspace-spaces"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "tightBottom": true,
+        "spaceTopLarge": true,
+        "titleSmallTablet": true,
+        "title": "Все рабочие процессы на одном экране",
+        "align": "center",
+        "mediaVariant": "none"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "copyNarrow": true,
+        "gapTightMobile": true,
+        "title": "Гибкие пространства и доступ",
+        "mediaGap": "narrow",
+        "description": "Вы можете создавать неограниченное количество пространств с разными уровнями доступа для разных пользователей. Для каждого департамента можно создать отдельное пространство с уникальными настройками.",
+        "mediaPosition": "right",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "scrum-board"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "gapTightMobile": true,
+        "title": "Все проекты в одной среде",
+        "mediaGap": "narrow",
+        "description": "На одном пространстве может располагаться сразу несколько досок для разных команд, процессов или проектов.",
+        "mediaPosition": "left",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "module-boards"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "copyNarrow": true,
+        "gapTightMobile": true,
+        "title": "Централизованное управление",
+        "mediaGap": "narrow",
+        "description": "Для управления компанией можно создать административное пространство и собрать на нем все доски из разных отделов. Это позволит видеть все процессы в одном месте без потребности переключаться по разным вкладкам.",
+        "mediaPosition": "right",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "admin-space"
+      }
+    },
+    {
+      "id": "media_copy",
+      "component": "MediaCopy",
+      "props": {
+        "flushBottom": true,
+        "gapTightMobile": true,
+        "mediaCenterMobile": true,
+        "title": "Автоматические отчеты",
+        "mediaGap": "narrow",
+        "description": "На каждом пространстве автоматически формируются\nподробные отчеты о работе с задачами.",
+        "mediaPosition": "left",
+        "flushTop": true,
+        "titleSize": "xsmall",
+        "mediaVariant": "reports-charts-cascade"
+      }
+    },
+    {
+      "id": "view_switcher",
+      "component": "ViewSwitcher",
+      "props": {
+        "title": "Трансформируйте вид пространства как вам удобно",
+        "background": "gradient",
+        "flushBottom": true,
+        "spaceTopTablet": true,
+        "items": [
+          {
+            "id": "boards",
+            "label": "Доски",
+            "icon": "LayoutGrid",
+            "mockVariant": "scrum-board-wide"
+          },
+          {
+            "id": "lists",
+            "label": "Списки",
+            "icon": "List",
+            "mockVariant": "workspace-view-list"
+          },
+          {
+            "id": "tables",
+            "label": "Таблицы",
+            "icon": "Table2",
+            "mockVariant": "workspace-view-table"
+          },
+          {
+            "id": "timeline",
+            "label": "Таймлайн",
+            "icon": "AlignLeft",
+            "mockVariant": "workspace-view-timeline"
+          },
+          {
+            "id": "calendar",
+            "label": "Календарь",
+            "icon": "Calendar",
+            "mockVariant": "workspace-view-calendar"
+          },
+          {
+            "id": "reports",
+            "label": "Отчеты",
+            "icon": "ChartLine",
+            "mockVariant": "workspace-view-reports"
+          }
+        ]
+      }
+    },
+    {
+      "id": "link_groups",
+      "component": "LinkGroups",
+      "props": {
+        "title": "Больше возможностей Кайтен",
+        "groups": [
+          {
+            "title": "Функции",
+            "links": [
+              {
+                "label": "Единое рабочее пространство",
+                "href": "/features/",
+                "icon": "workspace"
+              },
+              {
+                "label": "Задачи",
+                "href": "/features/cards/",
+                "icon": "tasks"
+              },
+              {
+                "label": "Документы",
+                "href": "/features/documents/",
+                "icon": "documents"
+              },
+              {
+                "label": "Базы знаний",
+                "href": "/features/knowledge-base",
+                "icon": "knowledge-base"
+              },
+              {
+                "label": "Интеграции",
+                "href": "/features/integrations/",
+                "icon": "integrations"
+              },
+              {
+                "label": "Отчеты",
+                "href": "/features/reports/",
+                "icon": "reports"
+              },
+              {
+                "label": "CRM",
+                "href": "/crm",
+                "icon": "crm"
+              },
+              {
+                "label": "Администрирование",
+                "href": "/features/administration/",
+                "icon": "administration"
+              },
+              {
+                "label": "Мобильное приложение",
+                "href": "/features/mobile/",
+                "icon": "mobile"
+              }
+            ]
+          },
+          {
+            "title": "Модули",
+            "links": [
+              {
+                "label": "ГАНТ и Ресурсное планирование",
+                "href": "/features/gant/",
+                "icon": "gantt"
+              },
+              {
+                "label": "Канбан",
+                "href": "/features/kanban/",
+                "icon": "kanban"
+              },
+              {
+                "label": "Скрам",
+                "href": "/features/scrum/",
+                "icon": "scrum"
+              },
+              {
+                "label": "Автоматизации",
+                "href": "/features/automation/",
+                "icon": "automation"
+              },
+              {
+                "label": "Служба поддержки",
+                "href": "/features/service-desk/",
+                "icon": "service-desk"
+              },
+              {
+                "label": "Карта пользовательских историй (USM)",
+                "href": "/features/user-story-maps/",
+                "icon": "usm"
+              },
+              {
+                "label": "Учет времени",
+                "href": "/features/time-tracking/",
+                "icon": "time-tracking"
+              },
+              {
+                "label": "Ограничения",
+                "href": "/features/restrictions/",
+                "icon": "restrictions"
+              },
+              {
+                "label": "Группы пользователей",
+                "href": "/features/groups/",
+                "icon": "user-groups"
+              }
+            ]
+          }
+        ],
+        "centerMockVariant": "laptop-boards"
+      }
+    },
+    {
+      "id": "final_cta",
+      "component": "FinalCta",
+      "props": {
+        "title": "Попробуйте Кайтен прямо сейчас",
+        "primaryCta": {
+          "label": "Создать аккаунт",
+          "href": "/signup"
+        },
+        "variant": "product"
+      }
+    },
+    {
+      "id": "kaiten_footer",
+      "component": "LandingFooterMock",
+      "props": {}
+    }
+  ],
+  "seo": {
+    "title": "Рабочее пространство Кайтен для команд и проектов",
+    "description": "Соберите задачи, проекты и команды в одном пространстве: доски с этапами, дорожки, разграничение доступов и автоматические отчеты. Попробуйте бесплатно."
+  },
+  "illustrationSpecs": [],
+  "meta": {
+    "sources": [
+      "wiki/brand/redpolitika.md",
+      "wiki/references/kaiten-product-facts.md",
+      "wiki/references/anglicism-dictionary.md",
+      "wiki/design-system/voice.md",
+      "wiki/design-system/colors.md",
+      "wiki/design-system/typography.md",
+      "wiki/design-system/spacing.md",
+      "wiki/design-system/radius.md",
+      "wiki/design-system/motion.md",
+      "wiki/design-system/grid.md",
+      "wiki/design-system/components/hero.md",
+      "wiki/design-system/components/feature-grid.md",
+      "wiki/design-system/components/pricing.md",
+      "wiki/design-system/components/faq.md",
+      "wiki/design-system/components/accordion.md",
+      "wiki/design-system/components/final-cta.md",
+      "wiki/design-system/components/footer.md",
+      "wiki/design-system/components/button.md",
+      "wiki/archetypes/saas_landing.md",
+      "packages/harness/src/skills/conversion-landing.md",
+      "packages/harness/src/prompts/section-mock-skill.md",
+      "wiki/layouts/index.md"
+    ],
+    "generatedAt": "2026-09-17T17:32:35.755Z",
+    "generator": "host-agent",
+    "archetype": "saas_landing",
+    "layout": "depersonalized-product-tour",
+    "tokenEstimate": 48142,
+    "domain": "pm"
+  }
+}

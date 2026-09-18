@@ -36,12 +36,16 @@ export interface FinalCtaProps {
   onSurface?: boolean;
   /** Нижний отступ секции на десктопе — 96px вместо 48px (variant='gradient'). Opt-in. */
   spaceBottom?: boolean;
+  /** Верхний отступ 48/64/96 для variant='product', когда сверху секция без нижнего отступа (FeatureGrid). */
+  spaceTop?: boolean;
   /**
    * Ужимать мокап справа под ширину слота (variant='gradient'). Нужен мокам
    * фиксированной ширины: на мобилке слот ~295px, и мок 560px вылезал за
    * карточку с обрезкой правой колонки. Текучие моки не трогаем — Opt-in.
    */
   fitVisual?: boolean;
+  /** Текст и кнопки по центру вертикали (variant='gradient'). Opt-in. */
+  centerCopy?: boolean;
 }
 
 /**
@@ -61,7 +65,9 @@ export function FinalCta({
   visualAlt,
   onSurface,
   spaceBottom,
+  spaceTop,
   fitVisual,
+  centerCopy,
 }: FinalCtaProps) {
   if (variant === 'product') {
     return (
@@ -70,9 +76,9 @@ export function FinalCta({
           'mx-auto w-full max-w-(--container-kaiten)',
           'px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16',
           // Сверху отступа нет — блок примыкает к предыдущей секции.
-          'pt-0 md:pt-0 lg:pt-0',
+          spaceTop ? 'pt-12 md:pt-16 lg:pt-24' : 'pt-0 md:pt-0 lg:pt-0',
           // Отбивка от подвала: 48 на мобилке, 64 на планшете, 96 на десктопе.
-          'pb-12 md:pb-16 lg:pb-24',
+          'pb-12 md:pb-12 lg:pb-24',
         )}
       >
         <CTAproduct
@@ -124,7 +130,7 @@ export function FinalCta({
     return (
       <CTAsecondaryMock
         title={title}
-        subtitle={description}
+        subtitle={description ?? ''}
         buttons={buttons}
         visual={
           visualVariant ? (
@@ -139,6 +145,7 @@ export function FinalCta({
         }
         onSurface={onSurface}
         spaceBottom={spaceBottom}
+        centerCopy={centerCopy}
       />
     );
   }

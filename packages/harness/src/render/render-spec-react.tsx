@@ -17,6 +17,8 @@ import {
   BenefitsStrip,
   MetricsSplit,
   TabbedFeatureSection,
+  ViewSwitcher,
+  LinkGroups,
   AccordionFeatureSection,
   ScenarioWalkthroughSection,
   IndustryPickerSection,
@@ -104,6 +106,10 @@ function RenderSection({
       return <MetricsSplit {...section.props} />;
     case 'TabbedFeatureSection':
       return <TabbedFeatureSection {...section.props} staticTabs={expandTabs} />;
+    case 'ViewSwitcher':
+      return <ViewSwitcher {...section.props} />;
+    case 'LinkGroups':
+      return <LinkGroups {...section.props} />;
     case 'AccordionFeatureSection': {
       // Компонент теперь self-contained (ReactNode-пропсы), а spec остаётся
       // JSON (mockVariant-строки) — конвертируем на границе рендера.

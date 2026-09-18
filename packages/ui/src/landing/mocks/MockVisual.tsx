@@ -1,5 +1,11 @@
 import { ScaleToFit } from './ScaleToFit';
+import { cn } from '../../primitives/cn';
 import OnPremise from './OnPremise';
+import { FeatureTile } from './FeatureTile';
+import { Diagrams } from './Diagram';
+import { NotificationSettingsMock } from './NotificationSettingsMock';
+import { RecurringTaskScheduleMock } from './RecurringTaskScheduleMock';
+import { ReportChartMock, type ReportChartKind } from './ReportChartMock';
 import {
   AbTestResultsMock,
   AnalyticsKpiMock,
@@ -58,6 +64,7 @@ import {
   ModulePortfolioMock,
   ApprovalBoardMock,
   ReportsChartsMock,
+  ReportsChartsCascadeMock,
   FinanceKbDocsMock,
   OrgBoardMiniMock,
   PlatformFeatureMiniMock,
@@ -78,6 +85,17 @@ import {
   WindowLinksMock,
   WindowResourceMock,
   WindowReportsMock,
+  WorkspaceViewMock,
+  WorkspaceViewHeader,
+  type WorkspaceView,
+  WorkspaceSpacesMock,
+  WorkspaceCreateMock,
+  ModuleScrumMock,
+  ModuleBoardsMock,
+  AdminSpaceMock,
+  LaptopBoardTreeMock,
+  BoardWindowHeader,
+  WindowProjectModalMock,
   CliTerminalHeroMock,
   CliTerminalHeroAnimatedMock,
   CliTerminalFinalAnimatedMock,
@@ -177,8 +195,10 @@ export type MockVariant =
   | 'kanban-minimal-animated'
   // Финансы / портфель
   | 'portfolio-board'
+  | 'portfolio-board-stretch'
   | 'approval-board'
   | 'reports-charts'
+  | 'reports-charts-cascade'
   | 'finance-kb-docs'
   | 'mini-org-clients'
   | 'mini-org-it'
@@ -241,6 +261,39 @@ export type MockVariant =
   | 'help-center-template'
   | 'help-center-setup'
   | 'help-center-portal-compact'
+  // Единое рабочее пространство: одни и те же задачи в шести представлениях
+  | 'workspace-view-board'
+  | 'workspace-view-list'
+  | 'workspace-view-table'
+  | 'workspace-view-timeline'
+  | 'workspace-view-calendar'
+  | 'workspace-view-reports'
+  | 'workspace-spaces'
+  | 'workspace-access'
+  | 'workspace-create'
+  | 'scrum-board'
+  | 'scrum-board-wide'
+  | 'module-boards'
+  | 'admin-space'
+  | 'laptop-boards'
+  // Задачи: карточка проекта и плитки галереи фич (FeatureMocksV01)
+  | 'window-project-modal'
+  | 'tile-recurring-tasks'
+  | 'tile-notifications'
+  | 'tile-integrations-git'
+  | 'report-diagrams'
+  | 'window-rule-full'
+  | 'notification-settings'
+  | 'recurring-task-schedule'
+  // Отчеты: одна диаграмма в карточке фичи
+  | 'report-chart-burndown'
+  | 'report-chart-velocity'
+  | 'report-chart-control'
+  | 'report-chart-cfd'
+  | 'report-chart-spectral'
+  | 'report-chart-throughput'
+  | 'report-chart-blocked'
+  | 'report-chart-cycle-time'
   // On-premise
   | 'on-premise';
 
@@ -250,7 +303,19 @@ export type MockVariant =
  * переменные внутри продуктовых моков. Тёмная тема этим пользуется: акцентный
  * текст в мокапах идёт кеглем 11–12px, и чистый бренд на тёмном там не читается.
  */
-export function MockVisual(props: { variant: MockVariant | undefined }) {
+const TILE_CAPTIONS: Record<'tile-recurring-tasks' | 'tile-notifications' | 'tile-integrations-git', string> = {
+  'tile-recurring-tasks': 'Повторяющиеся задачи',
+  'tile-notifications': 'Боты и уведомления',
+  'tile-integrations-git': 'Интеграции: GitLab · GitHub',
+};
+
+export function MockVisual(props: {
+  variant: MockVariant | undefined;
+  /** Без боковых полей у моков, которые их задают (канбан-доски): 0 вместо 32px. */
+  tight?: boolean;
+  /** Серая тень вместо фиолетовой у моков, которые её задают (канбан-доски). */
+  grayShadow?: boolean;
+}) {
   return (
     <div data-mock className="contents">
       <MockVisualSwitch {...props} />
@@ -258,7 +323,15 @@ export function MockVisual(props: { variant: MockVariant | undefined }) {
   );
 }
 
-function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
+function MockVisualSwitch({
+  variant,
+  tight,
+  grayShadow,
+}: {
+  variant: MockVariant | undefined;
+  tight?: boolean;
+  grayShadow?: boolean;
+}) {
   switch (variant) {
     case 'support-board':
       return <SupportBoardMock />;
@@ -281,9 +354,9 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
     // Карта интеграций фикс. ширины 1440px — в узких слотах масштабируется.
     case 'integrations-hub':
       return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
           <ScaleToFit designWidth={1440}>
-            <IntegrationsHubMock />
+            <IntegrationsHubMock surface="plain" />
           </ScaleToFit>
         </div>
       );
@@ -373,21 +446,31 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
       return <PmBoard1Mock />;
     // Мок фикс. ширины 720px — в узком слоте (половина MediaCopy) масштабируем.
     // Обрамление (бордер + фиолетовая тень) даёт сам мок, как у прочих моков
-    // MediaCopy. overflow-hidden обязателен: scale не меняет layout-бокс 720px,
-    // а padding — запас, чтобы этот же clip не срезал фиолетовую тень мока
-    // (она направлена вниз, поэтому pb больше боковых и верхнего).
+    // MediaCopy. Обрезка обязательна: scale не меняет layout-бокс 720px. Но режем
+    // через overflow:clip с запасом overflow-clip-margin — иначе срезается
+    // фиолетовая тень мока (у всех обёрток ниже так же).
     case 'kanban-minimal':
       return (
-        <div className="w-full overflow-hidden px-8">
+        <div className={cn('w-full [overflow:clip] [overflow-clip-margin:80px]', tight ? 'px-0' : 'px-8')}>
           <ScaleToFit designWidth={720}>
-            <KanbanMinimalMock />
+            {/* grayShadow — серая тень окна, как у остальных моков (у статичной доски своей тени нет) */}
+            <div className={cn(grayShadow && 'rounded-(--radius-3xl) shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]')}>
+              <KanbanMinimalMock />
+            </div>
           </ScaleToFit>
         </div>
       );
     // Анимированный близнец kanban-minimal — карточка едет из «Очередь» в «В работе».
     case 'kanban-minimal-animated':
       return (
-        <div className="w-full overflow-hidden px-8">
+        <div
+          className={cn(
+            'w-full [overflow:clip] [overflow-clip-margin:80px]',
+            tight ? 'px-0' : 'px-8',
+            // перебивает фиолетовую тень окна доски серой, как у остальных моков
+            grayShadow && '[&_.kmm>div]:shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]',
+          )}
+        >
           <ScaleToFit designWidth={720}>
             <KanbanMinimalAnimatedMock />
           </ScaleToFit>
@@ -397,10 +480,38 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
     // карточка FeatureGrid) он рвёт страницу горизонтальным скроллом, поэтому
     // масштабируется под контейнер. На широких слотах масштаб остаётся 1.
     case 'portfolio-board':
+    case 'portfolio-board-stretch':
       return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
           <ScaleToFit designWidth={1360}>
-            <ModulePortfolioMock />
+            <ModulePortfolioMock stretch={variant === 'portfolio-board-stretch'} />
+          </ScaleToFit>
+        </div>
+      );
+    // Портфель проектов, свёрнутые доски проектов и доска «Письма», 1360px.
+    case 'module-boards':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={1360}>
+            <ModuleBoardsMock />
+          </ScaleToFit>
+        </div>
+      );
+    // Рабочий кабинет руководителя: доски разных отделов, 820px.
+    case 'admin-space':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={820}>
+            <AdminSpaceMock />
+          </ScaleToFit>
+        </div>
+      );
+    // Ноутбук: канбан-доска производства и дерево разделов, 880px.
+    case 'laptop-boards':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={880}>
+            <LaptopBoardTreeMock />
           </ScaleToFit>
         </div>
       );
@@ -408,6 +519,15 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
       return <ApprovalBoardMock />;
     case 'reports-charts':
       return <ReportsChartsMock />;
+    // Каскад окон на холсте 592px — в узких слотах масштабируется.
+    case 'reports-charts-cascade':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={592}>
+            <ReportsChartsCascadeMock />
+          </ScaleToFit>
+        </div>
+      );
     case 'finance-kb-docs':
       return <FinanceKbDocsMock />;
     case 'mini-org-clients':
@@ -441,9 +561,42 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
       return <RetailReportMiniMock variant={variant} />;
     case 'gantt-chart':
       return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
           <ScaleToFit designWidth={1040}>
             <GanttChartMock />
+          </ScaleToFit>
+        </div>
+      );
+    // Запланированные задания: календарь месяца + окно «Создание задания» поверх.
+    case 'recurring-task-schedule':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={800}>
+            <RecurringTaskScheduleMock />
+          </ScaleToFit>
+        </div>
+      );
+    // Настройка уведомлений: окно каналов и событий + телефон с чатом бота.
+    case 'notification-settings':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={800}>
+            <NotificationSettingsMock />
+          </ScaleToFit>
+        </div>
+      );
+    // Правило целиком: «Когда» и поверх его правого нижнего угла «Выполнить»
+    // (две карточки по 520px внахлест — так мок крупнее, чем две в ряд).
+    case 'window-rule-full':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={760}>
+            <div className="relative h-[450px]">
+              <WindowRuleTriggerMock />
+              <div className="absolute right-0 bottom-0">
+                <WindowRuleActionMock />
+              </div>
+            </div>
           </ScaleToFit>
         </div>
       );
@@ -461,7 +614,7 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
       return <WindowCardFlowMock />;
     case 'platform-kaiten':
       return (
-        <div className="w-full overflow-hidden">
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
           <ScaleToFit designWidth={2000}>
             <ModulePlatformKaiten />
           </ScaleToFit>
@@ -473,6 +626,100 @@ function MockVisualSwitch({ variant }: { variant: MockVariant | undefined }) {
       return <WindowResourceMock />;
     case 'window-reports':
       return <WindowReportsMock />;
+    // Мок фиксированной ширины 760px — в узких слотах масштабируется.
+    case 'workspace-view-board':
+    case 'workspace-view-list':
+    case 'workspace-view-table':
+    case 'workspace-view-timeline':
+    case 'workspace-view-calendar':
+    case 'workspace-view-reports':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={760}>
+            <WorkspaceViewMock view={variant.slice('workspace-view-'.length) as WorkspaceView} />
+          </ScaleToFit>
+        </div>
+      );
+    // Скрам-доска ~1830px (6 колонок по 300px): целиком в половине колонки
+    // нечитаема, поэтому показываем фрагмент — первые три колонки.
+    case 'scrum-board':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          {/* 1232 = p-4 слева (16) + четыре колонки по 300 + 16 справа */}
+          <ScaleToFit designWidth={1232}>
+            {/* окно с шапкой пространства, как у admin-space */}
+            <div className="w-[1232px] overflow-hidden rounded-2xl border border-(--color-border-default) bg-(--color-surface-section) shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]">
+              <BoardWindowHeader title="Разработка" />
+              <ModuleScrumMock landing columns={4} />
+            </div>
+          </ScaleToFit>
+        </div>
+      );
+    // Вся скрам-доска (6 колонок, 1832px) в окне WorkspaceViewMock 760px —
+    // с той же шапкой видов (активны «Доски») — для блока видов.
+    case 'scrum-board-wide':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          {/* окно 760px как у workspace-view-*: шапка с видами, доска 1832px уменьшена до 758 */}
+          <ScaleToFit designWidth={760}>
+            <div className="w-[760px] overflow-hidden rounded-(--radius-2xl) border border-(--color-border-default) bg-(--color-surface-card) shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]">
+              <WorkspaceViewHeader view="board" />
+              <div className="h-[392px] overflow-hidden bg-(--color-surface-section)">
+                <div className="w-[1832px] origin-top-left" style={{ transform: `scale(${758 / 1832})` }}>
+                  <ModuleScrumMock landing columns={6} />
+                </div>
+              </div>
+            </div>
+          </ScaleToFit>
+        </div>
+      );
+    // Создание пространства: приложение на фоне и меню «Добавить», 640px.
+    case 'workspace-create':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={640}>
+            <WorkspaceCreateMock />
+          </ScaleToFit>
+        </div>
+      );
+    case 'workspace-spaces':
+    case 'workspace-access':
+      return (
+        <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={640}>
+            <WorkspaceSpacesMock variant={variant === 'workspace-spaces' ? 'spaces' : 'access'} />
+          </ScaleToFit>
+        </div>
+      );
+    // Мок сам масштабируется из 800px под ширину слота.
+    // Шесть диаграмм отчетов (Diagram.tsx) без шапки секции.
+    case 'report-diagrams':
+      return <Diagrams headless />;
+    case 'report-chart-burndown':
+    case 'report-chart-velocity':
+    case 'report-chart-control':
+    case 'report-chart-cfd':
+    case 'report-chart-spectral':
+    case 'report-chart-throughput':
+    case 'report-chart-blocked':
+    case 'report-chart-cycle-time':
+      return <ReportChartMock kind={variant.slice('report-chart-'.length) as ReportChartKind} />;
+    case 'window-project-modal':
+      return <WindowProjectModalMock />;
+    // Плитки галереи фич 240×176: увеличиваем вдвое через zoom (разметка плитки
+    // остается резкой), в узких слотах ScaleToFit ужимает обратно.
+    case 'tile-recurring-tasks':
+    case 'tile-notifications':
+    case 'tile-integrations-git':
+      return (
+        <div className="mx-auto w-full max-w-[480px] [overflow:clip] [overflow-clip-margin:80px]">
+          <ScaleToFit designWidth={480}>
+            <div style={{ zoom: 2, width: 240 }}>
+              <FeatureTile caption={TILE_CAPTIONS[variant]} />
+            </div>
+          </ScaleToFit>
+        </div>
+      );
     case 'cli-terminal-hero':
       return <CliTerminalHeroMock />;
     case 'cli-terminal-hero-animated':

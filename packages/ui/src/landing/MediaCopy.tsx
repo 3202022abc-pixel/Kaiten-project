@@ -25,6 +25,34 @@ export interface MediaCopyProps {
   title: string;
   /** Кусок заголовка фирменным фиолетовым, напр. «Шаг 1.». */
   accentWord?: string;
+  /**
+   * Метка-нумератор из accentWord («Шаг 1») встаёт отдельной строкой над
+   * заголовком, а не в начале первой строки. Opt-in, старые лендинги не трогаем.
+   */
+  accentBreak?: boolean;
+  /**
+   * Без боковых полей вокруг мока (там, где мок их задаёт, — канбан-доски):
+   * 0 вместо 32px, мок на всю колонку. Opt-in, старые лендинги не трогаем.
+   */
+  mediaTight?: boolean;
+  /** Серая тень у мока вместо фиолетовой (канбан-доски). Opt-in, старые лендинги не трогаем. */
+  mediaGrayShadow?: boolean;
+  /**
+   * Резиновый мок растягивается на всю колонку: без обёртки MockFit, которая
+   * сжимает его до ширины содержимого. Только для моков без фиксированной
+   * ширины. Opt-in, старые лендинги не трогаем.
+   */
+  mediaFill?: boolean;
+  /**
+   * На десктопе колонка с моком шире текстовой — 7 к 5 вместо 1 к 1.
+   * Для широких интерфейсов (несколько досок). Opt-in, старые лендинги не трогаем.
+   */
+  mediaWide?: boolean;
+  /**
+   * Промежуток между текстом и моком на десктопе. 'default' — 64px (колонки по 576px),
+   * 'narrow' — 32px (колонки по 592px, мок шире). Opt-in, старые лендинги не трогаем.
+   */
+  mediaGap?: 'default' | 'narrow';
   description?: string;
   /**
    * Фирменная фиолетовая ссылка внутри описания: `text` ищется
@@ -32,6 +60,8 @@ export interface MediaCopyProps {
    */
   descriptionLink?: { text: string; href: string };
   checklist?: MediaCopyCheckItemProps[];
+  /** Пункты чек-листа в одну строку (с переносом, если не помещаются). Opt-in. */
+  checklistInline?: boolean;
   /**
    * 'left' / 'right' — две колонки (текст и визуал рядом).
    * 'below' — одна колонка: заголовок с подзаголовком сверху, визуал под ними
@@ -51,7 +81,7 @@ export interface MediaCopyProps {
    * подчинённых общей шапке раздела (напр. «Шаг 1» и «Шаг 2» под одним
    * заголовком), чтобы иерархия читалась.
    */
-  titleSize?: 'default' | 'small';
+  titleSize?: 'default' | 'small' | 'xsmall';
   /**
    * Убрать верхний отступ секции. Нужно, когда блок идёт сразу под текстовой
    * шапкой раздела: иначе складываются нижний отступ шапки и верхний этого
@@ -74,6 +104,20 @@ export interface MediaCopyProps {
    * раздела, которые должны стоять ближе к своим подсекциям. Opt-in.
    */
   tightBottom?: boolean;
+  /** Убрать нижний отступ секции на всех ширинах. Opt-in. */
+  flushBottom?: boolean;
+  /** Убрать нижний отступ секции только на мобилке. Opt-in. */
+  flushBottomMobile?: boolean;
+  /** Верхний отступ 64 / 96 / 128px (мобилка / планшет / десктоп). Opt-in. */
+  spaceTopLarge?: boolean;
+  /** Заголовок default на планшете 30px вместо 36px. Opt-in. */
+  titleSmallTablet?: boolean;
+  /** Текстовая колонка уже на десктопе — 520px. Opt-in. */
+  copyNarrow?: boolean;
+  /** Зазор между текстом и моком на мобилке — 24px вместо 40px. Opt-in. */
+  gapTightMobile?: boolean;
+  /** Мок по центру колонки на мобилке, когда он уже контейнера. Opt-in. */
+  mediaCenterMobile?: boolean;
   /**
    * На мобилке кнопки по центру колонки и по ширине контента, а не во всю
    * ширину. С планшета — обычный ряд слева. Opt-in.
@@ -115,9 +159,16 @@ export function MediaCopy({
   eyebrow,
   title,
   accentWord,
+  accentBreak,
+  mediaTight,
+  mediaGrayShadow,
+  mediaFill,
+  mediaWide,
+  mediaGap = 'default',
   description,
   descriptionLink,
   checklist,
+  checklistInline = false,
   mediaPosition = 'right',
   mediaPlaceholder = 'product UI',
   align = 'left',
@@ -126,6 +177,13 @@ export function MediaCopy({
   spaceTop = false,
   spaceBottom = false,
   tightBottom = false,
+  flushBottom = false,
+  flushBottomMobile = false,
+  spaceTopLarge = false,
+  titleSmallTablet = false,
+  copyNarrow = false,
+  gapTightMobile = false,
+  mediaCenterMobile = false,
   ctaCenterMobile = false,
   spaceTopMobile = false,
   ctaBelow = false,
@@ -175,8 +233,11 @@ export function MediaCopy({
         // Половинный нижний отступ на мобилке — идёт после spaceBottom.
         tightBottomMobile && 'pb-6',
         tightBottom && 'pb-8 md:pb-12 lg:pb-12',
+        flushBottom && 'pb-0 md:pb-0 lg:pb-0',
+        flushBottomMobile && 'pb-0 md:pb-16 lg:pb-24',
         spaceTop && 'pt-12 md:pt-24 lg:pt-24',
         flushTop && 'pt-0 md:pt-0 lg:pt-0',
+        spaceTopLarge && 'pt-16 md:pt-24 lg:pt-32',
         // Идёт после flushTop: на мобилке отступ нужен даже у секции без него.
         spaceTopMobile && 'pt-8',
       )}
@@ -188,12 +249,19 @@ export function MediaCopy({
                 'max-w-2xl',
                 // Центрированной шапке даём больше ширины: в 672px заголовок
                 // раздела ломался на три строки.
-                align === 'center' && 'md:mx-auto md:max-w-4xl md:text-center lg:max-w-5xl',
+                align === 'center' && 'md:mx-auto md:max-w-4xl md:text-center lg:max-w-6xl',
               )
             : isStacked
               ? 'flex flex-col gap-10'
-              : 'grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center lg:gap-16',
+              : cn(
+                  'grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center',
+                  gapTightMobile && 'gap-6 md:gap-10',
+                  mediaGap === 'narrow' ? 'lg:gap-8' : 'lg:gap-16',
+                ),
           !hideMedia && mediaPosition === 'left' && 'md:[&>div:first-child]:order-2',
+          // колонки идут в визуальном порядке: при моке слева широкая первая
+          !hideMedia && !isStacked && mediaWide &&
+            (mediaPosition === 'left' ? 'lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]' : 'lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]'),
         )}
       >
         {/*
@@ -202,7 +270,7 @@ export function MediaCopy({
           и FinalCta. На мобилке остаётся выключка влево: центр на узкой колонке
           рвёт чтение длинного подзаголовка.
         */}
-        <div className={cn(isStacked && 'max-w-3xl md:mx-auto md:text-center lg:max-w-6xl')}>
+        <div className={cn(isStacked && 'max-w-3xl md:mx-auto md:text-center lg:max-w-6xl', copyNarrow && !isStacked && 'lg:max-w-[520px]')}>
           {eyebrow && (
             <p
               data-comp="media_copy.eyebrow"
@@ -215,7 +283,15 @@ export function MediaCopy({
             data-comp="media_copy.title"
             className={cn(
               'font-semibold leading-tight',
-              titleSize === 'small' ? 'text-xl md:text-2xl lg:text-3xl' : 'text-2xl md:text-4xl',
+              titleSize === 'xsmall'
+                ? 'text-xl md:text-2xl'
+                : titleSize === 'small'
+                  ? 'text-xl md:text-2xl lg:text-3xl'
+                  : titleSmallTablet
+                    ? 'text-2xl md:text-3xl lg:text-4xl'
+                    : 'text-2xl md:text-2xl lg:text-4xl',
+              // перенос строки из спека (\n) — только там, где он явно задан
+              title.includes('\n') && 'whitespace-pre-line',
             )}
           >
             {/*
@@ -225,7 +301,9 @@ export function MediaCopy({
             */}
             {accentWord && title.startsWith(accentWord) ? (
               <>
-                <span className="mr-2 text-(--color-text-accent)">{accentWord}</span>
+                <span className={cn('text-(--color-text-accent)', accentBreak ? 'mb-1 block' : 'mr-2')}>
+                  {accentWord}
+                </span>
                 {/* Пробел оставляем в тексте: без него заголовок копируется
                     и озвучивается как «Шаг 1Выбираете». Отбивку даёт mr-2. */}
                 {title.slice(accentWord.length)}
@@ -259,7 +337,7 @@ export function MediaCopy({
           )}
 
           {checklist && checklist.length > 0 && (
-            <ul className="mt-6 space-y-3">
+            <ul className={checklistInline ? 'mt-6 flex flex-wrap gap-x-8 gap-y-3' : 'mt-6 space-y-3'}>
               {checklist.map((item, i) => (
                 <Inspect
                   as="li"
@@ -290,12 +368,19 @@ export function MediaCopy({
         </div>
 
         {!hideMedia && (
-          <Inspect as="div" name="media_copy.media" className={cn(isStacked && 'w-full')}>
+          <Inspect
+            as="div"
+            name="media_copy.media"
+            className={cn(isStacked && 'w-full', mediaCenterMobile && 'max-md:[&_[data-mockfit=inner]]:mx-auto')}
+          >
             <MediaCopyVisual
               variant={mediaVariant}
               placeholder={mediaPlaceholder}
               src={mediaSrc}
               alt={mediaAlt}
+              tight={mediaTight}
+              grayShadow={mediaGrayShadow}
+              fill={mediaFill}
             />
           </Inspect>
         )}
@@ -315,11 +400,17 @@ function MediaCopyVisual({
   placeholder,
   src,
   alt,
+  tight,
+  grayShadow,
+  fill,
 }: {
   variant: MediaCopyVariant;
   placeholder: string;
   src?: string;
   alt?: string;
+  tight?: boolean;
+  grayShadow?: boolean;
+  fill?: boolean;
 }) {
   // Растровая картинка выигрывает у mock-компонента: её задают явно под блок.
   if (src) {
@@ -333,9 +424,16 @@ function MediaCopyVisual({
     );
   }
   if (variant === 'default') return <ProductMock label={placeholder} />;
+  if (fill) {
+    return (
+      <div className="w-full">
+        <MockVisual variant={variant} tight={tight} grayShadow={grayShadow} />
+      </div>
+    );
+  }
   const rendered = (
     <MockFit>
-      <MockVisual variant={variant} />
+      <MockVisual variant={variant} tight={tight} grayShadow={grayShadow} />
     </MockFit>
   );
   return rendered ?? <ProductMock label={placeholder} />;

@@ -98,6 +98,15 @@ export const DOMAIN_REGISTRY: DomainEntry[] = [
       'управление проектами',
       'разработк',
       'дорожная карта',
+      // Лексика лендинга «Единое рабочее пространство»: доски, колонки, дорожки.
+      // Без них бриф про рабочее пространство уходил в домен bpm по слову «процесс».
+      'рабочее пространство',
+      'канбан-доск',
+      'доска с этапами',
+      'этапы работы',
+      'дорожк',
+      'визуализация задач',
+      'визуализация рабочих процессов',
     ],
     mocks: [
       {
@@ -133,6 +142,12 @@ export const DOMAIN_REGISTRY: DomainEntry[] = [
         variant: 'integrations-console',
         sections: ['media', 'tab'],
         description: 'Лента событий из 1С, AmoCRM, Telegram, GitLab (Kaiten-домен)',
+      },
+      {
+        variant: 'integrations-hub',
+        sections: ['hero', 'media'],
+        description:
+          'Карта интеграций Кайтена: карточка продукта в центре и десять сервисов вокруг (Telegram, Slack, Tilda, Google Forms, Zapier, Outlook, Google календарь, Яндекс Диск, GitLab, GitHub), соединенных проводами — для первого экрана и блоков про подключение внешних сервисов',
       },
       {
         variant: 'modules-matrix',
@@ -234,6 +249,11 @@ export const DOMAIN_REGISTRY: DomainEntry[] = [
         sections: ['media'],
         description:
           'Отчёты Kaiten: накопительная диаграмма потока (CFD, stacked area) + контрольный график (scatter с контрольной линией) — «отчёты собираются в 2 клика» для руководства',
+      },
+      {
+        variant: 'reports-charts-cascade',
+        sections: ['media'],
+        description: 'Те же отчёты Kaiten каскадом: окна «Накопительная диаграмма потока» и «Контрольный график» одного размера, второе смещено вправо и вниз, холст 592px — крупнее reports-charts',
       },
       {
         variant: 'finance-kb-docs',
@@ -372,6 +392,176 @@ export const DOMAIN_REGISTRY: DomainEntry[] = [
         sections: ['media', 'tab', 'scenario', 'feature'],
         description:
           'Диаграмма Ганта Kaiten (GanttChartMock): таймлайн проектов по фазам с полосами задач, зависимостями и ресурсным планированием. КАНОНИЧНЫЙ мок для пункта/секции «Диаграмма Ганта» — не путать с reports/analytics',
+      },
+      // WorkspaceViewMock: пространство «Запуск продукта / Маркетинг» в шести
+      // представлениях, во всех видах одни и те же карточки — блок «виды пространства».
+      {
+        variant: 'workspace-view-board',
+        sections: ['media', 'tab'],
+        description: 'Вид «Доски»: колонки Очередь / В работе / Готово, дорожки «Контент» и «Реклама», заблокированная карточка с красной рамкой',
+      },
+      {
+        variant: 'workspace-view-list',
+        sections: ['media', 'tab'],
+        description: 'Вид «Списки»: карточки доски, сгруппированные по колонкам, с чекбоксами, метками, сроками и исполнителями',
+      },
+      {
+        variant: 'workspace-view-table',
+        sections: ['media', 'tab'],
+        description: 'Вид «Таблица»: название, колонка, дорожка, ответственный, срок и метка каждой карточки',
+      },
+      {
+        variant: 'workspace-view-timeline',
+        sections: ['media', 'tab'],
+        description: 'Вид «Таймлайн»: полосы карточек по дням с цветом дорожки и линией сегодняшнего дня',
+      },
+      {
+        variant: 'workspace-view-calendar',
+        sections: ['media', 'tab'],
+        description: 'Вид «Календарь»: три недели, карточки стоят на датах своих сроков',
+      },
+      {
+        variant: 'workspace-view-reports',
+        sections: ['media', 'tab'],
+        description: 'Вид «Отчеты»: накопительная диаграмма потока, счетчики карточек и время выполнения по участникам',
+      },
+      {
+        variant: 'workspace-spaces',
+        sections: ['media', 'tab'],
+        description: 'WorkspaceSpacesMock, вид «пространства»: боковое меню с деревом пространств и досок плюс список пространств компании (Маркетинг, Разработка, Поддержка, Руководство) с уровнем доступа у каждого',
+      },
+      {
+        variant: 'workspace-access',
+        sections: ['media', 'tab'],
+        description: 'WorkspaceSpacesMock, вид «доступ»: окно доступа к пространству — поле приглашения коллеги, участники с ролями (администратор, участник, только чтение) и группа отдела',
+      },
+      {
+        variant: 'workspace-create',
+        sections: ['media', 'tab'],
+        description: 'WorkspaceCreateMock: создание пространства — на фоне приложение с деревом пространств и доской «Маркетинг», поверх выпадающее меню «Добавить» (Пространство, Story map, Документ, Папку, Импортировать) с подсвеченным «Пространство»',
+      },
+      {
+        variant: 'scrum-board',
+        sections: ['media', 'tab'],
+        description: 'ModuleScrumMock: фрагмент скрам-доски спринта Kaiten — свимлейны по приоритету, колонки «Бэклог спринта», «В работе», «Ревью», карточки со стори-поинтами, тегами, чек-листами и сроками',
+      },
+      {
+        variant: 'scrum-board-wide',
+        sections: ['media', 'tab'],
+        description: 'ModuleScrumMock целиком: шесть колонок от «Бэклог спринта» до «Готово», обрезано по высоте до пропорций окон WorkspaceViewMock (760×440) — для блока «виды пространства»',
+      },
+      {
+        variant: 'portfolio-board-stretch',
+        sections: ['media', 'tab'],
+        description: 'ModulePortfolioMock с колонками портфеля на всю ширину доски: воронка договоров, свимлейн «Первый приоритет» и свернутые доски проектов — «комбинируйте несколько досок в пространстве»',
+      },
+      {
+        variant: 'module-boards',
+        sections: ['media', 'tab'],
+        description: 'ModuleBoards: пространство «Проекты» с несколькими досками — портфель проектов со свимлейном «Первый приоритет», свёрнутые доски проектов и развёрнутая доска «Письма» — «все проекты в одной среде»',
+      },
+      {
+        variant: 'admin-space',
+        sections: ['media', 'tab'],
+        description: 'AdminSpaceMock: административное пространство «Рабочий кабинет руководителя» — доски разных отделов на одном экране: «Стратегические проекты компании», «Проекты ИТ-департамента» и «Развитие сотрудников» — «централизованное управление»',
+      },
+      // Лендинг «Задачи» (/features/cards/): вся информация по задаче в карточке.
+      {
+        variant: 'window-project-modal',
+        sections: ['hero', 'media'],
+        description:
+          'Окно карточки проекта «Редизайн сайта»: блокировка, метки, срок, бюджет, чек-лист, дочерние карточки и панель комментариев с упоминаниями — все данные и общение по задаче в одной карточке',
+      },
+      {
+        variant: 'tile-recurring-tasks',
+        sections: ['media'],
+        description:
+          'Плитка галереи фич «Повторяющиеся задачи»: календарь месяца и карточка по расписанию со сроком «1 число (ежемесячно)» — для блока про запланированные задания',
+      },
+      {
+        variant: 'tile-notifications',
+        sections: ['media', 'tab'],
+        description:
+          'Плитка галереи фич «Боты и уведомления»: настройка бота Кайтена и доставка сообщений в Telegram, Max и мобильное приложение — для блока про уведомления о действиях с карточками',
+      },
+      {
+        variant: 'tile-integrations-git',
+        sections: ['media', 'tab'],
+        description:
+          'Плитка галереи фич «Интеграции: GitLab · GitHub»: коммиты и ветки репозитория, привязанные к карточке задачи — для блока про связку разработки с задачами',
+      },
+      {
+        variant: 'report-diagrams',
+        sections: ['media', 'tab'],
+        description:
+          'Отчеты Кайтена: шесть диаграмм в карточках — сгорание, скорость команды, время выполнения (контрольная), накопительная диаграмма потока, спектральная, пропускная способность. Для вкладки «Отчеты» и блоков про аналитику',
+      },
+      {
+        variant: 'window-rule-full',
+        sections: ['media'],
+        description:
+          'Правило автоматизации Кайтена целиком: слева «Когда» (событие «Карточка перемещена или создана» и условие по местоположению), справа «Выполнить» (действие «Установить срок», срок через 2 дня после события) — схема «если — то» в одном визуале',
+      },
+      {
+        variant: 'notification-settings',
+        sections: ['media'],
+        description:
+          'Настройка уведомлений Кайтена: вкладки профиля, каналы с тумблерами (почта, Telegram, Max, мобильное приложение), таблица событий по карточкам с отметками по каналам и телефон с чатом бота поверх окна',
+      },
+      {
+        variant: 'recurring-task-schedule',
+        sections: ['media'],
+        description:
+          'Запланированные задания Кайтена: календарь месяца с карточками по расписанию и поверх окно «Создание задания» — название, тип повторения, интервал, дни недели, время, доска и место карточки',
+      },
+      // Лендинг «Отчеты» (/features/reports/): одна диаграмма в карточке фичи.
+      {
+        variant: 'report-chart-burndown',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, график сгорания: оставшаяся работа спринта против идеальной линии',
+      },
+      {
+        variant: 'report-chart-velocity',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, скорость команды: объем работы по спринтам с разбивкой по направлениям',
+      },
+      {
+        variant: 'report-chart-control',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, контрольный график: время выполнения карточек за период и линия нормы',
+      },
+      {
+        variant: 'report-chart-cfd',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, накопительная диаграмма потока: Очередь, В работе, Готово по неделям',
+      },
+      {
+        variant: 'report-chart-spectral',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, спектральная диаграмма: распределение времени выполнения, среднее и перцентиль',
+      },
+      {
+        variant: 'report-chart-throughput',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, пропускная способность: число готовых карточек по неделям и классам обслуживания',
+      },
+      {
+        variant: 'report-chart-blocked',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, время разрешения блокировок: дни в блокировке по причинам, дольше нормы выделено',
+      },
+      {
+        variant: 'report-chart-cycle-time',
+        sections: ['media', 'tab'],
+        description:
+          'ReportChartMock, время цикла: дни на каждом этапе доски, самый долгий этап выделен',
       },
     ],
     missingMocks: [],
@@ -866,6 +1056,11 @@ export const DOMAIN_REGISTRY: DomainEntry[] = [
         sections: ['media', 'tab'],
         description:
           'Mockup ноутбука «Вся компания в одной системе» с плавающими лейблами 6 департаментов (бухгалтерия, проектирование, логистика, коммерческий отдел, производство, оценка рисков)',
+      },
+      {
+        variant: 'laptop-boards',
+        sections: ['media', 'tab'],
+        description: 'LaptopBoardTreeMock: ноутбук с канбан-доской производства и развёрнутым деревом разделов (цех, снабжение, технологи, ОТК, руководство, бухгалтерия, проектный офис), 880px',
       },
     ],
     missingMocks: [],
