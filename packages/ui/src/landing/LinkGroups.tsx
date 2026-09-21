@@ -51,12 +51,12 @@ export function LinkGroups({ eyebrow, title, description, groups, centerMockVari
           className={cn(
             'grid w-full grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-2 md:gap-10',
             withMock
-              ? 'xl:grid-cols-[max-content_minmax(0,1fr)_max-content] xl:items-center xl:gap-12 xl:pr-8'
+              ? 'xl:grid-cols-[minmax(0,1fr)_max-content_max-content] xl:items-center xl:gap-12'
               : 'rounded-(--radius-3xl) bg-(--color-surface-card) p-6 md:p-10 lg:px-16 lg:py-12',
           )}
         >
           {groups.map((g, gi) => (
-            <div key={g.title} className={cn(withMock && gi === 1 && 'xl:order-3')}>
+            <div key={g.title} className={cn(withMock && (gi === 0 ? 'xl:order-2' : 'xl:order-3'))}>
               <p data-comp={`link_groups.groups[${gi}].title`} className="mb-4 text-sm font-medium uppercase text-(--color-text-accent)">
                 {g.title}
               </p>
@@ -84,8 +84,8 @@ export function LinkGroups({ eyebrow, title, description, groups, centerMockVari
             </div>
           ))}
           {withMock && (
-            // до 1280px мок над ссылками на всю ширину, шире — в центре между группами
-            <div data-comp="link_groups.centerMockVariant" className="order-first mx-auto w-full min-w-0 max-w-[560px] md:col-span-2 xl:order-2 xl:col-span-1 xl:max-w-none xl:pl-[104px]">
+            // до 1280px мок над ссылками на всю ширину, шире — слева, группы ссылок справа
+            <div data-comp="link_groups.centerMockVariant" className="order-first mx-auto w-full min-w-0 max-w-[560px] md:col-span-2 xl:order-1 xl:col-span-1 xl:max-w-none">
               <MockVisual variant={centerMockVariant} />
             </div>
           )}

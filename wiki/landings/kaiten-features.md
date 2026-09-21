@@ -2,7 +2,7 @@
 slug: kaiten-features
 type: landing
 created: 2026-09-16
-updated: 2026-09-17
+updated: 2026-09-18
 status: draft
 brief: content/briefs/kaiten-features.json
 archetype: saas_landing
@@ -160,7 +160,7 @@ stale: false
 - **Score:** 66.04 / 100 (threshold 70) — ❌ fail
 - **Resolved segments:** IT
 - **CTA types detected:** Trial, Demo
-- **Generated:** 2026-09-17T17:32:35.713Z
+- **Generated:** 2026-09-18T10:34:31.992Z
 
 ## Breakdown
 

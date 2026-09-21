@@ -85,6 +85,9 @@ export const AssetRefSchema = z.object({
       'retail-portfolio-animated',
       'retail-mobile',
       'gantt-chart',
+      // Окна рабочего пространства: создание пространства и пустая доска
+      'window-workspace-create',
+      'window-board-new',
       // Автоматизации (модуль Kaiten)
       'window-rule-trigger',
       'window-rule-action',
@@ -762,6 +765,10 @@ const MediaCopySchema = z.object({
       .boolean()
       .optional()
       .describe('заголовок default на планшете 30px вместо 36px. Opt-in'),
+    mediaNarrow: z
+      .boolean()
+      .optional()
+      .describe('мок на десктопе уже колонки на 16px (576 вместо 592). Opt-in'),
     copyNarrow: z
       .boolean()
       .optional()
@@ -927,6 +934,9 @@ const MediaCopySchema = z.object({
       'retail-portfolio-animated',
       'retail-mobile',
       'gantt-chart',
+      // Окна рабочего пространства: создание пространства и пустая доска
+      'window-workspace-create',
+      'window-board-new',
       // Автоматизации (модуль Kaiten)
       'window-rule-trigger',
       'window-rule-action',
@@ -1405,6 +1415,9 @@ export const MockVariantSchema = z.enum([
 'retail-report-bottlenecks',
 'retail-report-ai',
 'gantt-chart',
+// Окна рабочего пространства: создание пространства и пустая доска
+'window-workspace-create',
+'window-board-new',
 // Автоматизации (модуль Kaiten)
 'window-rule-trigger',
 'window-rule-action',
@@ -1480,6 +1493,36 @@ export const MockVariantSchema = z.enum([
 'report-chart-cycle-time',
 ]);
 export type MockVariant = z.infer<typeof MockVariantSchema>;
+
+/* ─── TabsGallery (галерея по вкладкам: текст слева, мок справа) ──── */
+const TabsGallerySchema = z.object({
+  id: z.literal('tabs_gallery'),
+  component: z.literal('TabsGallery'),
+  props: z.object({
+    title: z.string().min(4).max(120),
+    subtitle: z.string().max(280).optional(),
+    ctaLabel: z
+      .string()
+      .max(40)
+      .optional()
+      .describe('подпись кнопки в панели; кнопка рендерится только у пунктов с ctaHref'),
+    items: z
+      .array(
+        z.object({
+          label: z.string().min(2).max(40).describe('подпись вкладки'),
+          icon: z.string().optional().describe('lucide-icon слева от подписи вкладки'),
+          title: z.string().min(4).max(120),
+          desc: z.string().max(400).optional(),
+          bullets: z.array(z.string().min(2).max(200)).max(6).optional(),
+          ctaHref: z.string().optional(),
+          mockVariant: MockVariantSchema.optional(),
+          image: z.string().optional().describe('растровое превью вместо мока'),
+        }),
+      )
+      .min(2)
+      .max(6),
+  }),
+});
 
 /* ─── TabbedFeatureSection ────────────────────────────────────────── */
 const TabbedFeatureSectionSchema = z.object({
@@ -1990,6 +2033,7 @@ export const SectionSchema = z.discriminatedUnion('component', [
   BenefitsStripSchema,
   MetricsSplitSchema,
   TabbedFeatureSectionSchema,
+  TabsGallerySchema,
   ViewSwitcherSchema,
   LinkGroupsSchema,
   AccordionFeatureSectionSchema,

@@ -11,7 +11,7 @@
       "id": "hero",
       "component": "HeroSection",
       "props": {
-        "eyebrow": "Функция «Единое рабочее пространство»",
+        "eyebrow": "Функция Единое рабочее пространство",
         "eyebrowIcon": "workspace",
         "title": "Единое рабочее пространство\nдля визуализации рабочих процессов",
         "accentWord": "Единое рабочее пространство",
@@ -33,7 +33,7 @@
         },
         "visualPosition": "side",
         "board": {
-          "boardTitle": "Маркетинг",
+          "boardTitle": "Запуск продукта",
           "columns": [
             {
               "label": "Очередь",
@@ -55,7 +55,7 @@
           ],
           "lanes": [
             {
-              "name": "Запуск продукта",
+              "name": "Маркетинг",
               "count": 5,
               "columns": [
                 [
@@ -244,6 +244,7 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "mediaNarrow": true,
         "gapTightMobile": true,
         "title": "Шаг 2 Добавьте доску с этапами работы, чтобы визуализировать ход работы над задачами",
         "accentWord": "Шаг 2",
@@ -284,6 +285,7 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "mediaNarrow": true,
         "gapTightMobile": true,
         "title": "Шаг 4 Комбинируйте несколько досок на одном рабочем пространстве",
         "accentWord": "Шаг 4",
@@ -342,6 +344,7 @@
       "id": "media_copy",
       "component": "MediaCopy",
       "props": {
+        "mediaNarrow": true,
         "gapTightMobile": true,
         "title": "Все проекты в одной среде",
         "mediaGap": "narrow",
@@ -589,7 +592,7 @@
       "packages/harness/src/prompts/section-mock-skill.md",
       "wiki/layouts/index.md"
     ],
-    "generatedAt": "2026-09-17T17:32:35.755Z",
+    "generatedAt": "2026-09-18T10:34:32.017Z",
     "generator": "host-agent",
     "archetype": "saas_landing",
     "layout": "depersonalized-product-tour",

@@ -232,6 +232,9 @@ export type MockVariant =
   | 'window-card-flow'
   | 'platform-kaiten'
   // Window-моки планирования (эталон — лендинг сравнения с MS Project)
+  // Окна рабочего пространства: создание пространства и пустая доска
+  | 'window-workspace-create'
+  | 'window-board-new'
   | 'window-links'
   | 'window-resource'
   | 'window-reports'
@@ -454,7 +457,13 @@ function MockVisualSwitch({
         <div className={cn('w-full [overflow:clip] [overflow-clip-margin:80px]', tight ? 'px-0' : 'px-8')}>
           <ScaleToFit designWidth={720}>
             {/* grayShadow — серая тень окна, как у остальных моков (у статичной доски своей тени нет) */}
-            <div className={cn(grayShadow && 'rounded-(--radius-3xl) shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]')}>
+            <div
+              className={cn(
+                grayShadow && 'rounded-(--radius-3xl) shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)]',
+                // на десктопе окно со скруглением 16px вместо 24px
+                grayShadow && 'lg:rounded-2xl lg:[&>div]:rounded-2xl',
+              )}
+            >
               <KanbanMinimalMock />
             </div>
           </ScaleToFit>
@@ -580,7 +589,7 @@ function MockVisualSwitch({
     case 'notification-settings':
       return (
         <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
-          <ScaleToFit designWidth={800}>
+          <ScaleToFit designWidth={796}>
             <NotificationSettingsMock />
           </ScaleToFit>
         </div>
@@ -590,10 +599,10 @@ function MockVisualSwitch({
     case 'window-rule-full':
       return (
         <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
-          <ScaleToFit designWidth={760}>
-            <div className="relative h-[450px]">
+          <ScaleToFit designWidth={700}>
+            <div className="relative h-[462px]">
               <WindowRuleTriggerMock />
-              <div className="absolute right-0 bottom-0">
+              <div className="absolute bottom-0 right-0 translate-y-3">
                 <WindowRuleActionMock />
               </div>
             </div>
@@ -627,6 +636,8 @@ function MockVisualSwitch({
     case 'window-reports':
       return <WindowReportsMock />;
     // Мок фиксированной ширины 760px — в узких слотах масштабируется.
+    // window-board-new — то же окно вида «Доски» (пустая «Новая доска») под именем семейства Window
+    case 'window-board-new':
     case 'workspace-view-board':
     case 'workspace-view-list':
     case 'workspace-view-table':
@@ -636,7 +647,9 @@ function MockVisualSwitch({
       return (
         <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
           <ScaleToFit designWidth={760}>
-            <WorkspaceViewMock view={variant.slice('workspace-view-'.length) as WorkspaceView} />
+            <WorkspaceViewMock
+              view={variant === 'window-board-new' ? 'board' : (variant.slice('workspace-view-'.length) as WorkspaceView)}
+            />
           </ScaleToFit>
         </div>
       );
@@ -674,6 +687,8 @@ function MockVisualSwitch({
         </div>
       );
     // Создание пространства: приложение на фоне и меню «Добавить», 640px.
+    // window-workspace-create — то же окно под именем семейства Window
+    case 'window-workspace-create':
     case 'workspace-create':
       return (
         <div className="w-full [overflow:clip] [overflow-clip-margin:80px]">
