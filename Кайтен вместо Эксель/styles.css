@@ -362,6 +362,44 @@
   line-height: 24px;
   color: var(--text-title);
 }
+.revx-mock .otz__btn {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: 10px var(--sp-4);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: var(--fw-med);
+  color: var(--brand-100);
+  background: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    border-color 0.18s,
+    color 0.18s;
+}
+.revx-mock.revx--compact .otz {
+  height: auto;
+}
+@media (min-width: 1280px) {
+  .revx-mock.revx--compact {
+    padding-bottom: 96px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .revx-mock.revx--compact .revx__head h2 {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+.revx-mock .otz__btn:hover {
+  border-color: var(--brand-48);
+  background: var(--brand-12);
+  color: var(--brand-hover);
+}
 @media (min-width: 768px) {
   .revx-mock {
     --pad: var(--sp-6);
@@ -439,7 +477,7 @@
     font-size: 16px;
     line-height: 24px;
   }
-  .revx-mock .otz__co.revx-mock .otz__co img {
+  .revx-mock .otz__co img {
     max-width: 150px;
   }
 }
@@ -1531,6 +1569,39 @@
 }
 .roboto_ef8ff67b-module__vwAz8q__variable {
   --font-roboto: "Roboto", "Roboto Fallback";
+}
+@layer properties {
+  @supports (((-webkit-hyphens: none)) and (not (margin-trim: inline))) or
+    ((-moz-orient: inline) and (not (color: rgb(from red r g b)))) {
+    *,
+    :before,
+    :after,
+    ::backdrop {
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-scroll-snap-strictness: proximity;
+      --tw-space-y-reverse: 0;
+      --tw-border-style: solid;
+      --tw-leading: initial;
+      --tw-shadow: 0 0 #0000;
+      --tw-shadow-color: initial;
+      --tw-inset-shadow: 0 0 #0000;
+      --tw-ring-shadow: 0 0 #0000;
+      --tw-inset-ring-shadow: 0 0 #0000;
+      --tw-ring-offset-shadow: 0 0 #0000;
+      --tw-blur: initial;
+      --tw-brightness: initial;
+      --tw-contrast: initial;
+      --tw-grayscale: initial;
+      --tw-hue-rotate: initial;
+      --tw-invert: initial;
+      --tw-saturate: initial;
+      --tw-sepia: initial;
+      --tw-drop-shadow: initial;
+      --tw-duration: initial;
+      --tw-ease: initial;
+    }
+  }
 }
 @layer theme {
   :root,
