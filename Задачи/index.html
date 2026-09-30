@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="ru" class="roboto_ef8ff67b-module__vwAz8q__variable"
+  ><head
+    ><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><meta name="next-size-adjust" content="" /><title>Кайтен — эффективная работа с карточками в удобном формате</title
+    ><meta name="description" content="Соберите всю информацию по задачам в карточках." /><link rel="stylesheet" href="styles.css" /> </head
+  ><body
+    ><div hidden=""></div
+    ><div
+      ><div id="site_header"
+        ><header class="relative isolate"
+          ><div class="border-b border-(--color-border-default) bg-(--color-surface-page)"
+            ><div class="mx-auto flex w-full max-w-(--container-kaiten) items-center gap-6 px-4 py-3.5 md:px-6 xl:px-0"
+              ><a href="https://kaiten.ru" class="flex shrink-0 items-center" aria-label="Kaiten"
+                ><svg viewBox="0 0 269 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-8 w-auto" role="img" aria-label="Kaiten">
+                  <path d="M59.0856 0H20.9144C9.36368 0 0 9.35857 0 20.903V59.097C0 70.6414 9.36368 80 20.9144 80H59.0856C70.6363 80 80 70.6414 80 59.097V20.903C80 9.35857 70.6363 0 59.0856 0Z" fill="#F11F24"></path>
+                  <path d="M31.8576 8.72032L8.72032 31.8576C4.27271 36.3052 4.27271 43.5162 8.72032 47.9638L31.8576 71.101C36.3052 75.5486 43.5162 75.5486 47.9638 71.101L71.101 47.9638C75.5486 43.5162 75.5486 36.3052 71.101 31.8576L47.9638 8.72032C43.5162 4.27271 36.3052 4.27271 31.8576 8.72032Z" fill="#78FFC7"></path>
+                  <path d="M39.7808 59.559C50.7054 59.559 59.5615 50.7034 59.5615 39.7795C59.5615 28.8556 50.7054 20 39.7808 20C28.8562 20 20 28.8556 20 39.7795C20 50.7034 28.8562 59.559 39.7808 59.559Z" fill="#7D4CCF"></path>
+                  <path d="M187.261 31.8525H193.694V34.7574H187.261V45.5476C187.261 46.599 187.372 47.4982 187.593 48.2452C187.842 48.9646 188.161 49.5597 188.548 50.03C188.963 50.4726 189.433 50.8048 189.959 51.0261C190.484 51.2475 191.038 51.3582 191.619 51.3582C192.449 51.3582 193.251 51.2331 194.026 50.9841C194.8 50.7074 195.451 50.417 195.977 50.1127L197.221 52.8102C196.391 53.2252 195.437 53.571 194.358 53.8477C193.307 54.1243 192.255 54.263 191.204 54.2631C188.078 54.2631 185.671 53.4882 183.983 51.9389C182.295 50.3895 181.451 48.2591 181.451 45.5476V34.7574H177.508V31.8525H181.451V25.2118H187.261V31.8525Z" fill="#000000"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M211.069 31.0216C212.729 31.0217 214.292 31.2703 215.759 31.7683C217.225 32.2663 218.497 33.0003 219.576 33.9686C220.655 34.9093 221.514 36.0572 222.15 37.4129C222.786 38.7685 223.104 40.304 223.104 42.0192V44.9249H205.383C205.715 47.2212 206.504 48.8673 207.749 49.8633C209.021 50.8593 210.612 51.3574 212.521 51.3574C213.877 51.3574 215.136 51.1224 216.298 50.652C217.488 50.1817 218.65 49.5175 219.784 48.6599L221.444 51.1501C220.918 51.6204 220.296 52.0489 219.576 52.4361C218.885 52.8234 218.124 53.1556 217.294 53.4322C216.492 53.6812 215.648 53.8753 214.763 54.0137C213.877 54.1797 212.992 54.2623 212.106 54.2623C210.142 54.2623 208.344 53.9999 206.711 53.4743C205.107 52.9763 203.737 52.2431 202.602 51.2748C201.468 50.2788 200.582 49.0612 199.946 47.6224C199.337 46.1837 199.033 44.5234 199.033 42.642C199.033 40.7884 199.324 39.1422 199.905 37.7036C200.513 36.2372 201.343 35.0196 202.395 34.0512C203.474 33.0552 204.747 32.3084 206.213 31.8104C207.68 31.2847 209.298 31.0216 211.069 31.0216ZM211.069 33.7192C210.267 33.7192 209.519 33.8716 208.827 34.1759C208.136 34.4803 207.527 34.9641 207.001 35.628C206.503 36.292 206.088 37.1502 205.756 38.2016C205.452 39.2529 205.286 40.5254 205.258 42.0192H216.879C216.879 40.5807 216.713 39.3355 216.381 38.2843C216.049 37.233 215.606 36.3754 215.053 35.7114C214.527 35.0197 213.904 34.5216 213.185 34.2172C212.494 33.8853 211.788 33.7192 211.069 33.7192Z" fill="#000000"></path>
+                  <path d="M172.774 53.433H166.964V32.2671H172.774V53.433Z" fill="#000000"></path>
+                  <path d="M239.869 31.8525C243.826 31.8525 246.745 32.572 248.626 34.0107C250.535 35.4217 251.49 37.5385 251.49 40.3606V53.433H245.679V40.3606C245.679 38.3685 245.181 36.9432 244.185 36.0855C243.189 35.2003 241.75 34.7574 239.869 34.7574H234.474V53.433H228.664V31.8525H239.869Z" fill="#000000"></path>
+                  <path d="M112.265 37.4542H119.113L128.658 24.381H135.298L124.923 38.6989L135.921 53.4322H129.073L119.527 40.5664H112.265V53.4322H106.247V24.381H112.265V37.4542Z" fill="#000000"></path>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M149.385 31.0216C151.156 31.0216 152.719 31.2294 154.075 31.6444C155.43 32.0594 156.579 32.6538 157.52 33.4285C158.46 34.2032 159.165 35.1304 159.636 36.2094C160.134 37.2608 160.383 38.4367 160.383 39.7371V53.4322H148.762C144.999 53.4322 142.219 52.8651 140.421 51.7308C138.65 50.5964 137.764 48.8813 137.764 46.585C137.764 44.2886 138.65 42.5729 140.421 41.4386C142.219 40.3043 144.999 39.7371 148.762 39.7371H154.573C154.573 37.7452 154.047 36.2788 152.996 35.338C151.972 34.3974 150.63 33.9266 148.97 33.9265C147.725 33.9265 146.507 34.1206 145.318 34.508C144.128 34.8676 143.063 35.3657 142.122 36.0021L140.669 33.5119C141.278 33.0969 141.942 32.7367 142.662 32.4324C143.222 32.2041 143.79 32.0072 144.366 31.8412L145.523 31.5302C146.099 31.385 146.666 31.2706 147.227 31.1877C148.001 31.077 148.721 31.0216 149.385 31.0216ZM148.762 42.642C145.58 42.6421 143.99 43.9567 143.99 46.585C143.99 49.2132 145.581 50.5272 148.762 50.5273H154.573V42.642H148.762Z" fill="#000000"></path>
+                  <path d="M169.869 23.5517C170.782 23.5518 171.529 23.8702 172.11 24.5065C172.691 25.1151 172.982 25.8347 172.982 26.6647C172.981 27.4946 172.691 28.2279 172.11 28.8642C171.557 29.4727 170.81 29.7768 169.869 29.7769C168.929 29.7769 168.167 29.4728 167.586 28.8642C167.033 28.2279 166.756 27.4946 166.756 26.6647C166.756 25.8347 167.033 25.1151 167.586 24.5065C168.167 23.8701 168.929 23.5517 169.869 23.5517Z" fill="#000000"></path></svg></a
+              ><nav class="hidden flex-1 items-center justify-center gap-5 lg:flex"
+                ><a href="https://kaiten.ru/product" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)"
+                  >Продукт<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a
+                ><a href="https://kaiten.ru/teams" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)"
+                  >Решения<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a
+                ><a href="https://kaiten.ru/implementation" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)"
+                  >Услуги<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></a
+                ><a href="https://kaiten.ru/onpremise" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)">На сервер</a><a href="https://kaiten.ru/ai" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)">ИИ</a><a href="https://kaiten.ru/tariffs" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)">Тарифы</a><a href="https://kaiten.ru/blog/tag/case/" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)">Кейсы</a><a href="https://kaiten.ru/blog/" class="inline-flex items-center gap-1 text-sm font-medium text-(--color-text-primary) transition-colors hover:text-(--color-text-accent)">Блог</a></nav
+              ><div class="ml-auto flex items-center gap-2 lg:ml-0"
+                ><a href="https://kaiten.ru" aria-label="Язык" class="hidden h-9 w-9 items-center justify-center rounded-(--radius-lg) border border-(--color-border-default) text-(--color-text-secondary) hover:text-(--color-text-primary) sm:inline-flex"
+                  ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe h-4 w-4" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                    <path d="M2 12h20"></path></svg></a
+                ><a href="https://passport.kaiten.ru/" class="inline-flex items-center rounded-(--radius-lg) px-4 py-2 text-sm font-medium text-(--color-text-primary) hover:text-(--color-text-accent)">Войти</a><a href="https://passport.kaiten.ru/ru/registration" class="inline-flex items-center rounded-(--radius-lg) bg-(--color-action-primary) px-4 py-2 text-sm font-semibold text-white hover:opacity-90">Регистрация</a></div
+              ></div
+            ></div
+          ></header
+        ></div
+      ><div id="hero"
+        ><section class="hsi-screen" aria-label="Первый экран Kaiten" style="background: radial-gradient(900px 420px at 50% -140px, var(--brand-12, #efe9f9) 0%, rgba(239, 233, 249, 0) 70%), linear-gradient(#fff, #fff)"
+          ><div class="hsi-screen__glow" aria-hidden="true"></div
+          ><div class="hsi-screen__container hsi-screen__grid"
+            ><div class="hsi-screen__copy"
+              ><div class="hsi-screen__badge"
+                ><span class="hsi-screen__badge-text hsi-screen__badge-text--lead">Функция</span
+                ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="hsi-screen__badge-icon">
+                  <g transform="translate(2 2)"><path d="M1.00001 7V17.4C1.00001 17.9601 1.00001 18.2399 1.109 18.4538C1.20487 18.642 1.35774 18.7952 1.5459 18.8911C1.75961 19 2.0395 19 2.59846 19H13.0001M15 6L11 10L9.00001 8M5.00001 11.8002V4.2002C5.00001 3.08009 5.00001 2.51962 5.21799 2.0918C5.40974 1.71547 5.71548 1.40974 6.0918 1.21799C6.51963 1 7.0801 1 8.2002 1H15.8002C16.9203 1 17.4801 1 17.9079 1.21799C18.2842 1.40974 18.5905 1.71547 18.7822 2.0918C19.0002 2.51962 19.0002 3.07969 19.0002 4.19978L19.0002 11.7998C19.0002 12.9199 19.0002 13.48 18.7822 13.9078C18.5905 14.2841 18.2842 14.5905 17.9079 14.7822C17.4805 15 16.9215 15 15.8036 15H8.19691C7.079 15 6.51921 15 6.0918 14.7822C5.71548 14.5905 5.40974 14.2842 5.21799 13.9079C5.00001 13.4801 5.00001 12.9203 5.00001 11.8002Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg
+                ><span class="hsi-screen__badge-text">Задачи</span></div
+              ><h1 class="hsi-screen__title">Соберите всю информацию по задачам в карточках</h1><p class="hsi-screen__sub">Вы можете добавить в карточки неограниченное количество полей с информацией, назначить ответственных, установить сроки, добавить подробное описание и общаться с коллегами.</p><div class="hsi-screen__cta"><a class="hsi-screen__btn hsi-screen__btn--fill" href="https://passport.kaiten.ru/ru/registration">Попробовать Кайтен бесплатно</a><a class="hsi-screen__btn hsi-screen__btn--outline" href="/demo">Записаться на демо</a></div></div
+            ><div class="hsi-screen__visual"><video class="hsi-screen__video" src="assets/img/tasks-hero.mp4" poster="assets/img/tasks-hero-poster.jpg" muted="" loop="" autoplay="" playsinline="" preload="auto" aria-hidden="true"></video></div></div></section></div
+      ><div id="features"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 md:px-6 xl:px-0 pt-12 md:pt-16 lg:pt-24"
+          ><div class="mb-6 max-w-2xl text-left md:mx-auto md:mb-8 md:max-w-4xl md:text-center lg:mb-12 lg:max-w-6xl"
+            ><h2 class="text-2xl font-semibold leading-tight md:text-4xl whitespace-pre-line md:whitespace-normal">Соберите все нужные данные&#10;и коммуникации в одном месте</h2><p class="mt-4 text-base text-(--color-text-primary) md:whitespace-pre-line md:text-lg"><span>Создавайте карточки для каждой задачи, добавляйте подробное описание и общайтесь с коллегами в чате</span></p></div
+          ><div class="fg-track flex snap-x snap-mandatory gap-4 overflow-x-auto md:gap-6 -mx-4 scroll-px-4 px-4 md:-mx-6 md:scroll-px-6 md:px-6 lg:mx-0 lg:px-0 lg:grid lg:gap-6 lg:overflow-visible xl:gap-8 md:grid-cols-2 lg:grid-cols-3"
+            ><div class="rounded-(--radius-xl) p-6 md:p-8 lg:rounded-(--radius-2xl) bg-(--color-surface-section) w-[318px] max-w-full shrink-0 snap-start md:w-[calc(50%-12px)] lg:w-auto lg:shrink"
+              ><div aria-hidden="true" class="mb-6 flex w-full items-center justify-center lg:mb-8"
+                ><div class="fm" style="background: transparent; padding: 0; width: fit-content"
+                  ><div
+                    ><div class="card h180" style="display: flex; flex-direction: column; gap: 5px"
+                      ><div class="row" style="gap: 6px; align-items: stretch; margin-top: 3px"
+                        ><div style="position: relative; flex: 1; border: 1px solid #cfcfd2; border-radius: 5px; padding: 4px 6px 2px; line-height: 1; display: flex; align-items: center; height: 18px"><span style="position: absolute; top: -5px; left: 5px; background: #fff; padding: 0 2px; font-size: 6.5px; line-height: 1; color: #757575">Название&nbsp;*</span><span class="val" style="font-weight: 400">Bug</span></div
+                        ><div style="position: relative; flex: 0 0 84px; border: 1px solid #cfcfd2; border-radius: 5px; padding: 4px 6px 2px; line-height: 1; display: flex; align-items: center; height: 18px"><span style="position: absolute; top: -5px; left: 5px; background: #fff; padding: 0 2px; font-size: 6.5px; line-height: 1; color: #757575">Буква или эмодзи&nbsp;*</span><span class="val" style="font-weight: 400; font-size: 8px">🐞</span></div></div
+                      ><div class="row" style="gap: 8px; margin: 3px 0"
+                        ><span class="lab" style="flex: none">Цвет</span
+                        ><div style="flex: 1; display: flex; gap: 2px"
+                          ><span style="flex: 1; height: 11px; border-radius: 2px; background: #ef5350; display: flex; align-items: center; justify-content: center"
+                            ><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7" /></svg></span
+                          ><span style="flex: 1; height: 11px; border-radius: 2px; background: #795548; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #fbc02d; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #9e9d24; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #ffeb3b; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #1976d2; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #d32f2f; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #26a69a; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #66bb6a; display: flex; align-items: center; justify-content: center"></span><span style="flex: 1; height: 11px; border-radius: 2px; background: #fb8c00; display: flex; align-items: center; justify-content: center"></span></div></div
+                      ><div
+                        ><span class="lab" style="display: block; margin-bottom: 2px">Шаблон описания</span><div style="border: 1px solid #9e9e9e; border-radius: 4px; padding: 3px 6px; display: flex; flex-direction: column; gap: 1px; line-height: 1.25"><span class="val" style="font-weight: 400">Описание проблемы:</span><span class="val" style="font-weight: 400">Где обнаружена:</span></div></div
+                      ><div style="margin-top: 6px"
+                        ><div class="row" style="padding: 1px 0; border-bottom: 1px solid #eee"
+                          ><span style="width: 10px; display: flex; justify-content: center; flex: none; color: #616161"
+                            ><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                              <circle cx="12" cy="13" r="8" />
+                              <path d="M12 9v4l2.5 2M5 3 2 6M19 3l3 3" /></svg></span
+                          ><span class="val" style="font-weight: 400">Срок</span><span class="sp"></span
+                          ><span style="width: 40px; display: flex; justify-content: center"
+                            ><span style="width: 9px; height: 9px; border-radius: 2px; background: #9c27b0; display: flex; align-items: center; justify-content: center; flex: none"
+                              ><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7" /></svg></span></span></div
+                        ><div class="row" style="padding: 1px 0; border-bottom: 1px solid #eee"
+                          ><span style="width: 10px; display: flex; justify-content: center; flex: none; color: #616161"
+                            ><svg width="9" height="9" viewBox="0 0 24 24" fill="currentColor">
+                              <circle cx="12" cy="12" r="10" />
+                              <path d="M8 10.5h8L12 15z" fill="#fff" /></svg></span
+                          ><span class="val" style="font-weight: 400">Укажите проблему</span><span class="sp"></span
+                          ><span style="width: 40px; display: flex; justify-content: center"
+                            ><span style="width: 9px; height: 9px; border-radius: 2px; background: #9c27b0; display: flex; align-items: center; justify-content: center; flex: none"
+                              ><svg width="7" height="7" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7" /></svg></span></span></div
+                        ><div class="row" style="padding: 1px 0"
+                          ><span style="width: 10px; display: flex; justify-content: center; flex: none; color: #616161"
+                            ><svg width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M16 7v9a4 4 0 0 1-8 0V6a2.5 2.5 0 0 1 5 0v9a1 1 0 0 1-2 0V7" /></svg></span
+                          ><span class="val" style="font-weight: 400">Вложение</span><span class="sp"></span><span style="width: 40px; display: flex; justify-content: center"><span style="width: 9px; height: 9px; border-radius: 2px; border: 1px solid #616161; flex: none"></span></span></div></div></div></div></div></div
+              ><h3 class="text-lg font-semibold leading-snug">Создавайте шаблоны для разных типов задач</h3><p class="mt-2 text-base leading-relaxed text-(--color-text-primary)">Для разных категорий задач создавайте готовые шаблоны с нужными полями и описаниями. Для каждого типа задач задавайте свои правила и строгий поток.</p></div
+            ><div class="rounded-(--radius-xl) p-6 md:p-8 lg:rounded-(--radius-2xl) bg-(--color-surface-section) w-[318px] max-w-full shrink-0 snap-start md:w-[calc(50%-12px)] lg:w-auto lg:shrink"
+              ><div aria-hidden="true" class="mb-6 flex w-full items-center justify-center lg:mb-8"
+                ><div class="fm" style="background: transparent; padding: 0; width: fit-content"
+                  ><div
+                    ><div class="card h180" style="display: flex; flex-direction: column"
+                      ><div style="display: flex; align-items: center; margin-bottom: 9px"
+                        ><span style="font-size: 11px; font-weight: 600; color: #2d2d2d; flex: none">Название задачи</span><span style="flex: 1; height: 1px; background: #e6e6e6; margin: 0 8px"></span><span style="display: flex; gap: 4px; flex: none"><span style="width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 1px solid #d8d8da"></span><span style="width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 1px solid #d8d8da"></span><span style="width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 1px solid #d8d8da"></span><span style="width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 1px solid #d8d8da"></span><span style="width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 1px solid #d8d8da"></span></span></div
+                      ><div style="background: #fde8e6; border-radius: 7px; padding: 6px 8px; display: flex; align-items: flex-start; gap: 6px; margin-bottom: 16px"
+                        ><span style="flex: none; display: flex; color: #e0322f; margin-top: 1px"
+                          ><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="5" y="11" width="14" height="10" rx="2" />
+                            <path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg></span
+                        ><div style="min-width: 0; line-height: 1.35"><div style="font-size: 9px; font-weight: 600; color: #c62334">Заблокирована · Имя Фамилия</div><div style="font-size: 8.5px; color: #7a2f36; margin-top: 1px">Причина: ждём доступы от&nbsp;подрядчика</div></div></div
+                      ><div style="position: relative"
+                        ><div style="display: flex; flex-direction: column; gap: 5px"
+                          ><div class="row"><span class="lab" style="flex: 0 0 68px">Задача №</span><span class="val">Заказчик</span></div
+                          ><div class="row"><span class="lab" style="flex: 0 0 68px">Расположение</span><span class="val">Доска/Статус</span></div
+                          ><div class="row"
+                            ><span class="lab" style="flex: 0 0 68px">Участник</span
+                            ><span class="row" style="gap: 4px"
+                              ><span style="width: 12px; height: 12px; border-radius: 50%; background: #ededed; display: flex; align-items: center; justify-content: center; flex: none"
+                                ><svg width="8" height="8" viewBox="0 0 24 24" fill="#aaa">
+                                  <circle cx="12" cy="8.5" r="4" />
+                                  <path d="M3.5 21a8.5 8.5 0 0 1 17 0z" /></svg></span
+                              ><span class="val">Ответственный</span></span
+                            ></div
+                          ><div class="row"><span class="lab" style="flex: 0 0 68px">Срок</span><span class="val">1 апреля</span></div></div
+                        ><span style="position: absolute; right: -2px; bottom: 2px; font-size: 24px; line-height: 1">🏗️</span></div
+                      ></div
+                    ></div
+                  ></div
+                ></div
+              ><h3 class="text-lg font-semibold leading-snug">Блокируйте карточки, над которыми не можете продолжить работу</h3><p class="mt-2 text-base leading-relaxed text-(--color-text-primary)">Если по какой-то причине вы не можете в данный момент выполнить задачу, добавьте предупреждение-блокировку и укажите причину или блокирующую карточку.</p></div
+            ><div class="rounded-(--radius-xl) p-6 md:p-8 lg:rounded-(--radius-2xl) bg-(--color-surface-section) w-[318px] max-w-full shrink-0 snap-start md:w-[calc(50%-12px)] lg:w-auto lg:shrink"
+              ><div aria-hidden="true" class="mb-6 flex w-full items-center justify-center lg:mb-8"
+                ><div class="fm" style="background: transparent; padding: 0; width: fit-content"
+                  ><div
+                    ><div class="card h180"
+                      ><div class="kbsh"
+                        ><div class="kbside" style="gap: 5px; justify-content: center"
+                          ><span class="hd"></span><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 80%"></span></div><div class="pj"><i></i><b>Проект</b></div
+                          ><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 78%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 80%"></span></div><div class="kbrow"><span class="dot"></span><span class="ln" style="width: 60%"></span></div></div
+                        ><div class="kbmain"
+                          ><div class="vtb"
+                            ><span class="vi"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+                                <rect x="1" y="1" width="6" height="6" rx="1.5" />
+                                <rect x="9" y="1" width="6" height="6" rx="1.5" />
+                                <rect x="1" y="9" width="6" height="6" rx="1.5" />
+                                <rect x="9" y="9" width="6" height="6" rx="1.5" /></svg></span
+                            ><span class="vi"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4">
+                                <rect x="1.5" y="2.5" width="13" height="11" rx="2" />
+                                <line x1="6" y1="2.5" x2="6" y2="13.5" /></svg></span
+                            ><span class="vi act"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+                                <rect x="1.5" y="2" width="3.4" height="12" rx="1" />
+                                <rect x="6.3" y="2" width="3.4" height="8" rx="1" />
+                                <rect x="11.1" y="2" width="3.4" height="10" rx="1" /></svg></span
+                            ><span class="vi"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="1.5" y="2.5" width="13" height="11" rx="1.5" />
+                                <line x1="1.5" y1="6.2" x2="14.5" y2="6.2" />
+                                <line x1="1.5" y1="9.9" x2="14.5" y2="9.9" />
+                                <line x1="6" y1="2.5" x2="6" y2="13.5" /></svg></span
+                            ><span class="vi"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="currentColor">
+                                <rect x="2" y="3" width="12" height="2" rx="1" />
+                                <rect x="2" y="7" width="8.5" height="2" rx="1" />
+                                <rect x="2" y="11" width="5" height="2" rx="1" /></svg></span
+                            ><span class="vi"
+                              ><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3">
+                                <rect x="1.8" y="3" width="12.4" height="11" rx="2" />
+                                <line x1="1.8" y1="6.5" x2="14.2" y2="6.5" />
+                                <line x1="5" y1="1.6" x2="5" y2="4" />
+                                <line x1="11" y1="1.6" x2="11" y2="4" /></svg></span></div
+                          ><div class="bttl">Делопроизводство</div
+                          ><div class="kboard"
+                            ><div class="kcol"><div class="kh">Очередь</div><span class="kk r" style="height: 17px"></span><span class="kk g" style="height: 24px"></span><span class="kk n" style="height: 23px"></span></div><div class="kcol"><div class="kh">В работе</div><span class="kk o" style="height: 24px"></span><span class="kk r" style="height: 26px"></span><span class="kk g" style="height: 24px"></span></div><div class="kcol"><div class="kh">Согласо…</div><span class="kk g" style="height: 17px"></span><span class="kk o" style="height: 24px"></span><span class="kk r" style="height: 23px"></span></div><div class="kcol"><div class="kh">Готово</div><span class="kk r" style="height: 17px"></span><span class="kk g" style="height: 24px"></span><span class="kk fg" style="height: 22px"></span></div></div></div></div></div></div></div></div
+              ><h3 class="text-lg font-semibold leading-snug">Сделайте процесс работы над задачами прозрачным и управляемым</h3><p class="mt-2 text-base leading-relaxed text-(--color-text-primary)">По мере выполнения работы передвигайте карточки на доске от одного этапа к другому, пока задача не будет готова. Добавьте визуальные сигналы и метки, чтобы быстро ориентироваться в задачах на досках.</p></div
+            ></div
+          ><div class="flex justify-center lg:mt-12"
+            ><span style="display: contents"><a class="inline-flex items-center justify-center rounded-[var(--button-radius)] font-medium no-underline transition-colors duration-(--duration-base) ease-(--ease-ui) focus-visible:outline-none focus-visible:shadow-(--button-focus-default) h-12 px-5 text-base gap-1 [&amp;_svg]:size-6 bg-(--button-fill-bg) text-(--button-fill-text) hover:bg-(--button-fill-bg-hover)" href="https://passport.kaiten.ru/ru/registration">Попробовать Кайтен бесплатно</a></span></div
+          ></section
+        ></div
+      ><div id="view_switcher"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 pt-16 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-0 md:pb-0 lg:pb-0 md:pt-24 lg:pt-32"
+          ><div class="mx-auto mb-6 max-w-6xl text-left md:mb-8 md:text-center"><h2 class="text-2xl font-semibold leading-tight md:whitespace-pre-line md:text-3xl lg:text-4xl">Выберите удобный формат отображения задач&#10;на рабочем пространстве</h2></div
+          ><div class="mb-8 flex md:justify-center"
+            ><div role="tablist" class="inline-flex max-w-full flex-nowrap gap-1 overflow-x-auto rounded-(--radius-lg) bg-(--color-surface-section) p-1 [scrollbar-width:none] md:flex-wrap md:justify-center md:overflow-visible [&amp;::-webkit-scrollbar]:hidden"
+              ><button type="button" role="tab" aria-selected="true" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition bg-(--color-action-primary) text-white shadow-sm"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M19 5v2h-4V5h4M9 5v6H5V5h4m10 8v6h-4v-6h4M9 17v2H5v-2h4M21 3h-8v6h8V3zM11 3H3v10h8V3zm10 8h-8v10h8V11zm-10 4H3v6h8v-6z"></path></svg>Доски</button
+              ><button type="button" role="tab" aria-selected="false" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition text-(--color-text-secondary) hover:bg-(--color-surface-page) hover:text-(--color-text-accent)"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zM7 7h2v8H7zm4 0h2v5h-2zm4 0h2v8h-2z"></path></svg>Списки</button
+              ><button type="button" role="tab" aria-selected="false" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition text-(--color-text-secondary) hover:bg-(--color-surface-page) hover:text-(--color-text-accent)"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-3.5 w-3.5"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM8 20H4v-4h4v4zm0-6H4v-4h4v4zm0-6H4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4zm6 12h-4v-4h4v4zm0-6h-4v-4h4v4zm0-6h-4V4h4v4z"></path></svg>Таблицы</button
+              ><button type="button" role="tab" aria-selected="false" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition text-(--color-text-secondary) hover:bg-(--color-surface-page) hover:text-(--color-text-accent)"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M3 18h6v-2H3v2zM3 6v2h18V6H3zm0 7h12v-2H3v2z"></path></svg>Таймлайн</button
+              ><button type="button" role="tab" aria-selected="false" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition text-(--color-text-secondary) hover:bg-(--color-surface-page) hover:text-(--color-text-accent)"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-3.5 w-3.5"><path d="M20 3h-1V1h-2v2H7V1H5v2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 18H4V10h16v11zm0-13H4V5h16v3z"></path></svg>Календарь</button
+              ><button type="button" role="tab" aria-selected="false" class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-(--radius-md) px-4 py-2 text-sm font-medium transition text-(--color-text-secondary) hover:bg-(--color-surface-page) hover:text-(--color-text-accent)"
+                ><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" class="h-4 w-4"><path d="M3 3h2v16h16v2H3V3zm4 11.6 4.3-5.4 3.2 2.9L19.3 6l1.6 1.2-6.2 7.9-3.2-2.9-3.9 4.9L7 14.6zM7 3h13v2H7z"></path></svg>Отчеты</button
+              ></div
+            ></div
+          ><div class="rounded-[12px] px-4 py-6 md:rounded-(--radius-2xl) md:px-10 md:py-10 lg:px-16 lg:py-14 bg-[linear-gradient(180deg,#ece0ff,#cdecff)] lg:bg-[linear-gradient(90deg,#ece0ff,#cdecff)]"
+            ><div class="mx-auto grid max-w-[760px] grid-cols-[minmax(0,1fr)] items-start [overflow:clip] [overflow-clip-margin:32px]"
+              ><div aria-hidden="false" class="[grid-area:1/1]"><img src="assets/img/boards.webp" alt="Доска задач команды в Кайтене" loading="eager" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div><div aria-hidden="true" class="[grid-area:1/1] invisible"><img src="assets/img/lists.webp" alt="Задачи команды списками по колонкам" loading="lazy" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div><div aria-hidden="true" class="[grid-area:1/1] invisible"><img src="assets/img/tables.webp" alt="Задачи команды таблицей с полями" loading="lazy" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div><div aria-hidden="true" class="[grid-area:1/1] invisible"><img src="assets/img/timeline.webp" alt="Задачи команды на таймлайне с ресурсным планированием" loading="lazy" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div><div aria-hidden="true" class="[grid-area:1/1] invisible"><img src="assets/img/calendar.webp" alt="Задачи команды в календаре" loading="lazy" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div><div aria-hidden="true" class="[grid-area:1/1] invisible"><img src="assets/img/reports.webp" alt="Отчеты по задачам команды" loading="lazy" class="block aspect-[2000/1218] h-auto w-full rounded-[4px] shadow-[0_10px_40px_-20px_rgba(45,45,45,0.3)] md:rounded-(--radius-lg)" /></div></div></div
+          ><div class="mt-8 flex justify-center md:mt-12"><a class="inline-flex items-center justify-center rounded-[var(--button-radius)] font-medium no-underline transition-colors duration-(--duration-base) ease-(--ease-ui) focus-visible:outline-none focus-visible:shadow-(--button-focus-default) h-12 px-5 text-base gap-1 [&amp;_svg]:size-6 bg-(--button-fill-bg) text-(--button-fill-text) hover:bg-(--button-fill-bg-hover)" href="https://passport.kaiten.ru/ru/registration">Попробовать Кайтен бесплатно</a></div></section
+        ></div
+      ><div id="media_copy"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-8 md:pb-12 lg:pb-12 pt-16 md:pt-24 lg:pt-32"
+          ><div class="max-w-2xl md:mx-auto md:max-w-4xl md:text-center lg:max-w-6xl"
+            ><div class=""><h2 class="font-semibold text-2xl md:text-3xl lg:text-4xl">Добавляйте связи между карточками и стройте иерархию задач</h2></div></div
+          ></section
+        ></div
+      ><div id="media_copy-2"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-16 pt-0 md:pt-0 lg:pt-0"
+          ><div class="grid grid-cols-1 md:grid-cols-2 md:items-center gap-6 md:gap-10 lg:gap-16"
+            ><div class=""
+              ><h2 class="font-semibold text-lg md:text-2xl">Связи помогают декомпозировать крупные задачи</h2
+              ><div class="mt-4 space-y-5 text-base leading-relaxed text-(--color-text-primary)"
+                ><p><span>Внутри карточки будут показаны все ее взаимосвязи — родительские и дочерние задачи. Вы сможете наглядно оценить, какую работу необходимо сделать, чтобы завершить проект, и легко следить за прогрессом выполнения подзадач.</span></p></div
+              ></div
+            ><div class=""><img src="assets/img/card-links.webp" alt="Родительская карточка и три дочерние задачи со связями" loading="lazy" class="block h-auto w-full rounded-(--radius-xl) lg:rounded-(--radius-2xl)" /></div></div></section></div
+      ><div id="media_copy-3"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-16 pt-0 md:pt-0 lg:pt-0"
+          ><div class="grid grid-cols-1 md:grid-cols-2 md:items-center gap-6 md:gap-10 lg:gap-16 md:[&amp;&gt;div:first-child]:order-2"
+            ><div class=""
+              ><h2 class="font-semibold text-xl md:text-2xl">Создавайте запланированные задания для повторяющихся задач</h2
+              ><div class="mt-4 space-y-5 text-base leading-relaxed text-(--color-text-primary)"
+                ><p><span>Если у вас есть регулярные повторяющиеся задачи, создайте карточки по расписанию, которые будут автоматически появляться на досках в нужное время</span></p></div
+              ></div
+            ><div class=""><img src="assets/img/recurring-schedule.webp" alt="Повторяющиеся задачи в календаре пространства" loading="lazy" class="block h-auto w-full rounded-(--radius-xl) lg:rounded-(--radius-2xl) shadow-[0_0_40px_rgba(45,45,45,0.12)]" /></div></div></section></div
+      ><div id="media_copy-4"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-16 pt-0 md:pt-0 lg:pt-0"
+          ><div class="grid grid-cols-1 md:grid-cols-2 md:items-center gap-6 md:gap-10 lg:gap-16"
+            ><div class=""
+              ><h2 class="font-semibold text-xl md:text-2xl">Получайте уведомления о действиях с карточками в удобном для вас формате</h2
+              ><div class="mt-4 space-y-5 text-base leading-relaxed text-(--color-text-primary)"
+                ><p><span>Вы сами решаете, о каких действиях с задачами получать уведомления. И где их получать. Узнавайте о важных событиях, оставляйте комментарии и ставьте задачи там, где вам удобно</span></p></div
+              ></div
+            ><div class="max-md:[&amp;_[data-mockfit=inner]]:mx-auto"
+              ><div data-mockfit="outer" class="w-full"
+                ><div data-mockfit="inner" class="w-max" style="transform-origin: top left; transform: scale(1)"
+                  ><div data-mock="window-notification-settings" class="contents"
+                    ><div class="w-full [overflow:clip] [overflow-clip-margin:80px]"
+                      ><div
+                        ><div style="width: 796px; flex: none; transform-origin: top left; transform: scale(1)"
+                          ><div aria-hidden="true" class="relative w-[796px] pb-6 pr-[166px]"
+                            ><div class="overflow-hidden rounded-(--radius-2xl) bg-(--color-surface-card) px-6 pb-3 pt-4 shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]"
+                              ><div class="flex gap-5 border-b border-(--color-border-default)"><span class="pb-2.5 text-[11px] font-semibold uppercase tracking-wide border-b-2 border-(--color-action-primary) text-(--color-text-primary)">Уведомления</span><span class="pb-2.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">Подписки на пространства</span><span class="pb-2.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">Подписки на колонки</span><span class="pb-2.5 text-[11px] font-semibold uppercase tracking-wide text-(--color-text-secondary)">Боты</span></div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center px-1 pt-4"
+                                ><span></span
+                                ><span class="flex flex-col items-center gap-2"
+                                  ><span class="whitespace-nowrap text-[12px] text-(--color-text-primary)">Почта</span><span class="relative inline-block h-[18px] w-[32px] rounded-full transition-colors bg-(--color-action-primary)"><span class="absolute top-[2px] h-[14px] w-[14px] rounded-full bg-white shadow-sm left-[16px]"></span></span></span
+                                ><span class="flex flex-col items-center gap-2"
+                                  ><span class="whitespace-nowrap text-[12px] text-(--color-text-primary)">Telegram</span><span class="relative inline-block h-[18px] w-[32px] rounded-full transition-colors bg-(--color-action-primary)"><span class="absolute top-[2px] h-[14px] w-[14px] rounded-full bg-white shadow-sm left-[16px]"></span></span></span
+                                ><span class="flex flex-col items-center gap-2"
+                                  ><span class="whitespace-nowrap text-[12px] text-(--color-text-primary)">Max</span><span class="relative inline-block h-[18px] w-[32px] rounded-full transition-colors bg-(--color-neutral-300)"><span class="absolute top-[2px] h-[14px] w-[14px] rounded-full bg-white shadow-sm left-[2px]"></span></span></span
+                                ><span class="flex flex-col items-center gap-2"
+                                  ><span class="whitespace-nowrap text-[12px] text-(--color-text-primary)">Моб. прилож.</span><span class="relative inline-block h-[18px] w-[32px] rounded-full transition-colors bg-(--color-action-primary)"><span class="absolute top-[2px] h-[14px] w-[14px] rounded-full bg-white shadow-sm left-[16px]"></span></span></span></div
+                              ><div class="border-b border-(--color-border-default) px-1 pb-1.5 pt-3 text-[12px] font-semibold text-(--color-text-primary)">Личные события</div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center border-b border-(--color-border-default) px-1 py-2"
+                                ><span class="truncate text-[13px] text-(--color-text-primary)">Вас назначили ответственным</span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center border-b border-(--color-border-default) px-1 py-2"
+                                ><span class="truncate text-[13px] text-(--color-text-primary)">Вас упомянули в комментарии</span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center border-b border-(--color-border-default) px-1 py-2"
+                                ><span class="truncate text-[13px] text-(--color-text-primary)">Напоминание о сроке</span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div
+                              ><div class="border-b border-(--color-border-default) px-1 pb-1.5 pt-3 text-[12px] font-semibold text-(--color-text-primary)">События в карточках, на которые вы подписаны</div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center border-b border-(--color-border-default) px-1 py-2"
+                                ><span class="truncate text-[13px] text-(--color-text-primary)">Добавлена блокировка</span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div
+                              ><div class="grid grid-cols-[1fr_repeat(4,74px)] items-center border-b border-(--color-border-default) px-1 py-2"
+                                ><span class="truncate text-[13px] text-(--color-text-primary)">Карточка перемещена</span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span
+                                ><span class="flex justify-center"
+                                  ><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-action-primary) bg-(--color-action-primary) text-white"
+                                    ><svg viewBox="0 0 12 12" class="h-[10px] w-[10px]" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 6.2 5 8.6l4.5-5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span
+                                ><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span><span class="flex justify-center"><span class="inline-flex h-[16px] w-[16px] items-center justify-center rounded-[4px] border border-(--color-neutral-300) bg-(--color-surface-section)"></span></span></div
+                              ><div class="mt-3 flex justify-end gap-2"><span class="inline-flex items-center rounded-(--radius-md) border border-(--color-border-default) px-2.5 pb-[5px] pt-[7px] text-[10.5px] font-semibold uppercase leading-none text-(--color-text-primary)">Отмена</span><span class="inline-flex items-center rounded-(--radius-md) border border-(--color-action-primary) px-2.5 pb-[5px] pt-[7px] text-[10.5px] font-semibold uppercase leading-none text-(--color-text-accent)">Сохранить</span></div></div
+                            ><div class="absolute bottom-0 right-[32px] flex h-[300px] w-[170px] flex-col gap-2.5 rounded-[22px] border border-(--color-border-default) bg-(--color-surface-card) p-3 shadow-[0_10px_40px_-12px_rgba(24,24,27,0.35)]"
+                              ><div class="flex items-center gap-1.5 border-b border-(--color-border-default) pb-1.5"
+                                ><svg width="15" height="15" viewBox="0 0 20 20">
+                                  <circle cx="10" cy="10" r="9" fill="#F11F24"></circle>
+                                  <rect x="4.5" y="4.5" width="11" height="11" rx="2.5" transform="rotate(45 10 10)" fill="#78FFC7"></rect>
+                                  <circle cx="10" cy="10" r="3" fill="#7D4CCF"></circle></svg
+                                ><span class="text-[13px] font-semibold text-(--color-text-primary)">Кайтен</span></div
+                              ><span class="text-[13px] font-semibold text-(--color-text-accent)">Чат с ботом</span><span class="self-start rounded-[2px_8px_8px_8px] bg-(--color-surface-section) px-2.5 py-1.5 text-[11.5px] leading-snug text-(--color-text-primary)">Вас назначили ответственным: «Макеты главной»</span><span class="self-end rounded-[8px_2px_8px_8px] bg-(--color-action-primary-soft) px-2.5 py-1.5 text-[11.5px] text-(--color-text-primary)">Беру в работу</span><span class="self-start rounded-[2px_8px_8px_8px] bg-(--color-surface-section) px-2.5 py-1.5 text-[11.5px] leading-snug text-(--color-text-primary)">Срок завтра, 18:00</span><div class="mt-auto flex items-center gap-1 rounded-[8px] border border-(--color-border-default) px-2.5 py-1.5"><span class="flex-1 text-[11px] text-(--color-text-secondary)">Сообщение</span><span class="text-[13px] leading-none text-(--color-text-accent)">➜</span></div></div
+                            ></div
+                          ></div
+                        ></div
+                      ></div
+                    ></div
+                  ></div
+                ></div
+              ></div
+            ></div
+          ></section
+        ></div
+      ><div id="media_copy-5"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-12 md:px-6 md:py-16 xl:px-0 lg:py-24 pb-16 pt-0 md:pt-0 lg:pt-0 max-md:pb-24"
+          ><div class="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center lg:gap-16 md:[&amp;&gt;div:first-child]:order-2"
+            ><div class=""
+              ><h2 class="font-semibold text-xl md:text-2xl">Избавьтесь от рутины и освободите время для более важных вещей</h2
+              ><div class="mt-4 space-y-5 text-base leading-relaxed text-(--color-text-primary)"
+                ><p><span>Легко автоматизируйте повторяющиеся действия с задачами</span></p></div
+              ><ul class="mt-6 flex flex-wrap gap-x-8 gap-y-3"
+                ><li class="flex items-start gap-3"
+                  ><span class="inline-flex shrink-0 items-center justify-center mt-0.5 h-6 w-6 rounded-full bg-(--color-action-primary-soft) text-(--color-text-accent)"
+                    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap h-3.5 w-3.5" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></span
+                  ><span class="text-base leading-relaxed text-(--color-text-primary)">Если — условие</span></li
+                ><li class="flex items-start gap-3"
+                  ><span class="inline-flex shrink-0 items-center justify-center mt-0.5 h-6 w-6 rounded-full bg-(--color-action-primary-soft) text-(--color-text-accent)"
+                    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check h-3.5 w-3.5" aria-hidden="true">
+                      <circle cx="12" cy="12" r="10"></circle>
+                      <path d="m9 12 2 2 4-4"></path></svg></span
+                  ><span class="text-base leading-relaxed text-(--color-text-primary)">То — действие</span></li
+                ></ul
+              ><div class="mt-8 flex flex-col gap-3 sm:flex-row items-center sm:items-start"
+                ><span style="display: contents"><a class="inline-flex items-center justify-center rounded-[var(--button-radius)] font-medium no-underline transition-colors duration-(--duration-base) ease-(--ease-ui) focus-visible:outline-none focus-visible:shadow-(--button-focus-default) h-12 px-5 text-base gap-1 [&amp;_svg]:size-6 bg-(--button-fill-bg) text-(--button-fill-text) hover:bg-(--button-fill-bg-hover)" href="/features/automation/">Узнать подробнее</a></span></div
+              ></div
+            ><div class=""
+              ><div data-mockfit="outer" class="w-full"
+                ><div data-mockfit="inner" class="w-max" style="transform-origin: top left; transform: scale(1)"
+                  ><div data-mock="window-rule-full" class="contents"
+                    ><div class="w-full [overflow:clip] [overflow-clip-margin:80px]"
+                      ><div
+                        ><div style="width: 700px; flex: none; transform-origin: top left; transform: scale(1)"
+                          ><div class="relative h-[462px]"
+                            ><div aria-hidden="true" class="relative w-[460px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-2xl) bg-(--color-surface-card) p-5 shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]"
+                              ><div class="mb-3.5 text-center text-[15px] font-semibold text-(--color-text-accent)">Когда</div
+                              ><div class="space-y-3"
+                                ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                  ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Событие</span
+                                  ><div class="flex items-center gap-2"
+                                    ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Карточка перемещена или создана</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div></div
+                              ><div class="py-2.5 text-center text-[14px] font-semibold text-(--color-text-accent)">и</div
+                              ><div class="space-y-3"
+                                ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                  ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Условие</span
+                                  ><div class="flex items-center gap-2"
+                                    ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Новое местоположение карточки</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div
+                                ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                  ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Доска *</span
+                                  ><div class="flex items-center gap-2"
+                                    ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Текущие задачи</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div
+                                ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                  ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Колонка</span
+                                  ><div class="flex items-center gap-2"
+                                    ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Любая</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div
+                                ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                  ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Дорожка</span
+                                  ><div class="flex items-center gap-2"
+                                    ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Основные</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div></div
+                              ><div class="flex items-center gap-2 pt-3"
+                                ><span class="inline-flex h-7 items-center rounded-(--radius-md) border border-(--color-border-default) px-2.5 text-[10.5px] font-semibold uppercase leading-none tracking-wide text-(--color-text-secondary)"><span class="translate-y-px">Удалить</span></span
+                                ><span class="inline-flex h-7 items-center gap-1.5 rounded-(--radius-md) border border-(--color-action-primary) px-2.5 text-[10.5px] font-semibold uppercase leading-none tracking-wide text-(--color-text-accent)"
+                                  ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-3.5 w-3.5" aria-hidden="true">
+                                    <path d="M5 12h14"></path>
+                                    <path d="M12 5v14"></path></svg
+                                  ><span class="translate-y-px">И если</span></span
+                                ></div
+                              ></div
+                            ><div class="absolute bottom-0 right-0 translate-y-[31px]"
+                              ><div aria-hidden="true" class="relative w-[460px] overflow-hidden rounded-(--radius-xl) lg:rounded-(--radius-2xl) bg-(--color-surface-card) p-5 shadow-[0_0_40px_-12px_rgba(24,24,27,0.25)]"
+                                ><div class="mb-3.5 text-center text-[15px] font-semibold text-(--color-text-accent)">Выполнить</div
+                                ><div class="space-y-3"
+                                  ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                    ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Действие</span
+                                    ><div class="flex items-center gap-2"
+                                      ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">Установить срок</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div
+                                  ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                    ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Временная зона</span
+                                    ><div class="flex items-center gap-2"
+                                      ><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">UTC</span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down h-3.5 w-3.5 shrink-0 text-(--color-text-secondary)" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></div></div
+                                  ><div class="relative rounded-(--radius-lg) border border-(--color-border-default) bg-(--color-surface-card) px-3 py-3"
+                                    ><span class="absolute -top-1.5 left-2.5 bg-(--color-surface-card) px-1 text-[10px] leading-none text-(--color-text-secondary)">Срок</span><div class="flex items-center gap-2"><span class="flex-1 truncate text-[13px] text-(--color-text-primary)">через 2 дня после события</span></div></div
+                                  ></div
+                                ><div class="pt-3"
+                                  ><span class="inline-flex h-7 items-center gap-1.5 rounded-(--radius-md) border border-(--color-action-primary) px-2.5 text-[10.5px] font-semibold uppercase leading-none tracking-wide text-(--color-text-accent)"
+                                    ><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-3.5 w-3.5" aria-hidden="true">
+                                      <path d="M5 12h14"></path>
+                                      <path d="M12 5v14"></path></svg
+                                    ><span class="translate-y-px">Добавить действие</span></span
+                                  ></div
+                                ></div
+                              ></div
+                            ></div
+                          ></div
+                        ></div
+                      ></div
+                    ></div
+                  ></div
+                ></div
+              ></div
+            ></div
+          ></section
+        ></div
+      ><div id="final_cta"
+        ><section class="mx-auto w-full max-w-(--container-kaiten) px-4 py-8 md:px-6 md:py-12 xl:px-0 lg:py-16 pt-0 md:pt-0 lg:pt-0 pb-12 md:pb-16 lg:pb-24"
+          ><div class="ctp"
+            ><div class="ctp__copy"
+              ><h2>Попробуйте Кайтен прямо сейчас</h2><p></p><div class="ctp__cta"><a class="ctp__btn" href="https://passport.kaiten.ru/ru/registration">Попробовать Кайтен бесплатно</a></div></div
+            ><div class="ctp__visual"><img src="assets/img/cta-product.png" alt="Интерфейс Kaiten: задачи, загрузка команды, аналитика и Гант-план" loading="lazy" /></div></div></section></div
+      ><div id="kaiten_footer"
+        ><footer class="kf"
+          ><div class="kf-inner"
+            ><div class="kf-top"
+              ><nav class="kf-nav"
+                ><div class="kf-col col-company"
+                  ><h4>Компания</h4><div class="kf-links"><a href="#">Тарифы</a><a href="#">Контакты</a><a href="#">Сертификаты</a><a href="#">Скачать презентацию</a></div></div
+                ><div class="kf-col col-resources"
+                  ><h4>Ресурсы</h4><div class="kf-links"><a href="#">База знаний</a><a href="#">Кейсы</a><a href="#">Блог</a><a href="#">API</a><a href="#">Комьюнити</a></div></div
+                ><div class="kf-col col-capabilities"
+                  ><h4>Возможности</h4><div class="kf-links"><a href="#">Партнерская программа</a><a href="#">Реферальная программа</a><a href="#">Дополнения</a><a href="#">On-premise</a><a href="#">Внедрение</a><a href="#">Кайтен AI</a></div></div
+                ><div class="kf-col col-compare"
+                  ><h4>Сравнили Кайтен с другими сервисами</h4><div class="kf-compare-tags"><a href="#">Trello</a><a href="#">Jira</a><a href="#">Asana</a><a href="#">Weeek</a><a href="#">Wrike</a><a href="#">ClickUp</a><a href="#">EvaTeam</a><a href="#">MS Project</a><a href="#">Notion</a><a href="#">Confluence</a><a href="#">GanttPRO</a><a href="#">Google Docs</a><a href="#">Redmine</a><a href="#">Youtrack</a><a href="#">Zendesk</a><a href="#">Okdesk</a><a href="#">Юздеск</a><a href="#">amoCRM</a></div></div
+                ></nav
+              ><div class="kf-cards"
+                ><div class="kf-card kf-card-soc"
+                  ><h4>Каналы в соцсетях</h4><p class="desc">Фичи, новости и статьи<br />про эффективное управление</p
+                  ><div class="kf-soc-row"
+                    ><a class="kf-soc-item" href="#"
+                      ><span class="kf-ico"
+                        ><svg width="18" height="15" viewBox="0 0 18 15" fill="none"><path d="M16.7 1.2 14.3 13c-.18.8-.65 1-1.32.62l-3.66-2.7-1.77 1.7c-.2.2-.36.36-.73.36l.26-3.73L13.6 3.2c.3-.26-.06-.4-.46-.15L5.3 8.07 1.7 6.94c-.78-.24-.8-.78.16-1.16L15.7.27c.65-.24 1.22.15 1 1.93Z" fill="#fff"></path></svg></span
+                      ><span class="label">Telegram</span></a
+                    ><a class="kf-soc-item" href="#"
+                      ><span class="kf-ico"
+                        ><svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                          <path d="M9 1.2a7.8 7.8 0 1 0 4.06 14.46l2.9.62a.5.5 0 0 0 .6-.6l-.62-2.9A7.8 7.8 0 0 0 9 1.2Z" stroke="#fff" stroke-width="1.6"></path>
+                          <circle cx="9" cy="9" r="1.3" fill="#fff"></circle></svg></span
+                      ><span class="label">Max</span></a
+                    ></div
+                  ></div
+                ><div class="kf-card kf-card-art"
+                  ><h4>Новые статьи</h4
+                  ><div class="kf-art-list"
+                    ><a class="kf-art-item" href="#"
+                      ><span class="kf-ico"
+                        ><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span
+                      ><span class="t">Каждый второй сотрудник устает от многозадачности: что показало</span></a
+                    ><a class="kf-art-item" href="#"
+                      ><span class="kf-ico"
+                        ><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 11 11 3M5 3h6v6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span
+                      ><span class="t">Как сохранить знания команды на пути от гипотезы к разработке: полезные практики</span></a
+                    ></div
+                  ></div
+                ><div class="kf-card kf-card-sub"
+                  ><div class="kf-sub-head"
+                    ><div><div class="kf-sub-title">Подписаться на рассылку</div><div class="kf-sub-desc">Получайте кейсы пользователей, статьи и обновления.</div></div
+                    ><form class="kf-sub-form"><input class="kf-input" type="email" placeholder="Ваш e-mail" /><button class="kf-btn" type="submit">Подписаться</button></form></div
+                  ><div class="kf-consents"
+                    ><label class="kf-consent"
+                      ><span class="cb on"></span><p>Я согласен с <span class="lnk">Политикой конфиденциальности</span> и даю <span class="lnk">согласие на обработку персональных данных</span></p></label
+                    ><label class="kf-consent"
+                      ><span class="cb"></span><p>Я согласен <span class="lnk">получать рассылку</span> от Кайтен (обновления продукта и полезные материалы)</p></label
+                    ></div
+                  ></div
+                ></div
+              ></div
+            ><div class="kf-line kf-line--top"></div
+            ><div class="kf-mid"
+              ><div class="kf-status"
+                ><h4>Официальный статус российского ИТ-разработчика</h4><p>Кайтен внесен в реестр отечественного ПО <b>№14347</b>, а компания аккредитована как ИТ-организация</p
+                ><a class="kf-more" href="#"
+                  >Подробнее<svg width="22" height="10" viewBox="0 0 22 10" fill="none"><path d="M1 5h19m0 0-4-4m4 4-4 4" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></div
+              ><div class="kf-legal-block"
+                ><h4>Общество с ограниченной ответственностью «Кайтен Софтвер»</h4
+                ><div class="kf-legal-grid"
+                  ><div class="kf-legal-cell"><div class="lab">ИНН</div><div class="val">7714426252</div></div
+                  ><div class="kf-legal-cell"><div class="lab">КПП</div><div class="val">771401001</div></div
+                  ><div class="kf-legal-cell kf-addr"><div class="lab">Юридический адрес</div><div class="val">125252, г. Москва, проезд Березовой рощи, дом 12, этаж 2, комната 55</div></div></div
+                ></div
+              ></div
+            ><div class="kf-line kf-line--mid"></div
+            ><div class="kf-bottom"
+              ><div class="kf-credits"
+                ><div class="kf-brand"
+                  ><a class="kf-logo" href="#" aria-label="Kaiten"
+                    ><svg viewBox="0 0 349 104" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Kaiten">
+                      <path d="M76.8113 0H27.1887C12.1728 0 0 12.1661 0 27.1738V76.8262C0 91.8339 12.1728 104 27.1887 104H76.8113C91.8272 104 104 91.8339 104 76.8262V27.1738C104 12.1661 91.8272 0 76.8113 0Z" fill="#F11F24"></path>
+                      <path d="M41.4148 11.3364L11.3364 41.4148C5.55453 47.1967 5.55453 56.571 11.3364 62.3529L41.4148 92.4313C47.1967 98.2132 56.571 98.2132 62.3529 92.4313L92.4313 62.3529C98.2132 56.571 98.2132 47.1967 92.4313 41.4148L62.3529 11.3364C56.571 5.55453 47.1967 5.55453 41.4148 11.3364Z" fill="#78FFC7"></path>
+                      <path d="M51.715 77.4267C65.917 77.4267 77.43 65.9144 77.43 51.7133C77.43 37.5123 65.917 26 51.715 26C37.513 26 26 37.5123 26 51.7133C26 65.9144 37.513 77.4267 51.715 77.4267Z" fill="#7D4CCF"></path>
+                      <path d="M243.439 41.4082H251.802V45.1846H243.439V59.2119C243.439 60.5787 243.583 61.7476 243.871 62.7188C244.195 63.6539 244.609 64.4276 245.112 65.0391C245.652 65.6144 246.263 66.0463 246.946 66.334C247.63 66.6217 248.349 66.7656 249.104 66.7656C250.183 66.7656 251.226 66.603 252.233 66.2793C253.241 65.9196 254.086 65.5421 254.77 65.1465L256.388 68.6533C255.309 69.1928 254.068 69.6423 252.665 70.002C251.298 70.3616 249.932 70.542 248.565 70.542C244.501 70.542 241.372 69.5346 239.178 67.5205C236.984 65.5063 235.886 62.7368 235.886 59.2119V45.1846H230.761V41.4082H235.886V32.7754H243.439V41.4082Z" fill="white"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M274.39 40.3281C276.548 40.3282 278.58 40.6514 280.486 41.2988C282.393 41.9463 284.047 42.9004 285.449 44.1592C286.852 45.3821 287.968 46.8743 288.795 48.6367C289.622 50.399 290.035 52.3952 290.035 54.625V58.4023H266.998C267.43 61.3876 268.455 63.5275 270.073 64.8223C271.728 66.1171 273.796 66.7646 276.277 66.7646C278.04 66.7646 279.677 66.4591 281.188 65.8477C282.734 65.2362 284.245 64.3728 285.72 63.2578L287.877 66.4951C287.194 67.1065 286.384 67.6635 285.449 68.167C284.55 68.6705 283.561 69.1023 282.482 69.4619C281.439 69.7856 280.342 70.0379 279.191 70.2178C278.04 70.4336 276.889 70.541 275.738 70.541C273.185 70.541 270.847 70.1999 268.725 69.5166C266.638 68.8692 264.857 67.9161 263.383 66.6572C261.908 65.3624 260.757 63.7795 259.93 61.9092C259.138 60.0388 258.743 57.8804 258.743 55.4346C258.743 53.0249 259.121 50.8849 259.876 49.0146C260.667 47.1083 261.746 45.5255 263.113 44.2666C264.516 42.9718 266.171 42.0009 268.077 41.3535C269.983 40.6702 272.088 40.3281 274.39 40.3281ZM274.39 43.835C273.347 43.835 272.375 44.0331 271.476 44.4287C270.577 44.8244 269.785 45.4533 269.102 46.3164C268.454 47.1796 267.915 48.2953 267.483 49.6621C267.088 51.0287 266.872 52.683 266.836 54.625H281.942C281.942 52.7548 281.727 51.1362 281.295 49.7695C280.863 48.4029 280.288 47.288 279.568 46.4248C278.885 45.5257 278.076 44.8781 277.141 44.4824C276.242 44.0509 275.325 43.835 274.39 43.835Z" fill="white"></path>
+                      <path d="M224.606 69.4629H217.053V41.9473H224.606V69.4629Z" fill="white"></path>
+                      <path d="M311.83 41.4082C316.973 41.4082 320.768 42.3436 323.214 44.2139C325.696 46.0482 326.937 48.8001 326.937 52.4688V69.4629H319.383V52.4688C319.383 49.879 318.735 48.0261 317.44 46.9111C316.146 45.7604 314.276 45.1846 311.83 45.1846H304.816V69.4629H297.263V41.4082H311.83Z" fill="white"></path>
+                      <path d="M145.944 48.6904H154.847L167.255 31.6953H175.888L162.399 50.3086L176.697 69.4619H167.795L155.386 52.7363H145.944V69.4619H138.121V31.6953H145.944V48.6904Z" fill="white"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M194.2 40.3281C196.502 40.3281 198.534 40.5982 200.297 41.1377C202.059 41.6772 203.552 42.4499 204.775 43.457C205.998 44.4641 206.915 45.6695 207.526 47.0723C208.174 48.439 208.498 49.9677 208.498 51.6582V69.4619H193.391C188.499 69.4619 184.885 68.7246 182.547 67.25C180.245 65.7754 179.094 63.5457 179.094 60.5605C179.094 57.5752 180.245 55.3448 182.547 53.8701C184.885 52.3955 188.499 51.6582 193.391 51.6582H200.944C200.944 49.0687 200.261 47.1624 198.895 45.9395C197.564 44.7166 195.819 44.1045 193.661 44.1045C192.043 44.1045 190.46 44.3568 188.913 44.8604C187.366 45.3279 185.982 45.9755 184.759 46.8027L182.87 43.5654C183.661 43.0259 184.525 42.5578 185.46 42.1621C186.188 41.8653 186.927 41.6094 187.676 41.3936L189.18 40.9893C189.928 40.8005 190.666 40.6518 191.395 40.5439C192.402 40.4001 193.337 40.3281 194.2 40.3281ZM193.391 55.4346C189.255 55.4347 187.187 57.1437 187.187 60.5605C187.187 63.9772 189.255 65.6854 193.391 65.6855H200.944V55.4346H193.391Z" fill="white"></path>
+                      <path d="M220.83 30.6172C222.017 30.6173 222.988 31.0312 223.743 31.8584C224.498 32.6497 224.876 33.5851 224.876 34.6641C224.876 35.7429 224.498 36.6963 223.743 37.5234C223.024 38.3145 222.053 38.7099 220.83 38.71C219.607 38.71 218.618 38.3146 217.862 37.5234C217.143 36.6963 216.783 35.7429 216.783 34.6641C216.783 33.5851 217.143 32.6497 217.862 31.8584C218.618 31.0311 219.607 30.6172 220.83 30.6172Z" fill="white"></path></svg></a
+                  ><div class="kf-contacts"
+                    ><a class="kf-contact" href="tel:+74994906499"
+                      ><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M6.6 4h3l1.4 3.5-2 1.2a11 11 0 0 0 4.8 4.8l1.2-2 3.5 1.4v3a1.4 1.4 0 0 1-1.5 1.4A14 14 0 0 1 5.2 5.5 1.4 1.4 0 0 1 6.6 4Z" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg>+7 (499) 490-64-99</a
+                    ><a class="kf-contact" href="mailto:sales@kaiten.ru"
+                      ><svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#fff" stroke-width="1.6"></rect>
+                        <path d="m4 7 8 6 8-6" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg
+                      >sales@kaiten.ru</a
+                    ></div
+                  ></div
+                ><div class="kf-partner"
+                  ><span class="word">Участник</span><span class="sk"><span class="sk-mark">Sk</span><span class="sk-name">Сколково</span></span></div
+                ><div class="kf-social"
+                  ><a href="#" aria-label="VK"
+                    ><svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M13.7 18.4c-5.9 0-9.3-4-9.5-10.7h3c.1 4.9 2.3 7 4 7.4V7.7h2.8v4.3c1.7-.18 3.5-2.1 4.1-4.3h2.8c-.46 2.7-2.4 4.6-3.7 5.4 1.4.65 3.5 2.3 4.3 5.3h-3.1c-.62-1.9-2.2-3.4-4.4-3.6v3.6h-.34Z" fill="currentColor"></path></svg></a
+                  ><a href="#" aria-label="Rutube"
+                    ><svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                      <rect x="3" y="6" width="20" height="14" rx="4" fill="currentColor"></rect>
+                      <path d="M11 10v6l5-3-5-3Z" fill="#2d2d2d"></path></svg></a
+                  ><a class="habr" href="#" aria-label="Habr">habr</a></div
+                ></div
+              ><div class="kf-line kf-line--legal"></div><nav class="kf-legal"><a href="#">Политика конфиденциальности</a><a href="#">Лицензионный договор</a><a href="#">Пользовательское соглашение</a><a href="#">Оплата банковскими картами</a><a href="#">Техническая поддержка</a></nav></div
+            ></div
+          ></footer
+        ></div
+      ></div
+    ><script src="script.js" defer></script> </body
+></html>
